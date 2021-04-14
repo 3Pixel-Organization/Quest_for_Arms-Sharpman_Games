@@ -39,7 +39,7 @@ animations = [ {
 extents = Vector2( 250.98, 153.587 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 812.453, 96.6876 )
+extents = Vector2( 746.085, 13.4607 )
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 553.722, 852.76 )
@@ -53,6 +53,7 @@ script = ExtResource( 1 )
 position = Vector2( -21.1893, 8.47559 )
 frames = SubResource( 1 )
 animation = "walk"
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -71,7 +72,7 @@ collision_layer = 0
 collision_mask = 33
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="top_checker"]
-position = Vector2( -84.2391, -213.489 )
+position = Vector2( -22.4002, -137.38 )
 shape = SubResource( 3 )
 
 [node name="sides_checker" type="Area2D" parent="."]
