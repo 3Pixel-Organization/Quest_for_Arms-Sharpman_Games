@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/Animations/player_spriteframes.tres" type="SpriteFrames" id=1]
+[ext_resource path="res://Scripts/Scrub.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 60.2508, 137.246 )
+
+[node name="Scrub" type="KinematicBody2D"]
+position = Vector2( 0, 3.5636 )
+collision_mask = 27
+script = ExtResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0.297302, -0.297302 )
+frames = ExtResource( 1 )
+animation = "Idle"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.6
+one_shot = true
+
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 3.5
+
+[node name="Position2D" type="Position2D" parent="."]
+position = Vector2( 96.1065, 0.220856 )
+scale = Vector2( 100, 100 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 22.6786 )
+shape = SubResource( 1 )
+
+[node name="CoyoteTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="JumpBuffer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_Timer2_timeout"]
