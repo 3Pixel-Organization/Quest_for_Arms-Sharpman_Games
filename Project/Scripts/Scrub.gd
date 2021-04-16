@@ -123,11 +123,6 @@ func ouch(var enemyposx):
 func _on_Timer_timeout():
 	get_tree().change_scene("res://Scenes/Level1.tscn")
 
-func _trow_held_item():
-	held_item.launch(direction)
-	held_item = null
-
-
 func _on_Timer2_timeout():
 	cooldownnotactive = true
 
