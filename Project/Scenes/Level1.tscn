@@ -280,7 +280,7 @@ outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 10 )
 
 [sub_resource type="RectangleShape2D" id=17]
-extents = Vector2( 22.4873, 256.767 )
+extents = Vector2( 22.4873, 110.807 )
 
 [node name="main" type="Node2D"]
 position = Vector2( -1147.75, -279.387 )
@@ -633,7 +633,7 @@ position = Vector2( 6470.3, 428.442 )
 scale = Vector2( 0.04, 0.04 )
 
 [node name="Area2D2" type="Area2D" parent="."]
-position = Vector2( 12333, -415.957 )
+position = Vector2( 16551.4, 529.169 )
 script = ExtResource( 18 )
 __meta__ = {
 "_edit_group_": true
