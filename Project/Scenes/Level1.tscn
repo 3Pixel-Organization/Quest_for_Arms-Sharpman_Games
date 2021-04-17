@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://Assets/Sprites/Floor/basiccliff.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Scrub.tscn" type="PackedScene" id=2]
@@ -18,6 +18,7 @@
 [ext_resource path="res://Assets/Sprites/Floor/hill.png" type="Texture" id=16]
 [ext_resource path="res://Assets/Sprites/Floor/platformedge.png" type="Texture" id=17]
 [ext_resource path="res://Scripts/Area2D2.gd" type="Script" id=18]
+[ext_resource path="res://Assets/Sprites/Background/Sprite-0001 (2).png" type="Texture" id=19]
 
 [sub_resource type="TileSet" id=1]
 0/name = "platformedge.png 0"
@@ -293,7 +294,7 @@ motion_mirroring = Vector2( 5120, 2880 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/Sky"]
 light_mask = -2147483647
-position = Vector2( 9.02808, -1644.53 )
+position = Vector2( 16.5793, -1644.53 )
 scale = Vector2( 2.93098, 2.86717 )
 texture = ExtResource( 4 )
 centered = false
@@ -306,6 +307,16 @@ motion_mirroring = Vector2( 1920, 0 )
 position = Vector2( 987.54, 555.002 )
 scale = Vector2( 0.548453, 0.548273 )
 texture = ExtResource( 7 )
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.1, 0.7 )
+motion_mirroring = Vector2( 1920, 1920 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2( 843.111, 416 )
+scale = Vector2( 0.564444, 0.564444 )
+texture = ExtResource( 19 )
+flip_h = true
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2( 0.6, 1 )
@@ -396,7 +407,7 @@ collision_mask = 30
 scale = Vector2( 12.5, 12.5 )
 current = true
 limit_left = 5
-limit_right = 15435
+limit_right = 15415
 limit_bottom = 857
 limit_smoothed = true
 drag_margin_h_enabled = true
@@ -462,7 +473,7 @@ position = Vector2( 3713.12, 38.6313 )
 scale = Vector2( 0.07, 0.07 )
 
 [node name="coin8" parent="." instance=ExtResource( 8 )]
-position = Vector2( 3618.62, 791.448 )
+position = Vector2( 3618.62, 620.589 )
 scale = Vector2( 0.07, 0.07 )
 
 [node name="coin9" parent="." instance=ExtResource( 8 )]
@@ -612,16 +623,16 @@ scale = Vector2( 0.07, 0.07 )
 position = Vector2( 2522.75, 440.445 )
 scale = Vector2( 0.07, 0.07 )
 
+[node name="enemy6" parent="ENEMIES" instance=ExtResource( 12 )]
+position = Vector2( 3618.65, 744.789 )
+scale = Vector2( 0.07, 0.07 )
+
 [node name="enemy4" parent="ENEMIES" instance=ExtResource( 12 )]
 position = Vector2( 2885.7, -140.898 )
 scale = Vector2( 0.07, 0.07 )
 
 [node name="enemy5" parent="ENEMIES" instance=ExtResource( 12 )]
 position = Vector2( 3682.48, -18.502 )
-scale = Vector2( 0.07, 0.07 )
-
-[node name="enemy6" parent="ENEMIES" instance=ExtResource( 12 )]
-position = Vector2( 3610.21, 513.055 )
 scale = Vector2( 0.07, 0.07 )
 
 [node name="enemy16" parent="ENEMIES" instance=ExtResource( 12 )]
@@ -756,5 +767,5 @@ shape = SubResource( 17 )
 [connection signal="coin_collected" from="coin21" to="HUD" method="_on_coin4_coin_collected"]
 [connection signal="coin_collected" from="coin19" to="HUD" method="_on_coin4_coin_collected"]
 [connection signal="coin_collected" from="coin13" to="HUD" method="_on_coin4_coin_collected"]
-[connection signal="body_entered" from="Area2D2" to="Scrub" method="_on_Area2D2_body_entered"]
 [connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_Area2D2_body_entered"]
+[connection signal="body_entered" from="Area2D2" to="Scrub" method="_on_Area2D2_body_entered"]

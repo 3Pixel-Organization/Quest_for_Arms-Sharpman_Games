@@ -24,22 +24,23 @@ animations = [ {
 "name": "squashed",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 2 ), ExtResource( 8 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 7 ), ExtResource( 9 ), ExtResource( 6 ) ],
-"loop": true,
-"name": "fireballdead",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 3 ), ExtResource( 4 ) ],
 "loop": true,
 "name": "walk",
 "speed": 3.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 8 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 7 ), ExtResource( 9 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "fireballdead",
+"speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 250.98, 153.587 )
 
-[sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 613.237, 71.4498 )
+[sub_resource type="CapsuleShape2D" id=3]
+radius = 201.774
+height = 1028.89
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 553.722, 749.429 )
@@ -72,7 +73,8 @@ collision_layer = 0
 collision_mask = 33
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="top_checker"]
-position = Vector2( 44.088, -200.488 )
+position = Vector2( -36.4313, -319.32 )
+rotation = 1.5708
 shape = SubResource( 3 )
 
 [node name="sides_checker" type="Area2D" parent="."]
