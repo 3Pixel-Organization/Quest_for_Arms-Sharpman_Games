@@ -3,7 +3,6 @@
 [ext_resource path="res://Scripts/level1-level2.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Cutscenes/LEVEL 2 TRANSITION.webm" type="VideoStream" id=2]
 
-
 [node name="VideoPlayer" type="VideoPlayer"]
 margin_right = 1914.0
 margin_bottom = 1067.0
