@@ -441,6 +441,10 @@ scale = Vector2( 0.07, 0.07 )
 position = Vector2( 2912.37, 168.009 )
 scale = Vector2( 0.07, 0.07 )
 
+[node name="coin23" parent="." instance=ExtResource( 8 )]
+position = Vector2( 10970.4, -29.991 )
+scale = Vector2( 0.07, 0.07 )
+
 [node name="coin4" parent="." instance=ExtResource( 8 )]
 position = Vector2( 1917.56, 357.986 )
 scale = Vector2( 0.07, 0.07 )
@@ -485,8 +489,36 @@ scale = Vector2( 0.07, 0.07 )
 position = Vector2( 13387.1, -931.656 )
 scale = Vector2( 0.07, 0.07 )
 
+[node name="coin24" parent="." instance=ExtResource( 8 )]
+position = Vector2( 14815.8, -737.628 )
+scale = Vector2( 0.07, 0.07 )
+
+[node name="coin25" parent="." instance=ExtResource( 8 )]
+position = Vector2( 15425.7, -1196.24 )
+scale = Vector2( 0.07, 0.07 )
+
+[node name="coin26" parent="." instance=ExtResource( 8 )]
+position = Vector2( 16471.4, -432.727 )
+scale = Vector2( 0.07, 0.07 )
+
+[node name="coin27" parent="." instance=ExtResource( 8 )]
+position = Vector2( 14795.7, 421.5 )
+scale = Vector2( 0.07, 0.07 )
+
+[node name="coin28" parent="." instance=ExtResource( 8 )]
+position = Vector2( 15080.4, 159.437 )
+scale = Vector2( 0.07, 0.07 )
+
 [node name="coin16" parent="." instance=ExtResource( 8 )]
 position = Vector2( 9679.82, 544.016 )
+scale = Vector2( 0.07, 0.07 )
+
+[node name="coin29" parent="." instance=ExtResource( 8 )]
+position = Vector2( 15995.1, 151.877 )
+scale = Vector2( 0.07, 0.07 )
+
+[node name="coin30" parent="." instance=ExtResource( 8 )]
+position = Vector2( 15929.6, 605.448 )
 scale = Vector2( 0.07, 0.07 )
 
 [node name="coin17" parent="." instance=ExtResource( 8 )]
@@ -592,6 +624,57 @@ scale = Vector2( 0.07, 0.07 )
 position = Vector2( 3610.21, 513.055 )
 scale = Vector2( 0.07, 0.07 )
 
+[node name="enemy16" parent="ENEMIES" instance=ExtResource( 12 )]
+position = Vector2( 11302.8, -655.272 )
+scale = Vector2( 0.07, 0.07 )
+
+[node name="enemy17" parent="ENEMIES" instance=ExtResource( 12 )]
+position = Vector2( 12687, -785.44 )
+scale = Vector2( 0.07, 0.07 )
+
+[node name="enemy18" parent="ENEMIES" instance=ExtResource( 12 )]
+position = Vector2( 12642.5, -1423.57 )
+scale = Vector2( 0.07, 0.07 )
+
+[node name="enemy19" parent="ENEMIES" instance=ExtResource( 12 )]
+position = Vector2( 13537.8, -1369.6 )
+scale = Vector2( 0.07, 0.07 )
+
+[node name="enemy20" parent="ENEMIES" instance=ExtResource( 12 )]
+position = Vector2( 13906.1, -1379.13 )
+scale = Vector2( 0.07, 0.07 )
+direction = 1
+
+[node name="enemy21" parent="ENEMIES" instance=ExtResource( 12 )]
+position = Vector2( 15680.8, -1356.9 )
+scale = Vector2( 0.07, 0.07 )
+direction = 1
+
+[node name="enemy22" parent="ENEMIES" instance=ExtResource( 12 )]
+position = Vector2( 16001.5, -1039.42 )
+scale = Vector2( 0.07, 0.07 )
+direction = 1
+
+[node name="enemy23" parent="ENEMIES" instance=ExtResource( 12 )]
+position = Vector2( 15087.1, 116.204 )
+scale = Vector2( 0.07, 0.07 )
+direction = 1
+
+[node name="enemy24" parent="ENEMIES" instance=ExtResource( 12 )]
+position = Vector2( 14509.3, 557.501 )
+scale = Vector2( 0.07, 0.07 )
+direction = 1
+
+[node name="enemy25" parent="ENEMIES" instance=ExtResource( 12 )]
+position = Vector2( 14083.9, 560.676 )
+scale = Vector2( 0.07, 0.07 )
+direction = 1
+
+[node name="enemy26" parent="ENEMIES" instance=ExtResource( 12 )]
+position = Vector2( 15518.9, 690.843 )
+scale = Vector2( 0.07, 0.07 )
+direction = 1
+
 [node name="enemy7" parent="ENEMIES" instance=ExtResource( 12 )]
 position = Vector2( 4740.24, 497.38 )
 scale = Vector2( 0.07, 0.07 )
@@ -647,6 +730,7 @@ shape = SubResource( 17 )
 [connection signal="body_entered" from="fallzone" to="Scrub" method="_on_Area2D_body_entered"]
 [connection signal="coin_collected" from="coin2" to="HUD" method="_on_coin2_coin_collected"]
 [connection signal="coin_collected" from="coin3" to="HUD" method="_on_coin2_coin_collected"]
+[connection signal="coin_collected" from="coin23" to="HUD" method="_on_coin2_coin_collected"]
 [connection signal="coin_collected" from="coin4" to="HUD" method="_on_coin4_coin_collected"]
 [connection signal="coin_collected" from="coin5" to="HUD" method="_on_coin4_coin_collected"]
 [connection signal="coin_collected" from="coin6" to="HUD" method="_on_coin4_coin_collected"]
@@ -658,7 +742,14 @@ shape = SubResource( 17 )
 [connection signal="coin_collected" from="coin12" to="HUD" method="_on_coin4_coin_collected"]
 [connection signal="coin_collected" from="coin14" to="HUD" method="_on_coin4_coin_collected"]
 [connection signal="coin_collected" from="coin15" to="HUD" method="_on_coin4_coin_collected"]
+[connection signal="coin_collected" from="coin24" to="HUD" method="_on_coin4_coin_collected"]
+[connection signal="coin_collected" from="coin25" to="HUD" method="_on_coin4_coin_collected"]
+[connection signal="coin_collected" from="coin26" to="HUD" method="_on_coin4_coin_collected"]
+[connection signal="coin_collected" from="coin27" to="HUD" method="_on_coin4_coin_collected"]
+[connection signal="coin_collected" from="coin28" to="HUD" method="_on_coin4_coin_collected"]
 [connection signal="coin_collected" from="coin16" to="HUD" method="_on_coin4_coin_collected"]
+[connection signal="coin_collected" from="coin29" to="HUD" method="_on_coin4_coin_collected"]
+[connection signal="coin_collected" from="coin30" to="HUD" method="_on_coin4_coin_collected"]
 [connection signal="coin_collected" from="coin17" to="HUD" method="_on_coin4_coin_collected"]
 [connection signal="coin_collected" from="coin18" to="HUD" method="_on_coin4_coin_collected"]
 [connection signal="coin_collected" from="coin20" to="HUD" method="_on_coin4_coin_collected"]
