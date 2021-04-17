@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Quest for Arms"
-run/main_scene="res://Scenes/MainMenu.tscn"
+run/main_scene="res://Scenes/startup.tscn"
 config/icon="res://Assets/Sprites/HUD/hud_coin.png"
 
 [autoload]
