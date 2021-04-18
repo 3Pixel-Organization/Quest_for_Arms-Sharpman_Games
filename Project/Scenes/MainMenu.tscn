@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Assets/Fonts/Roboto-Light.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Assets/Fonts/DESIGN.COLLECTION1.AOASWFTE.TTF" type="DynamicFontData" id=2]
 [ext_resource path="res://Scripts/MainMenu.gd" type="Script" id=3]
 [ext_resource path="res://Assets/Sounds/Music/cool3.ogg" type="AudioStream" id=4]
+[ext_resource path="res://Assets/bUtAJlib_400x400.jpg" type="Texture" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 200
@@ -50,13 +51,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="bUtAJlib_400x400" type="Sprite" parent="ColorRect"]
+position = Vector2( 123.264, 123.833 )
+scale = Vector2( 0.477133, 0.477133 )
+texture = ExtResource( 5 )
+
 [node name="Label" type="Label" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = 199.401
-margin_top = 189.477
-margin_right = 1676.4
-margin_bottom = 436.477
+margin_left = 425.274
+margin_top = 878.593
+margin_right = 1902.27
+margin_bottom = 1125.59
 custom_fonts/font = SubResource( 1 )
 text = "Quest for Arms"
 __meta__ = {
@@ -64,10 +70,10 @@ __meta__ = {
 }
 
 [node name="Label2" type="Label" parent="."]
-margin_left = -1.73306
-margin_top = 1020.36
-margin_right = 535.267
-margin_bottom = 1077.36
+margin_left = 1248.43
+margin_top = 10.6115
+margin_right = 1903.43
+margin_bottom = 67.6115
 custom_fonts/font = SubResource( 2 )
 text = "THIS IS A WORK IN PROGRESS"
 __meta__ = {
@@ -75,10 +81,10 @@ __meta__ = {
 }
 
 [node name="Button" type="Button" parent="."]
-margin_left = 609.914
-margin_top = 426.0
-margin_right = 1285.91
-margin_bottom = 615.0
+margin_left = -113.257
+margin_top = 405.818
+margin_right = 562.739
+margin_bottom = 646.818
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_hover = Color( 0.470588, 0.454902, 0.454902, 1 )
@@ -90,10 +96,10 @@ __meta__ = {
 }
 
 [node name="Button2" type="Button" parent="."]
-margin_left = 609.056
-margin_top = 706.056
-margin_right = 928.056
-margin_bottom = 830.056
+margin_left = 7.20215
+margin_top = 627.012
+margin_right = 326.202
+margin_bottom = 751.012
 custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_hover = Color( 0.470588, 0.454902, 0.454902, 1 )
@@ -105,10 +111,10 @@ __meta__ = {
 }
 
 [node name="Button3" type="Button" parent="."]
-margin_left = 974.0
-margin_top = 706.0
-margin_right = 1283.0
-margin_bottom = 832.0
+margin_left = 12.0182
+margin_top = 734.436
+margin_right = 321.018
+margin_bottom = 860.436
 custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_hover = Color( 0.470588, 0.454902, 0.454902, 1 )
