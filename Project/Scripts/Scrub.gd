@@ -6,7 +6,6 @@ var coins = 0
 var level1 = false
 var level2 = false
 var level3 = false
-var held_item = null
 var direction = 1
 var cooldownnotactive = true
 var hasfireball = false
