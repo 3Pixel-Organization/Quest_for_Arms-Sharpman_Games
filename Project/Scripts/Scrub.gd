@@ -120,7 +120,7 @@ func ouch(var enemyposx):
 
 
 func _on_Timer_timeout():
-	get_tree().change_scene("res://Scenes/Level1.tscn")
+	get_tree().change_scene("res://Scenes/death.tscn")
 
 func _on_Timer2_timeout():
 	cooldownnotactive = true
