@@ -297,8 +297,8 @@ motion_mirroring = Vector2( 5120, 2880 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/Sky"]
 light_mask = -2147483647
-position = Vector2( 16.5793, -1644.53 )
-scale = Vector2( 2.93098, 2.86717 )
+position = Vector2( -19.3802, -1644.53 )
+scale = Vector2( 2.94503, 2.86717 )
 texture = ExtResource( 4 )
 centered = false
 
@@ -569,9 +569,9 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="HUD"]
-margin_left = -106.023
+margin_left = -106.398
 margin_top = -29.3213
-margin_right = 3344.98
+margin_right = 3344.61
 margin_bottom = 2757.68
 rect_scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 9 )
