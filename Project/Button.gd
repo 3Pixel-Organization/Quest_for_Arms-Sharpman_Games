@@ -13,7 +13,7 @@ func level_3():
 
 
 func _on_Button2_pressed():
-	get_tree().quit
+	get_tree().quit()
 
 
 func _on_Button_pressed():
