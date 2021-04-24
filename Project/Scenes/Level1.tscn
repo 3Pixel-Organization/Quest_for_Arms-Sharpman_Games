@@ -743,6 +743,7 @@ shape = SubResource( 17 )
 
 [node name="Node2D" parent="." instance=ExtResource( 21 )]
 position = Vector2( -860, -196 )
+
 [connection signal="coin_collected" from="coin22" to="HUD" method="_on_coin4_coin_collected"]
 [connection signal="body_entered" from="fallzone" to="Scrub" method="_on_Area2D_body_entered"]
 [connection signal="coin_collected" from="coin2" to="HUD" method="_on_coin2_coin_collected"]
@@ -773,5 +774,5 @@ position = Vector2( -860, -196 )
 [connection signal="coin_collected" from="coin21" to="HUD" method="_on_coin4_coin_collected"]
 [connection signal="coin_collected" from="coin19" to="HUD" method="_on_coin4_coin_collected"]
 [connection signal="coin_collected" from="coin13" to="HUD" method="_on_coin4_coin_collected"]
-[connection signal="body_entered" from="Area2D2" to="Scrub" method="_on_Area2D2_body_entered"]
 [connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_Area2D2_body_entered"]
+[connection signal="body_entered" from="Area2D2" to="Scrub" method="_on_Area2D2_body_entered"]
