@@ -130,3 +130,13 @@ func fireball_pickup():
 
 func _jump_pad():
 	velocity.y = JUMP_PAD_FORCE
+
+
+
+func _death():
+	set_modulate(Color(1,0.3,0.3,0.3))
+	velocity.y = JUMPFORCE * 1
+	Input.action_release("left")
+	Input.action_release("right")
+	
+	$Timer.start()
