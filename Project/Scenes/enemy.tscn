@@ -19,9 +19,9 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 5 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 8 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 7 ), ExtResource( 9 ), ExtResource( 6 ) ],
 "loop": true,
-"name": "squashed",
+"name": "fireballdead",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 3 ), ExtResource( 4 ) ],
@@ -29,18 +29,18 @@ animations = [ {
 "name": "walk",
 "speed": 3.0
 }, {
-"frames": [ ExtResource( 2 ), ExtResource( 8 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 7 ), ExtResource( 9 ), ExtResource( 6 ) ],
+"frames": [ ExtResource( 5 ) ],
 "loop": true,
-"name": "fireballdead",
+"name": "squashed",
 "speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 250.98, 153.587 )
+extents = Vector2( 342.2, 153.587 )
 
 [sub_resource type="CapsuleShape2D" id=3]
 radius = 201.774
-height = 1028.89
+height = 850.575
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 553.722, 749.429 )
@@ -57,7 +57,7 @@ animation = "walk"
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 152.63, 431.878 )
+position = Vector2( -43.37, 431.878 )
 scale = Vector2( 2.09819, 3.43229 )
 shape = SubResource( 2 )
 
@@ -87,6 +87,7 @@ shape = SubResource( 4 )
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
+
 [connection signal="body_entered" from="top_checker" to="." method="_on_top_checker_body_entered"]
 [connection signal="body_entered" from="sides_checker" to="." method="_on_sides_checker_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

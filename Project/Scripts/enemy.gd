@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-var speed = 50
+var speed = 95
 var velocity = Vector2()
 var is_dead = false
 export var direction = -1
