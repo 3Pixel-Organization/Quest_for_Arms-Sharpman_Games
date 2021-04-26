@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/canon_body.png-fd52c11c95ecdcc2c2748f50c27cce4a.stex"
+path="res://.import/railgun.png-a9685d21550b49cdd1d9fdbb489584e7.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/canon/canon_body.png"
-dest_files=[ "res://.import/canon_body.png-fd52c11c95ecdcc2c2748f50c27cce4a.stex" ]
+source_file="res://Assets/Sprites/canon/railgun/railgun.png"
+dest_files=[ "res://.import/railgun.png-a9685d21550b49cdd1d9fdbb489584e7.stex" ]
 
 [params]
 
