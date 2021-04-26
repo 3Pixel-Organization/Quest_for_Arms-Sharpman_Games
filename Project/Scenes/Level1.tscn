@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://Assets/Sprites/Floor/basiccliff.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Scrub.tscn" type="PackedScene" id=2]
@@ -22,6 +22,7 @@
 [ext_resource path="res://Scripts/Level1.gd" type="Script" id=20]
 [ext_resource path="res://Scenes/death.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Scenes/canonlr.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Scenes/railgun.tscn" type="PackedScene" id=23]
 
 [sub_resource type="TileSet" id=1]
 0/name = "platformedge.png 0"
@@ -746,7 +747,11 @@ shape = SubResource( 17 )
 position = Vector2( -860, -196 )
 
 [node name="StaticBody2D" parent="." instance=ExtResource( 22 )]
-position = Vector2( 2194.04, 642.683 )
+position = Vector2( 2338.68, 945.406 )
+scale = Vector2( 0.3, 0.3 )
+
+[node name="StaticBody2D2" parent="." instance=ExtResource( 23 )]
+position = Vector2( 2330.94, 838.28 )
 scale = Vector2( 0.3, 0.3 )
 
 [connection signal="coin_collected" from="coin22" to="HUD" method="_on_coin4_coin_collected"]
