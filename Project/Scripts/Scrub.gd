@@ -3,9 +3,6 @@ extends KinematicBody2D
 #Variables
 var velocity = Vector2(0,0)
 var coins = 0
-var level1 = false
-var level2 = false
-var level3 = false
 var direction = 1
 var cooldownnotactive = true
 var hasfireball = false
