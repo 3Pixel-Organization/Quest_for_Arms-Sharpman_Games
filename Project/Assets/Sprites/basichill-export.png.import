@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/basiccliff.png-502afd4ce2d913225828134f0fd7d3b8.stex"
+path="res://.import/basichill-export.png-db63b387af972b97a3a0823ffd26f818.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Floor/basiccliff.png"
-dest_files=[ "res://.import/basiccliff.png-502afd4ce2d913225828134f0fd7d3b8.stex" ]
+source_file="res://Assets/Sprites/basichill-export.png"
+dest_files=[ "res://.import/basichill-export.png-db63b387af972b97a3a0823ffd26f818.stex" ]
 
 [params]
 
