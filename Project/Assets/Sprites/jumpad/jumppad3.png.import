@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/basiccliff.png-502afd4ce2d913225828134f0fd7d3b8.stex"
+path="res://.import/jumppad3.png-5300f753dfc804b4783412ee6d2d9abd.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Floor/basiccliff.png"
-dest_files=[ "res://.import/basiccliff.png-502afd4ce2d913225828134f0fd7d3b8.stex" ]
+source_file="res://Assets/Sprites/jumpad/jumppad3.png"
+dest_files=[ "res://.import/jumppad3.png-5300f753dfc804b4783412ee6d2d9abd.stex" ]
 
 [params]
 
