@@ -753,7 +753,6 @@ scale = Vector2( 0.3, 0.3 )
 [node name="StaticBody2D2" parent="." instance=ExtResource( 23 )]
 position = Vector2( 2330.94, 838.28 )
 scale = Vector2( 0.3, 0.3 )
-
 [connection signal="coin_collected" from="coin22" to="HUD" method="_on_coin4_coin_collected"]
 [connection signal="body_entered" from="fallzone" to="Scrub" method="_on_Area2D_body_entered"]
 [connection signal="coin_collected" from="coin2" to="HUD" method="_on_coin2_coin_collected"]
