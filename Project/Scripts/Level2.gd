@@ -1,5 +1,5 @@
 extends Node2D
 
-func _ready():
-	get_node("Node2D/Button").level_2()
-	print("success")
+
+func _on_Scrub_death():
+	get_node("HUD/Node2D").visible()

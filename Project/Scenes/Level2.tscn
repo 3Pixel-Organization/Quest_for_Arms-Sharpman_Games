@@ -11,35 +11,35 @@
 [ext_resource path="res://Assets/Sounds/Music/cool.ogg" type="AudioStream" id=13]
 [ext_resource path="res://Scenes/death.tscn" type="PackedScene" id=21]
 
-[sub_resource type="RectangleShape2D" id=13]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10128.7, 63.3549 )
 
-[sub_resource type="StyleBoxFlat" id=14]
+[sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0, 0, 0, 0.490196 )
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
-[sub_resource type="DynamicFont" id=15]
+[sub_resource type="DynamicFont" id=3]
 size = 70
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 10 )
 
-[sub_resource type="DynamicFont" id=16]
+[sub_resource type="DynamicFont" id=4]
 size = 120
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 10 )
 
-[sub_resource type="ConvexPolygonShape2D" id=19]
+[sub_resource type="ConvexPolygonShape2D" id=5]
 points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 
-[sub_resource type="ConvexPolygonShape2D" id=20]
+[sub_resource type="ConvexPolygonShape2D" id=6]
 points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 
-[sub_resource type="TileSet" id=18]
+[sub_resource type="TileSet" id=7]
 1/name = "basicfloor.-export.png 1"
 1/texture = ExtResource( 3 )
 1/tex_offset = Vector2( 0, 0 )
@@ -50,14 +50,14 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 1/navigation_offset = Vector2( 0, 0 )
 1/shape_offset = Vector2( 0, 0 )
 1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-1/shape = SubResource( 19 )
+1/shape = SubResource( 5 )
 1/shape_one_way = false
 1/shape_one_way_margin = 1.0
 1/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 19 ),
+"shape": SubResource( 5 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 1/z_index = 0
@@ -71,19 +71,19 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 2/navigation_offset = Vector2( 0, 0 )
 2/shape_offset = Vector2( 0, 0 )
 2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-2/shape = SubResource( 20 )
+2/shape = SubResource( 6 )
 2/shape_one_way = false
 2/shape_one_way_margin = 1.0
 2/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 20 ),
+"shape": SubResource( 6 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 2/z_index = 0
 
-[node name="main" type="Node2D"]
+[node name="Level 2" type="Node2D"]
 position = Vector2( -1147.75, -279.387 )
 script = ExtResource( 1 )
 
@@ -131,7 +131,7 @@ __meta__ = {
 }
 
 [node name="fallzone_collision" type="CollisionShape2D" parent="fallzone"]
-shape = SubResource( 13 )
+shape = SubResource( 1 )
 
 [node name="HUD" type="CanvasLayer" parent="."]
 script = ExtResource( 11 )
@@ -141,7 +141,7 @@ margin_left = 15.0
 margin_top = 8.0
 margin_right = 326.0
 margin_bottom = 160.0
-custom_styles/panel = SubResource( 14 )
+custom_styles/panel = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -164,7 +164,7 @@ margin_top = 39.562
 margin_right = 175.663
 margin_bottom = 122.562
 rect_pivot_offset = Vector2( 31.6672, 52.6764 )
-custom_fonts/font = SubResource( 15 )
+custom_fonts/font = SubResource( 3 )
 text = "X"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -175,11 +175,14 @@ margin_left = 173.82
 margin_top = 12.3024
 margin_right = 335.82
 margin_bottom = 177.302
-custom_fonts/font = SubResource( 16 )
+custom_fonts/font = SubResource( 4 )
 text = "##"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Node2D" parent="HUD" instance=ExtResource( 21 )]
+position = Vector2( -0.725952, -7.49313 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 13 )
@@ -187,12 +190,10 @@ autoplay = true
 
 [node name="pause" parent="." instance=ExtResource( 6 )]
 
-[node name="Node2D" parent="." instance=ExtResource( 21 )]
-position = Vector2( -860, -196 )
-
 [node name="TileMap" type="TileMap" parent="."]
-tile_set = SubResource( 18 )
+tile_set = SubResource( 7 )
 format = 1
 tile_data = PoolIntArray( 786450, 1, 0, 786451, 1, 0, 786452, 1, 0, 786453, 1, 0, 786454, 1, 0, 786455, 1, 0, 786456, 1, 0, 786458, 2, 0 )
 
+[connection signal="death" from="Scrub" to="." method="_on_Scrub_death"]
 [connection signal="body_entered" from="fallzone" to="Scrub" method="_on_Area2D_body_entered"]

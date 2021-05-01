@@ -17,15 +17,15 @@ const JUMPFORCE = -1100
 const GRAVITY = 35
 const FIREBALL = preload("res://Scenes/Fireball.tscn")
 const JUMP_PAD_FORCE = -2000
-
+#Signals
+signal death
 
 
 #Walk Code
 func _physics_process(delta):
 	var friction = false
 	if velocity.y >= 0 && is_jumping:
-		is_jumping = false
-	print(Engine.get_frames_per_second())   
+		is_jumping = false 
 	if Input.is_action_pressed("right"):
 		$AnimatedSprite.flip_h = false
 		if sign($Position2D.position.x) == -1:
@@ -89,7 +89,7 @@ func _physics_process(delta):
 
 #Dying Code
 func _on_Area2D_body_entered(body):
-		get_tree().change_scene("res://Scenes/death.tscn")
+	emit_signal("death")
 
 #Collect Coin Code
 func add_coin():
@@ -117,7 +117,7 @@ func ouch(var enemyposx):
 
 
 func _on_Timer_timeout():
-	get_tree().change_scene("res://Scenes/death.tscn")
+	emit_signal("death")
 
 func _on_Timer2_timeout():
 	cooldownnotactive = true
