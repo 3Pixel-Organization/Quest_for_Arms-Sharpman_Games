@@ -4,7 +4,6 @@
 [ext_resource path="res://Assets/Fonts/Roboto-Light.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Assets/Fonts/DESIGN.COLLECTION1.AOASWFTE.TTF" type="DynamicFontData" id=3]
 
-
 [sub_resource type="DynamicFont" id=1]
 size = 100
 outline_size = 7
@@ -65,5 +64,6 @@ text = "YOU DIED"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
 [connection signal="pressed" from="Button" to="Button" method="_on_Button_pressed"]
 [connection signal="pressed" from="Button2" to="Button2" method="_on_Button2_pressed"]

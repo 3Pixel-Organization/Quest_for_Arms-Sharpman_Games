@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://Assets/Sprites/Floor/basiccliff.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Scrub.tscn" type="PackedScene" id=2]
@@ -21,8 +21,7 @@
 [ext_resource path="res://Assets/Sprites/Background/Sprite-0001 (2).png" type="Texture" id=19]
 [ext_resource path="res://Scripts/Level1.gd" type="Script" id=20]
 [ext_resource path="res://Scenes/death.tscn" type="PackedScene" id=21]
-[ext_resource path="res://Scenes/canonlr.tscn" type="PackedScene" id=22]
-[ext_resource path="res://Scenes/railgun.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Assets/Sprites/Background/tree_redesign.png" type="Texture" id=25]
 
 [sub_resource type="TileSet" id=1]
 0/name = "platformedge.png 0"
@@ -299,7 +298,7 @@ motion_mirroring = Vector2( 5120, 2880 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/Sky"]
 light_mask = -2147483647
-position = Vector2( -19.3802, -1644.53 )
+position = Vector2( -1730.6, -1558.81 )
 scale = Vector2( 2.94503, 2.86717 )
 texture = ExtResource( 4 )
 centered = false
@@ -332,6 +331,13 @@ position = Vector2( 394.721, -302.016 )
 scale = Vector2( 0.749661, 0.741185 )
 texture = ExtResource( 5 )
 centered = false
+
+[node name="tree_redesign12" type="Sprite" parent="."]
+position = Vector2( 14190.9, -991.59 )
+rotation = -0.507891
+scale = Vector2( 0.548583, 0.548583 )
+texture = ExtResource( 25 )
+offset = Vector2( -166.29, 211.052 )
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2( 0.00585938, -0.000152588 )
@@ -746,13 +752,88 @@ shape = SubResource( 17 )
 [node name="Node2D" parent="." instance=ExtResource( 21 )]
 position = Vector2( -860, -196 )
 
-[node name="StaticBody2D" parent="." instance=ExtResource( 22 )]
-position = Vector2( 2338.68, 945.406 )
-scale = Vector2( 0.3, 0.3 )
+[node name="tree_redesign" type="Sprite" parent="."]
+position = Vector2( 1849.19, 589.044 )
+scale = Vector2( 0.552992, 0.552992 )
+texture = ExtResource( 25 )
 
-[node name="StaticBody2D2" parent="." instance=ExtResource( 23 )]
-position = Vector2( 2330.94, 838.28 )
-scale = Vector2( 0.3, 0.3 )
+[node name="tree_redesign2" type="Sprite" parent="."]
+position = Vector2( 1529.77, 481.519 )
+scale = Vector2( 0.548583, 0.548583 )
+texture = ExtResource( 25 )
+offset = Vector2( -166.29, 211.052 )
+
+[node name="tree_redesign3" type="Sprite" parent="."]
+position = Vector2( 3780.71, 94.1927 )
+scale = Vector2( 0.548583, 0.548583 )
+texture = ExtResource( 25 )
+offset = Vector2( -166.29, 211.052 )
+
+[node name="tree_redesign4" type="Sprite" parent="."]
+position = Vector2( 3682.29, -613.788 )
+scale = Vector2( 0.548583, 0.548583 )
+texture = ExtResource( 25 )
+offset = Vector2( -166.29, 211.052 )
+
+[node name="tree_redesign5" type="Sprite" parent="."]
+position = Vector2( 7803.18, 478.344 )
+scale = Vector2( 0.548583, 0.548583 )
+texture = ExtResource( 25 )
+offset = Vector2( -166.29, 211.052 )
+
+[node name="tree_redesign6" type="Sprite" parent="."]
+position = Vector2( 10546.2, -220.112 )
+scale = Vector2( 0.548583, 0.548583 )
+texture = ExtResource( 25 )
+offset = Vector2( -166.29, 211.052 )
+
+[node name="tree_redesign7" type="Sprite" parent="."]
+position = Vector2( 11393.9, -610.613 )
+scale = Vector2( 0.548583, 0.548583 )
+texture = ExtResource( 25 )
+offset = Vector2( -166.29, 211.052 )
+
+[node name="tree_redesign8" type="Sprite" parent="."]
+position = Vector2( 12371.7, -864.598 )
+scale = Vector2( 0.548583, 0.548583 )
+texture = ExtResource( 25 )
+offset = Vector2( -166.29, 211.052 )
+
+[node name="tree_redesign9" type="Sprite" parent="."]
+position = Vector2( 12597.1, -1639.25 )
+scale = Vector2( 0.548583, 0.548583 )
+texture = ExtResource( 25 )
+offset = Vector2( -166.29, 211.052 )
+
+[node name="tree_redesign10" type="Sprite" parent="."]
+position = Vector2( 12882.9, -1639.25 )
+scale = Vector2( 0.548583, 0.548583 )
+texture = ExtResource( 25 )
+offset = Vector2( -166.29, 211.052 )
+
+[node name="tree_redesign11" type="Sprite" parent="."]
+position = Vector2( 13809.9, -1575.75 )
+scale = Vector2( 0.548583, 0.548583 )
+texture = ExtResource( 25 )
+offset = Vector2( -166.29, 211.052 )
+
+[node name="tree_redesign13" type="Sprite" parent="."]
+position = Vector2( 14536.4, -1316.76 )
+scale = Vector2( 0.548583, 0.548583 )
+texture = ExtResource( 25 )
+offset = Vector2( -166.29, 211.052 )
+
+[node name="tree_redesign14" type="Sprite" parent="."]
+position = Vector2( 14375, 344.853 )
+scale = Vector2( 0.548583, 0.548583 )
+texture = ExtResource( 25 )
+offset = Vector2( -166.29, 211.052 )
+
+[node name="tree_redesign15" type="Sprite" parent="."]
+position = Vector2( 16292.2, 351.581 )
+scale = Vector2( 0.548583, 0.548583 )
+texture = ExtResource( 25 )
+offset = Vector2( -166.29, 211.052 )
 
 [connection signal="coin_collected" from="coin22" to="HUD" method="_on_coin4_coin_collected"]
 [connection signal="body_entered" from="fallzone" to="Scrub" method="_on_Area2D_body_entered"]

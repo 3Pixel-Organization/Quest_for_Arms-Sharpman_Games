@@ -20,8 +20,8 @@ func _on_Button_pressed():
 	if level == 1:
 		get_tree().change_scene("res://Scenes/Level1.tscn")
 	elif level == 2:
-		pass
-		#get_tree().change_scene(diretorio do niv2)
+		get_tree().change_scene("res://Scenes/Level2.tscn")
+		print("success")
 	elif level == 3:
 		pass
 		#get_tree().change_scene(diretorio do niv3)

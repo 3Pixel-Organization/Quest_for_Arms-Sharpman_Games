@@ -19,9 +19,9 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 2 ), ExtResource( 8 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 7 ), ExtResource( 9 ), ExtResource( 6 ) ],
+"frames": [ ExtResource( 5 ) ],
 "loop": true,
-"name": "fireballdead",
+"name": "squashed",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 3 ), ExtResource( 4 ) ],
@@ -29,9 +29,9 @@ animations = [ {
 "name": "walk",
 "speed": 3.0
 }, {
-"frames": [ ExtResource( 5 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 8 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 7 ), ExtResource( 9 ), ExtResource( 6 ) ],
 "loop": true,
-"name": "squashed",
+"name": "fireballdead",
 "speed": 5.0
 } ]
 

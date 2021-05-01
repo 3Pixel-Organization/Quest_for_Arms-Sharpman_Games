@@ -1,66 +1,27 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/speed.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Sprites/enemy/enmy_idle1920.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Sprites/enemy/enmy_walk_11920.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Sprites/enemy/enmy_walk_21920.png" type="Texture" id=4]
-[ext_resource path="res://Assets/Sprites/enemy/enmy_squashed1920.png" type="Texture" id=5]
-[ext_resource path="res://Assets/Sprites/enemy/enemy_fireball_dead71920.png" type="Texture" id=6]
-[ext_resource path="res://Assets/Sprites/enemy/enemy_fireball_dead51920.png" type="Texture" id=7]
-[ext_resource path="res://Assets/Sprites/enemy/enemy_fireball_dead21920.png" type="Texture" id=8]
-[ext_resource path="res://Assets/Sprites/enemy/enemy_fireball_dead61920.png" type="Texture" id=9]
-[ext_resource path="res://Assets/Sprites/enemy/enemy_fireball_dead31920.png" type="Texture" id=10]
-[ext_resource path="res://Assets/Sprites/enemy/enemy_fireball_dead41920.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Sprites/SPEED/i_am_speed.png" type="Texture" id=2]
 
-[sub_resource type="SpriteFrames" id=1]
-animations = [ {
-"frames": [ ExtResource( 2 ) ],
-"loop": true,
-"name": "idle",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 5 ) ],
-"loop": true,
-"name": "squashed",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 3 ), ExtResource( 4 ) ],
-"loop": true,
-"name": "walk",
-"speed": 3.0
-}, {
-"frames": [ ExtResource( 2 ), ExtResource( 8 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 7 ), ExtResource( 9 ), ExtResource( 6 ) ],
-"loop": true,
-"name": "fireballdead",
-"speed": 5.0
-} ]
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 227.305, 144.754 )
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 250.98, 153.587 )
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 94.3591
+height = 655.264
 
-[sub_resource type="CapsuleShape2D" id=3]
-radius = 201.774
-height = 1028.89
-
-[sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 553.722, 749.429 )
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 553.722, 598.949 )
 
 [node name="enemy" type="KinematicBody2D"]
 collision_layer = 16
 collision_mask = 35
 script = ExtResource( 1 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( -21.1893, 8.47559 )
-frames = SubResource( 1 )
-animation = "walk"
-frame = 1
-playing = true
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 152.63, 431.878 )
 scale = Vector2( 2.09819, 3.43229 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="floor_checker" type="RayCast2D" parent="."]
 scale = Vector2( 25, 25 )
@@ -73,21 +34,26 @@ collision_layer = 0
 collision_mask = 33
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="top_checker"]
-position = Vector2( -36.4313, -319.32 )
+position = Vector2( 119.569, -219.32 )
 rotation = 1.5708
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="sides_checker" type="Area2D" parent="."]
 collision_layer = 16
 collision_mask = 33
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="sides_checker"]
-position = Vector2( -33.3888, 434.169 )
+position = Vector2( 126.611, 434.169 )
 rotation = 1.5708
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 148, 428 )
+scale = Vector2( 3.15, 3.125 )
+texture = ExtResource( 2 )
 
 [connection signal="body_entered" from="top_checker" to="." method="_on_top_checker_body_entered"]
 [connection signal="body_entered" from="sides_checker" to="." method="_on_sides_checker_body_entered"]
