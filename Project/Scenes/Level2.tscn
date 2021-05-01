@@ -16,7 +16,7 @@
 [ext_resource path="res://Assets/Sprites/Floor/basichill-export.png" type="Texture" id=14]
 [ext_resource path="res://Scenes/death.tscn" type="PackedScene" id=21]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=13]
 extents = Vector2( 10128.7, 63.3549 )
 
 [sub_resource type="StyleBoxFlat" id=2]
@@ -32,7 +32,7 @@ outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 10 )
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=14]
 size = 120
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
@@ -205,7 +205,7 @@ __meta__ = {
 }
 
 [node name="fallzone_collision" type="CollisionShape2D" parent="fallzone"]
-shape = SubResource( 1 )
+shape = SubResource( 13 )
 
 [node name="HUD" type="CanvasLayer" parent="."]
 script = ExtResource( 11 )
@@ -249,7 +249,7 @@ margin_left = 173.82
 margin_top = 12.3024
 margin_right = 335.82
 margin_bottom = 177.302
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 14 )
 text = "##"
 __meta__ = {
 "_edit_use_anchors_": false
