@@ -1,14 +1,15 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Scripts/Level2.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Scrub.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/Sprites/Floor/basicfloor.-export.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Sprites/Background/2560x1440-deep-sky-blue-solid-color-background.jpg" type="Texture" id=4]
+[ext_resource path="res://Assets/Sounds/Music/The Pit Fall.ogg" type="AudioStream" id=5]
 [ext_resource path="res://Scenes/pause.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/coin.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Assets/Sprites/HUD/hud_coin.png" type="Texture" id=9]
 [ext_resource path="res://Assets/Fonts/Roboto-Light.ttf" type="DynamicFontData" id=10]
 [ext_resource path="res://Scripts/HUD.gd" type="Script" id=11]
-[ext_resource path="res://Assets/Sounds/Music/cool.ogg" type="AudioStream" id=13]
 [ext_resource path="res://Scenes/death.tscn" type="PackedScene" id=21]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -182,10 +183,11 @@ __meta__ = {
 }
 
 [node name="Node2D" parent="HUD" instance=ExtResource( 21 )]
-position = Vector2( -0.725952, -7.49313 )
+visible = false
+position = Vector2( 1.1618, -7.49313 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 13 )
+stream = ExtResource( 5 )
 autoplay = true
 
 [node name="pause" parent="." instance=ExtResource( 6 )]
@@ -195,5 +197,10 @@ tile_set = SubResource( 7 )
 format = 1
 tile_data = PoolIntArray( 786450, 1, 0, 786451, 1, 0, 786452, 1, 0, 786453, 1, 0, 786454, 1, 0, 786455, 1, 0, 786456, 1, 0, 786458, 2, 0 )
 
+[node name="coin" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1421.19, 725.714 )
+scale = Vector2( 0.1, 0.1 )
+
 [connection signal="death" from="Scrub" to="." method="_on_Scrub_death"]
 [connection signal="body_entered" from="fallzone" to="Scrub" method="_on_Area2D_body_entered"]
+[connection signal="coin_collected" from="coin" to="HUD" method="_on_coin_coin_collected"]
