@@ -10,7 +10,6 @@ config_version=4
 
 _global_script_classes=[  ]
 _global_script_class_icons={
-
 }
 
 [application]
@@ -30,6 +29,7 @@ RestHandler="*res://addons/github-integration/scenes/RestHandler.tscn"
 
 window/size/width=1920
 window/size/height=1080
+window/size/fullscreen=true
 
 [editor_plugins]
 
