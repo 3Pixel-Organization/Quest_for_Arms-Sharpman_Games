@@ -375,7 +375,7 @@ shape = SubResource( 4 )
 one_way_collision = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="TileMap/StaticBody2D"]
-position = Vector2( 1853.58, 426.367 )
+position = Vector2( 1854.11, 432.194 )
 shape = SubResource( 4 )
 one_way_collision = true
 
