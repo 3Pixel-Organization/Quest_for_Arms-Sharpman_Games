@@ -3,7 +3,7 @@
 [ext_resource path="res://Scripts/Level2.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Scrub.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/Sprites/Floor/basicfloor.-export.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Sprites/Background/2560x1440-deep-sky-blue-solid-color-background.jpg" type="Texture" id=4]
+[ext_resource path="res://Assets/Sprites/Background/l167.jpg__800x600_q95_crop_subsampling-2_upscale.jpg" type="Texture" id=4]
 [ext_resource path="res://Assets/Sounds/Music/The Pit Fall.ogg" type="AudioStream" id=5]
 [ext_resource path="res://Scenes/pause.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/coin.tscn" type="PackedScene" id=7]
@@ -173,7 +173,7 @@ motion_mirroring = Vector2( 5120, 2880 )
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/Sky"]
 light_mask = -2147483647
 position = Vector2( -18.819, -1645.09 )
-scale = Vector2( 2.94503, 2.86717 )
+scale = Vector2( 6.40981, 4.81585 )
 texture = ExtResource( 4 )
 centered = false
 
