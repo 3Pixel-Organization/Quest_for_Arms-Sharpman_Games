@@ -13,5 +13,4 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
 [connection signal="finished" from="." to="." method="_on_VideoPlayer_finished"]

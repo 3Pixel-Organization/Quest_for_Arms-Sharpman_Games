@@ -300,7 +300,6 @@ texture = ExtResource( 15 )
 position = Vector2( 3086.47, -164.785 )
 scale = Vector2( 3.817, 3.817 )
 texture = ExtResource( 15 )
-
 [connection signal="death" from="Scrub" to="." method="_on_Scrub_death"]
 [connection signal="body_entered" from="fallzone" to="Scrub" method="_on_Area2D_body_entered"]
 [connection signal="coin_collected" from="coin" to="HUD" method="_on_coin_coin_collected"]
