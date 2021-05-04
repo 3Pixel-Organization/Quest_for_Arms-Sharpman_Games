@@ -178,6 +178,21 @@ scale = Vector2( 6.40981, 4.81585 )
 texture = ExtResource( 4 )
 centered = false
 
+[node name="backgroundspikes5" type="Sprite" parent="."]
+position = Vector2( 3120.53, -97.2913 )
+scale = Vector2( 0.365156, 0.365156 )
+texture = ExtResource( 15 )
+
+[node name="backgroundspikes" type="Sprite" parent="."]
+position = Vector2( 1913.49, -97.2913 )
+scale = Vector2( 0.365156, 0.365156 )
+texture = ExtResource( 15 )
+
+[node name="backgroundspikes3" type="Sprite" parent="."]
+position = Vector2( 2518.79, -97.2913 )
+scale = Vector2( 0.365156, 0.365156 )
+texture = ExtResource( 15 )
+
 [node name="Scrub" parent="." instance=ExtResource( 2 )]
 position = Vector2( 1355.9, -1165.49 )
 scale = Vector2( 0.5, 0.5 )
@@ -276,29 +291,14 @@ tile_data = PoolIntArray( -983027, 536870912, 0, -983020, 0, 0, -917491, 5368709
 position = Vector2( 1985.22, 228.137 )
 scale = Vector2( 0.1, 0.1 )
 
-[node name="backgroundspikes" type="Sprite" parent="."]
-position = Vector2( 1915.94, -164.785 )
-scale = Vector2( 3.817, 3.817 )
-texture = ExtResource( 15 )
-
 [node name="backgroundspikes2" type="Sprite" parent="."]
-position = Vector2( 2191.75, -164.785 )
-scale = Vector2( 3.817, 3.817 )
-texture = ExtResource( 15 )
-
-[node name="backgroundspikes3" type="Sprite" parent="."]
-position = Vector2( 2497.84, -164.785 )
-scale = Vector2( 3.817, 3.817 )
+position = Vector2( 2201.28, -97.2913 )
+scale = Vector2( 0.365156, 0.365156 )
 texture = ExtResource( 15 )
 
 [node name="backgroundspikes4" type="Sprite" parent="."]
-position = Vector2( 2790.47, -164.785 )
-scale = Vector2( 3.817, 3.817 )
-texture = ExtResource( 15 )
-
-[node name="backgroundspikes5" type="Sprite" parent="."]
-position = Vector2( 3086.47, -164.785 )
-scale = Vector2( 3.817, 3.817 )
+position = Vector2( 2819.66, -97.2913 )
+scale = Vector2( 0.365156, 0.365156 )
 texture = ExtResource( 15 )
 [connection signal="death" from="Scrub" to="." method="_on_Scrub_death"]
 [connection signal="body_entered" from="fallzone" to="Scrub" method="_on_Area2D_body_entered"]
