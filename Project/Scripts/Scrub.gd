@@ -8,8 +8,9 @@ var cooldownnotactive = true
 var hasfireball = false
 var is_jumping = false
 
+
 onready var Coyote_Timer = $CoyoteTimer
-onready var Jump_Buffer = $JumpBuffer	
+onready var Jump_Buffer = $JumpBuffer
 #Constants
 const MAX_SPEED = 450
 const ACCELERATION = 200
@@ -19,6 +20,7 @@ const FIREBALL = preload("res://Scenes/Fireball.tscn")
 const JUMP_PAD_FORCE = -2000
 #Signals
 signal death
+
 
 
 #Walk Code
@@ -57,6 +59,7 @@ func _physics_process(delta):
 	
 	if Input.is_action_just_pressed("jump"):
 		if is_on_floor() || !Coyote_Timer.is_stopped():
+			$AudioStreamPlayer2.play()
 			Coyote_Timer.stop()
 			is_jumping = true
 			velocity.y = JUMPFORCE
@@ -76,6 +79,7 @@ func _physics_process(delta):
 
 	if Input.is_action_pressed("Shoot Fireball") and cooldownnotactive:
 		if hasfireball == true:
+			$AudioStreamPlayer.play()
 			var fireball = FIREBALL.instance()
 			if sign($Position2D.position.x) == 1:
 				fireball._set_fireball_direction(1)
@@ -137,3 +141,8 @@ func _death():
 	Input.action_release("right")
 	
 	$Timer.start()
+
+
+
+
+

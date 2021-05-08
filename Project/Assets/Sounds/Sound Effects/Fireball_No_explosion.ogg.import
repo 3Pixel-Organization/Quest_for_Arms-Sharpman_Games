@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Fireball_No_explosion.ogg-0128ecad854851155269602b097af6b9.oggstr"
+
+[deps]
+
+source_file="res://Assets/Sounds/Sound Effects/Fireball_No_explosion.ogg"
+dest_files=[ "res://.import/Fireball_No_explosion.ogg-0128ecad854851155269602b097af6b9.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
