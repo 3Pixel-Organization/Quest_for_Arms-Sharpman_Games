@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Scripts/Level2.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Scrub.tscn" type="PackedScene" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://Assets/Sprites/Floor/basiccliff-export.png" type="Texture" id=13]
 [ext_resource path="res://Assets/Sprites/Floor/basichill-export.png" type="Texture" id=14]
 [ext_resource path="res://Assets/Sprites/Background/backgroundspikes.png" type="Texture" id=15]
+[ext_resource path="res://Scenes/spikes.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Scenes/death.tscn" type="PackedScene" id=21]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -173,7 +174,7 @@ motion_mirroring = Vector2( 5120, 2880 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/Sky"]
 light_mask = -2147483647
-position = Vector2( -52.8274, -1552.07 )
+position = Vector2( -35.9905, -1548.89 )
 scale = Vector2( 6.40981, 4.81585 )
 texture = ExtResource( 4 )
 centered = false
@@ -300,6 +301,10 @@ texture = ExtResource( 15 )
 position = Vector2( 2819.66, -97.2913 )
 scale = Vector2( 0.365156, 0.365156 )
 texture = ExtResource( 15 )
+
+[node name="Area2D" parent="." instance=ExtResource( 16 )]
+position = Vector2( 3196.28, 615.035 )
+scale = Vector2( 0.724, 1 )
 
 [connection signal="death" from="Scrub" to="." method="_on_Scrub_death"]
 [connection signal="body_entered" from="fallzone" to="Scrub" method="_on_Area2D_body_entered"]
