@@ -142,7 +142,8 @@ func _death():
 	
 	$Timer.start()
 
-
+func play_sound():
+	$AudioStreamPlayer3.play()
 
 
 
