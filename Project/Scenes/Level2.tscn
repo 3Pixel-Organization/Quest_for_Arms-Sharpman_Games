@@ -301,11 +301,14 @@ texture = ExtResource( 15 )
 position = Vector2( 2819.66, -97.2913 )
 scale = Vector2( 0.365156, 0.365156 )
 texture = ExtResource( 15 )
+<<<<<<< Updated upstream
 
 [node name="Area2D" parent="." instance=ExtResource( 16 )]
 position = Vector2( 3196.28, 615.035 )
 scale = Vector2( 0.724, 1 )
 
+=======
+>>>>>>> Stashed changes
 [connection signal="death" from="Scrub" to="." method="_on_Scrub_death"]
 [connection signal="body_entered" from="fallzone" to="Scrub" method="_on_Area2D_body_entered"]
 [connection signal="coin_collected" from="coin" to="HUD" method="_on_coin_coin_collected"]
