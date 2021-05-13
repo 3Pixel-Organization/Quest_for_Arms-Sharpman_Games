@@ -7,8 +7,7 @@ var direction = 1
 var cooldownnotactive = true
 var hasfireball = false
 var is_jumping = false
-
-
+#Onready Variables
 onready var Coyote_Timer = $CoyoteTimer
 onready var Jump_Buffer = $JumpBuffer
 #Constants
