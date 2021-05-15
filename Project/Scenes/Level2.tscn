@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Scripts/Level2.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Scrub.tscn" type="PackedScene" id=2]
@@ -162,6 +162,9 @@ points = PoolVector2Array( 0, 0, 0, 0, 80, 0, 31, 64, 0, 82 )
 } ]
 4/z_index = 0
 
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 276.871, 10 )
+
 [node name="Level 2" type="Node2D"]
 position = Vector2( -1147.75, -279.387 )
 script = ExtResource( 1 )
@@ -306,6 +309,13 @@ texture = ExtResource( 15 )
 position = Vector2( 3196.28, 615.035 )
 scale = Vector2( 0.724, 1 )
 
+[node name="Area2D2" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2( 1376.15, -402.435 )
+shape = SubResource( 11 )
+
 [connection signal="death" from="Scrub" to="." method="_on_Scrub_death"]
 [connection signal="body_entered" from="fallzone" to="Scrub" method="_on_Area2D_body_entered"]
 [connection signal="coin_collected" from="coin" to="HUD" method="_on_coin_coin_collected"]
+[connection signal="body_entered" from="Area2D2" to="." method="_on_Area2D2_body_entered"]
