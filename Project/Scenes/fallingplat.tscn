@@ -80,7 +80,7 @@ texture = ExtResource( 1 )
 [node name="Timer" type="Timer" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 10.4881, -33.263 )
+position = Vector2( 10.4881, -16.7816 )
 shape = SubResource( 4 )
 
 [node name="Area2D" type="Area2D" parent="."]
