@@ -872,5 +872,5 @@ offset = Vector2( -166.29, 211.052 )
 [connection signal="coin_collected" from="coin21" to="HUD" method="_on_coin4_coin_collected"]
 [connection signal="coin_collected" from="coin19" to="HUD" method="_on_coin4_coin_collected"]
 [connection signal="coin_collected" from="coin13" to="HUD" method="_on_coin4_coin_collected"]
-[connection signal="body_entered" from="Area2D2" to="Scrub" method="_on_Area2D2_body_entered"]
 [connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_Area2D2_body_entered"]
+[connection signal="body_entered" from="Area2D2" to="Scrub" method="_on_Area2D2_body_entered"]
