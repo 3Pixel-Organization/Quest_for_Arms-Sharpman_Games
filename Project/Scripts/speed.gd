@@ -1,5 +1,6 @@
 extends KinematicBody2D
-
+var health = 50
+var is_staggered = false
 export var speed = 100
 var velocity = Vector2()
 var is_dead = false
@@ -8,7 +9,7 @@ export var detect_cliffs = true
 
 func _ready():
 	if direction == 1:
-		$AnimatedSprite.flip_h = true
+		$Sprite.flip_h = true
 	$floor_checker.position.x = $CollisionShape2D.shape.get_extents().x * direction
 	$floor_checker.enabled = detect_cliffs
 
@@ -51,7 +52,7 @@ func _on_Timer_timeout():
 
 func fireball_dead():
 	is_dead = true
-	$AnimatedSprite.play("fireballdead")
+	#$AnimatedSprite.play("fireballdead")
 	speed = 0
 	set_collision_layer_bit(4, false)
 	set_collision_mask_bit(0, false)

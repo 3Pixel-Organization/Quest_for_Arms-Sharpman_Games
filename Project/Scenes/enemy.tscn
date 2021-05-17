@@ -19,6 +19,11 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 2 ), ExtResource( 8 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 7 ), ExtResource( 9 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "fireballdead",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 5 ) ],
 "loop": true,
 "name": "squashed",
@@ -28,11 +33,6 @@ animations = [ {
 "loop": true,
 "name": "walk",
 "speed": 3.0
-}, {
-"frames": [ ExtResource( 2 ), ExtResource( 8 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 7 ), ExtResource( 9 ), ExtResource( 6 ) ],
-"loop": true,
-"name": "fireballdead",
-"speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -43,7 +43,7 @@ radius = 201.774
 height = 850.575
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 553.722, 749.429 )
+extents = Vector2( 553.722, 877.131 )
 
 [node name="enemy" type="KinematicBody2D"]
 collision_layer = 16
@@ -54,6 +54,7 @@ script = ExtResource( 1 )
 position = Vector2( -21.1893, 8.47559 )
 frames = SubResource( 1 )
 animation = "walk"
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -88,6 +89,11 @@ shape = SubResource( 4 )
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
 
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 1.5
+
 [connection signal="body_entered" from="top_checker" to="." method="_on_top_checker_body_entered"]
+[connection signal="area_entered" from="sides_checker" to="." method="_on_sides_checker_area_entered"]
 [connection signal="body_entered" from="sides_checker" to="." method="_on_sides_checker_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_Timer2_timeout"]
