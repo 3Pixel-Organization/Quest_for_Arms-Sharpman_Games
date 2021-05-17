@@ -1,7 +1,8 @@
-[gd_scene load_steps=53 format=2]
+[gd_scene load_steps=54 format=2]
 
 [ext_resource path="res://Assets/Sprites/Floor/basicunderground1.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Scrub.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/speed.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/Sprites/Background/2560x1440-deep-sky-blue-solid-color-background.jpg" type="Texture" id=4]
 [ext_resource path="res://Assets/Sprites/Background/mountainsgame.png" type="Texture" id=5]
 [ext_resource path="res://Scenes/pause.tscn" type="PackedScene" id=6]
@@ -920,6 +921,10 @@ scale = Vector2( 0.08, 0.08 )
 [node name="enemy14" parent="ENEMIES" instance=ExtResource( 12 )]
 position = Vector2( 9149.4, 570.277 )
 scale = Vector2( 0.08, 0.08 )
+
+[node name="enemy" parent="." instance=ExtResource( 3 )]
+position = Vector2( 2101.25, 655.518 )
+scale = Vector2( 0.4, 0.4 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 13 )
