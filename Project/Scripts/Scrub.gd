@@ -178,3 +178,9 @@ func _on_Timer3_timeout():
 func _on_Timer4_timeout():
 	is_attacking = false
 	$"attack 2/CollisionShape2D".disabled = true
+
+
+
+
+
+
