@@ -30,7 +30,7 @@ func _physics_process(delta):
 
 func _on_top_checker_body_entered(body):
 	if !is_staggered:
-		if health <= 25:
+		if health <= 30:
 			is_dead = true
 			$AnimatedSprite.play("squashed")
 			$Timer.start()
@@ -43,7 +43,7 @@ func _on_top_checker_body_entered(body):
 			$sides_checker.set_collision_mask_bit(0, false)
 		else:
 			is_staggered = true
-			health = health - 25
+			health = health - 30
 			speed = 0
 			$AnimatedSprite.play("squashed")
 			$Timer2.start()
@@ -109,17 +109,16 @@ func kick():
 
 func spekick():
 	if !is_staggered:
-		if health <= 60:
-			is_dead = true
-			$AnimatedSprite.play("squashed")
-			$Timer.start()
-			speed = 0
-			set_collision_layer_bit(4, false)
-			set_collision_mask_bit(0, false)
-			$top_checker.set_collision_layer_bit(4, false)
-			$top_checker.set_collision_mask_bit(0, false)
-			$sides_checker.set_collision_layer_bit(4, false)
-			$sides_checker.set_collision_mask_bit(0, false)
+		is_dead = true
+		$AnimatedSprite.play("squashed")
+		$Timer.start()
+		speed = 0
+		set_collision_layer_bit(4, false)
+		set_collision_mask_bit(0, false)
+		$top_checker.set_collision_layer_bit(4, false)
+		$top_checker.set_collision_mask_bit(0, false)
+		$sides_checker.set_collision_layer_bit(4, false)
+		$sides_checker.set_collision_mask_bit(0, false)
 
 func _on_sides_checker_area_entered(area):
 	if area.is_in_group("spekick"):
