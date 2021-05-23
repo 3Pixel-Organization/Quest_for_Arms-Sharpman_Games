@@ -24,6 +24,8 @@ const JUMP_PAD_FORCE = -2000
 signal death
 
 
+func _ready():
+	$"Sprite-0003-export".hide()
 
 #Walk Code
 func _physics_process(delta):
@@ -32,6 +34,8 @@ func _physics_process(delta):
 		is_jumping = false 
 	if Input.is_action_pressed("right") && is_attacking == false:
 		$AnimatedSprite.flip_h = false
+		$"Sprite-0003-export".flip_h = false
+		$"Sprite-0003-export".z_index = 3
 		if sign($Position2D.position.x) == -1:
 			$Position2D.position.x *= -1
 		$AnimatedSprite.flip_h = false
@@ -42,6 +46,8 @@ func _physics_process(delta):
 		direction = -1
 	elif Input.is_action_pressed("left") && is_attacking == false:
 		$AnimatedSprite.flip_h = true
+		$"Sprite-0003-export".flip_h = true
+		$"Sprite-0003-export".z_index = 1
 		if sign($Position2D.position.x) == 1:
 			$Position2D.position.x *= -1
 		if sign($"attaclk 1/CollisionShape2D".position.x) == 1:
@@ -147,6 +153,7 @@ func _on_Timer2_timeout():
 	cooldownnotactive = true
 
 func fireball_pickup():
+	$"Sprite-0003-export".show()
 	hasfireball = true
 
 func _jump_pad():

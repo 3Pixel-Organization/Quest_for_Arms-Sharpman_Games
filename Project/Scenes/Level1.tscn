@@ -589,7 +589,7 @@ shape = SubResource( 4 )
 one_way_collision = true
 
 [node name="Scrub" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1238.81, 601.191 )
+position = Vector2( 6246.81, -62.8091 )
 scale = Vector2( 0.5, 0.5 )
 collision_mask = 30
 
@@ -1056,5 +1056,5 @@ offset = Vector2( -166.29, 211.052 )
 [connection signal="coin_collected" from="coin21" to="HUD" method="_on_coin4_coin_collected"]
 [connection signal="coin_collected" from="coin19" to="HUD" method="_on_coin4_coin_collected"]
 [connection signal="coin_collected" from="coin13" to="HUD" method="_on_coin4_coin_collected"]
-[connection signal="body_entered" from="Area2D2" to="Scrub" method="_on_Area2D2_body_entered"]
 [connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_Area2D2_body_entered"]
+[connection signal="body_entered" from="Area2D2" to="Scrub" method="_on_Area2D2_body_entered"]
