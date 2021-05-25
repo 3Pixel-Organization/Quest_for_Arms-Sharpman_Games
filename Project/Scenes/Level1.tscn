@@ -944,83 +944,97 @@ shape = SubResource( 23 )
 [node name="tree_redesign" type="Sprite" parent="."]
 position = Vector2( 1849.19, 606.397 )
 scale = Vector2( 0.552992, 0.552992 )
+z_index = 3
 texture = ExtResource( 25 )
 
 [node name="tree_redesign2" type="Sprite" parent="."]
 position = Vector2( 1529.77, 496.202 )
 scale = Vector2( 0.548583, 0.548583 )
+z_index = 3
 texture = ExtResource( 25 )
 offset = Vector2( -166.29, 211.052 )
 
 [node name="tree_redesign3" type="Sprite" parent="."]
 position = Vector2( 3780.71, 94.1927 )
 scale = Vector2( 0.548583, 0.548583 )
+z_index = 3
 texture = ExtResource( 25 )
 offset = Vector2( -166.29, 211.052 )
 
 [node name="tree_redesign4" type="Sprite" parent="."]
 position = Vector2( 3682.29, -613.788 )
 scale = Vector2( 0.548583, 0.548583 )
+z_index = 3
 texture = ExtResource( 25 )
 offset = Vector2( -166.29, 211.052 )
 
 [node name="tree_redesign5" type="Sprite" parent="."]
 position = Vector2( 7803.18, 478.344 )
 scale = Vector2( 0.548583, 0.548583 )
+z_index = 3
 texture = ExtResource( 25 )
 offset = Vector2( -166.29, 211.052 )
 
 [node name="tree_redesign6" type="Sprite" parent="."]
 position = Vector2( 10546.2, -220.112 )
 scale = Vector2( 0.548583, 0.548583 )
+z_index = 3
 texture = ExtResource( 25 )
 offset = Vector2( -166.29, 211.052 )
 
 [node name="tree_redesign7" type="Sprite" parent="."]
 position = Vector2( 11393.9, -610.613 )
 scale = Vector2( 0.548583, 0.548583 )
+z_index = 3
 texture = ExtResource( 25 )
 offset = Vector2( -166.29, 211.052 )
 
 [node name="tree_redesign8" type="Sprite" parent="."]
 position = Vector2( 12371.7, -864.598 )
 scale = Vector2( 0.548583, 0.548583 )
+z_index = 3
 texture = ExtResource( 25 )
 offset = Vector2( -166.29, 211.052 )
 
 [node name="tree_redesign9" type="Sprite" parent="."]
 position = Vector2( 12594.9, -1633.08 )
 scale = Vector2( 0.548583, 0.548583 )
+z_index = 3
 texture = ExtResource( 25 )
 offset = Vector2( -166.29, 211.052 )
 
 [node name="tree_redesign10" type="Sprite" parent="."]
 position = Vector2( 12876.2, -1632.52 )
 scale = Vector2( 0.548583, 0.548583 )
+z_index = 3
 texture = ExtResource( 25 )
 offset = Vector2( -166.29, 211.052 )
 
 [node name="tree_redesign11" type="Sprite" parent="."]
 position = Vector2( 13809.9, -1565.85 )
 scale = Vector2( 0.548583, 0.548583 )
+z_index = 3
 texture = ExtResource( 25 )
 offset = Vector2( -166.29, 211.052 )
 
 [node name="tree_redesign13" type="Sprite" parent="."]
 position = Vector2( 14536.4, -1316.76 )
 scale = Vector2( 0.548583, 0.548583 )
+z_index = 3
 texture = ExtResource( 25 )
 offset = Vector2( -166.29, 211.052 )
 
 [node name="tree_redesign14" type="Sprite" parent="."]
 position = Vector2( 14375, 358.626 )
 scale = Vector2( 0.548583, 0.548583 )
+z_index = 3
 texture = ExtResource( 25 )
 offset = Vector2( -166.29, 211.052 )
 
 [node name="tree_redesign15" type="Sprite" parent="."]
 position = Vector2( 16292.2, 351.581 )
 scale = Vector2( 0.548583, 0.548583 )
+z_index = 3
 texture = ExtResource( 25 )
 offset = Vector2( -166.29, 211.052 )
 
@@ -1056,5 +1070,5 @@ offset = Vector2( -166.29, 211.052 )
 [connection signal="coin_collected" from="coin21" to="HUD" method="_on_coin4_coin_collected"]
 [connection signal="coin_collected" from="coin19" to="HUD" method="_on_coin4_coin_collected"]
 [connection signal="coin_collected" from="coin13" to="HUD" method="_on_coin4_coin_collected"]
-[connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_Area2D2_body_entered"]
 [connection signal="body_entered" from="Area2D2" to="Scrub" method="_on_Area2D2_body_entered"]
+[connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_Area2D2_body_entered"]

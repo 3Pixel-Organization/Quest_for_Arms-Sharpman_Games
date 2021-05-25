@@ -4,6 +4,7 @@ var level = 1
 
 
 func visible():
+	$AudioStreamPlayer.play()
 	visible = true
 	$Button2.disabled = false
 	$Button.disabled = false

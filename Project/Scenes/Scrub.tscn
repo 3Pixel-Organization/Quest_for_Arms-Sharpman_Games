@@ -3,8 +3,8 @@
 [ext_resource path="res://Assets/Animations/player_spriteframes.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://Scripts/Scrub.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Sounds/Sound Effects/Fireball_No_explosion.ogg" type="AudioStream" id=3]
-[ext_resource path="res://Assets/Sounds/Sound Effects/Jump_SFX.ogg" type="AudioStream" id=4]
-[ext_resource path="res://Assets/Sounds/Sound Effects/Coin_Cllect.ogg" type="AudioStream" id=5]
+[ext_resource path="res://Assets/Sounds/Sound Effects/new folder/Coin.ogg" type="AudioStream" id=4]
+[ext_resource path="res://Assets/Sounds/Sound Effects/new folder/Jump.ogg" type="AudioStream" id=5]
 [ext_resource path="res://Assets/Sprites/Items/Sprite-0003-export.png" type="Texture" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -55,11 +55,11 @@ one_shot = true
 stream = ExtResource( 3 )
 
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 4 )
+stream = ExtResource( 5 )
 volume_db = 0.5
 
 [node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 5 )
+stream = ExtResource( 4 )
 
 [node name="attaclk 1" type="Area2D" parent="." groups=[
 "kick",
