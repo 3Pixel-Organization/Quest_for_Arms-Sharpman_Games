@@ -368,7 +368,7 @@ scale = Vector2( 0.524, 0.641 )
 [node name="Area2D2" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
-position = Vector2( 1376.15, -402.435 )
+position = Vector2( 1345.03, -1019.66 )
 shape = SubResource( 13 )
 
 [node name="KinematicBody2D" parent="." instance=ExtResource( 17 )]
