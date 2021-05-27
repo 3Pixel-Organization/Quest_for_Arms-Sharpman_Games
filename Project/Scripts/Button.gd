@@ -1,13 +1,16 @@
 extends Node2D
 
 var level = 1
-
+var hassfx = true
 
 func visible():
-	$AudioStreamPlayer.play()
 	visible = true
 	$Button2.disabled = false
 	$Button.disabled = false
+	if hassfx == true:
+		$AudioStreamPlayer.play()
+		$Timer.start()
+		hassfx = false
 
 
 func _ready():
@@ -32,3 +35,8 @@ func _on_Button_pressed():
 	elif level == 3:
 		pass
 		#get_tree().change_scene(diretorio do niv3)
+
+
+func _on_Timer_timeout():
+	$AudioStreamPlayer.stop()
+	hassfx = false
