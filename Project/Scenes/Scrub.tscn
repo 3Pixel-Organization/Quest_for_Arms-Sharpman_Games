@@ -5,17 +5,17 @@
 [ext_resource path="res://Assets/Sounds/Sound Effects/Fireball_No_explosion.ogg" type="AudioStream" id=3]
 [ext_resource path="res://Assets/Sounds/Sound Effects/new folder/Coin.ogg" type="AudioStream" id=4]
 [ext_resource path="res://Assets/Sounds/Sound Effects/new folder/Jump.ogg" type="AudioStream" id=5]
-[ext_resource path="res://Assets/Sprites/Items/Sprite-0003-export.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Sprites/Items/mountedGun-export.png" type="Texture" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 60.2508, 137.246 )
-
-[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 75.7918, 112.276 )
 
-[sub_resource type="CapsuleShape2D" id=3]
+[sub_resource type="CapsuleShape2D" id=2]
 radius = 876.94
 height = 444.057
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 66.1028, 142.828 )
 
 [node name="Scrub" type="KinematicBody2D"]
 position = Vector2( 0, 3.5636 )
@@ -36,12 +36,8 @@ one_shot = true
 wait_time = 5.0
 
 [node name="Position2D" type="Position2D" parent="."]
-position = Vector2( 6.589, -3.488 )
+position = Vector2( -20.618, -16.24 )
 scale = Vector2( 100, 100 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 22.6786 )
-shape = SubResource( 1 )
 
 [node name="CoyoteTimer" type="Timer" parent="."]
 wait_time = 0.1
@@ -67,7 +63,7 @@ stream = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="attaclk 1"]
 position = Vector2( 190.882, 30.0339 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 disabled = true
 
 [node name="Timer3" type="Timer" parent="."]
@@ -79,7 +75,7 @@ wait_time = 0.15
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="attack 2"]
 rotation = 1.5708
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 disabled = true
 
 [node name="Timer4" type="Timer" parent="."]
@@ -88,9 +84,13 @@ wait_time = 3.0
 [node name="Timer5" type="Timer" parent="."]
 wait_time = 0.01
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -4.92369, 17.2086 )
+shape = SubResource( 3 )
+
 [node name="Sprite-0003-export" type="Sprite" parent="."]
-position = Vector2( -31.2946, -4.59857 )
-scale = Vector2( 0.42567, 0.42567 )
+position = Vector2( -41.2369, -19.5249 )
+scale = Vector2( 0.570508, 0.58321 )
 z_index = 3
 texture = ExtResource( 6 )
 
