@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scripts/bulletlr.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Sprites/canon/canon/cannonball.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Sprites/canon/canon/new folder/cannon_ball-export.png" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 43.264

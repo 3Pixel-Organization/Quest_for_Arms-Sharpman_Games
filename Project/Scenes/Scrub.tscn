@@ -15,7 +15,7 @@ radius = 876.94
 height = 444.057
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 66.1028, 142.828 )
+extents = Vector2( 54.5882, 133.476 )
 
 [node name="Scrub" type="KinematicBody2D"]
 position = Vector2( 0, 3.5636 )
@@ -36,7 +36,7 @@ one_shot = true
 wait_time = 5.0
 
 [node name="Position2D" type="Position2D" parent="."]
-position = Vector2( -20.618, -16.24 )
+position = Vector2( -23.119, -25.817 )
 scale = Vector2( 100, 100 )
 
 [node name="CoyoteTimer" type="Timer" parent="."]
@@ -85,12 +85,12 @@ wait_time = 3.0
 wait_time = 0.01
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -4.92369, 17.2086 )
+position = Vector2( -4.36241, 25.6271 )
 shape = SubResource( 3 )
 
 [node name="Sprite-0003-export" type="Sprite" parent="."]
-position = Vector2( -41.2369, -19.5249 )
-scale = Vector2( 0.570508, 0.58321 )
+position = Vector2( -60.0493, -32.3869 )
+scale = Vector2( 1.03863, 1.06176 )
 z_index = 3
 texture = ExtResource( 6 )
 

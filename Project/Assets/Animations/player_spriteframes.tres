@@ -15,22 +15,22 @@ animations = [ {
 "frames": [ ExtResource( 4 ), ExtResource( 3 ), ExtResource( 2 ), ExtResource( 1 ) ],
 "loop": true,
 "name": "Idle",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 9 ) ],
-"loop": false,
-"name": "jump",
-"speed": 0.1
+"speed": 2.0
 }, {
 "frames": [  ],
 "loop": true,
 "name": "crouch",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
+"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 6 ), ExtResource( 5 ) ],
 "loop": true,
 "name": "walk",
-"speed": 7.0
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": false,
+"name": "jump",
+"speed": 0.1
 }, {
 "frames": [  ],
 "loop": true,

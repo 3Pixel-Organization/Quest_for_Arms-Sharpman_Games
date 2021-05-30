@@ -10,31 +10,32 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 2 ) ],
+"frames": [  ],
 "loop": true,
-"name": "walk",
-"speed": 3.0
+"name": "fireballdead",
+"speed": 5.0
 }, {
 "frames": [  ],
 "loop": true,
 "name": "squashed",
 "speed": 5.0
 }, {
-"frames": [  ],
+"frames": [ ExtResource( 2 ) ],
 "loop": true,
-"name": "fireballdead",
-"speed": 5.0
+"name": "walk",
+"speed": 3.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 342.2, 153.587 )
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 455.277, 665.962 )
 
 [sub_resource type="CapsuleShape2D" id=3]
 radius = 201.774
-height = 850.575
+height = 668.329
 
-[sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 553.722, 877.131 )
+[sub_resource type="CapsuleShape2D" id=5]
+radius = 573.719
+height = 253.2
 
 [node name="enemy" type="KinematicBody2D"]
 collision_layer = 16
@@ -49,9 +50,9 @@ animation = "walk"
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -43.37, 431.878 )
-scale = Vector2( 2.09819, 3.43229 )
-shape = SubResource( 2 )
+position = Vector2( -43.37, 478.398 )
+rotation = 1.5708
+shape = SubResource( 6 )
 
 [node name="floor_checker" type="RayCast2D" parent="."]
 scale = Vector2( 25, 25 )
@@ -73,9 +74,9 @@ collision_layer = 16
 collision_mask = 33
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="sides_checker"]
-position = Vector2( -33.3888, 434.169 )
+position = Vector2( -44.0675, 404.802 )
 rotation = 1.5708
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
