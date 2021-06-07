@@ -27,6 +27,9 @@ signal death
 func _ready():
 	$"Sprite-0003-export".hide()
 
+func _process(delta):
+	print (Engine.get_frames_per_second())
+
 #Walk Code
 func _physics_process(delta):
 	var friction = false

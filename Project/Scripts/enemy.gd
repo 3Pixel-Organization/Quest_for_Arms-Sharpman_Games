@@ -45,7 +45,8 @@ func _on_top_checker_body_entered(body):
 			is_staggered = true
 			health = health - 30
 			speed = 0
-			$AnimatedSprite.play("squashed")
+			set_modulate(Color(0.3,0.3,0.3,0.6))
+			$AnimatedSprite.play("stagger")
 			$Timer2.start()
 		if body.name == "Scrub":
 			body.bounce()
@@ -77,12 +78,14 @@ func fireball_dead():
 			is_staggered = true
 			health = health - 30
 			speed = 0
-			$AnimatedSprite.play("squashed")
+			$AnimatedSprite.play("stagger")
+			set_modulate(Color(0.3,0.3,0.3,0.6))
 			$Timer2.start()
 
 
 func _on_Timer2_timeout():
 	$AnimatedSprite.play("walk")
+	set_modulate(Color(1,1,1,1))
 	speed = 95
 	is_staggered = false
 
@@ -104,7 +107,8 @@ func kick():
 			health = health - 20
 			print(health)
 			speed = 0
-			$AnimatedSprite.play("squashed")
+			set_modulate(Color(0.3,0.3,0.3,0.6))
+			$AnimatedSprite.play("stagger")
 			$Timer2.start()
 
 func spekick():

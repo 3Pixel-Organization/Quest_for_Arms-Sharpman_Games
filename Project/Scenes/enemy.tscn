@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/enemy.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Sprites/enemy/new folder/slasher-export.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Sprites/enemy/new folder/slasher-exporthurt.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Sprites/enemy/new folder/slasher-exportaquash.png" type="Texture" id=4]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -10,10 +12,10 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [  ],
+"frames": [ ExtResource( 4 ), ExtResource( 4 ), ExtResource( 4 ) ],
 "loop": true,
 "name": "squashed",
-"speed": 5.0
+"speed": 1.0
 }, {
 "frames": [ ExtResource( 2 ) ],
 "loop": true,
@@ -23,6 +25,11 @@ animations = [ {
 "frames": [  ],
 "loop": true,
 "name": "fireballdead",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "stagger",
 "speed": 5.0
 } ]
 
@@ -81,8 +88,9 @@ shape = SubResource( 4 )
 one_shot = true
 
 [node name="Timer2" type="Timer" parent="."]
-wait_time = 1.5
+wait_time = 0.3
 
+[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
 [connection signal="body_entered" from="top_checker" to="." method="_on_top_checker_body_entered"]
 [connection signal="area_entered" from="sides_checker" to="." method="_on_sides_checker_area_entered"]
 [connection signal="body_entered" from="sides_checker" to="." method="_on_sides_checker_body_entered"]

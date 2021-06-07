@@ -5,13 +5,14 @@
 
 [node name="VideoPlayer" type="VideoPlayer"]
 margin_right = 1920.0
-margin_bottom = 1074.0
+margin_bottom = 1080.0
 stream = ExtResource( 1 )
-volume_db = -10.0
+volume_db = -22.87
 autoplay = true
 expand = false
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
 [connection signal="finished" from="." to="." method="_on_VideoPlayer_finished"]
