@@ -129,6 +129,15 @@ __meta__ = {
 stream = ExtResource( 4 )
 autoplay = true
 
+[node name="HSlider" type="HSlider" parent="."]
+margin_left = 15.9546
+margin_top = 904.865
+margin_right = 427.955
+margin_bottom = 999.865
+min_value = -80.0
+max_value = 0.0
+
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_Button2_pressed"]
 [connection signal="pressed" from="Button3" to="." method="_on_Button3_pressed"]
+[connection signal="value_changed" from="HSlider" to="." method="_on_HSlider_value_changed"]

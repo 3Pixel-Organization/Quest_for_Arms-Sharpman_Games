@@ -17,3 +17,7 @@ func _on_Button2_pressed():
 
 func _on_Button3_pressed():
 	get_tree().change_scene("res://Scenes/MainMenu.tscn")
+
+
+func _on_HSlider_value_changed(value):
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), value)
