@@ -60,10 +60,10 @@ texture = ExtResource( 5 )
 [node name="Label" type="Label" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = 425.274
-margin_top = 878.593
-margin_right = 1902.27
-margin_bottom = 1125.59
+margin_left = 284.163
+margin_top = 679.525
+margin_right = 1761.16
+margin_bottom = 926.525
 rect_scale = Vector2( 0.8, 0.8 )
 custom_fonts/font = SubResource( 1 )
 text = "Quest for Arms"
@@ -83,9 +83,9 @@ __meta__ = {
 }
 
 [node name="Button" type="Button" parent="."]
-margin_left = -113.257
+margin_left = -93.0527
 margin_top = 405.818
-margin_right = 562.739
+margin_right = 582.943
 margin_bottom = 646.818
 rect_scale = Vector2( 0.8, 0.8 )
 custom_fonts/font = SubResource( 3 )
@@ -141,6 +141,9 @@ margin_right = 783.0
 margin_bottom = 116.0
 min_value = -80.0
 max_value = 0.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_Button2_pressed"]
