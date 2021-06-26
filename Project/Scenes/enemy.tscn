@@ -12,16 +12,6 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 4 ), ExtResource( 4 ), ExtResource( 4 ) ],
-"loop": true,
-"name": "squashed",
-"speed": 1.0
-}, {
-"frames": [ ExtResource( 2 ) ],
-"loop": true,
-"name": "walk",
-"speed": 3.0
-}, {
 "frames": [  ],
 "loop": true,
 "name": "fireballdead",
@@ -31,6 +21,16 @@ animations = [ {
 "loop": true,
 "name": "stagger",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 4 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "squashed",
+"speed": 1.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "walk",
+"speed": 3.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]

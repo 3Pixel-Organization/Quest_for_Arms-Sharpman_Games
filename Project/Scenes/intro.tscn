@@ -6,6 +6,7 @@
 [node name="VideoPlayer" type="VideoPlayer"]
 margin_right = 1920.0
 margin_bottom = 1080.0
+rect_scale = Vector2( 0.8, 0.8 )
 stream = ExtResource( 1 )
 volume_db = -22.87
 autoplay = true

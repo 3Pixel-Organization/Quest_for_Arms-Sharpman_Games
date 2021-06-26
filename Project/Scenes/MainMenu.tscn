@@ -46,6 +46,7 @@ __meta__ = {
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_right = 1920.0
 margin_bottom = 1080.0
+rect_scale = Vector2( 0.8, 0.8 )
 color = Color( 0.921569, 1, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -63,6 +64,7 @@ margin_left = 425.274
 margin_top = 878.593
 margin_right = 1902.27
 margin_bottom = 1125.59
+rect_scale = Vector2( 0.8, 0.8 )
 custom_fonts/font = SubResource( 1 )
 text = "Quest for Arms"
 __meta__ = {
@@ -70,9 +72,9 @@ __meta__ = {
 }
 
 [node name="Label2" type="Label" parent="."]
-margin_left = 1248.43
+margin_left = 869.358
 margin_top = 10.6115
-margin_right = 1903.43
+margin_right = 1524.36
 margin_bottom = 67.6115
 custom_fonts/font = SubResource( 2 )
 text = "THIS IS A WORK IN PROGRESS"
@@ -85,6 +87,7 @@ margin_left = -113.257
 margin_top = 405.818
 margin_right = 562.739
 margin_bottom = 646.818
+rect_scale = Vector2( 0.8, 0.8 )
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_hover = Color( 0.470588, 0.454902, 0.454902, 1 )
@@ -100,6 +103,7 @@ margin_left = 7.20215
 margin_top = 627.012
 margin_right = 326.202
 margin_bottom = 751.012
+rect_scale = Vector2( 0.8, 0.8 )
 custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_hover = Color( 0.470588, 0.454902, 0.454902, 1 )
@@ -115,6 +119,7 @@ margin_left = 12.0182
 margin_top = 734.436
 margin_right = 321.018
 margin_bottom = 860.436
+rect_scale = Vector2( 0.8, 0.8 )
 custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_hover = Color( 0.470588, 0.454902, 0.454902, 1 )
@@ -130,10 +135,10 @@ stream = ExtResource( 4 )
 autoplay = true
 
 [node name="HSlider" type="HSlider" parent="."]
-margin_left = 15.9546
-margin_top = 904.865
-margin_right = 427.955
-margin_bottom = 999.865
+margin_left = 260.0
+margin_top = 21.0
+margin_right = 783.0
+margin_bottom = 116.0
 min_value = -80.0
 max_value = 0.0
 

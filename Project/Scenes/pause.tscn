@@ -13,6 +13,7 @@ font_data = ExtResource( 1 )
 
 [node name="Control" type="Control" parent="."]
 pause_mode = 2
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 2 )
@@ -66,10 +67,10 @@ __meta__ = {
 }
 
 [node name="HSlider" type="HSlider" parent="Control"]
-margin_left = 686.877
-margin_top = 670.255
-margin_right = 1242.88
-margin_bottom = 843.255
+margin_left = 505.653
+margin_top = 536.225
+margin_right = 1061.66
+margin_bottom = 709.225
 min_value = -80.0
 max_value = 0.0
 __meta__ = {

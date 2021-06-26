@@ -32,7 +32,7 @@ func _on_top_checker_body_entered(body):
 	if !is_staggered:
 		if health <= 30:
 			is_dead = true
-			$AnimatedSprite.play("squashed")
+			queue_free()
 			$Timer.start()
 			speed = 0
 			set_collision_layer_bit(4, false)
@@ -64,7 +64,7 @@ func _on_Timer_timeout():
 func fireball_dead():
 	if health <= 30:
 		is_dead = true
-		$AnimatedSprite.play("fireballdead")
+		queue_free()
 		speed = 0
 		set_collision_layer_bit(4, false)
 		set_collision_mask_bit(0, false)
@@ -93,7 +93,7 @@ func kick():
 	if !is_staggered:
 		if health <= 20:
 			is_dead = true
-			$AnimatedSprite.play("squashed")
+			queue_free()
 			$Timer.start()
 			speed = 0
 			set_collision_layer_bit(4, false)
@@ -114,7 +114,7 @@ func kick():
 func spekick():
 	if !is_staggered:
 		is_dead = true
-		$AnimatedSprite.play("squashed")
+		queue_free()
 		$Timer.start()
 		speed = 0
 		set_collision_layer_bit(4, false)

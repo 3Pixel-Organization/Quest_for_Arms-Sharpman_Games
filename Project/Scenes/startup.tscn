@@ -6,6 +6,7 @@
 [node name="VideoPlayer" type="VideoPlayer"]
 margin_right = 1921.0
 margin_bottom = 1080.0
+rect_scale = Vector2( 0.8, 0.8 )
 stream = ExtResource( 1 )
 autoplay = true
 script = ExtResource( 2 )

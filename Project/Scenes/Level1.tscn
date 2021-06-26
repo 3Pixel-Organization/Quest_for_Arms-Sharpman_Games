@@ -492,7 +492,7 @@ motion_mirroring = Vector2( 5120, 2880 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/Sky"]
 light_mask = -2147483647
-position = Vector2( -1732.28, -1560.49 )
+position = Vector2( -1725.93, -1465.25 )
 scale = Vector2( 2.94503, 2.86717 )
 texture = ExtResource( 4 )
 centered = false
@@ -604,11 +604,12 @@ shape = SubResource( 4 )
 one_way_collision = true
 
 [node name="Scrub" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1262.13, 588.842 )
+position = Vector2( 1224.15, 679.627 )
 scale = Vector2( 0.5, 0.5 )
 collision_mask = 30
 
 [node name="Camera2D" type="Camera2D" parent="Scrub"]
+position = Vector2( 0, -308.246 )
 scale = Vector2( 12.5, 12.5 )
 current = true
 limit_left = 5
@@ -961,7 +962,7 @@ shape = SubResource( 23 )
 [node name="pause" parent="." instance=ExtResource( 6 )]
 
 [node name="tree_redesign" type="Sprite" parent="."]
-position = Vector2( 1849.19, 606.397 )
+position = Vector2( 1757.79, 603.4 )
 scale = Vector2( 0.552992, 0.552992 )
 z_index = 5
 texture = ExtResource( 25 )
