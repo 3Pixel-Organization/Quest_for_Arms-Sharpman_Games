@@ -46,7 +46,7 @@ __meta__ = {
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_right = 1920.0
 margin_bottom = 1080.0
-rect_scale = Vector2( 0.8, 0.8 )
+rect_scale = Vector2( 0.934, 0.934 )
 color = Color( 0.921569, 1, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -60,10 +60,10 @@ texture = ExtResource( 5 )
 [node name="Label" type="Label" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = 284.163
-margin_top = 679.525
-margin_right = 1761.16
-margin_bottom = 926.525
+margin_left = 334.56
+margin_top = 782.839
+margin_right = 1811.56
+margin_bottom = 1029.84
 rect_scale = Vector2( 0.8, 0.8 )
 custom_fonts/font = SubResource( 1 )
 text = "Quest for Arms"

@@ -67,10 +67,10 @@ __meta__ = {
 }
 
 [node name="HSlider" type="HSlider" parent="Control"]
-margin_left = 505.653
-margin_top = 536.225
-margin_right = 1061.66
-margin_bottom = 709.225
+margin_left = 623.119
+margin_top = 568.261
+margin_right = 1179.13
+margin_bottom = 741.261
 min_value = -80.0
 max_value = 0.0
 __meta__ = {

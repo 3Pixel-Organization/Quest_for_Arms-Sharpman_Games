@@ -9,3 +9,7 @@ func _on_Scrub_death():
 func _on_Area2D2_body_entered(body):
 	if body.name == "Scrub":
 		body.fireball_pickup()
+
+func _enter_tree():
+	if Checkpoint.laast_location:
+		$Scrub.global_position = Checkpoint.laast_location
