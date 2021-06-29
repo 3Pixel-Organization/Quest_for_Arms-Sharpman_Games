@@ -38,7 +38,7 @@ func _physics_process(delta):
 	if Input.is_action_pressed("right") && is_attacking == false:
 		$AnimatedSprite.flip_h = false
 		$"Sprite-0003-export".flip_h = false
-		$AnimatedSprite.z_index = 3
+		$AnimatedSprite.z_index = 0
 		if sign($Position2D.position.x) == -1:
 			$Position2D.position.x *= -1
 		$AnimatedSprite.flip_h = false
@@ -50,7 +50,7 @@ func _physics_process(delta):
 	elif Input.is_action_pressed("left") && is_attacking == false:
 		$AnimatedSprite.flip_h = true
 		$"Sprite-0003-export".flip_h = true
-		$AnimatedSprite.z_index = 4
+		$AnimatedSprite.z_index = 1
 		if sign($Position2D.position.x) == 1:
 			$Position2D.position.x *= -1
 		if sign($"attaclk 1/CollisionShape2D".position.x) == 1:
