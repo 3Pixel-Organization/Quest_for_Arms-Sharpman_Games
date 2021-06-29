@@ -94,7 +94,7 @@ z_index = 3
 texture = ExtResource( 6 )
 
 [node name="Position2D" type="Position2D" parent="."]
-position = Vector2( -26.4226, -50.8297 )
+position = Vector2( -28.3103, -13.0747 )
 scale = Vector2( 100, 100 )
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
