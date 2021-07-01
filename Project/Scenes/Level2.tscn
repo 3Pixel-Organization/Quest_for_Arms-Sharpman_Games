@@ -570,7 +570,7 @@ texture = ExtResource( 4 )
 
 [node name="Sprite2" type="Sprite" parent="ParallaxBackground/Sky"]
 light_mask = -2147483647
-position = Vector2( 13372.1, 4255.5 )
+position = Vector2( 13387.2, 4119.58 )
 scale = Vector2( 35.9732, 28.8979 )
 texture = ExtResource( 4 )
 
@@ -598,7 +598,7 @@ drag_margin_left = 0.4
 editor_draw_limits = true
 
 [node name="fallzone" type="Area2D" parent="."]
-position = Vector2( 4421.23, 1285.9 )
+position = Vector2( 4360.75, 529.944 )
 scale = Vector2( 0.767, 1 )
 collision_layer = 4
 __meta__ = {
@@ -609,7 +609,7 @@ __meta__ = {
 shape = SubResource( 1 )
 
 [node name="fallzone2" type="Area2D" parent="."]
-position = Vector2( 10498.3, 202.15 )
+position = Vector2( 10679.6, -190.502 )
 scale = Vector2( 2.345, 1.138 )
 collision_layer = 4
 __meta__ = {
