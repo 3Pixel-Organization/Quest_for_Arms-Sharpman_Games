@@ -135,12 +135,12 @@ stream = ExtResource( 4 )
 autoplay = true
 
 [node name="HSlider" type="HSlider" parent="."]
-margin_left = 260.0
-margin_top = 21.0
-margin_right = 783.0
-margin_bottom = 116.0
+margin_left = 296.0
+margin_top = 23.0
+margin_right = 435.0
+margin_bottom = 118.0
 min_value = -80.0
-max_value = 0.0
+max_value = 20.0
 __meta__ = {
 "_edit_use_anchors_": false
 }

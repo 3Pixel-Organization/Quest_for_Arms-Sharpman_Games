@@ -979,7 +979,7 @@ scale = Vector2( 0.1, 0.1 )
 direction = 1
 
 [node name="enemy22" parent="ENEMIES" instance=ExtResource( 12 )]
-position = Vector2( 15827, -1232.37 )
+position = Vector2( 16107, -1080.37 )
 scale = Vector2( 0.1, 0.1 )
 direction = 1
 
