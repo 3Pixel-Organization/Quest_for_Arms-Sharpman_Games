@@ -480,7 +480,7 @@ font_data = ExtResource( 10 )
 [sub_resource type="RectangleShape2D" id=23]
 extents = Vector2( 22.4873, 162.138 )
 
-[node name="Level 1" type="Node2D"]
+[node name="Level 2" type="Node2D"]
 position = Vector2( -1147.75, -279.387 )
 script = ExtResource( 20 )
 
@@ -527,9 +527,8 @@ texture = ExtResource( 5 )
 centered = false
 
 [node name="tree_redesign12" type="Sprite" parent="."]
-position = Vector2( 14219.5, -984.863 )
-rotation = -0.507891
-scale = Vector2( 0.548583, 0.548583 )
+position = Vector2( 14137.8, -1013.45 )
+scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 25 )
 offset = Vector2( -166.29, 211.052 )
 
@@ -604,103 +603,103 @@ shape = SubResource( 4 )
 one_way_collision = true
 
 [node name="tree_redesign" type="Sprite" parent="."]
-position = Vector2( 1757.79, 603.4 )
-scale = Vector2( 0.552992, 0.552992 )
+position = Vector2( 1632.92, 608.156 )
+scale = Vector2( 0.1, 0.1 )
 z_index = 4
 z_as_relative = false
 texture = ExtResource( 25 )
 
 [node name="tree_redesign4" type="Sprite" parent="."]
-position = Vector2( 3682.29, -613.788 )
-scale = Vector2( 0.548583, 0.548583 )
+position = Vector2( 3648.99, -502.003 )
+scale = Vector2( 0.1, 0.1 )
 z_index = 4
 z_as_relative = false
 texture = ExtResource( 25 )
 offset = Vector2( -166.29, 211.052 )
 
 [node name="tree_redesign5" type="Sprite" parent="."]
-position = Vector2( 7287.83, 411.329 )
-scale = Vector2( 0.548583, 0.548583 )
+position = Vector2( 7254.53, 523.114 )
+scale = Vector2( 0.1, 0.1 )
 z_index = 4
 z_as_relative = false
 texture = ExtResource( 25 )
 offset = Vector2( -166.29, 211.052 )
 
 [node name="tree_redesign6" type="Sprite" parent="."]
-position = Vector2( 10546.2, -220.112 )
-scale = Vector2( 0.548583, 0.548583 )
+position = Vector2( 10512.9, -108.327 )
+scale = Vector2( 0.1, 0.1 )
 z_index = 4
 z_as_relative = false
 texture = ExtResource( 25 )
 offset = Vector2( -166.29, 211.052 )
 
 [node name="tree_redesign7" type="Sprite" parent="."]
-position = Vector2( 11393.9, -610.613 )
-scale = Vector2( 0.548583, 0.548583 )
+position = Vector2( 11360.6, -498.828 )
+scale = Vector2( 0.1, 0.1 )
 z_index = 4
 z_as_relative = false
 texture = ExtResource( 25 )
 offset = Vector2( -166.29, 211.052 )
 
 [node name="tree_redesign8" type="Sprite" parent="."]
-position = Vector2( 12371.7, -864.598 )
-scale = Vector2( 0.548583, 0.548583 )
+position = Vector2( 12338.4, -752.813 )
+scale = Vector2( 0.1, 0.1 )
 z_index = 4
 z_as_relative = false
 texture = ExtResource( 25 )
 offset = Vector2( -166.29, 211.052 )
 
 [node name="tree_redesign9" type="Sprite" parent="."]
-position = Vector2( 12594.9, -1633.08 )
-scale = Vector2( 0.548583, 0.548583 )
+position = Vector2( 12561.6, -1521.29 )
+scale = Vector2( 0.1, 0.1 )
 z_index = 4
 z_as_relative = false
 texture = ExtResource( 25 )
 offset = Vector2( -166.29, 211.052 )
 
 [node name="tree_redesign10" type="Sprite" parent="."]
-position = Vector2( 12876.2, -1632.52 )
-scale = Vector2( 0.548583, 0.548583 )
+position = Vector2( 12842.9, -1520.73 )
+scale = Vector2( 0.1, 0.1 )
 z_index = 4
 z_as_relative = false
 texture = ExtResource( 25 )
 offset = Vector2( -166.29, 211.052 )
 
 [node name="tree_redesign11" type="Sprite" parent="."]
-position = Vector2( 13809.9, -1565.85 )
-scale = Vector2( 0.548583, 0.548583 )
+position = Vector2( 13776.6, -1454.06 )
+scale = Vector2( 0.1, 0.1 )
 z_index = 4
 z_as_relative = false
 texture = ExtResource( 25 )
 offset = Vector2( -166.29, 211.052 )
 
 [node name="tree_redesign13" type="Sprite" parent="."]
-position = Vector2( 14536.4, -1316.76 )
-scale = Vector2( 0.548583, 0.548583 )
+position = Vector2( 14503.1, -1204.97 )
+scale = Vector2( 0.1, 0.1 )
 z_index = 4
 z_as_relative = false
 texture = ExtResource( 25 )
 offset = Vector2( -166.29, 211.052 )
 
 [node name="tree_redesign14" type="Sprite" parent="."]
-position = Vector2( 14375, 358.626 )
-scale = Vector2( 0.548583, 0.548583 )
+position = Vector2( 14341.7, 470.411 )
+scale = Vector2( 0.1, 0.1 )
 z_index = 4
 z_as_relative = false
 texture = ExtResource( 25 )
 offset = Vector2( -166.29, 211.052 )
 
 [node name="tree_redesign15" type="Sprite" parent="."]
-position = Vector2( 16292.2, 351.581 )
-scale = Vector2( 0.548583, 0.548583 )
+position = Vector2( 16258.9, 463.366 )
+scale = Vector2( 0.1, 0.1 )
 z_index = 4
 z_as_relative = false
 texture = ExtResource( 25 )
 offset = Vector2( -166.29, 211.052 )
 
 [node name="tree_redesign3" type="Sprite" parent="."]
-position = Vector2( 3780.71, 94.1927 )
-scale = Vector2( 0.548583, 0.548583 )
+position = Vector2( 3747.41, 205.978 )
+scale = Vector2( 0.1, 0.1 )
 z_index = 4
 z_as_relative = false
 texture = ExtResource( 25 )

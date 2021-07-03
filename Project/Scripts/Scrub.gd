@@ -189,5 +189,5 @@ func _on_Timer4_timeout():
 	is_attacking = false
 	$"attack 2/CollisionShape2D".disabled = true
 
-func _konckback():
-	velocity = Vector2(velocity.x , velocity.y).clamped(1000)
+func _knockback():
+	velocity = -velocity.clamped(1000)
