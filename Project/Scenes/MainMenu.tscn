@@ -60,10 +60,10 @@ texture = ExtResource( 5 )
 [node name="Label" type="Label" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = 334.56
-margin_top = 782.839
-margin_right = 1811.56
-margin_bottom = 1029.84
+margin_left = 370.56
+margin_top = 774.839
+margin_right = 1847.56
+margin_bottom = 1021.84
 rect_scale = Vector2( 0.8, 0.8 )
 custom_fonts/font = SubResource( 1 )
 text = "Quest for Arms"
