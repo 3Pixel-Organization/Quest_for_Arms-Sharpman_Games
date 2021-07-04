@@ -197,9 +197,9 @@ func _knockback():
 	knockback = true
 	get_tree().get_root().set_disable_input(true)
 	if direction == -1:
-		velocity.x = -1000
+		velocity.x = -4000
 	else: 
-		velocity.x = 1000
+		velocity.x = 4000
 	$Timer6.start()
 
 
