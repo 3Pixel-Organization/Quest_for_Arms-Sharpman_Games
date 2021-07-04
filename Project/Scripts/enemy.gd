@@ -6,7 +6,7 @@ var velocity = Vector2()
 var is_dead = false
 export var direction = -1
 export var detect_cliffs = true
-var is_staggered = true
+var is_staggered = false
 
 func _ready():
 	if direction == 1:
