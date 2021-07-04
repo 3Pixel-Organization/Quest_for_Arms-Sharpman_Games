@@ -29,6 +29,9 @@ func _physics_process(delta):
 
 
 func _on_top_checker_body_entered(body):
+	if is_staggered:
+		if body.name == "Scrub":
+			body._knockback()
 	if !is_staggered:
 		if health <= 30:
 			is_dead = true
@@ -52,6 +55,9 @@ func _on_top_checker_body_entered(body):
 			body.bounce()
 
 func _on_sides_checker_body_entered(body):
+	if is_staggered:
+		if body.name == "Scrub":
+			body._knockback()
 	if !is_staggered:
 		if body.name == "Scrub":
 			print ("ouch!")
