@@ -3,8 +3,8 @@
 [ext_resource path="res://Assets/Fonts/Roboto-Light.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Assets/Fonts/DESIGN.COLLECTION1.AOASWFTE.TTF" type="DynamicFontData" id=2]
 [ext_resource path="res://Scripts/MainMenu.gd" type="Script" id=3]
-[ext_resource path="res://Assets/Sounds/Music/cool3.ogg" type="AudioStream" id=4]
-[ext_resource path="res://Assets/bUtAJlib_400x400.jpg" type="Texture" id=5]
+[ext_resource path="res://Assets/Fonts/8-BitMadness.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://Assets/Sprites/title screen.png" type="Texture" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 size = 200
@@ -18,22 +18,22 @@ outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=3]
+size = 300
+outline_size = 7
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=4]
 size = 200
 outline_size = 7
 outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 1 )
-
-[sub_resource type="DynamicFont" id=4]
-size = 60
-outline_size = 3
-outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 1 )
+font_data = ExtResource( 5 )
 
 [sub_resource type="DynamicFont" id=5]
-size = 60
+size = 100
 outline_size = 3
 outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 1 )
+font_data = ExtResource( 5 )
 
 [node name="Control" type="Control"]
 margin_right = 40.0
@@ -43,27 +43,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorRect" type="ColorRect" parent="."]
-margin_right = 1920.0
-margin_bottom = 1080.0
-rect_scale = Vector2( 0.934, 0.934 )
-color = Color( 0.921569, 1, 0, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="bUtAJlib_400x400" type="Sprite" parent="ColorRect"]
-position = Vector2( 123.264, 123.833 )
-scale = Vector2( 0.477133, 0.477133 )
-texture = ExtResource( 5 )
+[node name="title screen" type="Sprite" parent="."]
+position = Vector2( 895.859, 499.476 )
+scale = Vector2( 0.93605, 0.938283 )
+texture = ExtResource( 6 )
 
 [node name="Label" type="Label" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = 370.56
-margin_top = 774.839
-margin_right = 1847.56
-margin_bottom = 1021.84
+margin_left = 322.56
+margin_top = 22.8391
+margin_right = 1799.56
+margin_bottom = 269.84
 rect_scale = Vector2( 0.8, 0.8 )
 custom_fonts/font = SubResource( 1 )
 text = "Quest for Arms"
@@ -72,10 +63,10 @@ __meta__ = {
 }
 
 [node name="Label2" type="Label" parent="."]
-margin_left = 869.358
-margin_top = 10.6115
-margin_right = 1524.36
-margin_bottom = 67.6115
+margin_left = 4.83612
+margin_top = 938.701
+margin_right = 659.838
+margin_bottom = 995.701
 custom_fonts/font = SubResource( 2 )
 text = "THIS IS A WORK IN PROGRESS"
 __meta__ = {
@@ -83,14 +74,14 @@ __meta__ = {
 }
 
 [node name="Button" type="Button" parent="."]
-margin_left = -93.0527
-margin_top = 405.818
-margin_right = 582.943
-margin_bottom = 646.818
+margin_left = -2.0
+margin_top = 296.0
+margin_right = 2242.0
+margin_bottom = 537.0
 rect_scale = Vector2( 0.8, 0.8 )
 custom_fonts/font = SubResource( 3 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_colors/font_color_hover = Color( 0.470588, 0.454902, 0.454902, 1 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0.658824, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 text = "Start"
 flat = true
@@ -99,14 +90,14 @@ __meta__ = {
 }
 
 [node name="Button2" type="Button" parent="."]
-margin_left = 7.20215
-margin_top = 627.012
-margin_right = 326.202
-margin_bottom = 751.012
+margin_left = 1.0
+margin_top = 509.0
+margin_right = 2244.0
+margin_bottom = 653.0
 rect_scale = Vector2( 0.8, 0.8 )
 custom_fonts/font = SubResource( 4 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_colors/font_color_hover = Color( 0.470588, 0.454902, 0.454902, 1 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0.658824, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 text = "About"
 flat = true
@@ -115,10 +106,10 @@ __meta__ = {
 }
 
 [node name="Button3" type="Button" parent="."]
-margin_left = 12.0182
-margin_top = 734.436
-margin_right = 321.018
-margin_bottom = 860.436
+margin_left = -3.0
+margin_top = 654.0
+margin_right = 2241.0
+margin_bottom = 780.0
 rect_scale = Vector2( 0.8, 0.8 )
 custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
@@ -130,15 +121,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 4 )
-autoplay = true
-
 [node name="HSlider" type="HSlider" parent="."]
-margin_left = 296.0
-margin_top = 23.0
-margin_right = 435.0
-margin_bottom = 118.0
+margin_left = 698.459
+margin_top = 775.119
+margin_right = 1100.46
+margin_bottom = 870.119
 min_value = -80.0
 max_value = 20.0
 __meta__ = {
