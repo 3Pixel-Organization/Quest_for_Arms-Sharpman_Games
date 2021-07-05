@@ -522,7 +522,7 @@ position = Vector2( 15667.7, -1339.58 )
 scale = Vector2( 0.467, 8.465 )
 
 [node name="Scrub" parent="." instance=ExtResource( 2 )]
-position = Vector2( 30991.5, -4858.25 )
+position = Vector2( 1085.65, -1454.74 )
 scale = Vector2( 0.5, 0.5 )
 collision_mask = 30
 
