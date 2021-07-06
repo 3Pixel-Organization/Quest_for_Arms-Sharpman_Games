@@ -1,0 +1,155 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://Scenes/Scrub.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Sprites/Background/tutorial_background.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Sprites/Background/tutorial tileset.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Sprites/HUD/tutorial_ui_w.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Fonts/8-BitMadness.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://Assets/Sprites/HUD/tutorial_ui_a.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Sprites/HUD/tutorial_ui_controller_move.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Sprites/HUD/tutorial_ui_down.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Sprites/HUD/tutorial_ui_s.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Sprites/HUD/tutorial_ui_d.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Sprites/HUD/tutorial_ui_left.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Sprites/HUD/tutorial_ui_right.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Sprites/HUD/tutorial_ui_up.png" type="Texture" id=13]
+
+[sub_resource type="ConvexPolygonShape2D" id=1]
+points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
+
+[sub_resource type="TileSet" id=2]
+0/name = "tutorial tileset.png 0"
+0/texture = ExtResource( 3 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 64, 64 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 1 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 1 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0, 0, 0, 0.596078 )
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[sub_resource type="DynamicFont" id=4]
+size = 62
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 5 )
+
+[node name="Tutorial" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 300, 150 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( -373.716, -114.944 )
+scale = Vector2( 124.298, 124.298 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource( 2 )
+format = 1
+tile_data = PoolIntArray( 917504, 0, 0, 917505, 0, 0, 917506, 0, 0, 917507, 0, 0, 917508, 0, 0, 917509, 0, 0, 917510, 0, 0, 917511, 0, 0, 917512, 0, 0, 917513, 0, 0, 917514, 0, 0, 917515, 0, 0, 917516, 0, 0, 917517, 0, 0, 917518, 0, 0, 917519, 0, 0, 917520, 0, 0, 917521, 0, 0, 917522, 0, 0, 917523, 0, 0, 917524, 0, 0, 917525, 0, 0, 917526, 0, 0, 917527, 0, 0, 917528, 0, 0, 917529, 0, 0, 917530, 0, 0, 917531, 0, 0, 983040, 0, 0, 983041, 0, 0, 983042, 0, 0, 983043, 0, 0, 983044, 0, 0, 983045, 0, 0, 983046, 0, 0, 983047, 0, 0, 983048, 0, 0, 983049, 0, 0, 983050, 0, 0, 983051, 0, 0, 983052, 0, 0, 983053, 0, 0, 983054, 0, 0, 983055, 0, 0, 983056, 0, 0, 983057, 0, 0, 983058, 0, 0, 983059, 0, 0, 983060, 0, 0, 983061, 0, 0, 983062, 0, 0, 983063, 0, 0, 983064, 0, 0, 983065, 0, 0, 983066, 0, 0, 983067, 0, 0 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enable = true
+
+[node name="ColorRect" type="Panel" parent="CanvasLayer"]
+anchor_right = 1.0
+margin_left = 814.0
+margin_top = 142.622
+margin_right = -173.0
+margin_bottom = 643.622
+custom_styles/panel = SubResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+margin_left = 886.091
+margin_top = 152.728
+margin_right = 1533.09
+margin_bottom = 195.728
+custom_fonts/font = SubResource( 4 )
+text = "You Can Use This to Move:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="tutorial_ui_w" type="Sprite" parent="CanvasLayer"]
+position = Vector2( 1326.48, 266.75 )
+scale = Vector2( 0.64762, 0.64762 )
+texture = ExtResource( 4 )
+
+[node name="tutorial_ui_controller_move" type="Sprite" parent="CanvasLayer"]
+position = Vector2( 1006.77, 299.357 )
+scale = Vector2( 0.40704, 0.410071 )
+texture = ExtResource( 7 )
+
+[node name="tutorial_ui_a" type="Sprite" parent="CanvasLayer"]
+position = Vector2( 1458.98, 266.944 )
+scale = Vector2( 0.648, 0.648 )
+texture = ExtResource( 6 )
+
+[node name="tutorial_ui_s" type="Sprite" parent="CanvasLayer"]
+position = Vector2( 1325.64, 385.193 )
+scale = Vector2( 0.648, 0.648 )
+texture = ExtResource( 9 )
+
+[node name="tutorial_ui_d" type="Sprite" parent="CanvasLayer"]
+position = Vector2( 1458, 385.461 )
+scale = Vector2( 0.648, 0.648 )
+texture = ExtResource( 10 )
+
+[node name="tutorial_ui_down" type="Sprite" parent="CanvasLayer"]
+position = Vector2( 980.358, 496.891 )
+scale = Vector2( 0.648, 0.648 )
+texture = ExtResource( 8 )
+
+[node name="tutorial_ui_left" type="Sprite" parent="CanvasLayer"]
+position = Vector2( 1088.73, 496.891 )
+scale = Vector2( 0.648, 0.648 )
+texture = ExtResource( 11 )
+
+[node name="tutorial_ui_right" type="Sprite" parent="CanvasLayer"]
+position = Vector2( 1195.22, 496.891 )
+scale = Vector2( 0.648, 0.648 )
+texture = ExtResource( 12 )
+
+[node name="tutorial_ui_up" type="Sprite" parent="CanvasLayer"]
+position = Vector2( 871.96, 496.891 )
+scale = Vector2( 0.648, 0.648 )
+texture = ExtResource( 13 )
+
+[node name="Scrub" parent="CanvasLayer" instance=ExtResource( 1 )]
+position = Vector2( 256.338, 806.198 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Camera2D" type="Camera2D" parent="CanvasLayer/Scrub"]
+position = Vector2( 0, -650 )
+current = true
+limit_left = 0
+limit_top = 0
+smoothing_enabled = true
+drag_margin_left = 0.4
+drag_margin_bottom = 0.0
