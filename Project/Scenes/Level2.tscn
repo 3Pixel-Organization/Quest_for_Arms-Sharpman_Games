@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=2]
+[gd_scene load_steps=48 format=2]
 
 [ext_resource path="res://Scripts/Level2.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Scrub.tscn" type="PackedScene" id=2]
@@ -7,9 +7,11 @@
 [ext_resource path="res://Assets/Sounds/Music/The Pit Fall.ogg" type="AudioStream" id=5]
 [ext_resource path="res://Scenes/pause.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/coin.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/speed.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Assets/Sprites/Items/coin-export.png" type="Texture" id=9]
 [ext_resource path="res://Assets/Fonts/Roboto-Light.ttf" type="DynamicFontData" id=10]
 [ext_resource path="res://Scripts/HUD.gd" type="Script" id=11]
+[ext_resource path="res://Scenes/canonlr.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Assets/Sprites/Floor/Nova pasta/floor2.png" type="Texture" id=15]
 [ext_resource path="res://Scenes/spikes.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Scenes/fallingplat.tscn" type="PackedScene" id=17]
@@ -522,7 +524,7 @@ position = Vector2( 15667.7, -1339.58 )
 scale = Vector2( 0.467, 8.465 )
 
 [node name="Scrub" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1085.65, -1454.74 )
+position = Vector2( 5539.04, -1252.92 )
 scale = Vector2( 0.5, 0.5 )
 collision_mask = 30
 
@@ -643,8 +645,164 @@ one_way_collision = true
 position = Vector2( 1985.22, 228.137 )
 scale = Vector2( 0.1, 0.1 )
 
+[node name="coin2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 4061.22, -939.863 )
+scale = Vector2( 0.1, 0.1 )
+
+[node name="coin3" parent="." instance=ExtResource( 7 )]
+position = Vector2( 5125.22, -1265.86 )
+scale = Vector2( 0.1, 0.1 )
+
+[node name="coin4" parent="." instance=ExtResource( 7 )]
+position = Vector2( 5279.22, -1265.86 )
+scale = Vector2( 0.1, 0.1 )
+
+[node name="coin5" parent="." instance=ExtResource( 7 )]
+position = Vector2( 4353.22, -1145.86 )
+scale = Vector2( 0.1, 0.1 )
+
+[node name="coin6" parent="." instance=ExtResource( 7 )]
+position = Vector2( 6751.22, -1133.86 )
+scale = Vector2( 0.1, 0.1 )
+
+[node name="coin7" parent="." instance=ExtResource( 7 )]
+position = Vector2( 7389.22, -971.863 )
+scale = Vector2( 0.1, 0.1 )
+
+[node name="coin8" parent="." instance=ExtResource( 7 )]
+position = Vector2( 9475.21, -1267.86 )
+scale = Vector2( 0.1, 0.1 )
+
+[node name="coin9" parent="." instance=ExtResource( 7 )]
+position = Vector2( 10005.2, -1267.86 )
+scale = Vector2( 0.1, 0.1 )
+
+[node name="coin10" parent="." instance=ExtResource( 7 )]
+position = Vector2( 10561.2, -1267.86 )
+scale = Vector2( 0.1, 0.1 )
+
+[node name="coin11" parent="." instance=ExtResource( 7 )]
+position = Vector2( 11735.2, -979.863 )
+scale = Vector2( 0.1, 0.1 )
+
+[node name="coin12" parent="." instance=ExtResource( 7 )]
+position = Vector2( 15472.1, -1241.93 )
+scale = Vector2( 0.1, 0.1 )
+
+[node name="coin13" parent="." instance=ExtResource( 7 )]
+position = Vector2( 17273.1, -1060.7 )
+scale = Vector2( 0.1, 0.1 )
+
+[node name="coin14" parent="." instance=ExtResource( 7 )]
+position = Vector2( 18568, -947.438 )
+scale = Vector2( 0.1, 0.1 )
+
+[node name="coin15" parent="." instance=ExtResource( 7 )]
+position = Vector2( 19965, -1827.13 )
+scale = Vector2( 0.1, 0.1 )
+
+[node name="coin16" parent="." instance=ExtResource( 7 )]
+position = Vector2( 21671.5, -1823.35 )
+scale = Vector2( 0.1, 0.1 )
+
+[node name="coin17" parent="." instance=ExtResource( 7 )]
+position = Vector2( 20572.8, -1834.68 )
+scale = Vector2( 0.1, 0.1 )
+
+[node name="coin18" parent="." instance=ExtResource( 7 )]
+position = Vector2( 22898.5, -1479.78 )
+scale = Vector2( 0.1, 0.1 )
+
+[node name="coin19" parent="." instance=ExtResource( 7 )]
+position = Vector2( 23933, -1291.01 )
+scale = Vector2( 0.1, 0.1 )
+
+[node name="coin20" parent="." instance=ExtResource( 7 )]
+position = Vector2( 25428.1, -1645.91 )
+scale = Vector2( 0.1, 0.1 )
+
+[node name="coin21" parent="." instance=ExtResource( 7 )]
+position = Vector2( 26179.4, -1615.7 )
+scale = Vector2( 0.1, 0.1 )
+
+[node name="coin22" parent="." instance=ExtResource( 7 )]
+position = Vector2( 27923.7, -1268.36 )
+scale = Vector2( 0.1, 0.1 )
+
+[node name="coin23" parent="." instance=ExtResource( 7 )]
+position = Vector2( 29248.9, -1381.62 )
+scale = Vector2( 0.1, 0.1 )
+
+[node name="coin24" parent="." instance=ExtResource( 7 )]
+position = Vector2( 30468.4, -2117.84 )
+scale = Vector2( 0.1, 0.1 )
+
+[node name="coin25" parent="." instance=ExtResource( 7 )]
+position = Vector2( 30385.3, -1298.56 )
+scale = Vector2( 0.1, 0.1 )
+
+[node name="coin26" parent="." instance=ExtResource( 7 )]
+position = Vector2( 29837.9, -2827.64 )
+scale = Vector2( 0.1, 0.1 )
+
+[node name="coin27" parent="." instance=ExtResource( 7 )]
+position = Vector2( 29524.5, -3620.49 )
+scale = Vector2( 0.1, 0.1 )
+
+[node name="coin28" parent="." instance=ExtResource( 7 )]
+position = Vector2( 29751, -4213.24 )
+scale = Vector2( 0.1, 0.1 )
+
+[node name="coin29" parent="." instance=ExtResource( 7 )]
+position = Vector2( 28682.6, -4907.93 )
+scale = Vector2( 0.1, 0.1 )
+
+[node name="coin30" parent="." instance=ExtResource( 7 )]
+position = Vector2( 29237.6, -5002.32 )
+scale = Vector2( 0.1, 0.1 )
+
+[node name="coin31" parent="." instance=ExtResource( 7 )]
+position = Vector2( 33307.6, -4738.04 )
+scale = Vector2( 0.1, 0.1 )
+
+[node name="coin32" parent="." instance=ExtResource( 7 )]
+position = Vector2( 32756.3, -4239.67 )
+scale = Vector2( 0.1, 0.1 )
+
+[node name="coin33" parent="." instance=ExtResource( 7 )]
+position = Vector2( 34281.6, -4458.65 )
+scale = Vector2( 0.1, 0.1 )
+
+[node name="coin34" parent="." instance=ExtResource( 7 )]
+position = Vector2( 34281.6, -3718.65 )
+scale = Vector2( 0.1, 0.1 )
+
+[node name="coin35" parent="." instance=ExtResource( 7 )]
+position = Vector2( 32956.4, -3465.69 )
+scale = Vector2( 0.1, 0.1 )
+
+[node name="coin36" parent="." instance=ExtResource( 7 )]
+position = Vector2( 34213.7, -3122.12 )
+scale = Vector2( 0.1, 0.1 )
+
+[node name="coin37" parent="." instance=ExtResource( 7 )]
+position = Vector2( 35414.3, -2929.57 )
+scale = Vector2( 0.1, 0.1 )
+
+[node name="coin38" parent="." instance=ExtResource( 7 )]
+position = Vector2( 34727.1, -2563.35 )
+scale = Vector2( 0.1, 0.1 )
+
+[node name="coin39" parent="." instance=ExtResource( 7 )]
+position = Vector2( 33515.2, -2650.19 )
+scale = Vector2( 0.1, 0.1 )
+
 [node name="Area2D" parent="." instance=ExtResource( 16 )]
 position = Vector2( 3533.76, 173.644 )
+scale = Vector2( 0.621, 0.737 )
+
+[node name="Area2D14" parent="." instance=ExtResource( 16 )]
+position = Vector2( 2555.12, 492.935 )
 scale = Vector2( 0.621, 0.737 )
 
 [node name="Area2D3" parent="." instance=ExtResource( 16 )]
@@ -794,10 +952,6 @@ scale = Vector2( 0.5, 0.5 )
 [node name="KinematicBody2D15" parent="." instance=ExtResource( 17 )]
 position = Vector2( 12626.5, -671.397 )
 scale = Vector2( 0.5, 0.5 )
-
-[node name="enemy13" parent="." instance=ExtResource( 18 )]
-position = Vector2( 12750.8, -885.517 )
-scale = Vector2( 0.1, 0.1 )
 
 [node name="KinematicBody2D16" parent="." instance=ExtResource( 17 )]
 position = Vector2( 12946.4, -671.457 )
@@ -995,10 +1149,6 @@ scale = Vector2( 0.1, 0.1 )
 position = Vector2( 35053.8, -3199.9 )
 scale = Vector2( 0.1, 0.1 )
 
-[node name="enemy25" parent="." instance=ExtResource( 18 )]
-position = Vector2( 33215.4, -2627.86 )
-scale = Vector2( 0.1, 0.1 )
-
 [node name="enemy26" parent="." instance=ExtResource( 18 )]
 position = Vector2( 33772.6, -2630.69 )
 scale = Vector2( 0.1, 0.1 )
@@ -1019,9 +1169,79 @@ scale = Vector2( 0.467, 8.465 )
 position = Vector2( 30657.2, -4914.52 )
 scale = Vector2( 0.467, 8.465 )
 
+[node name="enemy11" parent="." instance=ExtResource( 8 )]
+position = Vector2( 4867.03, -1206.48 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="enemy12" parent="." instance=ExtResource( 8 )]
+position = Vector2( 12730.2, -893.743 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="enemy13" parent="." instance=ExtResource( 8 )]
+position = Vector2( 16793.4, -826.204 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="enemy27" parent="." instance=ExtResource( 8 )]
+position = Vector2( 18153.3, -831.953 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="enemy28" parent="." instance=ExtResource( 8 )]
+position = Vector2( 32932.5, -2643.21 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="enemy29" parent="." instance=ExtResource( 8 )]
+position = Vector2( 32495.2, -4957.35 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="StaticBody2D" parent="." instance=ExtResource( 12 )]
+position = Vector2( 18576.6, -848.599 )
+scale = Vector2( 0.7, 0.7 )
+
+[node name="StaticBody2D2" parent="." instance=ExtResource( 12 )]
+position = Vector2( 29259.6, -4877.89 )
+scale = Vector2( -0.7, 0.7 )
+
 [connection signal="death" from="Scrub" to="." method="_on_Scrub_death"]
 [connection signal="body_entered" from="fallzone" to="Scrub" method="_on_Area2D_body_entered"]
 [connection signal="body_entered" from="fallzone2" to="Scrub" method="_on_Area2D_body_entered"]
 [connection signal="coin_collected" from="coin" to="HUD" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="coin2" to="HUD" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="coin3" to="HUD" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="coin4" to="HUD" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="coin5" to="HUD" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="coin6" to="HUD" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="coin7" to="HUD" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="coin8" to="HUD" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="coin9" to="HUD" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="coin10" to="HUD" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="coin11" to="HUD" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="coin12" to="HUD" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="coin13" to="HUD" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="coin14" to="HUD" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="coin15" to="HUD" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="coin16" to="HUD" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="coin17" to="HUD" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="coin18" to="HUD" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="coin19" to="HUD" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="coin20" to="HUD" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="coin21" to="HUD" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="coin22" to="HUD" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="coin23" to="HUD" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="coin24" to="HUD" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="coin25" to="HUD" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="coin26" to="HUD" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="coin27" to="HUD" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="coin28" to="HUD" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="coin29" to="HUD" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="coin30" to="HUD" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="coin31" to="HUD" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="coin32" to="HUD" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="coin33" to="HUD" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="coin34" to="HUD" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="coin35" to="HUD" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="coin36" to="HUD" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="coin37" to="HUD" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="coin38" to="HUD" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="coin39" to="HUD" method="_on_coin_coin_collected"]
 [connection signal="body_entered" from="Area2D2" to="." method="_on_Area2D2_body_entered"]
 [connection signal="body_entered" from="Area2D9" to="." method="_on_Area2D2_body_entered"]

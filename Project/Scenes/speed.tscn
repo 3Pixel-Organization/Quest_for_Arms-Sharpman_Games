@@ -1,14 +1,28 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/speed.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Sprites/SPEED/i_am_speed.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Sprites/SPEED/speed_slasher_staggered.png" type="Texture" id=3]
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "stagger",
+"speed": 5.0
+} ]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 60.434, 44.9661 )
 
 [sub_resource type="CapsuleShape2D" id=2]
 radius = 15.5166
-height = 199.074
+height = 241.227
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 122.486, 138.017 )
@@ -18,9 +32,10 @@ collision_layer = 16
 collision_mask = 35
 script = ExtResource( 1 )
 
-[node name="AnimatedSprite" type="Sprite" parent="."]
-position = Vector2( -6.00677, -88.7668 )
-texture = ExtResource( 2 )
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( -13.4695, -107.756 )
+frames = SubResource( 4 )
+animation = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 11.2153, -7.77981 )
@@ -38,7 +53,7 @@ collision_layer = 0
 collision_mask = 33
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="top_checker"]
-position = Vector2( 19.7855, -192.874 )
+position = Vector2( 13.2449, -180.138 )
 rotation = 1.5708
 shape = SubResource( 2 )
 

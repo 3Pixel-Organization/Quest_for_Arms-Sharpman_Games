@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 var speed = 300
-var health = 75
+var health = 50
 var velocity = Vector2()
 var is_dead = false
 export var direction = -1
@@ -21,7 +21,6 @@ func _physics_process(delta):
 			$AnimatedSprite.flip_h = not $AnimatedSprite.flip_h
 			$floor_checker.position.x = $CollisionShape2D.shape.get_extents().x * direction
 	
-	velocity.y += 20
 	
 	velocity.x = speed * direction
 	
@@ -29,10 +28,13 @@ func _physics_process(delta):
 
 
 func _on_top_checker_body_entered(body):
+	if is_staggered:
+		if body.name == "Scrub":
+			body._knockback()
 	if !is_staggered:
-		if health <= 25:
+		if health <= 30:
 			is_dead = true
-			#$AnimatedSprite.play("squashed")
+			queue_free()
 			$Timer.start()
 			speed = 0
 			set_collision_layer_bit(4, false)
@@ -43,15 +45,18 @@ func _on_top_checker_body_entered(body):
 			$sides_checker.set_collision_mask_bit(0, false)
 		else:
 			is_staggered = true
-			health = health - 25
-			print(health)
+			health = health - 30
 			speed = 0
-			#$AnimatedSprite.play("squashed")
+			set_modulate(Color(0.3,0.3,0.3,0.6))
+			$AnimatedSprite.play("stagger")
 			$Timer2.start()
 		if body.name == "Scrub":
 			body.bounce()
 
 func _on_sides_checker_body_entered(body):
+	if is_staggered:
+		if body.name == "Scrub":
+			body._knockback()
 	if !is_staggered:
 		if body.name == "Scrub":
 			print ("ouch!")
@@ -62,20 +67,30 @@ func _on_Timer_timeout():
 	queue_free()
 
 func fireball_dead():
-	is_dead = true
-	#$AnimatedSprite.play("fireballdead")
-	speed = 0
-	set_collision_layer_bit(4, false)
-	set_collision_mask_bit(0, false)
-	$top_checker.set_collision_layer_bit(4, false)
-	$top_checker.set_collision_mask_bit(0, false)
-	$sides_checker.set_collision_layer_bit(4, false)
-	$sides_checker.set_collision_mask_bit(0, false)
-	$Timer.start()
+	if health <= 30:
+		is_dead = true
+		queue_free()
+		speed = 0
+		set_collision_layer_bit(4, false)
+		set_collision_mask_bit(0, false)
+		$top_checker.set_collision_layer_bit(4, false)
+		$top_checker.set_collision_mask_bit(0, false)
+		$sides_checker.set_collision_layer_bit(4, false)
+		$sides_checker.set_collision_mask_bit(0, false)
+		$Timer.start()
+	else:
+		if !is_staggered:
+			is_staggered = true
+			health = health - 30
+			speed = 0
+			$AnimatedSprite.play("stagger")
+			set_modulate(Color(0.3,0.3,0.3,0.6))
+			$Timer2.start()
 
 
 func _on_Timer2_timeout():
-	#$AnimatedSprite.play("walk")
+	$AnimatedSprite.play("idle")
+	set_modulate(Color(1,1,1,1))
 	speed = 300
 	is_staggered = false
 
@@ -83,7 +98,7 @@ func kick():
 	if !is_staggered:
 		if health <= 20:
 			is_dead = true
-			#$AnimatedSprite.play("squashed")
+			queue_free()
 			$Timer.start()
 			speed = 0
 			set_collision_layer_bit(4, false)
@@ -97,22 +112,22 @@ func kick():
 			health = health - 20
 			print(health)
 			speed = 0
-			#$AnimatedSprite.play("squashed")
+			set_modulate(Color(0.3,0.3,0.3,0.6))
+			$AnimatedSprite.play("stagger")
 			$Timer2.start()
 
 func spekick():
 	if !is_staggered:
-		if health <= 60:
-			is_dead = true
-			#$AnimatedSprite.play("squashed")
-			$Timer.start()
-			speed = 0
-			set_collision_layer_bit(4, false)
-			set_collision_mask_bit(0, false)
-			$top_checker.set_collision_layer_bit(4, false)
-			$top_checker.set_collision_mask_bit(0, false)
-			$sides_checker.set_collision_layer_bit(4, false)
-			$sides_checker.set_collision_mask_bit(0, false)
+		is_dead = true
+		queue_free()
+		$Timer.start()
+		speed = 0
+		set_collision_layer_bit(4, false)
+		set_collision_mask_bit(0, false)
+		$top_checker.set_collision_layer_bit(4, false)
+		$top_checker.set_collision_mask_bit(0, false)
+		$sides_checker.set_collision_layer_bit(4, false)
+		$sides_checker.set_collision_mask_bit(0, false)
 
 func _on_sides_checker_area_entered(area):
 	if area.is_in_group("spekick"):

@@ -1,18 +1,19 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Scenes/Scrub.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Sprites/Background/tutorial_background.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Sprites/Background/tutorial tileset.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Sprites/HUD/tutorial_ui_w.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/pause.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/Fonts/8-BitMadness.ttf" type="DynamicFontData" id=5]
-[ext_resource path="res://Assets/Sprites/HUD/tutorial_ui_a.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Sprites/HUD/tutorial_ui_space.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Sprites/HUD/tutorial_ui_controller_move.png" type="Texture" id=7]
-[ext_resource path="res://Assets/Sprites/HUD/tutorial_ui_down.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Sprites/HUD/tutorial_ui_controller_jump.png" type="Texture" id=8]
 [ext_resource path="res://Assets/Sprites/HUD/tutorial_ui_s.png" type="Texture" id=9]
 [ext_resource path="res://Assets/Sprites/HUD/tutorial_ui_d.png" type="Texture" id=10]
 [ext_resource path="res://Assets/Sprites/HUD/tutorial_ui_left.png" type="Texture" id=11]
 [ext_resource path="res://Assets/Sprites/HUD/tutorial_ui_right.png" type="Texture" id=12]
 [ext_resource path="res://Assets/Sprites/HUD/tutorial_ui_up.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Sprites/HUD/tutorial_ui_w.png" type="Texture" id=14]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
@@ -69,7 +70,7 @@ centered = false
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( 2 )
 format = 1
-tile_data = PoolIntArray( 917504, 0, 0, 917505, 0, 0, 917506, 0, 0, 917507, 0, 0, 917508, 0, 0, 917509, 0, 0, 917510, 0, 0, 917511, 0, 0, 917512, 0, 0, 917513, 0, 0, 917514, 0, 0, 917515, 0, 0, 917516, 0, 0, 917517, 0, 0, 917518, 0, 0, 917519, 0, 0, 917520, 0, 0, 917521, 0, 0, 917522, 0, 0, 917523, 0, 0, 917524, 0, 0, 917525, 0, 0, 917526, 0, 0, 917527, 0, 0, 917528, 0, 0, 917529, 0, 0, 917530, 0, 0, 917531, 0, 0, 983040, 0, 0, 983041, 0, 0, 983042, 0, 0, 983043, 0, 0, 983044, 0, 0, 983045, 0, 0, 983046, 0, 0, 983047, 0, 0, 983048, 0, 0, 983049, 0, 0, 983050, 0, 0, 983051, 0, 0, 983052, 0, 0, 983053, 0, 0, 983054, 0, 0, 983055, 0, 0, 983056, 0, 0, 983057, 0, 0, 983058, 0, 0, 983059, 0, 0, 983060, 0, 0, 983061, 0, 0, 983062, 0, 0, 983063, 0, 0, 983064, 0, 0, 983065, 0, 0, 983066, 0, 0, 983067, 0, 0 )
+tile_data = PoolIntArray( -1, 0, 0, 65535, 0, 0, 131070, 0, 0, 131071, 0, 0, 196606, 0, 0, 196607, 0, 0, 262142, 0, 0, 262143, 0, 0, 327678, 0, 0, 327679, 0, 0, 393215, 0, 0, 458751, 0, 0, 524287, 0, 0, 589823, 0, 0, 655359, 0, 0, 720895, 0, 0, 786431, 0, 0, 851967, 0, 0, 786473, 0, 0, 786474, 0, 0, 917503, 0, 0, 852009, 0, 0, 852010, 0, 0, 917504, 0, 0, 917505, 0, 0, 917506, 0, 0, 917507, 0, 0, 917508, 0, 0, 917509, 0, 0, 917510, 0, 0, 917511, 0, 0, 917512, 0, 0, 917513, 0, 0, 917514, 0, 0, 917515, 0, 0, 917516, 0, 0, 917517, 0, 0, 917518, 0, 0, 917519, 0, 0, 917520, 0, 0, 917521, 0, 0, 917522, 0, 0, 917523, 0, 0, 917524, 0, 0, 917525, 0, 0, 917526, 0, 0, 917527, 0, 0, 917528, 0, 0, 917529, 0, 0, 917530, 0, 0, 917531, 0, 0, 917532, 0, 0, 917533, 0, 0, 917534, 0, 0, 917535, 0, 0, 917536, 0, 0, 917537, 0, 0, 917538, 0, 0, 917539, 0, 0, 917540, 0, 0, 917541, 0, 0, 917542, 0, 0, 917543, 0, 0, 917544, 0, 0, 917545, 0, 0, 917546, 0, 0, 917547, 0, 0, 917548, 0, 0, 917549, 0, 0, 917550, 0, 0, 917551, 0, 0, 917552, 0, 0, 917553, 0, 0, 917554, 0, 0, 917555, 0, 0, 917556, 0, 0, 917557, 0, 0, 917558, 0, 0, 917559, 0, 0, 983040, 0, 0, 983041, 0, 0, 983042, 0, 0, 983043, 0, 0, 983044, 0, 0, 983045, 0, 0, 983046, 0, 0, 983047, 0, 0, 983048, 0, 0, 983049, 0, 0, 983050, 0, 0, 983051, 0, 0, 983052, 0, 0, 983053, 0, 0, 983054, 0, 0, 983055, 0, 0, 983056, 0, 0, 983057, 0, 0, 983058, 0, 0, 983059, 0, 0, 983060, 0, 0, 983061, 0, 0, 983062, 0, 0, 983063, 0, 0, 983064, 0, 0, 983065, 0, 0, 983066, 0, 0, 983067, 0, 0, 983068, 0, 0, 983069, 0, 0, 983070, 0, 0, 983071, 0, 0, 983072, 0, 0, 983073, 0, 0, 983074, 0, 0, 983075, 0, 0, 983076, 0, 0, 983077, 0, 0, 983078, 0, 0, 983079, 0, 0, 983080, 0, 0, 983081, 0, 0, 983082, 0, 0, 983083, 0, 0, 983084, 0, 0, 983085, 0, 0, 983086, 0, 0, 983087, 0, 0, 983088, 0, 0, 983089, 0, 0, 983090, 0, 0, 983091, 0, 0, 983092, 0, 0, 983093, 0, 0, 983094, 0, 0, 983095, 0, 0 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 follow_viewport_enable = true
@@ -77,9 +78,9 @@ follow_viewport_enable = true
 [node name="ColorRect" type="Panel" parent="CanvasLayer"]
 anchor_right = 1.0
 margin_left = 814.0
-margin_top = 142.622
+margin_top = 143.512
 margin_right = -173.0
-margin_bottom = 643.622
+margin_bottom = 644.512
 custom_styles/panel = SubResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -96,20 +97,37 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="ColorRect2" type="Panel" parent="CanvasLayer"]
+anchor_right = 1.0
+margin_left = 2226.05
+margin_top = 143.391
+margin_right = 1239.05
+margin_bottom = 644.391
+custom_styles/panel = SubResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="CanvasLayer"]
+margin_left = 2298.14
+margin_top = 152.606
+margin_right = 2945.14
+margin_bottom = 195.606
+custom_fonts/font = SubResource( 4 )
+text = "You Can Use This to Jump:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="tutorial_ui_w" type="Sprite" parent="CanvasLayer"]
-position = Vector2( 1326.48, 266.75 )
+position = Vector2( 2888.91, 278.231 )
 scale = Vector2( 0.64762, 0.64762 )
-texture = ExtResource( 4 )
+texture = ExtResource( 14 )
 
 [node name="tutorial_ui_controller_move" type="Sprite" parent="CanvasLayer"]
 position = Vector2( 1006.77, 299.357 )
-scale = Vector2( 0.40704, 0.410071 )
+scale = Vector2( 0.407, 0.407 )
 texture = ExtResource( 7 )
-
-[node name="tutorial_ui_a" type="Sprite" parent="CanvasLayer"]
-position = Vector2( 1458.98, 266.944 )
-scale = Vector2( 0.648, 0.648 )
-texture = ExtResource( 6 )
 
 [node name="tutorial_ui_s" type="Sprite" parent="CanvasLayer"]
 position = Vector2( 1325.64, 385.193 )
@@ -121,31 +139,35 @@ position = Vector2( 1458, 385.461 )
 scale = Vector2( 0.648, 0.648 )
 texture = ExtResource( 10 )
 
-[node name="tutorial_ui_down" type="Sprite" parent="CanvasLayer"]
-position = Vector2( 980.358, 496.891 )
-scale = Vector2( 0.648, 0.648 )
-texture = ExtResource( 8 )
-
 [node name="tutorial_ui_left" type="Sprite" parent="CanvasLayer"]
-position = Vector2( 1088.73, 496.891 )
+position = Vector2( 1324.81, 274.166 )
 scale = Vector2( 0.648, 0.648 )
 texture = ExtResource( 11 )
 
 [node name="tutorial_ui_right" type="Sprite" parent="CanvasLayer"]
-position = Vector2( 1195.22, 496.891 )
+position = Vector2( 1458.93, 274.166 )
 scale = Vector2( 0.648, 0.648 )
 texture = ExtResource( 12 )
 
 [node name="tutorial_ui_up" type="Sprite" parent="CanvasLayer"]
-position = Vector2( 871.96, 496.891 )
+position = Vector2( 2774.33, 278.566 )
 scale = Vector2( 0.648, 0.648 )
 texture = ExtResource( 13 )
 
-[node name="Scrub" parent="CanvasLayer" instance=ExtResource( 1 )]
-position = Vector2( 256.338, 806.198 )
+[node name="tutorial_ui_space" type="Sprite" parent="CanvasLayer"]
+position = Vector2( 2837.32, 429.353 )
+texture = ExtResource( 6 )
+
+[node name="tutorial_ui_controller_jump" type="Sprite" parent="CanvasLayer"]
+position = Vector2( 2437.73, 319.352 )
+scale = Vector2( 0.407, 0.407 )
+texture = ExtResource( 8 )
+
+[node name="Scrub" parent="." instance=ExtResource( 1 )]
+position = Vector2( 168.338, 806.198 )
 scale = Vector2( 0.5, 0.5 )
 
-[node name="Camera2D" type="Camera2D" parent="CanvasLayer/Scrub"]
+[node name="Camera2D" type="Camera2D" parent="Scrub"]
 position = Vector2( 0, -650 )
 current = true
 limit_left = 0
@@ -153,3 +175,5 @@ limit_top = 0
 smoothing_enabled = true
 drag_margin_left = 0.4
 drag_margin_bottom = 0.0
+
+[node name="pause" parent="." instance=ExtResource( 4 )]
