@@ -794,7 +794,7 @@ position = Vector2( 34727.1, -2563.35 )
 scale = Vector2( 0.1, 0.1 )
 
 [node name="coin39" parent="." instance=ExtResource( 7 )]
-position = Vector2( 33515.2, -2650.19 )
+position = Vector2( 34727.1, -2563.35 )
 scale = Vector2( 0.1, 0.1 )
 
 [node name="Area2D" parent="." instance=ExtResource( 16 )]
