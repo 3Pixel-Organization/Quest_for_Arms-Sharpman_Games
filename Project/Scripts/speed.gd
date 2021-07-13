@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 var speed = 300
-var health = 50
+var health = 75
 var velocity = Vector2()
 var is_dead = false
 export var direction = -1
