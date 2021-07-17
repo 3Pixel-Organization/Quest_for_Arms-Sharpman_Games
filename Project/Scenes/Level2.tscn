@@ -511,7 +511,7 @@ texture = ExtResource( 4 )
 
 [node name="Sprite2" type="Sprite" parent="ParallaxBackground/Sky"]
 light_mask = -2147483647
-position = Vector2( 41736.9, 11072.9 )
+position = Vector2( 41736.9, 10686.8 )
 scale = Vector2( 106.446, 91.8434 )
 texture = ExtResource( 4 )
 
@@ -799,6 +799,91 @@ scale = Vector2( 0.1, 0.1 )
 
 [node name="Area2D" parent="." instance=ExtResource( 16 )]
 position = Vector2( 3533.76, 173.644 )
+scale = Vector2( 0.621, 0.737 )
+
+[node name="Area2D16" parent="." instance=ExtResource( 16 )]
+position = Vector2( 37997.7, -2612.48 )
+rotation = -1.5708
+scale = Vector2( 0.621, 0.737 )
+
+[node name="Area2D17" parent="." instance=ExtResource( 16 )]
+position = Vector2( 37997.7, -2746.11 )
+rotation = -1.5708
+scale = Vector2( 0.621, 0.737 )
+
+[node name="Area2D18" parent="." instance=ExtResource( 16 )]
+position = Vector2( 37997.7, -3079.31 )
+rotation = -1.5708
+scale = Vector2( 0.621, 0.737 )
+
+[node name="Area2D19" parent="." instance=ExtResource( 16 )]
+position = Vector2( 37997.7, -3212.94 )
+rotation = -1.5708
+scale = Vector2( 0.621, 0.737 )
+
+[node name="Area2D20" parent="." instance=ExtResource( 16 )]
+position = Vector2( 37997.7, -3572.86 )
+rotation = -1.5708
+scale = Vector2( 0.621, 0.737 )
+
+[node name="Area2D21" parent="." instance=ExtResource( 16 )]
+position = Vector2( 37997.7, -3706.5 )
+rotation = -1.5708
+scale = Vector2( 0.621, 0.737 )
+
+[node name="Area2D22" parent="." instance=ExtResource( 16 )]
+position = Vector2( 37997.7, -4093.15 )
+rotation = -1.5708
+scale = Vector2( 0.621, 0.737 )
+
+[node name="Area2D23" parent="." instance=ExtResource( 16 )]
+position = Vector2( 37997.7, -4226.78 )
+rotation = -1.5708
+scale = Vector2( 0.621, 0.737 )
+
+[node name="Area2D24" parent="." instance=ExtResource( 16 )]
+position = Vector2( 37997.7, -4093.15 )
+rotation = -1.5708
+scale = Vector2( 0.621, 0.737 )
+
+[node name="Area2D25" parent="." instance=ExtResource( 16 )]
+position = Vector2( 37997.7, -4374.95 )
+rotation = -1.5708
+scale = Vector2( 0.621, 0.737 )
+
+[node name="Area2D26" parent="." instance=ExtResource( 16 )]
+position = Vector2( 37997.7, -4532.09 )
+rotation = -1.5708
+scale = Vector2( 0.621, 0.737 )
+
+[node name="Area2D27" parent="." instance=ExtResource( 16 )]
+position = Vector2( 37997.7, -4678.63 )
+rotation = -1.5708
+scale = Vector2( 0.621, 0.737 )
+
+[node name="Area2D30" parent="." instance=ExtResource( 16 )]
+position = Vector2( 37997.7, -4820.05 )
+rotation = -1.5708
+scale = Vector2( 0.621, 0.737 )
+
+[node name="Area2D28" parent="." instance=ExtResource( 16 )]
+position = Vector2( 37997.7, -4960.43 )
+rotation = -1.5708
+scale = Vector2( 0.621, 0.737 )
+
+[node name="Area2D29" parent="." instance=ExtResource( 16 )]
+position = Vector2( 37997.7, -5117.58 )
+rotation = -1.5708
+scale = Vector2( 0.621, 0.737 )
+
+[node name="Area2D32" parent="." instance=ExtResource( 16 )]
+position = Vector2( 37997.7, -5267.48 )
+rotation = -1.5708
+scale = Vector2( 0.621, 0.737 )
+
+[node name="Area2D31" parent="." instance=ExtResource( 16 )]
+position = Vector2( 37997.7, -4974.74 )
+rotation = -1.5708
 scale = Vector2( 0.621, 0.737 )
 
 [node name="Area2D14" parent="." instance=ExtResource( 16 )]
@@ -1090,39 +1175,39 @@ position = Vector2( 36913, -2400.97 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="KinematicBody2D60" parent="." instance=ExtResource( 17 )]
-position = Vector2( 36946.1, -2860.53 )
+position = Vector2( 36961.2, -2868.08 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="KinematicBody2D62" parent="." instance=ExtResource( 17 )]
-position = Vector2( 36946.4, -3300.02 )
+position = Vector2( 36885.9, -3292.85 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="KinematicBody2D64" parent="." instance=ExtResource( 17 )]
-position = Vector2( 36952.6, -3709.66 )
+position = Vector2( 36952.6, -3781.39 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="KinematicBody2D65" parent="." instance=ExtResource( 17 )]
-position = Vector2( 37419.9, -3970.05 )
+position = Vector2( 37419.9, -4038.01 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="KinematicBody2D66" parent="." instance=ExtResource( 17 )]
-position = Vector2( 37780.5, -4205.28 )
+position = Vector2( 37780.5, -4299.67 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="KinematicBody2D67" parent="." instance=ExtResource( 17 )]
-position = Vector2( 37896.9, -4347.71 )
+position = Vector2( 37896.9, -4476.08 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="KinematicBody2D68" parent="." instance=ExtResource( 17 )]
-position = Vector2( 37447.8, -4614.71 )
+position = Vector2( 37447.8, -4727.98 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="KinematicBody2D69" parent="." instance=ExtResource( 17 )]
-position = Vector2( 37925.9, -4842.08 )
+position = Vector2( 37984.6, -4955.34 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="KinematicBody2D70" parent="." instance=ExtResource( 17 )]
-position = Vector2( 37404.3, -5066.35 )
+position = Vector2( 37404.3, -5112.79 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="KinematicBody2D43" parent="." instance=ExtResource( 17 )]

@@ -24,7 +24,7 @@ position = Vector2( -126.407, 63.7601 )
 [node name="Timer" type="Timer" parent="."]
 
 [node name="Timer2" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 5.0
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
 
