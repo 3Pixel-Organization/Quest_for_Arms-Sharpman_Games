@@ -724,7 +724,7 @@ texture = ExtResource( 25 )
 offset = Vector2( -166.29, 211.052 )
 
 [node name="Scrub" parent="." instance=ExtResource( 2 )]
-position = Vector2( 7604.23, 314.321 )
+position = Vector2( 1216.43, 682.218 )
 scale = Vector2( 0.5, 0.5 )
 collision_mask = 30
 
