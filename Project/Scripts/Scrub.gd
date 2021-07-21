@@ -10,7 +10,8 @@ var is_jumping = false
 var is_attacking = false
 var special_uses = 2
 var knockback = false
-
+var fire1 = preload("res://Assets/Sprites/Items/mountedGun-export.png")
+var fire2 = preload("res://Assets/Sprites/Items/mountedGun-export-export.png")
 
 onready var Coyote_Timer = $CoyoteTimer
 onready var Jump_Buffer = $JumpBuffer
@@ -29,6 +30,10 @@ func _ready():
 	$"Sprite-0003-export".hide()
 
 func _process(delta):
+	if cooldownnotactive == true:
+		$"Sprite-0003-export".set_texture(fire1)
+	else:
+		$"Sprite-0003-export".set_texture(fire2)
 	print (Engine.get_frames_per_second())
 
 #Walk Code
