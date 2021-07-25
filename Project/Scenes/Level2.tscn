@@ -524,7 +524,7 @@ position = Vector2( 15667.7, -1339.58 )
 scale = Vector2( 0.467, 8.465 )
 
 [node name="Scrub" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1044.97, -1372.23 )
+position = Vector2( 1046.65, -1597.01 )
 scale = Vector2( 0.5, 0.5 )
 collision_mask = 30
 
@@ -540,6 +540,7 @@ drag_margin_h_enabled = true
 drag_margin_v_enabled = true
 smoothing_enabled = true
 drag_margin_left = 0.4
+drag_margin_bottom = 0.1
 editor_draw_limits = true
 
 [node name="fallzone" type="Area2D" parent="."]
@@ -618,7 +619,7 @@ position = Vector2( 1.1618, -7.49313 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
-volume_db = -10.0
+volume_db = -30.0
 autoplay = true
 
 [node name="pause" parent="." instance=ExtResource( 6 )]
@@ -1343,8 +1344,8 @@ position = Vector2( 17533.5, -786.65 )
 scale = Vector2( 0.4, 0.4 )
 
 [node name="StaticBody2D2" parent="." instance=ExtResource( 12 )]
-position = Vector2( 29253.7, -4815.94 )
-scale = Vector2( -0.4, 0.4 )
+position = Vector2( 32628.5, -4818.06 )
+scale = Vector2( 0.4, 0.4 )
 
 [node name="StaticBody2D5" parent="." instance=ExtResource( 12 )]
 position = Vector2( 36004.3, -1618.45 )

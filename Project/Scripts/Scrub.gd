@@ -95,12 +95,6 @@ func _physics_process(delta):
 			$"attaclk 1/CollisionShape2D".disabled = false
 			$Timer3.start()
 		
-		if Input.is_action_just_pressed("Special Attack"):
-			if special_uses > 0:
-				is_attacking = true
-				$"attack 2/CollisionShape2D".disabled = false
-				special_uses = special_uses - 1
-				$Timer4.start()
 		
 		var was_on_floor = is_on_floor()
 		velocity = move_and_slide(velocity,Vector2.UP)

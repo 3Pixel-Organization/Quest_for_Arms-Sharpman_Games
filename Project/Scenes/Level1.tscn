@@ -1067,7 +1067,7 @@ scale = Vector2( 0.04, 0.04 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 13 )
-volume_db = -20.0
+volume_db = -30.0
 autoplay = true
 
 [node name="Area2D2" type="Area2D" parent="."]
@@ -1114,5 +1114,5 @@ shape = SubResource( 24 )
 [connection signal="coin_collected" from="coin21" to="HUD" method="_on_coin4_coin_collected"]
 [connection signal="coin_collected" from="coin19" to="HUD" method="_on_coin4_coin_collected"]
 [connection signal="coin_collected" from="coin13" to="HUD" method="_on_coin4_coin_collected"]
-[connection signal="body_entered" from="Area2D2" to="Scrub" method="_on_Area2D2_body_entered"]
 [connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_Area2D2_body_entered"]
+[connection signal="body_entered" from="Area2D2" to="Scrub" method="_on_Area2D2_body_entered"]

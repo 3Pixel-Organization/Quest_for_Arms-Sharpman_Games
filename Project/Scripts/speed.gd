@@ -116,22 +116,6 @@ func kick():
 			$AnimatedSprite.play("stagger")
 			$Timer2.start()
 
-func spekick():
-	if !is_staggered:
-		is_dead = true
-		queue_free()
-		$Timer.start()
-		speed = 0
-		set_collision_layer_bit(4, false)
-		set_collision_mask_bit(0, false)
-		$top_checker.set_collision_layer_bit(4, false)
-		$top_checker.set_collision_mask_bit(0, false)
-		$sides_checker.set_collision_layer_bit(4, false)
-		$sides_checker.set_collision_mask_bit(0, false)
-
 func _on_sides_checker_area_entered(area):
-	if area.is_in_group("spekick"):
-		spekick()
-	
 	if area.is_in_group("kick"):
 		kick()
