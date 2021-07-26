@@ -1307,11 +1307,11 @@ position = Vector2( 30657.2, -4914.52 )
 scale = Vector2( 0.467, 8.465 )
 
 [node name="enemy11" parent="." instance=ExtResource( 8 )]
-position = Vector2( 4869.41, -1177.19 )
+position = Vector2( 4869.41, -1192.29 )
 scale = Vector2( 0.4, 0.4 )
 
 [node name="enemy12" parent="." instance=ExtResource( 8 )]
-position = Vector2( 12732.6, -837.512 )
+position = Vector2( 12732.6, -875.267 )
 scale = Vector2( 0.4, 0.4 )
 
 [node name="enemy13" parent="." instance=ExtResource( 8 )]
@@ -1319,7 +1319,7 @@ position = Vector2( 16795.8, -792.196 )
 scale = Vector2( 0.4, 0.4 )
 
 [node name="enemy27" parent="." instance=ExtResource( 8 )]
-position = Vector2( 18155.7, -792.711 )
+position = Vector2( 18155.7, -822.915 )
 scale = Vector2( 0.4, 0.4 )
 
 [node name="enemy28" parent="." instance=ExtResource( 8 )]
@@ -1327,11 +1327,11 @@ position = Vector2( 32934.9, -2586.98 )
 scale = Vector2( 0.4, 0.4 )
 
 [node name="enemy30" parent="." instance=ExtResource( 8 )]
-position = Vector2( 35410.4, -1594.16 )
+position = Vector2( 35410.4, -1644.05 )
 scale = Vector2( 0.4, 0.4 )
 
 [node name="enemy29" parent="." instance=ExtResource( 8 )]
-position = Vector2( 32497.6, -4831.53 )
+position = Vector2( 32497.6, -4847.4 )
 scale = Vector2( 0.4, 0.4 )
 
 [node name="StaticBody2D" parent="." instance=ExtResource( 12 )]
