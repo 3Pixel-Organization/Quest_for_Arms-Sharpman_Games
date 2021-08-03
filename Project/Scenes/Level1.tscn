@@ -941,7 +941,7 @@ scale = Vector2( 0.07, 0.07 )
 [node name="ENEMIES" type="Node2D" parent="."]
 
 [node name="enemy" parent="ENEMIES" instance=ExtResource( 12 )]
-position = Vector2( 1839.28, 271.462 )
+position = Vector2( 1917.19, 667.015 )
 scale = Vector2( 0.1, 0.1 )
 direction = 1
 
@@ -1114,5 +1114,5 @@ shape = SubResource( 24 )
 [connection signal="coin_collected" from="coin21" to="HUD" method="_on_coin4_coin_collected"]
 [connection signal="coin_collected" from="coin19" to="HUD" method="_on_coin4_coin_collected"]
 [connection signal="coin_collected" from="coin13" to="HUD" method="_on_coin4_coin_collected"]
-[connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_Area2D2_body_entered"]
 [connection signal="body_entered" from="Area2D2" to="Scrub" method="_on_Area2D2_body_entered"]
+[connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_Area2D2_body_entered"]

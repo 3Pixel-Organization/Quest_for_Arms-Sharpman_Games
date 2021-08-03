@@ -18,14 +18,14 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 60.434, 44.9661 )
+extents = Vector2( 41.1421, 44.9661 )
 
 [sub_resource type="CapsuleShape2D" id=3]
 radius = 15.5166
-height = 241.227
+height = 161.597
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 122.486, 138.017 )
+extents = Vector2( 122.486, 104.977 )
 
 [node name="enemy" type="KinematicBody2D"]
 collision_layer = 16
@@ -53,7 +53,7 @@ collision_layer = 0
 collision_mask = 33
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="top_checker"]
-position = Vector2( 13.2449, -180.138 )
+position = Vector2( 2.63827, -180.138 )
 rotation = 1.5708
 shape = SubResource( 3 )
 
@@ -62,7 +62,7 @@ collision_layer = 16
 collision_mask = 33
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="sides_checker"]
-position = Vector2( 11.6541, -26.9695 )
+position = Vector2( 3.87596, -27.6766 )
 rotation = 1.5708
 shape = SubResource( 4 )
 
