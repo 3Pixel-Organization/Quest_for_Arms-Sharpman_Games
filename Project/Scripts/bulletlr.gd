@@ -12,13 +12,10 @@ func _physics_process(delta):
 	
 	if position.x <= -1000:
 		queue_free()
-		print("lolokeskrr")
-
 
 func _on_Area2D_body_entered(body):
 	if body.name == "Scrub": 
 		body._death()
-
 
 func _on_Area2D_area_entered(area):
 	if area.is_in_group("kick"):

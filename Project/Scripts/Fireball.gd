@@ -10,22 +10,17 @@ func _ready():
 
 func _set_fireball_direction(dir):
 	direction = dir
-	if dir == -1:
-		$Sprite.flip_h = true
-
+	
+	$Sprite.flip_h = !dir
+	#if dir == -1:
+	#	$Sprite.flip_h = true
 
 func _physics_process(delta):
 	velocity.x = SPEED * delta * direction
 	translate(velocity)
 
-
-
-
-
 func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()
-	print ("deleted")
-
 
 func _on_Fireball_body_entered(body):
 	if "enemy" in body.name:

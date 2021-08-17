@@ -9,28 +9,20 @@ export var detect_cliffs = true
 var is_staggered = false
 
 func _ready():
-	if direction == 1:
-		$AnimatedSprite.flip_h = true
+	$AnimatedSprite.flip_h = direction > 0 ## If the direction is 1, so will be flip_h
 	$floor_checker.position.x = $CollisionShape2D.shape.get_extents().x * direction
 	$floor_checker.enabled = detect_cliffs
 
-func _physics_process(delta):
-		if is_dead == false:
-			if is_on_wall() or not $floor_checker.is_colliding() and detect_cliffs and is_on_floor():
-				direction = direction * -1
-				$AnimatedSprite.flip_h = not $AnimatedSprite.flip_h
-				$floor_checker.position.x = $CollisionShape2D.shape.get_extents().x * direction
-		
+func _physics_process(_delta):
+		if !is_dead && is_on_wall() || !$floor_checker.is_colliding() && detect_cliffs && is_on_floor():
+			direction *= -1
+			$AnimatedSprite.flip_h = !$AnimatedSprite.flip_h
+			$floor_checker.position.x = $CollisionShape2D.shape.get_extents().x * direction
 		
 		velocity.x = speed * direction
-		
 		velocity = move_and_slide(velocity,Vector2.UP)
 
-
 func _on_top_checker_body_entered(body):
-	if is_staggered:
-		if body.name == "Scrub":
-			body._knockback()
 	if !is_staggered:
 		if health <= 30:
 			is_dead = true
@@ -52,16 +44,16 @@ func _on_top_checker_body_entered(body):
 			$Timer2.start()
 		if body.name == "Scrub":
 			body.bounce()
+	
+	elif body.name == "Scrub":
+		body._knockback()
 
 func _on_sides_checker_body_entered(body):
-	if is_staggered:
-		if body.name == "Scrub":
+	if body.name == "Scrub":
+		if is_staggered:
 			body._knockback()
-	if !is_staggered:
-		if body.name == "Scrub":
-			print ("ouch!")
+		else:
 			body.ouch(position.x)
-
 
 func _on_Timer_timeout():
 	queue_free()
@@ -78,15 +70,13 @@ func fireball_dead():
 		$sides_checker.set_collision_layer_bit(4, false)
 		$sides_checker.set_collision_mask_bit(0, false)
 		$Timer.start()
-	else:
-		if !is_staggered:
-			is_staggered = true
-			health = health - 30
-			speed = 0
-			$AnimatedSprite.play("stagger")
-			set_modulate(Color(0.3,0.3,0.3,0.6))
-			$Timer2.start()
-
+	elif !is_staggered:
+		is_staggered = true
+		health = health - 30
+		speed = 0
+		$AnimatedSprite.play("stagger")
+		set_modulate(Color(0.3,0.3,0.3,0.6))
+		$Timer2.start()
 
 func _on_Timer2_timeout():
 	$AnimatedSprite.play("idle")
@@ -110,7 +100,6 @@ func kick():
 		else:
 			is_staggered = true
 			health = health - 20
-			print(health)
 			speed = 0
 			set_modulate(Color(0.3,0.3,0.3,0.6))
 			$AnimatedSprite.play("stagger")

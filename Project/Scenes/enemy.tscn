@@ -1,10 +1,9 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/enemy.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Sprites/enemy/new folder/slasher-export.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Sprites/enemy/new folder/slasher-exporthurt.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Sprites/enemy/new folder/slasher-exportaquash.png" type="Texture" id=4]
-[ext_resource path="res://Scenes/Scrub.tscn" type="PackedScene" id=5]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -23,25 +22,25 @@ animations = [ {
 "name": "squashed",
 "speed": 1.0
 }, {
-"frames": [ ExtResource( 3 ) ],
-"loop": true,
-"name": "stagger",
-"speed": 5.0
-}, {
 "frames": [  ],
 "loop": true,
 "name": "fireballdead",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "stagger",
+"speed": 5.0
 } ]
 
-[sub_resource type="CapsuleShape2D" id=3]
+[sub_resource type="CapsuleShape2D" id=2]
 radius = 115.491
 height = 657.8
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 572.784, 487.523 )
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 455.277, 413.378 )
 
 [node name="enemy" type="KinematicBody2D"]
@@ -69,7 +68,7 @@ collision_mask = 33
 [node name="CollisionShape2D" type="CollisionShape2D" parent="top_checker"]
 position = Vector2( -35.8626, -236.259 )
 rotation = 1.5708
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="sides_checker" type="Area2D" parent="."]
 collision_layer = 16
@@ -78,12 +77,12 @@ collision_mask = 33
 [node name="CollisionShape2D" type="CollisionShape2D" parent="sides_checker"]
 position = Vector2( -32.0354, 457.381 )
 rotation = 1.5708
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -38.3246, 478.398 )
 rotation = 1.5708
-shape = SubResource( 2 )
+shape = SubResource( 4 )
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
@@ -91,20 +90,8 @@ one_shot = true
 [node name="Timer2" type="Timer" parent="."]
 wait_time = 0.3
 
-[node name="Timer3" type="Timer" parent="."]
-wait_time = 2.0
-
-[node name="Scrub" parent="." instance=ExtResource( 5 )]
-visible = false
-position = Vector2( 5.33496, 49.5931 )
-collision_layer = 0
-collision_mask = 0
-
-[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
 [connection signal="body_entered" from="top_checker" to="." method="_on_top_checker_body_entered"]
 [connection signal="area_entered" from="sides_checker" to="." method="_on_sides_checker_area_entered"]
 [connection signal="body_entered" from="sides_checker" to="." method="_on_sides_checker_body_entered"]
-[connection signal="body_exited" from="sides_checker" to="." method="_on_sides_checker_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="Timer2" to="." method="_on_Timer2_timeout"]
-[connection signal="timeout" from="Timer3" to="." method="_on_Timer3_timeout"]

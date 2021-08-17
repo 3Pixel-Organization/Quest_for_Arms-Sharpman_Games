@@ -32,6 +32,15 @@ one_shot = true
 [node name="Timer2" type="Timer" parent="."]
 wait_time = 5.0
 
+[node name="Timer3" type="Timer" parent="."]
+wait_time = 0.15
+
+[node name="Timer4" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="Timer5" type="Timer" parent="."]
+wait_time = 0.2
+
 [node name="CoyoteTimer" type="Timer" parent="."]
 wait_time = 0.1
 one_shot = true
@@ -60,15 +69,6 @@ position = Vector2( 190.882, 30.0339 )
 shape = SubResource( 1 )
 disabled = true
 
-[node name="Timer3" type="Timer" parent="."]
-wait_time = 0.15
-
-[node name="Timer4" type="Timer" parent="."]
-wait_time = 3.0
-
-[node name="Timer5" type="Timer" parent="."]
-wait_time = 0.01
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -4.36241, 25.6271 )
 shape = SubResource( 2 )
@@ -82,12 +82,8 @@ texture = ExtResource( 6 )
 position = Vector2( -28.3103, -13.0747 )
 scale = Vector2( 100, 100 )
 
-[node name="Timer6" type="Timer" parent="."]
-wait_time = 0.2
-
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="Timer2" to="." method="_on_Timer2_timeout"]
 [connection signal="timeout" from="Timer3" to="." method="_on_Timer3_timeout"]
 [connection signal="timeout" from="Timer4" to="." method="_on_Timer4_timeout"]
 [connection signal="timeout" from="Timer5" to="." method="_on_Timer5_timeout"]
-[connection signal="timeout" from="Timer6" to="." method="_on_Timer6_timeout"]

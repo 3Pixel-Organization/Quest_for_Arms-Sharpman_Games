@@ -6,7 +6,7 @@ var canfire = true
 
 var Timer = 0
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	
 	Timer += 1 
 	
@@ -14,7 +14,7 @@ func _physics_process(delta):
 		Timer = 0
 		bulletCount = 0
 		
-	if Timer < 50 and bulletCount < 1: 
+	if Timer < 50 && bulletCount < 1: 
 		
 		var b = bullet.instance()
 		if canfire == true:
@@ -23,7 +23,6 @@ func _physics_process(delta):
 			bulletCount += 1
 			$Timer2.start()
 			canfire = false
-
 
 func _on_Timer2_timeout():
 	canfire = true

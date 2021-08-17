@@ -468,9 +468,6 @@ script/source = "extends TileMap
 
 func _ready():
 	pass
-
-func ouch (var enemyposx):
-	pass
 "
 
 [sub_resource type="RectangleShape2D" id=20]
@@ -498,7 +495,7 @@ font_data = ExtResource( 10 )
 [sub_resource type="RectangleShape2D" id=24]
 extents = Vector2( 22.4873, 162.138 )
 
-[node name="Level 2" type="Node2D"]
+[node name="Level 1" type="Node2D"]
 position = Vector2( -1147.75, -279.387 )
 script = ExtResource( 20 )
 
@@ -1037,7 +1034,7 @@ position = Vector2( 6401.44, -1011.57 )
 scale = Vector2( 0.1, 0.1 )
 
 [node name="enemy10" parent="ENEMIES" instance=ExtResource( 12 )]
-position = Vector2( 6912.05, -568.842 )
+position = Vector2( 6910.46, -568.842 )
 scale = Vector2( 0.1, 0.1 )
 
 [node name="enemy11" parent="ENEMIES" instance=ExtResource( 12 )]
@@ -1114,5 +1111,4 @@ shape = SubResource( 24 )
 [connection signal="coin_collected" from="coin21" to="HUD" method="_on_coin4_coin_collected"]
 [connection signal="coin_collected" from="coin19" to="HUD" method="_on_coin4_coin_collected"]
 [connection signal="coin_collected" from="coin13" to="HUD" method="_on_coin4_coin_collected"]
-[connection signal="body_entered" from="Area2D2" to="Scrub" method="_on_Area2D2_body_entered"]
 [connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_Area2D2_body_entered"]

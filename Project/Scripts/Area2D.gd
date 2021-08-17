@@ -2,7 +2,7 @@ extends Area2D
 
 signal coin_collected
 
-#Collect Coin Code
+## Coin collection
 func _on_Area2D_body_entered(body):
 	if body.name == "Scrub":
 		$AnimationPlayer.play("bounce")
@@ -11,7 +11,7 @@ func _on_Area2D_body_entered(body):
 		body.play_sound()
 
 
-func _on_AnimationPlayer_animation_finished(anim_name):
+func _on_AnimationPlayer_animation_finished(_anim_name):
 	queue_free()
 
 

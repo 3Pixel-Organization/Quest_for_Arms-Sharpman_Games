@@ -1,4 +1,5 @@
 extends StaticBody2D
+## buben: what is this body???
 
 var bullet = preload("res://Scenes/bulletlr.tscn")
 var bulletCount = 0
@@ -6,7 +7,7 @@ var canfire = true
 
 var Timer = 0
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if $VisibilityNotifier2D.is_on_screen():
 		Timer += 1 
 		
