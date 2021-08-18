@@ -4,12 +4,14 @@ func _ready():
 	pass
 
 func _on_Button2_pressed():
+# warning-ignore:return_value_discarded
 	OS.shell_open("https://3-pixel.com/")
 
 func _on_Button3_pressed():
 	get_tree().quit()
 
 func _on_Button_pressed():
+# warning-ignore:return_value_discarded
 	get_tree().change_scene("res://Scenes/intro.tscn")
 
 func _on_HSlider_value_changed(value):
