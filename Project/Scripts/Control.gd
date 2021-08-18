@@ -1,6 +1,5 @@
 extends Control
 
-
 func _process(_delta):
 	if Input.is_action_pressed("Pause"):
 		visible = true

@@ -10,9 +10,5 @@ func _on_Area2D_body_entered(body):
 		set_collision_layer_bit(0,false)
 		body.play_sound()
 
-
 func _on_AnimationPlayer_animation_finished(_anim_name):
 	queue_free()
-
-
-

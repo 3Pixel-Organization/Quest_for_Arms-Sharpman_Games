@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 var speed = 95
 var health = 50
-var velocity = Vector2(0,0)
+var velocity = Vector2()
 var is_dead = false
 export var direction = -1
 export var detect_cliffs = true
@@ -37,7 +37,7 @@ func _on_top_checker_body_entered(body):
 			$sides_checker.set_collision_mask_bit(0, false)
 		else:
 			is_staggered = true
-			health = health - 30
+			health -= 30
 			speed = 0
 			set_modulate(Color(0.3,0.3,0.3,0.6))
 			$AnimatedSprite.play("stagger")
@@ -105,7 +105,7 @@ func kick():
 			set_modulate(Color(0.3,0.3,0.3,0.6))
 			$AnimatedSprite.play("stagger")
 			$Timer2.start()
-			
+
 func _on_sides_checker_area_entered(area):
 	if area.is_in_group("kick"):
 		kick()

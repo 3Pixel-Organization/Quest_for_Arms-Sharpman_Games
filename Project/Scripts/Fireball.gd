@@ -12,8 +12,6 @@ func _set_fireball_direction(dir):
 	direction = dir
 	
 	$Sprite.flip_h = !dir
-	#if dir == -1:
-	#	$Sprite.flip_h = true
 
 func _physics_process(delta):
 	velocity.x = SPEED * delta * direction

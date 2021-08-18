@@ -11,21 +11,17 @@ func visible():
 		$Timer.start()
 		hassfx = false
 
-
 func _ready():
 	visible = false
 	$Button2.disabled = true
 	$Button.disabled = true
 
-
 func _on_Button2_pressed():
 	get_tree().quit()
-
 
 func _on_Button_pressed():
 # warning-ignore:return_value_discarded
 	get_tree().reload_current_scene()
-
 
 func _on_Timer_timeout():
 	$AudioStreamPlayer.stop()
