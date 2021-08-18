@@ -138,9 +138,8 @@ func bounce():
 	
 func ouch(var enemyposx):
 	set_modulate(Color(1,0.3,0.3,0.3))
-	velocity.y = JUMPFORCE * 1
 	
-	velocity.x = 1000 * position.x > enemyposx
+	velocity = Vector2(1000 * int(position.x > enemyposx), JUMPFORCE)
 	
 	Input.action_release("left")
 	Input.action_release("right")
