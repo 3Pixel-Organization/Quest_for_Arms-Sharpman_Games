@@ -45,14 +45,10 @@ func _on_top_checker_body_entered(body):
 		if body.name == "Scrub":
 			body.bounce()
 	
-	elif body.name == "Scrub":
-		body._knockback()
 
 func _on_sides_checker_body_entered(body):
 	if body.name == "Scrub":
-		if is_staggered:
-			body._knockback()
-		else:
+		if !is_staggered:
 			body.ouch(position.x)
 
 func _on_Timer_timeout():

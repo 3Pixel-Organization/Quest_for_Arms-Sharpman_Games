@@ -1147,7 +1147,7 @@ position = Vector2( 34572.8, -4265.58 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="KinematicBody2D42" parent="." instance=ExtResource( 17 )]
-position = Vector2( 34424.7, -3524.76 )
+position = Vector2( 34442.1, -3524.76 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="KinematicBody2D49" parent="." instance=ExtResource( 17 )]
@@ -1211,7 +1211,7 @@ position = Vector2( 34106.3, -3524.63 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="KinematicBody2D44" parent="." instance=ExtResource( 17 )]
-position = Vector2( 33561.7, -3596.68 )
+position = Vector2( 33585.7, -3596.68 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="KinematicBody2D45" parent="." instance=ExtResource( 17 )]
@@ -1227,19 +1227,19 @@ position = Vector2( 33470.9, -3040.25 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="KinematicBody2D48" parent="." instance=ExtResource( 17 )]
-position = Vector2( 33789.9, -3040.25 )
+position = Vector2( 33808.6, -3040.25 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="KinematicBody2D50" parent="." instance=ExtResource( 17 )]
-position = Vector2( 33961.7, -2402.19 )
+position = Vector2( 34024.4, -2402.19 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="KinematicBody2D51" parent="." instance=ExtResource( 17 )]
-position = Vector2( 33641.4, -2401.84 )
+position = Vector2( 33682.8, -2401.84 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="KinematicBody2D52" parent="." instance=ExtResource( 17 )]
-position = Vector2( 33320.7, -2402.19 )
+position = Vector2( 33342.1, -2402.19 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="KinematicBody2D53" parent="." instance=ExtResource( 17 )]
@@ -1306,10 +1306,6 @@ scale = Vector2( 0.467, 8.465 )
 position = Vector2( 30657.2, -4914.52 )
 scale = Vector2( 0.467, 8.465 )
 
-[node name="enemy11" parent="." instance=ExtResource( 8 )]
-position = Vector2( 4869.41, -1192.29 )
-scale = Vector2( 0.4, 0.4 )
-
 [node name="enemy12" parent="." instance=ExtResource( 8 )]
 position = Vector2( 12732.6, -875.267 )
 scale = Vector2( 0.4, 0.4 )
@@ -1363,7 +1359,7 @@ position = Vector2( 37943.9, -3992.69 )
 scale = Vector2( 0.4, 0.4 )
 
 [node name="Area2D15" parent="." instance=ExtResource( 19 )]
-position = Vector2( 34526.8, -1630.99 )
+position = Vector2( 34521.1, -1566.81 )
 scale = Vector2( 0.467, 8.465 )
 
 [connection signal="death" from="Scrub" to="." method="_on_Scrub_death"]
