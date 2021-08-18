@@ -8,7 +8,7 @@ func _ready():
 func _on_Timer_timeout():
 	$AnimationPlayer.play("New Anim")
 
-func _on_AnimationPlayer_animation_finished(anim_name):
+func _on_AnimationPlayer_animation_finished(_anim_name):
 	iscrumbling = false
 	queue_free()
 
