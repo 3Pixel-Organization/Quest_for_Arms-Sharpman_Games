@@ -9,6 +9,7 @@ var hasfireball = false
 var is_jumping = false
 var is_attacking = false
 var special_uses = 2
+var candie = true
 var fire1 = preload("res://Assets/Sprites/Items/mountedGun-export.png")
 var fire2 = preload("res://Assets/Sprites/Items/mountedGun-export-export.png")
 
@@ -135,15 +136,16 @@ func bounce():
 	velocity.y = JUMPFORCE * 0.8
 	
 func ouch(var enemyposx):
-	set_modulate(Color(1,0.3,0.3,0.3))
-	
-	velocity = Vector2(1000 * int(position.x > enemyposx), JUMPFORCE)
-	
-	Input.action_release("left")
-	Input.action_release("right")
-	Input.action_release("jump")
-	
-	$Timer.start()
+	if candie == true:
+		set_modulate(Color(1,0.3,0.3,0.3))
+		
+		velocity = Vector2(1000 * int(position.x > enemyposx), JUMPFORCE)
+		
+		Input.action_release("left")
+		Input.action_release("right")
+		Input.action_release("jump")
+		
+		$Timer.start()
 
 func _on_Timer_timeout():
 	emit_signal("death")
@@ -181,4 +183,5 @@ func _on_Timer4_timeout():
 	is_attacking = false
 	$"attack 2/CollisionShape2D".disabled = true
 
-
+func candiefalse():
+	candie = false

@@ -618,7 +618,7 @@ shape = SubResource( 5 )
 one_way_collision = true
 
 [node name="tree_redesign" type="Sprite" parent="."]
-position = Vector2( 1632.92, 608.156 )
+position = Vector2( 1668.6, 606.669 )
 scale = Vector2( 0.1, 0.1 )
 z_index = 4
 z_as_relative = false
@@ -745,7 +745,7 @@ __meta__ = {
 
 [node name="coin22" parent="." instance=ExtResource( 8 )]
 position = Vector2( 3583.5, -528.705 )
-scale = Vector2( 0.07, 0.07 )
+scale = Vector2( 0.13, 0.13 )
 
 [node name="TileMapSolid" type="TileMap" parent="."]
 tile_set = SubResource( 18 )
@@ -768,115 +768,115 @@ shape = SubResource( 20 )
 
 [node name="coin2" parent="." instance=ExtResource( 8 )]
 position = Vector2( 1770.91, 545.535 )
-scale = Vector2( 0.07, 0.07 )
+scale = Vector2( 0.13, 0.13 )
 
 [node name="coin3" parent="." instance=ExtResource( 8 )]
 position = Vector2( 2912.37, 168.009 )
-scale = Vector2( 0.07, 0.07 )
+scale = Vector2( 0.13, 0.13 )
 
 [node name="coin23" parent="." instance=ExtResource( 8 )]
 position = Vector2( 10653.3, -247.082 )
-scale = Vector2( 0.07, 0.07 )
+scale = Vector2( 0.13, 0.13 )
 
 [node name="coin31" parent="." instance=ExtResource( 8 )]
 position = Vector2( 10961.5, -156.893 )
-scale = Vector2( 0.07, 0.07 )
+scale = Vector2( 0.13, 0.13 )
 
 [node name="coin4" parent="." instance=ExtResource( 8 )]
 position = Vector2( 1917.56, 357.986 )
-scale = Vector2( 0.07, 0.07 )
+scale = Vector2( 0.13, 0.13 )
 
 [node name="coin5" parent="." instance=ExtResource( 8 )]
 position = Vector2( 3799.17, -349.735 )
-scale = Vector2( 0.07, 0.07 )
+scale = Vector2( 0.13, 0.13 )
 
 [node name="coin6" parent="." instance=ExtResource( 8 )]
 position = Vector2( 3701.06, 169.118 )
-scale = Vector2( 0.07, 0.07 )
+scale = Vector2( 0.13, 0.13 )
 
 [node name="coin7" parent="." instance=ExtResource( 8 )]
 position = Vector2( 3713.12, 38.6313 )
-scale = Vector2( 0.07, 0.07 )
+scale = Vector2( 0.13, 0.13 )
 
 [node name="coin8" parent="." instance=ExtResource( 8 )]
 position = Vector2( 3618.62, 620.589 )
-scale = Vector2( 0.07, 0.07 )
+scale = Vector2( 0.13, 0.13 )
 
 [node name="coin9" parent="." instance=ExtResource( 8 )]
 position = Vector2( 4734.42, 542.163 )
-scale = Vector2( 0.07, 0.07 )
+scale = Vector2( 0.13, 0.13 )
 
 [node name="coin10" parent="." instance=ExtResource( 8 )]
 position = Vector2( 4651.18, 667.414 )
-scale = Vector2( 0.07, 0.07 )
+scale = Vector2( 0.13, 0.13 )
 
 [node name="coin11" parent="." instance=ExtResource( 8 )]
 position = Vector2( 4808.15, 670.597 )
-scale = Vector2( 0.07, 0.07 )
+scale = Vector2( 0.13, 0.13 )
 
 [node name="coin12" parent="." instance=ExtResource( 8 )]
 position = Vector2( 6877.38, -28.6567 )
-scale = Vector2( 0.07, 0.07 )
+scale = Vector2( 0.13, 0.13 )
 
 [node name="coin24" parent="." instance=ExtResource( 8 )]
 position = Vector2( 6925.43, -864.266 )
-scale = Vector2( 0.07, 0.07 )
+scale = Vector2( 0.13, 0.13 )
 
 [node name="coin14" parent="." instance=ExtResource( 8 )]
 position = Vector2( 6537.27, 427.063 )
-scale = Vector2( 0.07, 0.07 )
+scale = Vector2( 0.13, 0.13 )
 
 [node name="coin15" parent="." instance=ExtResource( 8 )]
 position = Vector2( 13387.1, -931.656 )
-scale = Vector2( 0.07, 0.07 )
+scale = Vector2( 0.13, 0.13 )
 
 [node name="coin25" parent="." instance=ExtResource( 8 )]
 position = Vector2( 15425.7, -1196.24 )
-scale = Vector2( 0.07, 0.07 )
+scale = Vector2( 0.13, 0.13 )
 
 [node name="coin26" parent="." instance=ExtResource( 8 )]
 position = Vector2( 16462.9, -469.497 )
-scale = Vector2( 0.07, 0.07 )
+scale = Vector2( 0.13, 0.13 )
 
 [node name="coin27" parent="." instance=ExtResource( 8 )]
 position = Vector2( 14809.1, 358.246 )
-scale = Vector2( 0.07, 0.07 )
+scale = Vector2( 0.13, 0.13 )
 
 [node name="coin28" parent="." instance=ExtResource( 8 )]
 position = Vector2( 15080.4, 159.437 )
-scale = Vector2( 0.07, 0.07 )
+scale = Vector2( 0.13, 0.13 )
 
 [node name="coin16" parent="." instance=ExtResource( 8 )]
 position = Vector2( 9679.82, 544.016 )
-scale = Vector2( 0.07, 0.07 )
+scale = Vector2( 0.13, 0.13 )
 
 [node name="coin29" parent="." instance=ExtResource( 8 )]
 position = Vector2( 15990.2, -35.8523 )
-scale = Vector2( 0.07, 0.07 )
+scale = Vector2( 0.13, 0.13 )
 
 [node name="coin30" parent="." instance=ExtResource( 8 )]
 position = Vector2( 15929.6, 605.448 )
-scale = Vector2( 0.07, 0.07 )
+scale = Vector2( 0.13, 0.13 )
 
 [node name="coin17" parent="." instance=ExtResource( 8 )]
 position = Vector2( 8634.34, 590.418 )
-scale = Vector2( 0.07, 0.07 )
+scale = Vector2( 0.13, 0.13 )
 
 [node name="coin18" parent="." instance=ExtResource( 8 )]
 position = Vector2( 9245.61, 617.515 )
-scale = Vector2( 0.07, 0.07 )
+scale = Vector2( 0.13, 0.13 )
 
 [node name="coin20" parent="." instance=ExtResource( 8 )]
-position = Vector2( 8264.49, 602.071 )
-scale = Vector2( 0.07, 0.07 )
+position = Vector2( 8246.32, 605.11 )
+scale = Vector2( 0.13, 0.13 )
 
 [node name="coin21" parent="." instance=ExtResource( 8 )]
 position = Vector2( 7090.89, 662.652 )
-scale = Vector2( 0.07, 0.07 )
+scale = Vector2( 0.13, 0.13 )
 
 [node name="coin19" parent="." instance=ExtResource( 8 )]
 position = Vector2( 9109.12, 608.005 )
-scale = Vector2( 0.07, 0.07 )
+scale = Vector2( 0.13, 0.13 )
 
 [node name="HUD" type="CanvasLayer" parent="."]
 script = ExtResource( 11 )
@@ -933,134 +933,130 @@ scale = Vector2( 1.01, 1.01 )
 
 [node name="coin13" parent="." instance=ExtResource( 8 )]
 position = Vector2( 6381.25, 427.063 )
-scale = Vector2( 0.07, 0.07 )
+scale = Vector2( 0.13, 0.13 )
 
 [node name="ENEMIES" type="Node2D" parent="."]
 
 [node name="enemy" parent="ENEMIES" instance=ExtResource( 12 )]
-position = Vector2( 1917.19, 667.015 )
-scale = Vector2( 0.1, 0.1 )
+position = Vector2( 1911.89, 643.069 )
+scale = Vector2( 0.125, 0.125 )
 direction = 1
 
 [node name="enemy3" parent="ENEMIES" instance=ExtResource( 12 )]
-position = Vector2( 4644.49, -745.15 )
-scale = Vector2( 0.1, 0.1 )
+position = Vector2( 4639.19, -769.096 )
+scale = Vector2( 0.125, 0.125 )
 
 [node name="enemy15" parent="ENEMIES" instance=ExtResource( 12 )]
-position = Vector2( 3830.5, -613.97 )
-scale = Vector2( 0.1, 0.1 )
+position = Vector2( 3825.2, -637.916 )
+scale = Vector2( 0.125, 0.125 )
 
 [node name="enemy2" parent="ENEMIES" instance=ExtResource( 12 )]
-position = Vector2( 2516.45, 412.727 )
-scale = Vector2( 0.1, 0.1 )
+position = Vector2( 2511.15, 388.781 )
+scale = Vector2( 0.125, 0.125 )
 
 [node name="enemy6" parent="ENEMIES" instance=ExtResource( 12 )]
-position = Vector2( 3612.35, 717.071 )
-scale = Vector2( 0.1, 0.1 )
+position = Vector2( 3607.05, 693.125 )
+scale = Vector2( 0.125, 0.125 )
 
 [node name="enemy4" parent="ENEMIES" instance=ExtResource( 12 )]
-position = Vector2( 2879.4, -168.616 )
-scale = Vector2( 0.1, 0.1 )
+position = Vector2( 2874.1, -192.562 )
+scale = Vector2( 0.125, 0.125 )
 
 [node name="enemy5" parent="ENEMIES" instance=ExtResource( 12 )]
-position = Vector2( 3676.18, -46.2202 )
-scale = Vector2( 0.1, 0.1 )
+position = Vector2( 3670.88, -70.166 )
+scale = Vector2( 0.125, 0.125 )
 
 [node name="enemy16" parent="ENEMIES" instance=ExtResource( 12 )]
-position = Vector2( 11296.5, -682.99 )
-scale = Vector2( 0.1, 0.1 )
+position = Vector2( 11291.2, -706.936 )
+scale = Vector2( 0.125, 0.125 )
 
 [node name="enemy17" parent="ENEMIES" instance=ExtResource( 12 )]
-position = Vector2( 12680.7, -813.158 )
-scale = Vector2( 0.1, 0.1 )
+position = Vector2( 12675.4, -837.104 )
+scale = Vector2( 0.125, 0.125 )
 
 [node name="enemy18" parent="ENEMIES" instance=ExtResource( 12 )]
-position = Vector2( 12636.2, -1451.29 )
-scale = Vector2( 0.1, 0.1 )
+position = Vector2( 12630.9, -1475.24 )
+scale = Vector2( 0.125, 0.125 )
 
 [node name="enemy19" parent="ENEMIES" instance=ExtResource( 12 )]
-position = Vector2( 13531.5, -1397.32 )
-scale = Vector2( 0.1, 0.1 )
+position = Vector2( 13526.2, -1421.27 )
+scale = Vector2( 0.125, 0.125 )
 
 [node name="enemy20" parent="ENEMIES" instance=ExtResource( 12 )]
-position = Vector2( 13899.8, -1406.85 )
-scale = Vector2( 0.1, 0.1 )
+position = Vector2( 13894.5, -1430.8 )
+scale = Vector2( 0.125, 0.125 )
 direction = 1
 
 [node name="enemy21" parent="ENEMIES" instance=ExtResource( 12 )]
-position = Vector2( 15674.5, -1384.62 )
-scale = Vector2( 0.1, 0.1 )
+position = Vector2( 15669.2, -1408.57 )
+scale = Vector2( 0.125, 0.125 )
 direction = 1
 
 [node name="enemy22" parent="ENEMIES" instance=ExtResource( 12 )]
-position = Vector2( 16107, -1080.37 )
-scale = Vector2( 0.1, 0.1 )
+position = Vector2( 16101.7, -1104.32 )
+scale = Vector2( 0.125, 0.125 )
 direction = 1
 
 [node name="enemy23" parent="ENEMIES" instance=ExtResource( 12 )]
-position = Vector2( 15080.8, 88.4858 )
-scale = Vector2( 0.1, 0.1 )
+position = Vector2( 15075.5, 64.54 )
+scale = Vector2( 0.125, 0.125 )
 direction = 1
 
 [node name="enemy24" parent="ENEMIES" instance=ExtResource( 12 )]
-position = Vector2( 14503, 529.783 )
-scale = Vector2( 0.1, 0.1 )
+position = Vector2( 14497.7, 505.837 )
+scale = Vector2( 0.125, 0.125 )
 direction = 1
 
 [node name="enemy25" parent="ENEMIES" instance=ExtResource( 12 )]
-position = Vector2( 14077.6, 532.958 )
-scale = Vector2( 0.1, 0.1 )
+position = Vector2( 14072.3, 509.012 )
+scale = Vector2( 0.125, 0.125 )
 direction = 1
 
 [node name="enemy26" parent="ENEMIES" instance=ExtResource( 12 )]
-position = Vector2( 15512.6, 663.125 )
-scale = Vector2( 0.1, 0.1 )
+position = Vector2( 15507.3, 639.179 )
+scale = Vector2( 0.125, 0.125 )
 direction = 1
 
 [node name="enemy7" parent="ENEMIES" instance=ExtResource( 12 )]
-position = Vector2( 4733.94, 469.662 )
-scale = Vector2( 0.1, 0.1 )
+position = Vector2( 4728.64, 445.716 )
+scale = Vector2( 0.125, 0.125 )
 
 [node name="enemy8" parent="ENEMIES" instance=ExtResource( 12 )]
-position = Vector2( 4986.21, 210.666 )
-scale = Vector2( 0.1, 0.1 )
+position = Vector2( 4980.91, 186.72 )
+scale = Vector2( 0.125, 0.125 )
 
 [node name="enemy9" parent="ENEMIES" instance=ExtResource( 12 )]
-position = Vector2( 5774.39, -1199.33 )
-scale = Vector2( 0.1, 0.1 )
+position = Vector2( 5769.09, -1223.28 )
+scale = Vector2( 0.125, 0.125 )
 
 [node name="enemy27" parent="ENEMIES" instance=ExtResource( 12 )]
-position = Vector2( 6401.44, -1011.57 )
-scale = Vector2( 0.1, 0.1 )
+position = Vector2( 6396.14, -1035.52 )
+scale = Vector2( 0.125, 0.125 )
 
 [node name="enemy10" parent="ENEMIES" instance=ExtResource( 12 )]
-position = Vector2( 6910.46, -568.842 )
-scale = Vector2( 0.1, 0.1 )
+position = Vector2( 6905.16, -592.788 )
+scale = Vector2( 0.125, 0.125 )
 
 [node name="enemy11" parent="ENEMIES" instance=ExtResource( 12 )]
-position = Vector2( 6134.19, 909.468 )
-scale = Vector2( 0.1, 0.1 )
-
-[node name="enemy12" parent="ENEMIES" instance=ExtResource( 12 )]
-position = Vector2( 7607.15, 638.546 )
-scale = Vector2( 0.1, 0.1 )
+position = Vector2( 6128.89, 885.522 )
+scale = Vector2( 0.125, 0.125 )
 
 [node name="enemy13" parent="ENEMIES" instance=ExtResource( 12 )]
-position = Vector2( 9668.82, 60.8856 )
-scale = Vector2( 0.1, 0.1 )
+position = Vector2( 9663.52, 36.9398 )
+scale = Vector2( 0.125, 0.125 )
 
 [node name="enemy14" parent="ENEMIES" instance=ExtResource( 12 )]
-position = Vector2( 9146.88, 541.299 )
-scale = Vector2( 0.1, 0.1 )
+position = Vector2( 9141.58, 517.353 )
+scale = Vector2( 0.125, 0.125 )
 
 [node name="pedestal-export" type="Sprite" parent="."]
-position = Vector2( 7674.17, 704.029 )
-scale = Vector2( 0.396992, 0.396992 )
+position = Vector2( 7673.17, 686.029 )
+scale = Vector2( 0.508, 0.508 )
 texture = ExtResource( 3 )
 
 [node name="Area2D" parent="." instance=ExtResource( 14 )]
-position = Vector2( 7683.02, 691.808 )
-scale = Vector2( 0.04, 0.04 )
+position = Vector2( 7680.52, 657.308 )
+scale = Vector2( 0.045, 0.045 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 13 )
