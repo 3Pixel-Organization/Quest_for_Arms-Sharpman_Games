@@ -3,12 +3,12 @@
 [ext_resource path="res://Scripts/Level2.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Scrub.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/Sprites/Floor/Nova pasta/lol.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Sprites/Background/l167.jpg__800x600_q95_crop_subsampling-2_upscale.jpg" type="Texture" id=4]
+[ext_resource path="res://Assets/Sprites/Background/what_is_this.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Sounds/Music/The Pit Fall.ogg" type="AudioStream" id=5]
 [ext_resource path="res://Scenes/pause.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/coin.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/speed.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Assets/Sprites/Items/coin-export.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Sprites/Items/coin.png" type="Texture" id=9]
 [ext_resource path="res://Assets/Fonts/Roboto-Light.ttf" type="DynamicFontData" id=10]
 [ext_resource path="res://Scripts/HUD.gd" type="Script" id=11]
 [ext_resource path="res://Scenes/canonlr.tscn" type="PackedScene" id=12]
@@ -28,6 +28,7 @@
 [ext_resource path="res://Assets/Sprites/Floor/Nova pasta/underground7.png" type="Texture" id=28]
 [ext_resource path="res://Assets/Sprites/Floor/Nova pasta/underground8.png" type="Texture" id=29]
 [ext_resource path="res://Assets/Sprites/Floor/Nova pasta/basicfloor.-export.png" type="Texture" id=30]
+
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 2241.51, 63.3549 )
