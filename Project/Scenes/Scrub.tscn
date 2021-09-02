@@ -1,29 +1,49 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://Assets/Animations/player_spriteframes.tres" type="SpriteFrames" id=1]
+[ext_resource path="res://Assets/Animations/player.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://Scripts/Scrub.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Sounds/Sound Effects/Fireball_No_explosion.ogg" type="AudioStream" id=3]
 [ext_resource path="res://Assets/Sounds/Sound Effects/new folder/Coin.ogg" type="AudioStream" id=4]
 [ext_resource path="res://Assets/Sounds/Sound Effects/new folder/Jump.ogg" type="AudioStream" id=5]
-[ext_resource path="res://Assets/Sprites/Items/mountedGun-export.png" type="Texture" id=6]
+
+[sub_resource type="StreamTexture" id=3]
+load_path = "res://.import/mountedGun-export.png-f7b39ff1c41f5e0c6e6c9d64d8cb7c64.stex"
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 75.7918, 112.276 )
+extents = Vector2( 76, 112 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 54.5882, 133.476 )
+extents = Vector2( 60, 140 )
 
 [node name="Scrub" type="KinematicBody2D"]
-position = Vector2( 0, 3.5636 )
 z_index = 1
 collision_mask = 27
 script = ExtResource( 2 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 0.297302, -0.297302 )
+[node name="Position2D" type="Position2D" parent="."]
+
+[node name="ScrubSprites" type="AnimatedSprite" parent="."]
+scale = Vector2( 10, 10 )
 frames = ExtResource( 1 )
-animation = "Idle"
-frame = 2
+animation = "idle"
+
+[node name="mountedGun" type="Sprite" parent="."]
+visible = false
+position = Vector2( -55, -50 )
+scale = Vector2( 10, 10 )
+texture = SubResource( 3 )
+
+[node name="attaclk 1" type="Area2D" parent="." groups=[
+"kick",
+]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="attaclk 1"]
+position = Vector2( 190, 28 )
+shape = SubResource( 1 )
+disabled = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.6
@@ -59,28 +79,6 @@ volume_db = -15.0
 [node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
 volume_db = -15.0
-
-[node name="attaclk 1" type="Area2D" parent="." groups=[
-"kick",
-]]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="attaclk 1"]
-position = Vector2( 190.882, 30.0339 )
-shape = SubResource( 1 )
-disabled = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -4.36241, 25.6271 )
-shape = SubResource( 2 )
-
-[node name="Sprite-0003-export" type="Sprite" parent="."]
-position = Vector2( -60.7509, -42.9131 )
-scale = Vector2( 1.04097, 1.06415 )
-texture = ExtResource( 6 )
-
-[node name="Position2D" type="Position2D" parent="."]
-position = Vector2( -28.3103, -13.0747 )
-scale = Vector2( 100, 100 )
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="Timer2" to="." method="_on_Timer2_timeout"]

@@ -10,8 +10,8 @@ var is_jumping = false
 var is_attacking = false
 var special_uses = 2
 var candie = true
-var fire1 = preload("res://Assets/Sprites/Items/mountedGun-export.png")
-var fire2 = preload("res://Assets/Sprites/Items/mountedGun-export-export.png")
+var fire1 = preload("res://Assets/Sprites/Items/mountedGunReady.png")
+var fire2 = preload("res://Assets/Sprites/Items/mountedGunCool.png")
 
 onready var Coyote_Timer = $CoyoteTimer
 onready var Jump_Buffer = $JumpBuffer
@@ -28,13 +28,13 @@ const JUMP_PAD_FORCE = -2000
 signal death
 
 func _ready():
-	$"Sprite-0003-export".hide()
+	pass
 
 func _process(_delta):
 	if cooldownnotactive == true:
-		$"Sprite-0003-export".set_texture(fire1)
+		$"mountedGun".set_texture(fire1)
 	else:
-		$"Sprite-0003-export".set_texture(fire2)
+		$"mountedGun".set_texture(fire2)
 
 ## run forrest run
 func _physics_process(_delta):
@@ -43,9 +43,9 @@ func _physics_process(_delta):
 	is_jumping = (velocity.y <= 0)
 	
 	if Input.is_action_pressed("right") && is_attacking == false:
-		$AnimatedSprite.flip_h = false
-		$"Sprite-0003-export".flip_h = false
-		$AnimatedSprite.z_index = 0
+		$ScrubSprites.flip_h = false
+		$"mountedGun".flip_h = false
+		$ScrubSprites.z_index = 0
 		
 		$Position2D.position.x = abs($Position2D.position.x)
 		
@@ -53,13 +53,13 @@ func _physics_process(_delta):
 		
 		velocity.x = min(velocity.x+ACCELERATION, MAX_SPEED)
 		
-		$AnimatedSprite.play("walk")
+		$ScrubSprites.play("walk")
 		direction = -1
 		
 	elif Input.is_action_pressed("left") && is_attacking == false:
-		$AnimatedSprite.flip_h = true
-		$"Sprite-0003-export".flip_h = true
-		$AnimatedSprite.z_index = 1
+		$ScrubSprites.flip_h = true
+		$"mountedGun".flip_h = true
+		$ScrubSprites.z_index = 1
 		
 		$Position2D.position.x = -abs($Position2D.position.x)
 		
@@ -67,12 +67,12 @@ func _physics_process(_delta):
 		
 		velocity.x = max(velocity.x-ACCELERATION, -MAX_SPEED)
 		
-		$AnimatedSprite.play("walk")
+		$ScrubSprites.play("walk")
 		direction = 1
 		
 	else:
 		if is_attacking == false:
-			$AnimatedSprite.play("Idle")
+			$ScrubSprites.play("idle")
 		
 		friction = true
 		velocity.x = lerp (velocity.x, 0, 0.2)
@@ -84,7 +84,7 @@ func _physics_process(_delta):
 			if friction == true:
 				velocity.x = lerp (velocity.x, 0, 0.05)
 	if not is_on_floor():
-		$AnimatedSprite.play("jump")
+		$ScrubSprites.play("jump")
 
 	velocity.y += GRAVITY
 	
@@ -154,7 +154,7 @@ func _on_Timer2_timeout():
 	cooldownnotactive = true
 
 func fireball_pickup():
-	$"Sprite-0003-export".show()
+	$"mountedGun".show()
 	hasfireball = true
 
 func _jump_pad():
