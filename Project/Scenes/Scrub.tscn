@@ -5,9 +5,7 @@
 [ext_resource path="res://Assets/Sounds/Sound Effects/Fireball_No_explosion.ogg" type="AudioStream" id=3]
 [ext_resource path="res://Assets/Sounds/Sound Effects/new folder/Coin.ogg" type="AudioStream" id=4]
 [ext_resource path="res://Assets/Sounds/Sound Effects/new folder/Jump.ogg" type="AudioStream" id=5]
-
-[sub_resource type="StreamTexture" id=3]
-load_path = "res://.import/mountedGun-export.png-f7b39ff1c41f5e0c6e6c9d64d8cb7c64.stex"
+[ext_resource path="res://Assets/Sprites/Items/mountedGunReady.png" type="Texture" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 76, 112 )
@@ -31,7 +29,7 @@ animation = "idle"
 visible = false
 position = Vector2( -55, -50 )
 scale = Vector2( 10, 10 )
-texture = SubResource( 3 )
+texture = ExtResource( 6 )
 
 [node name="attaclk 1" type="Area2D" parent="." groups=[
 "kick",
