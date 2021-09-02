@@ -4,24 +4,23 @@
 [ext_resource path="res://Scripts/Fireball.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 722.187, 583.337 )
+extents = Vector2( 55, 45 )
 
 [node name="Fireball" type="Area2D"]
-scale = Vector2( 0.03, 0.03 )
 collision_layer = 32
 collision_mask = 16
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 10, 10 )
 texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -297.341, -166.31 )
 shape = SubResource( 1 )
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
-position = Vector2( -295, -168.19 )
-scale = Vector2( 71.88, 58.1311 )
+position = Vector2( -55, -45 )
+rect = Rect2( 0, 0, 110, 90 )
 
 [connection signal="body_entered" from="." to="." method="_on_Fireball_body_entered"]
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
