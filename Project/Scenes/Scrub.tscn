@@ -1,63 +1,58 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Assets/Animations/player.tres" type="SpriteFrames" id=1]
-[ext_resource path="res://Scripts/Scrub.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/scrub.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Sounds/Sound Effects/Fireball_No_explosion.ogg" type="AudioStream" id=3]
-[ext_resource path="res://Assets/Sounds/Sound Effects/new folder/Coin.ogg" type="AudioStream" id=4]
 [ext_resource path="res://Assets/Sounds/Sound Effects/new folder/Jump.ogg" type="AudioStream" id=5]
-[ext_resource path="res://Assets/Sprites/Items/mountedGunReady.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Sprites/Items/mountedGun.png" type="Texture" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 76, 112 )
+extents = Vector2( 8, 11 )
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 60, 140 )
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 6, 14 )
 
 [node name="Scrub" type="KinematicBody2D"]
 z_index = 1
 collision_mask = 27
 script = ExtResource( 2 )
 
-[node name="Position2D" type="Position2D" parent="."]
+[node name="FireballOrigin" type="Position2D" parent="."]
+position = Vector2( -1.5, -19.5 )
 
-[node name="ScrubSprites" type="AnimatedSprite" parent="."]
-scale = Vector2( 10, 10 )
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = ExtResource( 1 )
 animation = "idle"
+offset = Vector2( 0, -14 )
 
-[node name="mountedGun" type="Sprite" parent="."]
+[node name="MountedGun" type="Sprite" parent="."]
 visible = false
-position = Vector2( -55, -50 )
-scale = Vector2( 10, 10 )
+position = Vector2( -4, -19 )
 texture = ExtResource( 6 )
+hframes = 2
 
-[node name="attaclk 1" type="Area2D" parent="." groups=[
+[node name="Kick" type="Area2D" parent="." groups=[
 "kick",
 ]]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="attaclk 1"]
-position = Vector2( 190, 28 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Kick"]
+position = Vector2( 14, -11 )
 shape = SubResource( 1 )
 disabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 2 )
+position = Vector2( 0, -14 )
+shape = SubResource( 3 )
 
-[node name="Timer" type="Timer" parent="."]
+[node name="DeathTimer" type="Timer" parent="."]
 wait_time = 0.6
 one_shot = true
 
-[node name="Timer2" type="Timer" parent="."]
+[node name="GunCooldown" type="Timer" parent="."]
 wait_time = 5.0
 
-[node name="Timer3" type="Timer" parent="."]
+[node name="KickCooldown" type="Timer" parent="."]
 wait_time = 0.15
-
-[node name="Timer4" type="Timer" parent="."]
-wait_time = 3.0
-
-[node name="Timer5" type="Timer" parent="."]
-wait_time = 0.2
 
 [node name="CoyoteTimer" type="Timer" parent="."]
 wait_time = 0.1
@@ -67,19 +62,13 @@ one_shot = true
 wait_time = 0.1
 one_shot = true
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="Fireball" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
 
-[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+[node name="Jump" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
 volume_db = -15.0
 
-[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 4 )
-volume_db = -15.0
-
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
-[connection signal="timeout" from="Timer2" to="." method="_on_Timer2_timeout"]
-[connection signal="timeout" from="Timer3" to="." method="_on_Timer3_timeout"]
-[connection signal="timeout" from="Timer4" to="." method="_on_Timer4_timeout"]
-[connection signal="timeout" from="Timer5" to="." method="_on_Timer5_timeout"]
+[connection signal="timeout" from="DeathTimer" to="." method="_on_DeathTimer_timeout"]
+[connection signal="timeout" from="GunCooldown" to="." method="_on_gun_cooldown_timeout"]
+[connection signal="timeout" from="KickCooldown" to="." method="_on_kick_cooldown_timeout"]

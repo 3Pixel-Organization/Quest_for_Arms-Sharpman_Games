@@ -1,19 +1,14 @@
-extends KinematicBody2D
+extends KinematicBody2D 
 
-var iscrumbling = false 
-
-func _ready():
-	pass
-
-func _on_Timer_timeout():
-	$AnimationPlayer.play("New Anim")
+func _on_FallTimer_timeout():
+	$AnimationPlayer.play("Fall")
+	$CollisionShape2D.disabled = true
 
 func _on_AnimationPlayer_animation_finished(_anim_name):
-	iscrumbling = false
 	queue_free()
 
-func _on_Area2D_body_entered(body):
-	if body.name == "Scrub" && !iscrumbling:
-		iscrumbling = true
-		$AnimationPlayer2.play("New Anim")
-		$Timer.start()
+func _on_TopChecker_body_entered(body):
+	if body.name == "Scrub":
+		$TopChecker/CollisionShape2D.disabled = true
+		$AnimationPlayer.play("Shake")
+		$FallTimer.start()

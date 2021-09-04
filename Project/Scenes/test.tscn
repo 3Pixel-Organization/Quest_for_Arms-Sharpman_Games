@@ -1,6 +1,6 @@
 [gd_scene load_steps=36 format=2]
 
-[ext_resource path="res://Scenes/Scrub.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/scrub.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/Sprites/Background/tree.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Sprites/Background/deep_bue_sky.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Sprites/Background/mountains_no_sky.png" type="Texture" id=5]
@@ -19,6 +19,7 @@
 [ext_resource path="res://Assets/Sprites/Floor/new folder/underground11.png" type="Texture" id=31]
 [ext_resource path="res://Assets/Sprites/Floor/new folder/underground12.png" type="Texture" id=32]
 [ext_resource path="res://Assets/Sprites/Floor/new folder/underground13.png" type="Texture" id=33]
+
 
 
 [sub_resource type="ConvexPolygonShape2D" id=1]

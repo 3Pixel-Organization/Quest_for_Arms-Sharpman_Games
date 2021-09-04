@@ -3,12 +3,12 @@ extends Area2D
 signal coin_collected
 
 ## Coin collection
-func _on_Area2D_body_entered(body):
+func _on_Coin_body_entered(body):
 	if body.name == "Scrub":
-		$AnimationPlayer.play("bounce")
+		$AnimationPlayer.play("Bounce")
 		emit_signal("coin_collected")
 		set_collision_layer_bit(0,false)
-		body.play_sound()
+		$Sound.play()
 
 func _on_AnimationPlayer_animation_finished(_anim_name):
 	queue_free()

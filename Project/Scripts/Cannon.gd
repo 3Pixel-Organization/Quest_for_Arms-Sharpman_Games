@@ -1,6 +1,6 @@
 extends StaticBody2D
 
-const cannon_ball = preload("res://Scenes/railgun_bullet.tscn")
+const cannon_ball = preload("res://Scenes/cannon_ball.tscn")
 var bullet_on_screen = false
 
 func _on_Clock_timeout():

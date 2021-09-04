@@ -1,14 +1,14 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Scripts/Area2D.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Coin.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Sprites/Items/coin.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Sounds/Sound Effects/new folder/Coin.ogg" type="AudioStream" id=3]
 
-[sub_resource type="CapsuleShape2D" id=1]
-radius = 240.0
-height = 150.0
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 6, 7 )
 
 [sub_resource type="Animation" id=2]
-resource_name = "bounce"
+resource_name = "Bounce"
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:position")
@@ -20,10 +20,10 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 0, -2245.67 ) ]
+"values": [ Vector2( 0, 0 ), Vector2( 0, -5 ) ]
 }
 
-[node name="coin" type="Area2D"]
+[node name="Coin" type="Area2D"]
 collision_layer = 0
 script = ExtResource( 1 )
 
@@ -31,11 +31,14 @@ script = ExtResource( 1 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 40, 40 )
 texture = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/bounce = SubResource( 2 )
+anims/Bounce = SubResource( 2 )
 
-[connection signal="body_entered" from="." to="." method="_on_Area2D_body_entered"]
+[node name="Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -15.0
+
+[connection signal="body_entered" from="." to="." method="_on_Coin_body_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

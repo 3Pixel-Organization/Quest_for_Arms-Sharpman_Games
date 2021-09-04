@@ -1,47 +1,57 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://Scripts/Speed.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Sprites/SPEED/speed.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/Slasher.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Sprites/enemy/enemy.png" type="Texture" id=2]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 2 )
-region = Rect2( 0, 0, 30, 42 )
+region = Rect2( 30, 0, 30, 22 )
 
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 2 )
-region = Rect2( 30, 0, 30, 42 )
+region = Rect2( 60, 0, 30, 22 )
 
-[sub_resource type="SpriteFrames" id=3]
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 30, 22 )
+
+[sub_resource type="SpriteFrames" id=4]
 animations = [ {
 "frames": [ SubResource( 1 ) ],
 "loop": true,
-"name": "idle",
+"name": "stagger",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 2 ) ],
 "loop": true,
-"name": "stagger",
-"speed": 5.0
+"name": "squashed",
+"speed": 1.0
+}, {
+"frames": [ SubResource( 3 ) ],
+"loop": true,
+"name": "walk",
+"speed": 3.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 11, 2 )
-
 [sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 20.9999, 15.0001 )
+extents = Vector2( 0.999943, 14 )
 
 [sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 11, 21 )
+extents = Vector2( 16, 11 )
 
-[node name="Speed" type="KinematicBody2D"]
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 15, 11 )
+
+[node name="Slasher" type="KinematicBody2D"]
 collision_layer = 16
-collision_mask = 35
+collision_mask = 51
 script = ExtResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 3, -21 )
-frames = SubResource( 3 )
-animation = "idle"
+frames = SubResource( 4 )
+animation = "walk"
+playing = true
+offset = Vector2( 0, -11 )
 
 [node name="floor_checker" type="RayCast2D" parent="."]
 enabled = true
@@ -53,24 +63,23 @@ collision_layer = 0
 collision_mask = 33
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="top_checker"]
-position = Vector2( 1, -44 )
-shape = SubResource( 4 )
+position = Vector2( 0, -23 )
+rotation = 1.5708
+shape = SubResource( 5 )
 
 [node name="sides_checker" type="Area2D" parent="."]
 collision_layer = 16
 collision_mask = 33
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="sides_checker"]
-position = Vector2( 1, -21 )
-rotation = 1.5708
-shape = SubResource( 5 )
+position = Vector2( 0, -11 )
+shape = SubResource( 6 )
 
 [node name="StaggerTimer" type="Timer" parent="."]
-one_shot = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 1, -21 )
-shape = SubResource( 6 )
+position = Vector2( 0, -11 )
+shape = SubResource( 7 )
 
 [connection signal="body_entered" from="top_checker" to="." method="_on_top_checker_body_entered"]
 [connection signal="area_entered" from="sides_checker" to="." method="_on_sides_checker_area_entered"]

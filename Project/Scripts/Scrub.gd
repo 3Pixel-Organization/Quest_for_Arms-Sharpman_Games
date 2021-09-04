@@ -1,161 +1,172 @@
 extends KinematicBody2D
 
-## Vars
+## Variables
 var velocity = Vector2()
 var coins = 0
-var direction = 1
-var cooldownnotactive = true
-var hasfireball = false
+var gun_on_cooldown = false
+var has_fireball = false
 var is_jumping = false
 var is_attacking = false
 var special_uses = 2
-var candie = true
-var fire1 = preload("res://Assets/Sprites/Items/mountedGunReady.png")
-var fire2 = preload("res://Assets/Sprites/Items/mountedGunCool.png")
+var can_die = true
 
-onready var Coyote_Timer = $CoyoteTimer
-onready var Jump_Buffer = $JumpBuffer
+## Direction setup
+enum {
+	LEFT,
+	RIGHT,
+}
+
+export var direction = RIGHT
+
+## Node references
+onready var CoyoteTimer = $CoyoteTimer
+onready var JumpBuffer = $JumpBuffer
 
 ## Constants
-const MAX_SPEED = 450
-const ACCELERATION = 200
-const JUMPFORCE = -1100
-const GRAVITY = 35
-const FIREBALL = preload("res://Scenes/Fireball.tscn")
-const JUMP_PAD_FORCE = -2000
+const MAX_SPEED = 90
+const ACCELERATION = 40
+const JUMPFORCE = -220
+const GRAVITY = 7
+const FIREBALL = preload("res://Scenes/fireball.tscn")
+const JUMP_PAD_FORCE = -200
 
 ## Signals
 signal death
 
-func _ready():
-	pass
-
 func _process(_delta):
-	if cooldownnotactive == true:
-		$"mountedGun".set_texture(fire1)
-	else:
-		$"mountedGun".set_texture(fire2)
+	$MountedGun.frame = int(gun_on_cooldown)
+	$MountedGun.offset.y = ($AnimatedSprite.animation == "idle") as int * $AnimatedSprite.frame
 
 ## run forrest run
 func _physics_process(_delta):
 	var friction = false
 	
+	## Store Inputs
+	var right = Input.is_action_pressed("right")
+	var left = Input.is_action_pressed("left")
+	var jump = Input.is_action_just_pressed("jump")
+	var shoot_fireball = Input.is_action_pressed("shoot_fireball")
+	var kick = Input.is_action_pressed("kick")
+	
 	is_jumping = (velocity.y <= 0)
 	
-	if Input.is_action_pressed("right") && is_attacking == false:
-		$ScrubSprites.flip_h = false
-		$"mountedGun".flip_h = false
-		$ScrubSprites.z_index = 0
+	if !is_attacking:
+		if right:
+			$AnimatedSprite.flip_h = false
+			$AnimatedSprite.z_index = 0
+			$MountedGun.flip_h = false
+			$MountedGun.position.x = -abs($MountedGun.position.x)
+			
+			$FireballOrigin.position.x = -abs($FireballOrigin.position.x)
+			
+			$"Kick/CollisionShape2D".position.x = abs($"Kick/CollisionShape2D".position.x)
+			
+			velocity.x = min(velocity.x+ACCELERATION, MAX_SPEED)
+			
+			if $AnimatedSprite.animation != "walk":
+				$AnimatedSprite.play("walk")
+			
+			direction = RIGHT
 		
-		$Position2D.position.x = abs($Position2D.position.x)
+		elif left:
+			$AnimatedSprite.flip_h = true
+			$AnimatedSprite.z_index = 1
+			$MountedGun.flip_h = true
+			$MountedGun.position.x = abs($MountedGun.position.x)
+			
+			$FireballOrigin.position.x = abs($FireballOrigin.position.x)
+			
+			$"Kick/CollisionShape2D".position.x = -abs($"Kick/CollisionShape2D".position.x)
+			
+			velocity.x = max(velocity.x-ACCELERATION, -MAX_SPEED)
+			
+			if $AnimatedSprite.animation != "walk":
+				$AnimatedSprite.play("walk")
+			
+			direction = LEFT
 		
-		$"attaclk 1/CollisionShape2D".position.x = abs($"attaclk 1/CollisionShape2D".position.x)
-		
-		velocity.x = min(velocity.x+ACCELERATION, MAX_SPEED)
-		
-		$ScrubSprites.play("walk")
-		direction = -1
-		
-	elif Input.is_action_pressed("left") && is_attacking == false:
-		$ScrubSprites.flip_h = true
-		$"mountedGun".flip_h = true
-		$ScrubSprites.z_index = 1
-		
-		$Position2D.position.x = -abs($Position2D.position.x)
-		
-		$"attaclk 1/CollisionShape2D".position.x = -abs($"attaclk 1/CollisionShape2D".position.x)
-		
-		velocity.x = max(velocity.x-ACCELERATION, -MAX_SPEED)
-		
-		$ScrubSprites.play("walk")
-		direction = 1
-		
+		else:
+			$AnimatedSprite.play("idle")
+			friction = true
+			velocity.x = lerp (velocity.x, 0, 0.2)
 	else:
-		if is_attacking == false:
-			$ScrubSprites.play("idle")
-		
 		friction = true
 		velocity.x = lerp (velocity.x, 0, 0.2)
-		
-	if is_on_floor():
-		if friction == true:
-			velocity.x = lerp (velocity.x, 0, 0.2)
-		else:
-			if friction == true:
-				velocity.x = lerp (velocity.x, 0, 0.05)
-	if not is_on_floor():
-		$ScrubSprites.play("jump")
-
-	velocity.y += GRAVITY
 	
-	if Input.is_action_just_pressed("jump") && is_attacking == false:
-		if is_on_floor() || !Coyote_Timer.is_stopped():
-			$AudioStreamPlayer2.play()
-			Coyote_Timer.stop()
+	if kick:
+		is_attacking = true
+		$"Kick/CollisionShape2D".disabled = false
+		$KickCooldown.start()
+	
+	if jump && !is_attacking:
+		if is_on_floor() || !CoyoteTimer.is_stopped():
+			$Jump.play()
+			CoyoteTimer.stop()
 			is_jumping = true
 			velocity.y = JUMPFORCE
 		else:
-			Jump_Buffer.start()
+			JumpBuffer.start()
 	
-	if Input.is_action_just_pressed("Attack 1"):
-		is_attacking = true
-		$"attaclk 1/CollisionShape2D".disabled = false
-		$Timer3.start()
+	if is_on_floor():
+		if friction == true:
+			velocity.x = lerp(velocity.x, 0, 0.2)
+		else:
+			if friction == true: ## what?? why is the condition repeated here?
+				velocity.x = lerp(velocity.x, 0, 0.05)
+	
+	else:
+		$AnimatedSprite.play("jump")
+	
+	velocity.y += GRAVITY
 	
 	var was_on_floor = is_on_floor()
 	velocity = move_and_slide(velocity,Vector2.UP)
 	if !is_on_floor() && was_on_floor && !is_jumping:
-		Coyote_Timer.start()
-	if is_on_floor() && !Jump_Buffer.is_stopped():
-		Jump_Buffer.stop()
-		Coyote_Timer.stop()
+		CoyoteTimer.start()
+	if is_on_floor() && !JumpBuffer.is_stopped():
+		JumpBuffer.stop()
+		CoyoteTimer.stop()
 		is_jumping = true
 		velocity.y = JUMPFORCE
 	velocity.x = lerp(velocity.x,0,0.4)
 	
-	if Input.is_action_pressed("Shoot Fireball") && cooldownnotactive:
-		if hasfireball == true:
-			$AudioStreamPlayer.play()
-			var fireball = FIREBALL.instance()
-			if sign($Position2D.position.x) == 1:
-				fireball._set_fireball_direction(1)
-			else:
-				fireball._set_fireball_direction(-1)
-			get_parent().add_child(fireball)
-			fireball.global_position = $Position2D.global_position
-			$Timer2.start()
-			cooldownnotactive = false
-			
+	if shoot_fireball && !gun_on_cooldown && has_fireball:
+		$Fireball.play()
+		$MountedGun.frame = 1
+		var fireball = FIREBALL.instance()
+		fireball.velocity.x = -5 + 10 * direction as int
+		get_parent().add_child(fireball)
+		fireball.global_position = $FireballOrigin.global_position
+		$GunCooldown.start()
+		gun_on_cooldown = true
+
 func _on_Area2D_body_entered(_body):
 	emit_signal("death")
 
 func add_coin():
-	coins= coins + 1
+	coins += 1
 
 func bounce():
 	velocity.y = JUMPFORCE * 0.8
 	
-func ouch(var enemyposx):
-	if candie == true:
+func ouch(var enemy_x):
+	if can_die:
 		set_modulate(Color(1,0.3,0.3,0.3))
 		
-		velocity = Vector2(1000 * int(position.x > enemyposx), JUMPFORCE)
+		velocity = Vector2(1000 - 2000 * int(global_position.x < enemy_x), JUMPFORCE)
 		
 		Input.action_release("left")
 		Input.action_release("right")
 		Input.action_release("jump")
 		
-		$Timer.start()
+		$DeathTimer.start()
 
-func _on_Timer_timeout():
-	emit_signal("death")
-
-func _on_Timer2_timeout():
-	cooldownnotactive = true
+func _on_gun_cooldown_timeout():
+	gun_on_cooldown = false
 
 func fireball_pickup():
-	$"mountedGun".show()
-	hasfireball = true
+	$MountedGun.show()
+	has_fireball = true
 
 func _jump_pad():
 	velocity.y = JUMP_PAD_FORCE
@@ -167,21 +178,15 @@ func _death():
 	Input.action_release("right")
 	Input.action_release("jump")
 	
-	$Timer.start()
-
-func play_sound():
-	$AudioStreamPlayer3.play()
+	$DeathTimer.start()
+	can_die = false
 
 func add_special_use():
-	special_uses = special_uses + 1
+	special_uses += + 1
 
-func _on_Timer3_timeout():
+func _on_DeathTimer_timeout():
+	emit_signal("death")
+
+func _on_kick_cooldown_timeout():
 	is_attacking = false
-	$"attaclk 1/CollisionShape2D".disabled = true
-
-func _on_Timer4_timeout():
-	is_attacking = false
-	$"attack 2/CollisionShape2D".disabled = true
-
-func candiefalse():
-	candie = false
+	$"kick/CollisionShape2D".disabled = true
