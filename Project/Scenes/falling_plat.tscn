@@ -3,7 +3,7 @@
 [ext_resource path="res://Scripts/fallingplat.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Sprites/Floor/fallingPlat.png" type="Texture" id=2]
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=1]
 resource_name = "Fall"
 length = 2.0
 tracks/0/type = "value"
@@ -19,7 +19,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 0, 1000 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=2]
 resource_name = "Shake"
 length = 0.2
 loop = true
@@ -51,8 +51,8 @@ script = ExtResource( 1 )
 texture = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Fall = SubResource( 6 )
-anims/Shake = SubResource( 5 )
+anims/Fall = SubResource( 1 )
+anims/Shake = SubResource( 2 )
 
 [node name="FallTimer" type="Timer" parent="."]
 
@@ -69,4 +69,4 @@ one_way_collision = true
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="timeout" from="FallTimer" to="." method="_on_FallTimer_timeout"]
-[connection signal="body_entered" from="TopChecker" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="TopChecker" to="." method="_on_TopChecker_body_entered"]
