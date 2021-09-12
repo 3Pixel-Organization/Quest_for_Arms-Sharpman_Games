@@ -1,4 +1,4 @@
-extends Node2D
+extends Node
 
 func _on_Scrub_death():
 	get_node("HUD/Node2D").visible()

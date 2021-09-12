@@ -67,7 +67,7 @@ font_data = ExtResource( 5 )
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 27, 48 )
 
-[node name="Tutorial" type="Node2D"]
+[node name="Tutorial" type="Node"]
 script = ExtResource( 23 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
@@ -258,7 +258,7 @@ scale = Vector2( 3, 3 )
 texture = ExtResource( 25 )
 
 [node name="Scrub" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1248, 224 )
+position = Vector2( 200, 224 )
 
 [node name="Camera2D" type="Camera2D" parent="Scrub"]
 position = Vector2( 0, -400 )
