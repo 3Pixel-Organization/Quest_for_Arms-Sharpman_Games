@@ -9,24 +9,20 @@ var is_jumping = false
 var is_attacking = false
 var special_uses = 2
 var can_die = true
-
-## Direction setup
-enum {
-	LEFT,
-	RIGHT,
-}
-
-export var direction = RIGHT
+var direction
 
 ## Node references
 onready var CoyoteTimer = $CoyoteTimer
 onready var JumpBuffer = $JumpBuffer
+onready var animated_sprite = $AnimatedSprite
+onready var jump_buffer = $JumpBuffer
 
 ## Constants
 const MAX_SPEED = 90
 const ACCELERATION = 40
-const JUMPFORCE = -220
-const GRAVITY = 7
+const JUMP_FORCE = -220 # -150
+const GRAVITY = 7 # 152
+#const MAX_FALL_SPEED = MAX_SPEED * 10
 const FIREBALL = preload("res://Scenes/fireball.tscn")
 const JUMP_PAD_FORCE = -200
 
@@ -38,18 +34,48 @@ func _process(_delta):
 	$MountedGun.offset.y = ($AnimatedSprite.animation == "idle") as int * $AnimatedSprite.frame
 
 ## run forrest run
-func _physics_process(_delta):
-	var friction = false
+func _physics_process(delta):
 	
 	## Store Inputs
 	var right = Input.is_action_pressed("right")
 	var left = Input.is_action_pressed("left")
+#	direction = Input.is_action_pressed("right") as int - Input.is_action_pressed("left") as int
+#	var clamp_direction : bool = clamp(direction, 0, 1)
+	
 	var jump = Input.is_action_just_pressed("jump")
 	var shoot_fireball = Input.is_action_pressed("shoot_fireball")
 	var kick = Input.is_action_pressed("kick")
 	
-	is_jumping = (velocity.y <= 0)
+	## Incomplete new movement code
+#	if direction:
+#		$MountedGun.position.x = abs($MountedGun.position.x) * -direction
+#		$MountedGun.flip_h = !clamp_direction
+#		$AnimatedSprite.flip_h = !clamp_direction
+#		$AnimatedSprite.z_index = !clamp_direction
+#		$FireballOrigin.position.x = abs($FireballOrigin.position.x) * -direction
+#		$"Kick/CollisionShape2D".position.x = abs($"Kick/CollisionShape2D".position.x) * direction
+#		velocity.x = lerp(velocity.x, MAX_SPEED * direction, 20 * delta)
+#	else:
+#		velocity.x = lerp(velocity.x, 0, 20 * delta)
+#
+#	velocity.x = clamp(velocity.x, -MAX_SPEED, MAX_SPEED)
+#	velocity.y = min(velocity.y + (GRAVITY * delta), MAX_FALL_SPEED)
+#	if !is_on_floor() && jump_buffer.is_stopped():
+#		jump_buffer.start()
+#	if jump && is_on_floor():
+#		velocity.y = JUMP_FORCE
+#	velocity = move_and_slide(velocity, Vector2.UP)
+#	print(velocity)
+#
+#	if velocity.y:
+#		animated_sprite.play("jump")
+#	elif velocity.x:
+#		animated_sprite.play("walk")
+#	else:
+#		animated_sprite.play("idle")
 	
+	is_jumping = (velocity.y <= 0)
+	var friction = false
 	if !is_attacking:
 		if right:
 			$AnimatedSprite.flip_h = false
@@ -63,10 +89,10 @@ func _physics_process(_delta):
 			
 			velocity.x = min(velocity.x+ACCELERATION, MAX_SPEED)
 			
-			if $AnimatedSprite.animation != "walk":
-				$AnimatedSprite.play("walk")
+			if animated_sprite.animation != "walk":
+				animated_sprite.play("walk")
 			
-			direction = RIGHT
+			direction = 1
 		
 		elif left:
 			$AnimatedSprite.flip_h = true
@@ -80,18 +106,18 @@ func _physics_process(_delta):
 			
 			velocity.x = max(velocity.x-ACCELERATION, -MAX_SPEED)
 			
-			if $AnimatedSprite.animation != "walk":
-				$AnimatedSprite.play("walk")
+			if animated_sprite.animation != "walk":
+				animated_sprite.play("walk")
 			
-			direction = LEFT
+			direction = -1
 		
 		else:
-			$AnimatedSprite.play("idle")
+			animated_sprite.play("idle")
 			friction = true
-			velocity.x = lerp (velocity.x, 0, 0.2)
+			velocity.x = lerp(velocity.x, 0, 0.2)
 	else:
 		friction = true
-		velocity.x = lerp (velocity.x, 0, 0.2)
+		velocity.x = lerp(velocity.x, 0, 0.2)
 	
 	if kick:
 		is_attacking = true
@@ -103,19 +129,15 @@ func _physics_process(_delta):
 			$Jump.play()
 			CoyoteTimer.stop()
 			is_jumping = true
-			velocity.y = JUMPFORCE
+			velocity.y = JUMP_FORCE
 		else:
 			JumpBuffer.start()
 	
 	if is_on_floor():
-		if friction == true:
+		if friction:
 			velocity.x = lerp(velocity.x, 0, 0.2)
-		else:
-			if friction == true: ## what?? why is the condition repeated here?
-				velocity.x = lerp(velocity.x, 0, 0.05)
-	
 	else:
-		$AnimatedSprite.play("jump")
+		animated_sprite.play("jump")
 	
 	velocity.y += GRAVITY
 	
@@ -127,7 +149,7 @@ func _physics_process(_delta):
 		JumpBuffer.stop()
 		CoyoteTimer.stop()
 		is_jumping = true
-		velocity.y = JUMPFORCE
+		velocity.y = JUMP_FORCE
 	velocity.x = lerp(velocity.x,0,0.4)
 	
 	if shoot_fireball && !gun_on_cooldown && has_fireball:
@@ -147,13 +169,13 @@ func add_coin():
 	coins += 1
 
 func bounce():
-	velocity.y = JUMPFORCE * 0.8
+	velocity.y = JUMP_FORCE * 0.8
 	
 func ouch(var enemy_x):
 	if can_die:
 		set_modulate(Color(1,0.3,0.3,0.3))
 		
-		velocity = Vector2(1000 - 2000 * int(global_position.x < enemy_x), JUMPFORCE)
+		velocity = Vector2(1000 - 2000 * int(global_position.x < enemy_x), JUMP_FORCE)
 		
 		Input.action_release("left")
 		Input.action_release("right")
@@ -173,7 +195,7 @@ func _jump_pad():
 
 func _death():
 	set_modulate(Color(1,0.3,0.3,0.3))
-	velocity.y = JUMPFORCE * 1
+	velocity.y = JUMP_FORCE * 1
 	Input.action_release("left")
 	Input.action_release("right")
 	Input.action_release("jump")
