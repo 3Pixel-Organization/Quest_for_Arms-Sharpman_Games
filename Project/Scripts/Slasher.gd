@@ -44,7 +44,7 @@ func _on_top_checker_body_entered(body):
 
 func _on_sides_checker_body_entered(body):
 	if !is_staggered && body.has_method("ouch"):
-			body.ouch(position.x)
+			body.ouch(global_position.x)
 
 func fireball_dead():
 	if health <= 30:

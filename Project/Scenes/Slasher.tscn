@@ -37,7 +37,7 @@ animations = [ {
 extents = Vector2( 0.999943, 14 )
 
 [sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 16, 11 )
+extents = Vector2( 0.5, 11 )
 
 [sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 15, 11 )
@@ -72,7 +72,11 @@ collision_layer = 16
 collision_mask = 33
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="sides_checker"]
-position = Vector2( 0, -11 )
+position = Vector2( -15.5, -11 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="sides_checker"]
+position = Vector2( 15.5, -11 )
 shape = SubResource( 6 )
 
 [node name="StaggerTimer" type="Timer" parent="."]
