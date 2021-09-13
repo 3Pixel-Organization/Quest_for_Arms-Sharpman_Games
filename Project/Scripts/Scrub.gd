@@ -1,176 +1,147 @@
 extends KinematicBody2D
-
-## Variables
-var velocity = Vector2()
-var coins = 0
-var gun_on_cooldown = false
-var has_fireball = false
-var is_jumping = false
-var is_attacking = false
-var special_uses = 2
-var can_die = true
-var direction
-
-## Node references
-onready var CoyoteTimer = $CoyoteTimer
-onready var JumpBuffer = $JumpBuffer
-onready var animated_sprite = $AnimatedSprite
-onready var jump_buffer = $JumpBuffer
-
-## Constants
-const MAX_SPEED = 90
-const ACCELERATION = 40
-const JUMP_FORCE = -220 # -150
-const GRAVITY = 7 # 152
-#const MAX_FALL_SPEED = MAX_SPEED * 10
-const FIREBALL = preload("res://Scenes/fireball.tscn")
-const JUMP_PAD_FORCE = -200
+class_name ScrubPlayer
 
 ## Signals
 signal death
 
-func _process(_delta):
-	$MountedGun.frame = int(gun_on_cooldown)
-	$MountedGun.offset.y = ($AnimatedSprite.animation == "idle") as int * $AnimatedSprite.frame
+## Constants
+const MAX_SPEED = 90
+const ACCELERATION = MAX_SPEED * 5
+const JUMP_FORCE = -152
+const GRAVITY = 152
+const MAX_FALL_SPEED = MAX_SPEED * 10
+const FIREBALL = preload("res://Scenes/fireball.tscn")
+const JUMP_PAD_FORCE = -200
 
-## run forrest run
+## Variables
+var velocity := Vector2()
+var coins := 0
+var gun_on_cooldown := false
+var has_fireball := false
+var is_jumping := false
+var is_attacking := false
+var special_uses := 2
+var can_die := true
+
+enum DIRECTION {
+	LEFT = -1,
+	RIGHT = 1,
+}
+
+export(DIRECTION) var direction := DIRECTION.RIGHT
+var bool_direction: bool = clamp(direction, 0, 1)
+
+# Node references
+# Timers
+onready var jump_buffer: ScrubJumpBuffer = $JumpBuffer
+onready var kick_cooldown := $KickCooldown
+onready var gun_cooldown_timer := $GunCooldown
+
+# Sound Players
+onready var jump_sound := $Jump
+onready var fireball_sound := $Fireball
+
+# Others
+onready var scrub_sprites := $AnimatedSprite
+onready var mounted_gun := $MountedGun
+onready var fireball_origin := $FireballOrigin
+onready var kick_collision := $"Kick/CollisionShape2D"
+
+
+func _ready():
+	mounted_gun.position.x = abs(mounted_gun.position.x) * - direction
+	mounted_gun.flip_h = not bool_direction
+	scrub_sprites.flip_h = not bool_direction
+	scrub_sprites.z_index = not bool_direction
+	fireball_origin.position.x = abs(fireball_origin.position.x) * - direction
+	kick_collision.position.x = abs(kick_collision.position.x) * direction
+
+
+func _process(_delta):
+	mounted_gun.frame = gun_on_cooldown as int
+	mounted_gun.offset.y = (scrub_sprites.animation == "idle") as int * scrub_sprites.frame
+
+
 func _physics_process(delta):
 	
-	## Store Inputs
-	var right = Input.is_action_pressed("right")
-	var left = Input.is_action_pressed("left")
-#	direction = Input.is_action_pressed("right") as int - Input.is_action_pressed("left") as int
-#	var clamp_direction : bool = clamp(direction, 0, 1)
+	# Store Inputs
+	var jump := Input.is_action_just_pressed("jump") # UP, W or spacebar
+	var shoot_fireball := Input.is_action_pressed("shoot_fireball") # Q
+	var kick := Input.is_action_pressed("kick") # X
+	direction = Input.is_action_pressed("right") as int - Input.is_action_pressed("left") as int
 	
-	var jump = Input.is_action_just_pressed("jump")
-	var shoot_fireball = Input.is_action_pressed("shoot_fireball")
-	var kick = Input.is_action_pressed("kick")
+	velocity.y = min(velocity.y + GRAVITY * delta,
+			MAX_FALL_SPEED)
 	
-	## Incomplete new movement code
-#	if direction:
-#		$MountedGun.position.x = abs($MountedGun.position.x) * -direction
-#		$MountedGun.flip_h = !clamp_direction
-#		$AnimatedSprite.flip_h = !clamp_direction
-#		$AnimatedSprite.z_index = !clamp_direction
-#		$FireballOrigin.position.x = abs($FireballOrigin.position.x) * -direction
-#		$"Kick/CollisionShape2D".position.x = abs($"Kick/CollisionShape2D".position.x) * direction
-#		velocity.x = lerp(velocity.x, MAX_SPEED * direction, 20 * delta)
-#	else:
-#		velocity.x = lerp(velocity.x, 0, 20 * delta)
-#
-#	velocity.x = clamp(velocity.x, -MAX_SPEED, MAX_SPEED)
-#	velocity.y = min(velocity.y + (GRAVITY * delta), MAX_FALL_SPEED)
-#	if !is_on_floor() && jump_buffer.is_stopped():
-#		jump_buffer.start()
-#	if jump && is_on_floor():
-#		velocity.y = JUMP_FORCE
-#	velocity = move_and_slide(velocity, Vector2.UP)
-#	print(velocity)
-#
-#	if velocity.y:
-#		animated_sprite.play("jump")
-#	elif velocity.x:
-#		animated_sprite.play("walk")
-#	else:
-#		animated_sprite.play("idle")
-	
-	is_jumping = (velocity.y <= 0)
-	var friction = false
-	if !is_attacking:
-		if right:
-			$AnimatedSprite.flip_h = false
-			$AnimatedSprite.z_index = 0
-			$MountedGun.flip_h = false
-			$MountedGun.position.x = -abs($MountedGun.position.x)
-			
-			$FireballOrigin.position.x = -abs($FireballOrigin.position.x)
-			
-			$"Kick/CollisionShape2D".position.x = abs($"Kick/CollisionShape2D".position.x)
-			
-			velocity.x = min(velocity.x+ACCELERATION, MAX_SPEED)
-			
-			if animated_sprite.animation != "walk":
-				animated_sprite.play("walk")
-			
-			direction = 1
+	if not is_attacking:
+		if kick:
+			is_attacking = true
+			kick_collision.disabled = false
+			kick_cooldown.start()
+			direction = 0
 		
-		elif left:
-			$AnimatedSprite.flip_h = true
-			$AnimatedSprite.z_index = 1
-			$MountedGun.flip_h = true
-			$MountedGun.position.x = abs($MountedGun.position.x)
-			
-			$FireballOrigin.position.x = abs($FireballOrigin.position.x)
-			
-			$"Kick/CollisionShape2D".position.x = -abs($"Kick/CollisionShape2D".position.x)
-			
-			velocity.x = max(velocity.x-ACCELERATION, -MAX_SPEED)
-			
-			if animated_sprite.animation != "walk":
-				animated_sprite.play("walk")
-			
-			direction = -1
+		elif direction:
+			bool_direction = clamp(direction, 0, 1)
+			mounted_gun.position.x = abs(mounted_gun.position.x) * - direction
+			mounted_gun.flip_h = not bool_direction
+			scrub_sprites.flip_h = not bool_direction
+			scrub_sprites.z_index = not bool_direction
+			fireball_origin.position.x = abs(fireball_origin.position.x) * - direction
+			kick_collision.position.x = abs(kick_collision.position.x) * direction
 		
-		else:
-			animated_sprite.play("idle")
-			friction = true
-			velocity.x = lerp(velocity.x, 0, 0.2)
-	else:
-		friction = true
-		velocity.x = lerp(velocity.x, 0, 0.2)
-	
-	if kick:
-		is_attacking = true
-		$"Kick/CollisionShape2D".disabled = false
-		$KickCooldown.start()
-	
-	if jump && !is_attacking:
-		if is_on_floor() || !CoyoteTimer.is_stopped():
-			$Jump.play()
-			CoyoteTimer.stop()
-			is_jumping = true
+		if shoot_fireball and has_fireball and not gun_on_cooldown:
+			var fireball = FIREBALL.instance()
+			get_parent().add_child(fireball)
+			fireball.velocity.x = -5 + 10 * bool_direction as int
+			fireball.global_position = fireball_origin.global_position
+			gun_cooldown_timer.start()
+			gun_on_cooldown = true
+			mounted_gun.frame = 1
+			fireball_sound.play()
+		
+		if jump and (is_on_floor() or not jump_buffer.is_stopped()):
+			jump_buffer.stop()
+			jump_buffer.already_started = true
 			velocity.y = JUMP_FORCE
-		else:
-			JumpBuffer.start()
+			jump_sound.play()
+	
+	else: direction = 0
+	
+	velocity.x = move_toward(velocity.x,
+			MAX_SPEED * direction,
+			ACCELERATION * delta * (1 + (velocity.x * direction < 0) as int))
+	# The above line duplicates the acceleration if the desired direction is
+	# oposite to the current direction
 	
 	if is_on_floor():
-		if friction:
-			velocity.x = lerp(velocity.x, 0, 0.2)
+		jump_buffer.stop()
+		jump_buffer.already_started = false
+	elif not jump_buffer.already_started:
+		jump_buffer.start()
+		jump_buffer.already_started = true
+	
+	velocity = move_and_slide(velocity, Vector2.UP)
+	
+	if velocity.y:
+		scrub_sprites.play("jump")
+	elif velocity.x:
+		scrub_sprites.play("walk")
 	else:
-		animated_sprite.play("jump")
-	
-	velocity.y += GRAVITY
-	
-	var was_on_floor = is_on_floor()
-	velocity = move_and_slide(velocity,Vector2.UP)
-	if !is_on_floor() && was_on_floor && !is_jumping:
-		CoyoteTimer.start()
-	if is_on_floor() && !JumpBuffer.is_stopped():
-		JumpBuffer.stop()
-		CoyoteTimer.stop()
-		is_jumping = true
-		velocity.y = JUMP_FORCE
-	velocity.x = lerp(velocity.x,0,0.4)
-	
-	if shoot_fireball && !gun_on_cooldown && has_fireball:
-		$Fireball.play()
-		$MountedGun.frame = 1
-		var fireball = FIREBALL.instance()
-		fireball.velocity.x = -5 + 10 * direction as int
-		get_parent().add_child(fireball)
-		fireball.global_position = $FireballOrigin.global_position
-		$GunCooldown.start()
-		gun_on_cooldown = true
+		scrub_sprites.play("idle")
+
 
 func _on_Area2D_body_entered(_body):
 	emit_signal("death")
 
+
 func add_coin():
 	coins += 1
 
+
 func bounce():
 	velocity.y = JUMP_FORCE * 0.8
-	
+
+
 func ouch(var enemy_x):
 	if can_die:
 		set_modulate(Color(1,0.3,0.3,0.3))
@@ -183,15 +154,19 @@ func ouch(var enemy_x):
 		
 		$DeathTimer.start()
 
+
+func fireball_pickup():
+	mounted_gun.show()
+	has_fireball = true
+
+
 func _on_gun_cooldown_timeout():
 	gun_on_cooldown = false
 
-func fireball_pickup():
-	$MountedGun.show()
-	has_fireball = true
 
 func _jump_pad():
 	velocity.y = JUMP_PAD_FORCE
+
 
 func _death():
 	set_modulate(Color(1,0.3,0.3,0.3))
@@ -203,12 +178,15 @@ func _death():
 	$DeathTimer.start()
 	can_die = false
 
+
 func add_special_use():
 	special_uses += + 1
+
 
 func _on_DeathTimer_timeout():
 	emit_signal("death")
 
+
 func _on_kick_cooldown_timeout():
 	is_attacking = false
-	$"kick/CollisionShape2D".disabled = true
+	kick_collision.disabled = true

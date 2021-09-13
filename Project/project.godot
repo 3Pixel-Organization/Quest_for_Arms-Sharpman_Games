@@ -8,6 +8,22 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Timer",
+"class": "ScrubJumpBuffer",
+"language": "GDScript",
+"path": "res://Scripts/scrub_jump_buffer.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "ScrubPlayer",
+"language": "GDScript",
+"path": "res://Scripts/scrub.gd"
+} ]
+_global_script_class_icons={
+"ScrubJumpBuffer": "",
+"ScrubPlayer": ""
+}
+
 [application]
 
 config/name="Quest for Arms"
