@@ -91,9 +91,9 @@ func _physics_process(delta):
 		
 		if shoot_fireball and has_fireball and not gun_on_cooldown:
 			var fireball = FIREBALL.instance()
-			get_parent().add_child(fireball)
 			fireball.velocity.x = -5 + 10 * bool_direction as int
 			fireball.global_position = fireball_origin.global_position
+			get_parent().add_child(fireball)
 			gun_cooldown_timer.start()
 			gun_on_cooldown = true
 			mounted_gun.frame = 1
