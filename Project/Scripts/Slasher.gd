@@ -55,7 +55,6 @@ func fireball_dead():
 		$top_checker.set_collision_mask_bit(0, false)
 		$sides_checker.set_collision_layer_bit(4, false)
 		$sides_checker.set_collision_mask_bit(0, false)
-		$DeathTimer.start()
 	elif !is_staggered:
 		is_staggered = true
 		health = health - 30
