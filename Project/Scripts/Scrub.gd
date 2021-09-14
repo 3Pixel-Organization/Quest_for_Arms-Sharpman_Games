@@ -5,10 +5,10 @@ class_name ScrubPlayer
 signal death
 
 ## Constants
-const MAX_SPEED = 90
-const ACCELERATION = MAX_SPEED * 5
-const JUMP_FORCE = -152
-const GRAVITY = 152
+const MAX_SPEED = 110
+const ACCELERATION = MAX_SPEED * 7
+const JUMP_FORCE = -180
+const GRAVITY = 280
 const MAX_FALL_SPEED = MAX_SPEED * 10
 const FIREBALL = preload("res://Scenes/fireball.tscn")
 const JUMP_PAD_FORCE = -200
