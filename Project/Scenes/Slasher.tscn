@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scripts/Slasher.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Sprites/enemy/enemy.png" type="Texture" id=2]
@@ -9,11 +9,11 @@ region = Rect2( 0, 0, 30, 22 )
 
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 2 )
-region = Rect2( 60, 0, 30, 22 )
+region = Rect2( 30, 0, 30, 22 )
 
 [sub_resource type="AtlasTexture" id=3]
 atlas = ExtResource( 2 )
-region = Rect2( 30, 0, 30, 22 )
+region = Rect2( 60, 0, 30, 22 )
 
 [sub_resource type="SpriteFrames" id=4]
 animations = [ {
@@ -24,13 +24,13 @@ animations = [ {
 }, {
 "frames": [ SubResource( 2 ) ],
 "loop": true,
-"name": "squashed",
-"speed": 1.0
+"name": "stagger",
+"speed": 5.0
 }, {
 "frames": [ SubResource( 3 ) ],
 "loop": true,
-"name": "stagger",
-"speed": 5.0
+"name": "squashed",
+"speed": 1.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=5]
@@ -38,6 +38,9 @@ extents = Vector2( 0.999943, 14 )
 
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 0.5, 11 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 15, 0.5 )
 
 [sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 15, 11 )
@@ -78,6 +81,10 @@ shape = SubResource( 6 )
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="sides_checker"]
 position = Vector2( 15.5, -11 )
 shape = SubResource( 6 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="sides_checker"]
+position = Vector2( 0, 0.5 )
+shape = SubResource( 8 )
 
 [node name="StaggerTimer" type="Timer" parent="."]
 wait_time = 0.3
