@@ -66,6 +66,7 @@ rotation = 1.5708
 shape = SubResource( 5 )
 
 [node name="StaggerTimer" type="Timer" parent="."]
+wait_time = 0.3
 one_shot = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
