@@ -1,25 +1,24 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/HUD.gd" type="Script" id=1]
-[ext_resource path="res://Scripts/Button.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/death.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/Sprites/Items/coin.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Fonts/Roboto-Light.ttf" type="DynamicFontData" id=5]
 
-[sub_resource type="StyleBoxFlat" id=21]
+[sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0, 0, 0, 0.490196 )
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
-[sub_resource type="DynamicFont" id=22]
+[sub_resource type="DynamicFont" id=2]
 size = 70
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 5 )
 
-[sub_resource type="DynamicFont" id=23]
+[sub_resource type="DynamicFont" id=3]
 size = 120
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
@@ -33,7 +32,7 @@ margin_left = 15.0
 margin_top = 8.0
 margin_right = 326.0
 margin_bottom = 160.0
-custom_styles/panel = SubResource( 21 )
+custom_styles/panel = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -56,7 +55,7 @@ margin_top = 39.562
 margin_right = 175.663
 margin_bottom = 122.562
 rect_pivot_offset = Vector2( 31.6672, 52.6764 )
-custom_fonts/font = SubResource( 22 )
+custom_fonts/font = SubResource( 2 )
 text = "X"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -67,14 +66,13 @@ margin_left = 173.82
 margin_top = 12.3024
 margin_right = 335.82
 margin_bottom = 177.302
-custom_fonts/font = SubResource( 23 )
+custom_fonts/font = SubResource( 3 )
 text = "##"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Node2D" type="Node2D" parent="." instance=ExtResource( 3 )]
+[node name="Node2D" parent="." instance=ExtResource( 3 )]
 visible = false
 position = Vector2( -3.74402, -4.72818 )
 scale = Vector2( 1.01, 1.01 )
-script = ExtResource( 2 )

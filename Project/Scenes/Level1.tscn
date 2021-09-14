@@ -651,7 +651,6 @@ collision_mask = 30
 
 [node name="Camera2D" type="Camera2D" parent="Scrub"]
 current = true
-zoom = Vector2( 0.2, 0.2 )
 limit_left = 272
 limit_top = -700
 limit_right = 4144
