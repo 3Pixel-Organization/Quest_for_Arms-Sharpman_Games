@@ -4,13 +4,19 @@ export var speed = 20
 export var health = 50
 var velocity = Vector2()
 #var is_dead = false ## should just use "is_staggered"
-export var direction = -1
+
+enum DIRECTION {
+	LEFT = -1
+	RIGHT = 1
+}
+
+export(DIRECTION) var direction = -1
 export var detect_cliffs = true
 var is_staggered = false
 
 func _ready():
 	$AnimatedSprite.flip_h = direction > 0 ## If the direction is 1, so will be flip_h
-	$floor_checker.position.x = -$CollisionShape2D.shape.extents.x
+	$floor_checker.position.x = $CollisionShape2D.shape.extents.x * direction
 	$floor_checker.enabled = detect_cliffs
 
 func _physics_process(_delta):
