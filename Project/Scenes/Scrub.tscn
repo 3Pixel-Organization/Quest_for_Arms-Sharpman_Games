@@ -52,8 +52,10 @@ one_shot = true
 
 [node name="GunCooldown" type="Timer" parent="."]
 wait_time = 5.0
+one_shot = true
 
 [node name="KickCooldown" type="Timer" parent="."]
+one_shot = true
 
 [node name="JumpBuffer" type="Timer" parent="."]
 wait_time = 0.5
@@ -65,7 +67,6 @@ stream = ExtResource( 3 )
 
 [node name="Jump" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
-volume_db = -15.0
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
@@ -80,5 +81,3 @@ visible = false
 
 [connection signal="death" from="." to="HUD/DeathScreen" method="_on_player_death"]
 [connection signal="timeout" from="DeathTimer" to="." method="_on_DeathTimer_timeout"]
-[connection signal="timeout" from="GunCooldown" to="." method="_on_gun_cooldown_timeout"]
-[connection signal="timeout" from="KickCooldown" to="." method="_on_kick_cooldown_timeout"]

@@ -7,20 +7,16 @@ signal death
 ## Constants
 const MAX_SPEED = 110
 const ACCELERATION = MAX_SPEED * 7
-const JUMP_FORCE = -180
+const JUMP_SPEED = -180
 const GRAVITY = 280
 const MAX_FALL_SPEED = MAX_SPEED * 10
 const FIREBALL = preload("res://Scenes/fireball.tscn")
-const JUMP_PAD_FORCE = -200
+const JUMPPAD_SPEED = -200
 
 ## Variables
 var velocity := Vector2()
-var gun_on_cooldown := false
 var coins := 0 setget set_coins
 var has_fireball := false
-var is_jumping := false
-var is_attacking := false
-var special_uses := 2
 var can_die := true
 
 enum DIRECTION {
@@ -29,7 +25,6 @@ enum DIRECTION {
 }
 
 export(DIRECTION) var direction := DIRECTION.RIGHT
-var bool_direction: bool = clamp(direction, 0, 1)
 
 # Node references
 # Timers
@@ -50,16 +45,11 @@ onready var hud_coins := $"HUD/GameHUD/PanelContainer/HSplitContainer/Coins"
 
 
 func _ready():
-	mounted_gun.position.x = abs(mounted_gun.position.x) * - direction
-	mounted_gun.flip_h = not bool_direction
-	scrub_sprites.flip_h = not bool_direction
-	scrub_sprites.z_index = not bool_direction
-	fireball_origin.position.x = abs(fireball_origin.position.x) * - direction
-	kick_collision.position.x = abs(kick_collision.position.x) * direction
+	parse_direction(direction)
 
 
 func _process(_delta):
-	mounted_gun.frame = gun_on_cooldown as int
+	mounted_gun.frame = not gun_cooldown_timer.is_stopped() as int
 	mounted_gun.offset.y = (scrub_sprites.animation == "idle") as int * scrub_sprites.frame
 
 
@@ -74,36 +64,36 @@ func _physics_process(delta):
 	velocity.y = min(velocity.y + GRAVITY * delta,
 			MAX_FALL_SPEED)
 	
-	if not is_attacking:
+	if is_on_floor():
+		jump_buffer.stop()
+		jump_buffer.already_started = false
+	elif not jump_buffer.already_started:
+		jump_buffer.start()
+		jump_buffer.already_started = true
+	
+	if kick_cooldown.is_stopped():
 		if kick:
-			is_attacking = true
 			kick_collision.disabled = false
 			kick_cooldown.start()
 			direction = 0
 		
 		elif direction:
-			bool_direction = clamp(direction, 0, 1)
-			mounted_gun.position.x = abs(mounted_gun.position.x) * - direction
-			mounted_gun.flip_h = not bool_direction
-			scrub_sprites.flip_h = not bool_direction
-			scrub_sprites.z_index = not bool_direction
-			fireball_origin.position.x = abs(fireball_origin.position.x) * - direction
-			kick_collision.position.x = abs(kick_collision.position.x) * direction
+			parse_direction(direction)
 		
-		if shoot_fireball and has_fireball and not gun_on_cooldown:
+		if shoot_fireball and has_fireball and gun_cooldown_timer.is_stopped():
 			var fireball = FIREBALL.instance()
-			fireball.velocity.x = -5 + 10 * bool_direction as int
+			fireball.velocity.x = -5 + 10 * clamp(direction, 0, 1)
 			fireball.global_position = fireball_origin.global_position
 			get_parent().add_child(fireball)
 			gun_cooldown_timer.start()
-			gun_on_cooldown = true
 			mounted_gun.frame = 1
 			fireball_sound.play()
 		
-		if jump and (is_on_floor() or not jump_buffer.is_stopped()):
+		if jump and (is_on_floor() or not
+				(jump_buffer.is_stopped() and jump_buffer.already_started)):
 			jump_buffer.stop()
 			jump_buffer.already_started = true
-			velocity.y = JUMP_FORCE
+			velocity.y = JUMP_SPEED
 			jump_sound.play()
 	
 	else: direction = 0
@@ -113,13 +103,6 @@ func _physics_process(delta):
 			ACCELERATION * delta * (1 + (velocity.x * direction < 0) as int))
 	# The above line duplicates the acceleration if the desired direction is
 	# oposite to the current direction
-	
-	if is_on_floor():
-		jump_buffer.stop()
-		jump_buffer.already_started = false
-	elif not jump_buffer.already_started:
-		jump_buffer.start()
-		jump_buffer.already_started = true
 	
 	velocity = move_and_slide(velocity, Vector2.UP)
 	
@@ -131,66 +114,55 @@ func _physics_process(delta):
 		scrub_sprites.play("idle")
 
 
+func parse_direction(direction: int):
+	var bool_direction: bool = clamp(direction, 0, 1)
+	mounted_gun.flip_h = not bool_direction
+	scrub_sprites.flip_h = not bool_direction
+	scrub_sprites.z_index = not bool_direction
+	mounted_gun.position.x = abs(mounted_gun.position.x) * - direction
+	fireball_origin.position.x = abs(fireball_origin.position.x) * - direction
+	kick_collision.position.x = abs(kick_collision.position.x) * direction
 
 
-func add_coin():
-	coins += 1
 func _on_Fallzone_body_entered(_body):
 	emit_signal("death")
 
 
 func bounce():
-	velocity.y = JUMP_FORCE * 0.8
+	velocity.y = JUMP_SPEED * 0.8
 
 
-func ouch(var enemy_x):
-	if can_die:
-		set_modulate(Color(1,0.3,0.3,0.3))
-		
-		velocity = Vector2(1000 - 2000 * int(global_position.x < enemy_x), JUMP_FORCE)
-		
-		Input.action_release("left")
-		Input.action_release("right")
-		Input.action_release("jump")
-		
-		$DeathTimer.start()
+func ouch(enemy_x: float):
+	death(true, Vector2(enemy_x, 0))
 
 
 func fireball_pickup():
-	mounted_gun.show()
 	has_fireball = true
-
-
-func _on_gun_cooldown_timeout():
-	gun_on_cooldown = false
+	mounted_gun.show()
 
 
 func _jump_pad():
-	velocity.y = JUMP_PAD_FORCE
+	velocity.y = JUMPPAD_SPEED
 
 
-func _death():
+func death(bounce: bool = false, enemy_pos: Vector2 = Vector2()) -> void:
+	if not can_die:
+		return
 	set_modulate(Color(1,0.3,0.3,0.3))
-	velocity.y = JUMP_FORCE * 1
+	velocity.y = JUMP_SPEED * 1
+	if bounce:
+		velocity.x = 200 - 400 * (global_position.x < enemy_pos.x) as int
 	Input.action_release("left")
 	Input.action_release("right")
 	Input.action_release("jump")
 	
 	$DeathTimer.start()
-	can_die = false
-
-
-func add_special_use():
-	special_uses += + 1
 
 
 func _on_DeathTimer_timeout():
 	emit_signal("death")
 
 
-func _on_kick_cooldown_timeout():
-	is_attacking = false
-	kick_collision.disabled = true
 func set_coins(value):
 	coins = value
 	hud_coins.text = "0" + coins as String if coins < 10 else coins as String
