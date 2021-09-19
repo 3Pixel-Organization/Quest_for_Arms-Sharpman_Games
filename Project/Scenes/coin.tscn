@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/Coin.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Sprites/Items/coin.png" type="Texture" id=2]
@@ -22,6 +22,44 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Vector2( 0, 0 ), Vector2( 0, -5 ) ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Bounce (copy)"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ true, false ]
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Sprite:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0, 0, 0, 0, -20, -20, -0.1, 0, 0, 0 ),
+"times": PoolRealArray( 0, 0.3 )
+}
 
 [node name="Coin" type="Area2D"]
 collision_layer = 0
@@ -35,10 +73,10 @@ texture = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Bounce = SubResource( 2 )
+"anims/Bounce (copy)" = SubResource( 3 )
 
 [node name="Sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
-volume_db = -15.0
 
 [connection signal="body_entered" from="." to="." method="_on_Coin_body_entered"]
-[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="finished" from="Sound" to="." method="_on_Sound_finished"]
