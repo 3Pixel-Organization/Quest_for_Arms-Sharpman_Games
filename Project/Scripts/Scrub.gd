@@ -15,8 +15,8 @@ const JUMP_PAD_FORCE = -200
 
 ## Variables
 var velocity := Vector2()
-var coins := 0
 var gun_on_cooldown := false
+var coins := 0 setget set_coins
 var has_fireball := false
 var is_jumping := false
 var is_attacking := false
@@ -46,6 +46,7 @@ onready var scrub_sprites := $AnimatedSprite
 onready var mounted_gun := $MountedGun
 onready var fireball_origin := $FireballOrigin
 onready var kick_collision := $"Kick/CollisionShape2D"
+onready var hud_coins := $"HUD/GameHUD/PanelContainer/HSplitContainer/Coins"
 
 
 func _ready():
@@ -190,3 +191,6 @@ func _on_DeathTimer_timeout():
 func _on_kick_cooldown_timeout():
 	is_attacking = false
 	kick_collision.disabled = true
+func set_coins(value):
+	coins = value
+	hud_coins.text = "0" + coins as String if coins < 10 else coins as String
