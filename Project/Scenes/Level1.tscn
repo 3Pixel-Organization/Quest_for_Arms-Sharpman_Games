@@ -956,7 +956,7 @@ direction = 1
 position = Vector2( 1312, -224 )
 
 [node name="Fallzone" type="Area2D" parent="."]
-position = Vector2( 2216, 288 )
+position = Vector2( 0, 288 )
 collision_layer = 4
 __meta__ = {
 "_edit_group_": true
@@ -983,5 +983,5 @@ stream = ExtResource( 13 )
 autoplay = true
 
 [connection signal="death" from="Scrub" to="." method="_on_player_death"]
-[connection signal="body_entered" from="Fallzone" to="Scrub" method="_on_fallzone_body_entered"]
+[connection signal="body_entered" from="Fallzone" to="Scrub" method="_on_Fallzone_body_entered"]
 [connection signal="body_entered" from="EndLevelPortal" to="EndLevelPortal" method="_on_EndLevel_body_entered"]
