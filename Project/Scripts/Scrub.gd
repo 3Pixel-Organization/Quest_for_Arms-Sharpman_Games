@@ -131,12 +131,12 @@ func _physics_process(delta):
 		scrub_sprites.play("idle")
 
 
-func _on_Area2D_body_entered(_body):
-	emit_signal("death")
 
 
 func add_coin():
 	coins += 1
+func _on_Fallzone_body_entered(_body):
+	emit_signal("death")
 
 
 func bounce():

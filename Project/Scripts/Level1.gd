@@ -1,5 +1,9 @@
 extends Node
 
-func _on_Scrub_death():
-	get_node("HUD/Node2D").visible()
-	$AudioStreamPlayer.stop()
+onready var death_screen = $"Scrub/HUD/DeathScreen"
+
+func _ready():
+	get_tree().paused = false
+
+func _on_player_death():
+	$"Music".stop()
