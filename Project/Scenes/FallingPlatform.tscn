@@ -26,7 +26,7 @@ loop = true
 step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:position")
-tracks/0/interp = 2
+tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -43,7 +43,7 @@ extents = Vector2( 32, 11.5 )
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 32, 0.5 )
 
-[node name="KinematicBody2D" type="KinematicBody2D"]
+[node name="FallingPlatform" type="KinematicBody2D"]
 collision_layer = 2
 script = ExtResource( 1 )
 
@@ -54,19 +54,24 @@ texture = ExtResource( 2 )
 anims/Fall = SubResource( 1 )
 anims/Shake = SubResource( 2 )
 
-[node name="FallTimer" type="Timer" parent="."]
+[node name="ShakeTimer" type="Timer" parent="."]
+one_shot = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -0.5 )
 shape = SubResource( 3 )
 
 [node name="TopChecker" type="Area2D" parent="."]
+monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TopChecker"]
 position = Vector2( 0, -12.5 )
 shape = SubResource( 4 )
 one_way_collision = true
 
-[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
-[connection signal="timeout" from="FallTimer" to="." method="_on_FallTimer_timeout"]
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+position = Vector2( 0, -0.5 )
+rect = Rect2( -32, -11.5, 64, 23 )
+
+[connection signal="timeout" from="ShakeTimer" to="." method="_on_ShakeTimer_timeout"]
 [connection signal="body_entered" from="TopChecker" to="." method="_on_TopChecker_body_entered"]
