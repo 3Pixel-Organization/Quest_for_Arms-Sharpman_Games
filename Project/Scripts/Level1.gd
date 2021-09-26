@@ -1,7 +1,5 @@
 extends Node
 
-onready var death_screen = $"Scrub/HUD/DeathScreen"
-
 func _ready():
 	get_tree().paused = false
 
