@@ -3,7 +3,7 @@ extends ColorRect
 onready var restart_button = $"MarginContainer/VBoxContainer/Buttons/Restart"
 onready var quit_button = $"MarginContainer/VBoxContainer/Buttons/Quit"
 onready var menu_button = $"MarginContainer/VBoxContainer/Buttons/Menu"
-onready var death_jingle = $DeathJingle
+onready var death_jingle = $"DeathJingle"
 
 
 func _on_player_death():
@@ -21,4 +21,4 @@ func _on_Restart_pressed():
 
 
 func _on_Menu_pressed():
-		get_tree().change_scene("res://Scenes/MainMenu.tscn")
+	get_tree().change_scene("res://Scenes/MainMenu.tscn")

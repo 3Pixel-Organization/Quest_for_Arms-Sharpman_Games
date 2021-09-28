@@ -161,6 +161,7 @@ func death(bounce: bool = false, enemy_pos: Vector2 = Vector2()) -> void:
 
 func _on_DeathTimer_timeout():
 	emit_signal("death")
+	get_tree().paused = true
 
 
 func set_coins(value):
