@@ -1,9 +1,7 @@
 extends KinematicBody2D
 
-export var speed = 20
-export var health = 50
 var velocity = Vector2()
-#var is_dead = false ## should just use "is_staggered"
+var is_staggered = false
 
 enum DIRECTION {
 	LEFT = -1
@@ -11,85 +9,61 @@ enum DIRECTION {
 }
 
 export(DIRECTION) var direction = -1
-export var detect_cliffs = true
-var is_staggered = false
+
+export var detect_cliffs := true
+export var speed := 20
+export var health := 2
+var GRAVITY: int = 20
+
+onready var slasher_sprites := $"AnimatedSprite"
+onready var top_checker := $"TopChecker"
+onready var sides_checker := $"SidesChecker"
+onready var cliffs_checker := $"FloorChecker"
+
 
 func _ready():
-	$AnimatedSprite.flip_h = direction > 0 ## If the direction is 1, so will be flip_h
-	$floor_checker.position.x = $CollisionShape2D.shape.extents.x * direction
-	$floor_checker.enabled = detect_cliffs
+	slasher_sprites.flip_h = clamp(direction, 0, 1) as bool
+	cliffs_checker.position.x = $CollisionShape2D.shape.extents.x * direction
+	cliffs_checker.enabled = detect_cliffs
+
 
 func _physics_process(_delta):
-		if is_on_wall() || !$floor_checker.is_colliding() && detect_cliffs && is_on_floor():
+		if is_on_wall() or not cliffs_checker.is_colliding() and detect_cliffs and is_on_floor():
 			direction *= -1
-			$AnimatedSprite.flip_h = !$AnimatedSprite.flip_h
-			$floor_checker.position.x *= -1
+			slasher_sprites.flip_h = not slasher_sprites.flip_h
+			cliffs_checker.position.x *= -1
 		
-		velocity = Vector2(speed * direction * int(!is_staggered), velocity.y + 20)
+		velocity = Vector2(speed * direction * (not is_staggered) as int, velocity.y + GRAVITY)
 		velocity = move_and_slide(velocity,Vector2.UP)
 
-func _on_top_checker_body_entered(body):
+
+func damage(damage: int = 1):
 	if !is_staggered:
-		if health <= 30:
-			queue_free()
-			speed = 0
-			set_collision_layer_bit(4, false)
-			set_collision_mask_bit(0, false)
-			$top_checker.set_collision_layer_bit(4, false)
-			$top_checker.set_collision_mask_bit(0, false)
-			$sides_checker.set_collision_layer_bit(4, false)
-			$sides_checker.set_collision_mask_bit(0, false)
+		health -= damage
+		
+		if health <= 0:
+			die()
 		else:
 			is_staggered = true
-			health -= 30
 			set_modulate(Color(0.3,0.3,0.3,0.6))
-			$AnimatedSprite.play("stagger")
-			$StaggerTimer.start()
-		if body.name == "Scrub":
-			body.bounce()
-
-func _on_sides_checker_body_entered(body):
-	if !is_staggered && body.has_method("ouch"):
-			body.ouch(global_position.x)
-
-func fireball_dead():
-	if health <= 30:
-		queue_free()
-		set_collision_layer_bit(4, false)
-		set_collision_mask_bit(0, false)
-		$top_checker.set_collision_layer_bit(4, false)
-		$top_checker.set_collision_mask_bit(0, false)
-		$sides_checker.set_collision_layer_bit(4, false)
-		$sides_checker.set_collision_mask_bit(0, false)
-	elif !is_staggered:
-		is_staggered = true
-		health = health - 30
-		$AnimatedSprite.play("stagger")
-		set_modulate(Color(0.3,0.3,0.3,0.6))
-		$StaggerTimer.start()
-
-func kick():
-	if !is_staggered:
-		if health <= 20:
-			queue_free()
-			set_collision_layer_bit(4, false)
-			set_collision_mask_bit(0, false)
-			$top_checker.set_collision_layer_bit(4, false)
-			$top_checker.set_collision_mask_bit(0, false)
-			$sides_checker.set_collision_layer_bit(4, false)
-			$sides_checker.set_collision_mask_bit(0, false)
-		else:
-			is_staggered = true
-			health -= 20
-			set_modulate(Color(0.3,0.3,0.3,0.6))
-			$AnimatedSprite.play("stagger")
+			slasher_sprites.play("stagger")
 			$StaggerTimer.start()
 
-func _on_sides_checker_area_entered(area):
-	if area.is_in_group("kick"):
-		kick()
+
+func die():
+	queue_free()
+
+
+func _on_TopChecker_body_entered(body: ScrubPlayer):
+	damage()
+
+
+func _on_SidesChecker_body_entered(body: ScrubPlayer):
+	if not is_staggered:
+		body.die(true, global_position)
+
 
 func _on_StaggerTimer_timeout():
-	$AnimatedSprite.play("walk")
-	set_modulate(Color(1,1,1,1))
+	slasher_sprites.play("walk")
+	set_modulate(Color.white)
 	is_staggered = false

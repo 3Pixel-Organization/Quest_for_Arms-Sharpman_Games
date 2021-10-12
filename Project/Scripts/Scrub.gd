@@ -28,19 +28,19 @@ export(DIRECTION) var direction := DIRECTION.RIGHT
 
 # Node references
 # Timers
-onready var jump_buffer: ScrubJumpBuffer = $JumpBuffer
-onready var kick_cooldown := $KickCooldown
-onready var gun_cooldown_timer := $GunCooldown
+onready var jump_buffer: ScrubJumpBuffer = $"JumpBuffer"
+onready var kick_cooldown := $"KickCooldown"
+onready var gun_cooldown_timer := $"GunCooldown"
 
 # Sound Players
-onready var jump_sound := $Jump
-onready var fireball_sound := $Fireball
+onready var jump_sound := $"Jump"
+onready var fireball_sound := $"Fireball"
 
 # Others
-onready var scrub_sprites := $AnimatedSprite
-onready var mounted_gun := $MountedGun
-onready var fireball_origin := $FireballOrigin
-onready var kick_collision := $"Kick/CollisionShape2D"
+onready var scrub_sprites := $"AnimatedSprite"
+onready var mounted_gun := $"MountedGun"
+onready var fireball_origin := $"FireballOrigin"
+onready var melee_area := $"Kick"
 onready var hud_coins := $"HUD/GameHUD/PanelContainer/HSplitContainer/Coins"
 
 
@@ -51,6 +51,7 @@ func _ready():
 func _process(_delta):
 	mounted_gun.frame = not gun_cooldown_timer.is_stopped() as int
 	mounted_gun.offset.y = (scrub_sprites.animation == "idle") as int * scrub_sprites.frame
+	# Deprecated
 
 
 func _physics_process(delta):
@@ -73,7 +74,7 @@ func _physics_process(delta):
 	
 	if kick_cooldown.is_stopped():
 		if kick:
-			kick_collision.disabled = false
+			melee_area.monitoring = true
 			kick_cooldown.start()
 			direction = 0
 		
@@ -121,7 +122,7 @@ func parse_direction(direction: int):
 	scrub_sprites.z_index = not bool_direction
 	mounted_gun.position.x = abs(mounted_gun.position.x) * - direction
 	fireball_origin.position.x = abs(fireball_origin.position.x) * - direction
-	kick_collision.position.x = abs(kick_collision.position.x) * direction
+	melee_area.position.x = abs(melee_area.position.x) * direction
 
 
 func _on_Fallzone_body_entered(_body):
@@ -133,7 +134,8 @@ func bounce():
 
 
 func ouch(enemy_x: float):
-	death(true, Vector2(enemy_x, 0))
+	print("deprecated function!")
+	die(true, Vector2(enemy_x, 0))
 
 
 func fireball_pickup():
@@ -145,10 +147,10 @@ func _jump_pad():
 	velocity.y = JUMPPAD_SPEED
 
 
-func death(bounce: bool = false, enemy_pos: Vector2 = Vector2()) -> void:
+func die(bounce: bool = false, enemy_pos := Vector2()) -> void:
 	if not can_die:
 		return
-	set_modulate(Color(1,0.3,0.3,0.3))
+	set_modulate(Color(1,0.3,0.3,0.3)) # great color :+1:
 	velocity.y = JUMP_SPEED * 1
 	if bounce:
 		velocity.x = 200 - 400 * (global_position.x < enemy_pos.x) as int
@@ -159,11 +161,28 @@ func death(bounce: bool = false, enemy_pos: Vector2 = Vector2()) -> void:
 	$DeathTimer.start()
 
 
-func _on_DeathTimer_timeout():
+func _on_DeathTimer_timeout(): # The DeathScreen shows itself
 	emit_signal("death")
 	get_tree().paused = true
 
+# Melee attack logic
+func _on_KickCooldown_timeout():
+	melee_area.monitoring = false
 
+
+func _on_Kick_body_entered(body) -> void:
+	if body.has_method("damage"):
+		body.damage()
+		return
+
+
+func _on_Kick_area_entered(area) -> void:
+	if area.has_method("desintegrate"):
+		area.desintegrate()
+		return
+
+
+# Setters and getters
 func set_coins(value):
 	coins = value
 	hud_coins.text = "0" + coins as String if coins < 10 else coins as String

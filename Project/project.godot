@@ -17,7 +17,7 @@ _global_script_classes=[ {
 "base": "Timer",
 "class": "ScrubJumpBuffer",
 "language": "GDScript",
-"path": "res://Scripts/scrub_jump_buffer.gd"
+"path": "res://Scripts/ScrubJumpBuffer.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "ScrubPlayer",
@@ -140,11 +140,11 @@ Pause={
 [layer_names]
 
 2d_physics/layer_1="Player"
-2d_physics/layer_2="Platform"
-2d_physics/layer_3="Fall Zone"
-2d_physics/layer_4="Item"
-2d_physics/layer_5="Enemy"
-2d_physics/layer_6="Fireball"
+2d_physics/layer_2="Enemy"
+2d_physics/layer_3="Ground"
+2d_physics/layer_4="PlayerDamage"
+2d_physics/layer_5="EnemyDamage"
+2d_physics/layer_6="items"
 
 [rendering]
 

@@ -39,7 +39,12 @@ hue_variation = 0.05
 hue_variation_random = 1.0
 
 [node name="GunPickup" type="Area2D"]
+monitorable = false
+collision_layer = 32
 script = ExtResource( 2 )
+
+[node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
+rect = Rect2( -9, -26, 18, 26 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -13 )

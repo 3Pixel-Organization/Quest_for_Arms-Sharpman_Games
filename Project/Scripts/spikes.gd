@@ -4,5 +4,5 @@ func _ready():
 	pass
 
 func _on_Area2D_body_entered(body):
-	if body.name == "Scrub":
-		body._death()
+	if body.has_method("die"):
+		body.die()
