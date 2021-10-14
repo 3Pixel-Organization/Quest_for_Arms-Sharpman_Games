@@ -125,8 +125,9 @@ func parse_direction(direction: int):
 	melee_area.position.x = abs(melee_area.position.x) * direction
 
 
-func _on_Fallzone_body_entered(_body):
-	emit_signal("death")
+func _on_Fallzone_body_entered(body: Node):
+	if body == self:
+		emit_signal("death")
 
 
 func bounce():
