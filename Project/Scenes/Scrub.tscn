@@ -36,13 +36,16 @@ texture = ExtResource( 6 )
 hframes = 2
 
 [node name="Kick" type="Area2D" parent="."]
+position = Vector2( 14, -11 )
 monitoring = false
 monitorable = false
 collision_layer = 8
 collision_mask = 18
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kick"]
-position = Vector2( 14, -11 )
 shape = SubResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
