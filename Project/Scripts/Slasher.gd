@@ -45,7 +45,7 @@ func damage(damage: int = 1):
 			die()
 		else:
 			is_staggered = true
-			set_modulate(Color(0.3,0.3,0.3,0.6))
+			modulate = Color(0.3,0.3,0.3,0.6)
 			slasher_sprites.play("stagger")
 			$StaggerTimer.start()
 
@@ -65,5 +65,5 @@ func _on_SidesChecker_body_entered(body: ScrubPlayer):
 
 func _on_StaggerTimer_timeout():
 	slasher_sprites.play("walk")
-	set_modulate(Color.white)
+	modulate = Color.white
 	is_staggered = false

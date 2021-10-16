@@ -151,7 +151,7 @@ func _jump_pad():
 func die(bounce: bool = false, enemy_pos := Vector2()) -> void:
 	if not can_die:
 		return
-	set_modulate(Color(1,0.3,0.3,0.3)) # great color :+1:
+	modulate = Color(1,0.3,0.3,0.3) # great color :+1:
 	velocity.y = JUMP_SPEED * 1
 	if bounce:
 		velocity.x = 200 - 400 * (global_position.x < enemy_pos.x) as int
