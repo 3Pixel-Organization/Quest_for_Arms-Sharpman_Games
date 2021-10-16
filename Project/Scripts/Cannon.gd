@@ -1,10 +1,16 @@
 extends StaticBody2D
 
-const cannon_ball = preload("res://Scenes/CannonBall.tscn")
-var bullet_on_screen = false
+export var projectile_scene: PackedScene
+export var projectile_speed: float
+
+# Needs to be onready otherwise gets assigned to nothing
+onready var projectile: Resource = load(projectile_scene.resource_path)
+onready var player: ScrubPlayer = get_tree().current_scene.find_node("Scrub")
+
 
 func _on_Clock_timeout():
-	var ball = cannon_ball.instance()
-	get_parent().add_child(ball)
-	ball.global_position = $Position2D.global_position
-	ball.velocity.x = -5 ## needs to be changed later
+	if $"VisibilityEnabler2D".is_on_screen():
+		var projectile_instance = projectile.instance()
+		projectile_instance.global_position = $"ProjectileOrigin".global_position
+		projectile_instance.velocity.x = projectile_speed * (1.0 - 2.0 * (player.global_position.x < global_position.x) as float)
+		get_tree().current_scene.add_child(projectile_instance)

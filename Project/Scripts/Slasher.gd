@@ -22,16 +22,14 @@ onready var cliffs_checker := $"FloorChecker"
 
 
 func _ready():
-	slasher_sprites.flip_h = clamp(direction, 0, 1) as bool
-	cliffs_checker.position.x = $CollisionShape2D.shape.extents.x * direction
+	scale.x = direction * -1
 	cliffs_checker.enabled = detect_cliffs
 
 
 func _physics_process(_delta):
 		if is_on_wall() or not cliffs_checker.is_colliding() and detect_cliffs and is_on_floor():
 			direction *= -1
-			slasher_sprites.flip_h = not slasher_sprites.flip_h
-			cliffs_checker.position.x *= -1
+			scale.x *= -1
 		
 		velocity = Vector2(speed * direction * (not is_staggered) as int, velocity.y + GRAVITY)
 		velocity = move_and_slide(velocity,Vector2.UP)
@@ -54,8 +52,9 @@ func die():
 	queue_free()
 
 
-func _on_TopChecker_body_entered(body: ScrubPlayer):
-	damage()
+func _on_TopChecker_body_entered(body):
+	if body is ScrubPlayer:
+		damage()
 
 
 func _on_SidesChecker_body_entered(body: ScrubPlayer):

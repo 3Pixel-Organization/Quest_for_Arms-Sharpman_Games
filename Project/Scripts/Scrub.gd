@@ -83,7 +83,7 @@ func _physics_process(delta):
 		
 		if shoot_fireball and has_fireball and gun_cooldown_timer.is_stopped():
 			var fireball = FIREBALL.instance()
-			fireball.velocity.x = -5 + 10 * clamp(direction, 0, 1)
+			fireball.velocity.x = -200 + 400 * clamp(direction, 0, 1)
 			fireball.global_position = fireball_origin.global_position
 			get_parent().add_child(fireball)
 			gun_cooldown_timer.start()

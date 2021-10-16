@@ -1,15 +1,18 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Assets/Sprites/canon/cannon_flowers.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Cannon.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/CannonBall.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 13, 10 )
+extents = Vector2( 12, 9.5 )
 
 [node name="Cannon" type="StaticBody2D"]
 collision_layer = 2
 collision_mask = 0
 script = ExtResource( 2 )
+projectile_scene = ExtResource( 3 )
+projectile_speed = 300.0
 
 [node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
 rect = Rect2( -17, -27, 34, 27 )
@@ -20,13 +23,14 @@ offset = Vector2( 0, -13 )
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, -10 )
+position = Vector2( -1, -9.5 )
 shape = SubResource( 1 )
 
-[node name="Position2D" type="Position2D" parent="."]
+[node name="ProjectileOrigin" type="Position2D" parent="."]
 position = Vector2( -13, -14 )
 
 [node name="Clock" type="Timer" parent="."]
+process_mode = 0
 wait_time = 2.0
 autostart = true
 

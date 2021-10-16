@@ -5,7 +5,7 @@ var velocity = Vector2()
 
 
 func _ready():
-	if not velocity.x:
+	if not velocity:
 		queue_free()
 	$Sprite.flip_h = velocity.x < 0
 
