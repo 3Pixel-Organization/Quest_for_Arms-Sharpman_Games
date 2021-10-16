@@ -186,4 +186,4 @@ func _on_Kick_area_entered(area) -> void:
 # Setters and getters
 func set_coins(value):
 	coins = value
-	hud_coins.text = "0" + coins as String if coins < 10 else coins as String
+	hud_coins.text = (coins as String).pad_zeros(2)
