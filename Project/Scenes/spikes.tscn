@@ -4,35 +4,32 @@
 [ext_resource path="res://Assets/Sprites/Spike.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 12.5, 3 )
+extents = Vector2( 8, 2 )
 
 [node name="Spikes" type="Area2D"]
 monitorable = false
-collision_layer = 4
+collision_layer = 0
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( -9.5, -3 )
+position = Vector2( -6, -2 )
 texture = ExtResource( 3 )
+region_rect = Rect2( 0, 0, 4, 4 )
 
 [node name="Sprite2" type="Sprite" parent="."]
-position = Vector2( -4.5, -3 )
+position = Vector2( -2, -2 )
 texture = ExtResource( 3 )
 
 [node name="Sprite3" type="Sprite" parent="."]
-position = Vector2( 0.5, -3 )
+position = Vector2( 2, -2 )
 texture = ExtResource( 3 )
 
 [node name="Sprite4" type="Sprite" parent="."]
-position = Vector2( 5.5, -3 )
-texture = ExtResource( 3 )
-
-[node name="Sprite5" type="Sprite" parent="."]
-position = Vector2( 10.5, -3 )
+position = Vector2( 6, -2 )
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, -3 )
+position = Vector2( 0, -2 )
 shape = SubResource( 1 )
 
 [connection signal="body_entered" from="." to="." method="_on_Area2D_body_entered"]

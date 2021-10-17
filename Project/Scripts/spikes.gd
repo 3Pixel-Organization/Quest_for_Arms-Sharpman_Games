@@ -1,8 +1,6 @@
 extends Area2D
 
-func _ready():
-	pass
 
-func _on_Area2D_body_entered(body):
-	if body.has_method("die"):
+func _on_Area2D_body_entered(body: ScrubPlayer):
+	if body is ScrubPlayer:
 		body.die()
