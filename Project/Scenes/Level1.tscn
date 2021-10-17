@@ -959,6 +959,7 @@ shape = SubResource( 48 )
 
 [node name="EndLevelPortal" type="Area2D" parent="."]
 position = Vector2( 3856, 112 )
+monitorable = false
 collision_layer = 0
 __meta__ = {
 "_edit_group_": true

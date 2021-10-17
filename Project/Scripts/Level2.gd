@@ -2,14 +2,18 @@ extends Node
 
 onready var scrub = $Scrub
 
+func _init():
+	GlobalVariables.player["Gun"] = true	# This is just to emulate old
+											# behaviour. Might be removed
+											# later
+
+
 func _ready():
-	if scrub.has_method("fireball_pickup") && !scrub.has_fireball:
-		scrub.fireball_pickup()
+	get_tree().paused = false
+	if GlobalVariables.checkpoint_location:
+		scrub.global_position = GlobalVariables.checkpoint_location
 
 func _on_Scrub_death():
 	get_node("HUD/Node2D").visible()
 	$music.stop()
 
-func _enter_tree():
-	if Checkpoint.laast_location:
-		$Scrub.global_position = Checkpoint.laast_location

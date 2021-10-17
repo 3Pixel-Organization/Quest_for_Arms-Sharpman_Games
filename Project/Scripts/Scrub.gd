@@ -15,8 +15,8 @@ const JUMPPAD_SPEED = -200
 
 ## Variables
 var velocity := Vector2()
-var coins := 0 setget set_coins
-var has_fireball := false
+var coins: int = GlobalVariables.player["Coins"] setget set_coins
+var has_fireball: bool = GlobalVariables.player["Gun"]
 var can_die := true
 
 enum DIRECTION {
@@ -45,6 +45,7 @@ onready var hud_coins := $"HUD/GameHUD/PanelContainer/HSplitContainer/Coins"
 
 
 func _ready():
+	mounted_gun.visible = has_fireball
 	parse_direction(direction)
 
 
@@ -141,6 +142,7 @@ func ouch(enemy_x: float):
 
 func fireball_pickup():
 	has_fireball = true
+	GlobalVariables.player["Gun"] = true
 	mounted_gun.show()
 
 
@@ -186,4 +188,5 @@ func _on_Kick_area_entered(area) -> void:
 # Setters and getters
 func set_coins(value):
 	coins = value
+	GlobalVariables.player["Coins"] = value
 	hud_coins.text = (coins as String).pad_zeros(2)
