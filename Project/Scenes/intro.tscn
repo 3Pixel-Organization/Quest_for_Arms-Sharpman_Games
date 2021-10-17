@@ -1,16 +1,14 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Assets/Cutscenes/INTRO (1).webm" type="VideoStream" id=1]
+[ext_resource path="res://Assets/Cutscenes/StoryIntro.webm" type="VideoStream" id=1]
 [ext_resource path="res://Scripts/intro.gd" type="Script" id=2]
 
 [node name="VideoPlayer" type="VideoPlayer"]
-margin_right = 1920.0
-margin_bottom = 1080.0
-rect_scale = Vector2( 0.934, 0.934 )
+anchor_right = 1.0
+anchor_bottom = 1.0
 stream = ExtResource( 1 )
 volume_db = -22.87
 autoplay = true
-expand = false
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
