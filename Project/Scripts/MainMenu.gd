@@ -1,6 +1,10 @@
 extends TextureRect
 
 
+func _ready():
+	get_tree().paused = false
+
+
 func _on_Start_pressed():
 	assert(get_tree().change_scene("res://Scenes/intro.tscn") == OK)
 
