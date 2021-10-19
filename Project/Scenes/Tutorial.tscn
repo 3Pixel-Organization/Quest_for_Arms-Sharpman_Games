@@ -95,7 +95,7 @@ __meta__ = {
 }
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = 0
+layer = -1
 follow_viewport_enable = true
 
 [node name="MoveInfo" type="PanelContainer" parent="CanvasLayer"]
