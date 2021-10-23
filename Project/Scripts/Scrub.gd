@@ -121,9 +121,8 @@ func _physics_process(delta):
 func parse_direction(parsed_direction: int):
 	bool_direction = clamp(parsed_direction, 0, 1)
 	mounted_gun.flip_h = not bool_direction
+	mounted_gun.z_index = bool_direction as int - 1
 	scrub_sprites.flip_h = not bool_direction
-	scrub_sprites.z_index = not bool_direction
-	mounted_gun.position.x = abs(mounted_gun.position.x) * - parsed_direction
 	fireball_origin.position.x = abs(fireball_origin.position.x) * - parsed_direction
 	melee_area.position.x = abs(melee_area.position.x) * parsed_direction
 
