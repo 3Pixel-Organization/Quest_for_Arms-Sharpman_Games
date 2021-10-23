@@ -1,5 +1,5 @@
-extends KinematicBody2D
 class_name ScrubPlayer
+extends KinematicBody2D
 
 ## Signals
 signal death
@@ -25,6 +25,7 @@ enum DIRECTION {
 }
 
 export(DIRECTION) var direction := DIRECTION.RIGHT
+var bool_direction: bool
 
 # Node references
 # Timers
@@ -58,10 +59,11 @@ func _process(_delta):
 func _physics_process(delta):
 	
 	# Store Inputs
-	var jump := Input.is_action_just_pressed("jump") # UP, W or spacebar
+	var jump := Input.is_action_just_pressed("jump") 			# UP, W or spacebar
 	var shoot_fireball := Input.is_action_pressed("shoot_fireball") # Q
-	var kick := Input.is_action_pressed("kick") # X
-	direction = Input.is_action_pressed("right") as int - Input.is_action_pressed("left") as int
+	var kick := Input.is_action_pressed("kick") 					# X
+	direction = (Input.is_action_pressed("right") as int -			# A
+			Input.is_action_pressed("left") as int) 				# D
 	
 	velocity.y = min(velocity.y + GRAVITY * delta,
 			MAX_FALL_SPEED)
@@ -84,7 +86,7 @@ func _physics_process(delta):
 		
 		if shoot_fireball and has_fireball and gun_cooldown_timer.is_stopped():
 			var fireball = FIREBALL.instance()
-			fireball.velocity.x = -200 + 400 * clamp(direction, 0, 1)
+			fireball.velocity.x = -200 + 400 * bool_direction as int
 			fireball.global_position = fireball_origin.global_position
 			get_parent().add_child(fireball)
 			gun_cooldown_timer.start()
@@ -116,18 +118,18 @@ func _physics_process(delta):
 		scrub_sprites.play("idle")
 
 
-func parse_direction(direction: int):
-	var bool_direction: bool = clamp(direction, 0, 1)
+func parse_direction(parsed_direction: int):
+	bool_direction = clamp(parsed_direction, 0, 1)
 	mounted_gun.flip_h = not bool_direction
 	scrub_sprites.flip_h = not bool_direction
 	scrub_sprites.z_index = not bool_direction
-	mounted_gun.position.x = abs(mounted_gun.position.x) * - direction
-	fireball_origin.position.x = abs(fireball_origin.position.x) * - direction
-	melee_area.position.x = abs(melee_area.position.x) * direction
+	mounted_gun.position.x = abs(mounted_gun.position.x) * - parsed_direction
+	fireball_origin.position.x = abs(fireball_origin.position.x) * - parsed_direction
+	melee_area.position.x = abs(melee_area.position.x) * parsed_direction
 
 
 func _on_Fallzone_body_entered(body: Node):
-	if body == self:
+	if body == self: # is this dangerous??
 		emit_signal("death")
 
 
