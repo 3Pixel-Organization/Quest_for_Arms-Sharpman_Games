@@ -55,11 +55,15 @@ func die():
 func _on_TopChecker_body_entered(body):
 	if body is ScrubPlayer:
 		damage()
+		body.velocity.y = -160
 
 
 func _on_SidesChecker_body_entered(body: ScrubPlayer):
 	if not is_staggered:
 		body.die(true, global_position)
+	else:
+		body.velocity.x = (325 - 650 *
+				(body.global_position.x < global_position.x) as int)
 
 
 func _on_StaggerTimer_timeout():
