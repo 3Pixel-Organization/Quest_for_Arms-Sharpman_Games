@@ -812,13 +812,16 @@ position = Vector2( 2448, -56 )
 position = Vector2( 8, 192 )
 
 [node name="Camera2D" type="Camera2D" parent="Scrub"]
+offset = Vector2( 0, -30 )
 current = true
+zoom = Vector2( 0.7, 0.7 )
 limit_left = 0
-limit_top = -700
-limit_right = 3856
-limit_bottom = 288
+limit_top = 0
+limit_right = 4352
+limit_bottom = 272
+limit_smoothed = true
 smoothing_enabled = true
-drag_margin_left = 1.0
+drag_margin_left = 0.5
 drag_margin_top = 1.0
 drag_margin_right = 1.0
 drag_margin_bottom = 1.0

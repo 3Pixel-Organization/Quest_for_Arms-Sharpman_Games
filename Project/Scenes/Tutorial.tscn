@@ -430,13 +430,20 @@ __meta__ = {
 position = Vector2( 240, 208 )
 
 [node name="Camera2D" type="Camera2D" parent="Scrub"]
+offset = Vector2( 0, -30 )
 current = true
+zoom = Vector2( 0.7, 0.7 )
 limit_left = 0
 limit_top = 0
 limit_right = 4352
 limit_bottom = 272
+limit_smoothed = true
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
 smoothing_enabled = true
+drag_margin_left = 0.5
 editor_draw_limits = true
+editor_draw_drag_margin = true
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( 4 )
