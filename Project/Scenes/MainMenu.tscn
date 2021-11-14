@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Assets/Fonts/Roboto-Light.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Assets/Fonts/DESIGN.COLLECTION1.AOASWFTE.TTF" type="DynamicFontData" id=2]
@@ -14,25 +14,69 @@ outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=3]
 size = 64
 outline_size = 3
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 5 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="StyleBoxEmpty" id=10]
+
+[sub_resource type="DynamicFont" id=4]
 size = 32
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 5 )
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=5]
 size = 32
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 5 )
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="StyleBoxFlat" id=6]
+content_margin_left = 0.0
+content_margin_right = 0.0
+content_margin_top = 0.0
+content_margin_bottom = 0.0
+bg_color = Color( 0, 0, 0, 0.501961 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 1, 1, 1, 1 )
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 1
+expand_margin_left = 4.0
+expand_margin_right = 4.0
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 1, 1, 1, 1 )
+corner_radius_top_left = 2
+corner_radius_bottom_left = 2
+corner_detail = 1
+expand_margin_left = 1.0
+expand_margin_top = 2.0
+expand_margin_bottom = 2.0
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.902344, 0.902344, 0.902344, 1 )
+corner_radius_top_left = 2
+corner_radius_bottom_left = 2
+corner_detail = 1
+expand_margin_left = 1.0
+expand_margin_top = 2.0
+expand_margin_bottom = 2.0
+anti_aliasing = false
+
+[sub_resource type="DynamicFont" id=8]
 size = 8
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 1 )
@@ -73,10 +117,12 @@ margin_right = 316.0
 margin_bottom = 135.0
 size_flags_horizontal = 4
 size_flags_vertical = 6
-custom_fonts/font = SubResource( 2 )
+custom_colors/font_color_focus = Color( 1, 0.2, 0.2, 1 )
 custom_colors/font_color = Color( 1, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 1, 0.2, 0.2, 1 )
 custom_colors/font_color_pressed = Color( 0.87451, 0, 0, 1 )
+custom_fonts/font = SubResource( 3 )
+custom_styles/focus = SubResource( 10 )
 text = "Start"
 flat = true
 __meta__ = {
@@ -89,10 +135,12 @@ margin_top = 140.0
 margin_right = 284.0
 margin_bottom = 168.0
 size_flags_horizontal = 6
-custom_fonts/font = SubResource( 3 )
+custom_colors/font_color_focus = Color( 1, 0.2, 0.2, 1 )
 custom_colors/font_color = Color( 1, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 1, 0.2, 0.2, 1 )
 custom_colors/font_color_pressed = Color( 0.87451, 0, 0, 1 )
+custom_fonts/font = SubResource( 4 )
+custom_styles/focus = SubResource( 10 )
 text = "About"
 flat = true
 __meta__ = {
@@ -105,9 +153,11 @@ margin_top = 172.0
 margin_right = 272.0
 margin_bottom = 200.0
 size_flags_horizontal = 6
-custom_fonts/font = SubResource( 4 )
+custom_colors/font_color_focus = Color( 0.470588, 0.454902, 0.454902, 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_hover = Color( 0.470588, 0.454902, 0.454902, 1 )
+custom_fonts/font = SubResource( 5 )
+custom_styles/focus = SubResource( 10 )
 text = "Quit"
 flat = true
 __meta__ = {
@@ -119,13 +169,16 @@ margin_left = 168.0
 margin_top = 220.0
 margin_right = 312.0
 margin_bottom = 240.0
-rect_min_size = Vector2( 144, 0 )
+rect_min_size = Vector2( 144, 20 )
 size_flags_horizontal = 4
 size_flags_vertical = 6
 custom_icons/grabber_highlight = ExtResource( 7 )
 custom_icons/grabber = ExtResource( 4 )
+custom_styles/slider = SubResource( 6 )
+custom_styles/grabber_area_highlight = SubResource( 9 )
+custom_styles/grabber_area = SubResource( 7 )
 min_value = -80.0
-max_value = 20.0
+max_value = 0.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -135,7 +188,7 @@ margin_top = 260.0
 margin_right = 110.0
 margin_bottom = 270.0
 size_flags_horizontal = 0
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 8 )
 text = "THIS IS A WORK IN PROGRESS"
 __meta__ = {
 "_edit_use_anchors_": false
