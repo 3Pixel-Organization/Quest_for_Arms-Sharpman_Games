@@ -10,4 +10,4 @@ func _on_player_death():
 
 
 func _on_EndLevelPortal_body_entered(body: ScrubPlayer):
-	get_tree().change_scene("res://Scenes/level1-level2.tscn")
+	get_tree().change_scene("res://Scenes/Level1to2.tscn")
