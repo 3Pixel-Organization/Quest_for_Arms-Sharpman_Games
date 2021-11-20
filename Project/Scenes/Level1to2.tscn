@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Scripts/level1-level2.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/StandardVideo.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Cutscenes/1to2.webm" type="VideoStream" id=2]
 
 [node name="VideoPlayer" type="VideoPlayer"]
@@ -12,5 +12,6 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+scene_path = "res://Scenes/Level2.tscn"
 
 [connection signal="finished" from="." to="." method="_on_VideoPlayer_finished"]
