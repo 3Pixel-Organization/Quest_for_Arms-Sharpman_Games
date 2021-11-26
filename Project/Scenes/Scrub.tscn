@@ -37,10 +37,10 @@ hframes = 2
 
 [node name="Kick" type="Area2D" parent="."]
 position = Vector2( 14, -11 )
-monitoring = false
-monitorable = false
 collision_layer = 8
 collision_mask = 18
+monitoring = false
+monitorable = false
 __meta__ = {
 "_edit_group_": true
 }
@@ -65,6 +65,7 @@ wait_time = 0.3
 one_shot = true
 
 [node name="JumpBuffer" type="Timer" parent="."]
+wait_time = 0.2
 script = ExtResource( 4 )
 
 [node name="Fireball" type="AudioStreamPlayer" parent="."]
