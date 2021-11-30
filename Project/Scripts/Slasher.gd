@@ -62,7 +62,7 @@ func _on_SidesChecker_body_entered(body: ScrubPlayer):
 	if not is_staggered:
 		body.die(true, global_position)
 	else:
-		body.velocity.x = (325 - 650 *
+		body.velocity.x = (325/1.5 - 650/1.5 *
 				(body.global_position.x < global_position.x) as int)
 
 
