@@ -5,7 +5,7 @@
 [ext_resource path="res://Scenes/CannonBall.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 12, 9.5 )
+extents = Vector2( 12, 12.5 )
 
 [node name="Cannon" type="StaticBody2D"]
 collision_layer = 2
@@ -23,7 +23,7 @@ offset = Vector2( 0, -13 )
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -1, -9.5 )
+position = Vector2( -1, -12.5 )
 shape = SubResource( 1 )
 
 [node name="ProjectileOrigin" type="Position2D" parent="."]
