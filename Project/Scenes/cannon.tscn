@@ -31,7 +31,7 @@ position = Vector2( -13, -14 )
 
 [node name="Clock" type="Timer" parent="."]
 process_mode = 0
-wait_time = 2.0
+wait_time = 2.5
 autostart = true
 
 [connection signal="timeout" from="Clock" to="." method="_on_Clock_timeout"]
