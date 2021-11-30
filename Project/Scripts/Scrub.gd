@@ -8,7 +8,7 @@ signal death
 const MAX_SPEED = 100
 const ACCELERATION = MAX_SPEED * 7
 const JUMP_SPEED = -175
-const GRAVITY = 300
+const GRAVITY = 325
 const MAX_FALL_SPEED = MAX_SPEED * 10
 const FIREBALL = preload("res://Scenes/fireball.tscn")
 const JUMPPAD_SPEED = -200
