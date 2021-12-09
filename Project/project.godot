@@ -19,10 +19,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scripts/Level.gd"
 }, {
-"base": "Timer",
-"class": "ScrubJumpBuffer",
 "language": "GDScript",
-"path": "res://Scripts/ScrubJumpBuffer.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "ScrubPlayer",
@@ -32,7 +29,6 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "CheckpointArea": "",
 "Level": "",
-"ScrubJumpBuffer": "",
 "ScrubPlayer": ""
 }
 

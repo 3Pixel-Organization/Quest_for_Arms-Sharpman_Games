@@ -29,7 +29,7 @@ var bool_direction: bool
 
 # Node references
 # Timers
-onready var jump_buffer: ScrubJumpBuffer = $"JumpBuffer"
+onready var jump_buffer := $"JumpBuffer"
 onready var kick_cooldown := $"KickCooldown"
 onready var gun_cooldown_timer := $"GunCooldown"
 
