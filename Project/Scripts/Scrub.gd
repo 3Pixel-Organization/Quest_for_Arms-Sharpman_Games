@@ -127,11 +127,6 @@ func parse_direction(parsed_direction: int):
 	melee_area.position.x = abs(melee_area.position.x) * parsed_direction
 
 
-func _on_Fallzone_body_entered(body: Node):
-	if body == self: # is this dangerous??
-		emit_signal("death")
-
-
 func bounce():
 	velocity.y = JUMP_SPEED * 0.8
 

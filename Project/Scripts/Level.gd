@@ -27,3 +27,9 @@ func _on_EndLevelPortal_body_entered(body: ScrubPlayer) -> void:
 	}
 	
 	assert(get_tree().change_scene(next_scene) == OK)
+
+
+func _on_Fallzone_body_entered(body: ScrubPlayer) -> void:
+	if not body: return
+	
+	scrub.emit_signal("death")
