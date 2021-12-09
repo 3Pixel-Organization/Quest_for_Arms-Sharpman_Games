@@ -926,6 +926,6 @@ scale = Vector2( 1, -1 )
 [node name="GunPickup" parent="." instance=ExtResource( 10 )]
 position = Vector2( 2067, -256 )
 
-[connection signal="death" from="Scrub" to="." method="_on_player_death"]
+[connection signal="death" from="Scrub" to="." method="_on_Scrub_death"]
 [connection signal="body_entered" from="Fallzone" to="Scrub" method="_on_Fallzone_body_entered"]
 [connection signal="body_entered" from="EndLevelPortal" to="." method="_on_EndLevelPortal_body_entered"]

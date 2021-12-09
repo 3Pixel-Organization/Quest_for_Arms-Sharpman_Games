@@ -6,7 +6,7 @@ onready var menu_button = $"MarginContainer/VBoxContainer/Buttons/Menu"
 onready var death_jingle = $"DeathJingle"
 
 
-func _on_player_death():
+func _on_Scrub_death():
 	visible = true
 	death_jingle.play()
 
