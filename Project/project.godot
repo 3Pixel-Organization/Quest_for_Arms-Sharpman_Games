@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "Area2D",
 "class": "CheckpointArea",
 "language": "GDScript",
-"path": "res://Scripts/Checkpoint.gd"
+"path": "res://Scripts/checkpoint.gd"
 }, {
 "base": "Node",
 "class": "Level",
