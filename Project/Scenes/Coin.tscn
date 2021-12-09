@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/Coin.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Sprites/Items/coin.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Sounds/Sound Effects/new folder/Coin.ogg" type="AudioStream" id=3]
+[ext_resource path="res://Assets/Sprites/Items/Coin.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Sounds/SFX/Coin.ogg" type="AudioStream" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 6, 7 )
@@ -34,8 +34,8 @@ tracks/1/keys = {
 }
 
 [node name="Coin" type="Area2D"]
-monitorable = false
 collision_layer = 32
+monitorable = false
 script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

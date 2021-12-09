@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Scripts/fallingplat.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Sprites/Floor/fallingPlat.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/FallingPlat.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Sprites/Floor/FallingPlat.png" type="Texture" id=2]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Fall"
@@ -63,8 +63,8 @@ position = Vector2( 0, -0.5 )
 shape = SubResource( 3 )
 
 [node name="TopChecker" type="Area2D" parent="."]
-monitorable = false
 collision_layer = 0
+monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TopChecker"]
 position = Vector2( 0, -12.5 )

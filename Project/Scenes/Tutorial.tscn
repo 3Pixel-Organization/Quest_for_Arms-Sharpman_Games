@@ -1,27 +1,27 @@
 [gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Scenes/Scrub.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Assets/Sprites/Floor/tutorial_tile.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Sprites/Floor/TutorialTile.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Fonts/8-BitMadness.ttf" type="DynamicFontData" id=5]
-[ext_resource path="res://Assets/Sprites/HUD/tutorial_ui_space.png" type="Texture" id=6]
-[ext_resource path="res://Assets/Sprites/HUD/tutorial_ui_controller_move.png" type="Texture" id=7]
-[ext_resource path="res://Assets/Sprites/HUD/tutorial_ui_controller_jump.png" type="Texture" id=8]
-[ext_resource path="res://Assets/Sprites/HUD/tutorial_ui_s.png" type="Texture" id=9]
-[ext_resource path="res://Assets/Sprites/HUD/tutorial_ui_d.png" type="Texture" id=10]
-[ext_resource path="res://Assets/Sprites/HUD/tutorial_ui_left.png" type="Texture" id=11]
-[ext_resource path="res://Assets/Sprites/HUD/tutorial_ui_right.png" type="Texture" id=12]
-[ext_resource path="res://Assets/Sprites/HUD/tutorial_ui_up.png" type="Texture" id=13]
-[ext_resource path="res://Assets/Sprites/HUD/tutorial_ui_w.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Sprites/HUD/TutorialSpace.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Sprites/HUD/TutorialControllerMove.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Sprites/HUD/TutorialControllerJump.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Sprites/HUD/TutorialS.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Sprites/HUD/TutorialD.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Sprites/HUD/TutorialLeft.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Sprites/HUD/TutorialRight.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Sprites/HUD/TutorialUp.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Sprites/HUD/TutorialW.png" type="Texture" id=14]
 [ext_resource path="res://Scenes/Slasher.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Scenes/Speed.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Scenes/GunPickup.tscn" type="PackedScene" id=20]
-[ext_resource path="res://Scenes/cannon.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Scenes/Cannon.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Scenes/Railgun.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Scripts/Tutorial.gd" type="Script" id=23]
-[ext_resource path="res://Assets/Sprites/HUD/tutorial_ui_controller_fire.png" type="Texture" id=24]
-[ext_resource path="res://Assets/Sprites/HUD/tutorial_ui_q.png" type="Texture" id=25]
-[ext_resource path="res://Assets/Sprites/HUD/tutorial_ui_controller_attack.png" type="Texture" id=26]
-[ext_resource path="res://Assets/Sprites/HUD/tutorial_ui_x.png" type="Texture" id=27]
+[ext_resource path="res://Assets/Sprites/HUD/TutorialControllerFire.png" type="Texture" id=24]
+[ext_resource path="res://Assets/Sprites/HUD/TutorialQ.png" type="Texture" id=25]
+[ext_resource path="res://Assets/Sprites/HUD/TutorialControllerAttack.png" type="Texture" id=26]
+[ext_resource path="res://Assets/Sprites/HUD/TutorialX.png" type="Texture" id=27]
 
 [sub_resource type="StyleBoxFlat" id=1]
 content_margin_left = 20.0
@@ -459,8 +459,8 @@ position = Vector2( 1344, 176 )
 
 [node name="StartGame" type="Area2D" parent="."]
 position = Vector2( 0, -16 )
-monitorable = false
 collision_layer = 0
+monitorable = false
 
 [node name="Panel" type="Panel" parent="StartGame"]
 anchor_right = 1.0

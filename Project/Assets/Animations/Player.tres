@@ -1,6 +1,6 @@
 [gd_resource type="SpriteFrames" load_steps=8 format=2]
 
-[ext_resource path="res://Assets/Sprites/Player/scrub.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Sprites/Player/Scrub.png" type="Texture" id=1]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 1 )

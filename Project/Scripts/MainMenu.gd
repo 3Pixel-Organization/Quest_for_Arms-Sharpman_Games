@@ -6,7 +6,7 @@ func _ready():
 
 
 func _on_Start_pressed():
-	var scene_chagend: int = get_tree().change_scene("res://Scenes/intro.tscn")
+	var scene_chagend: int = get_tree().change_scene("res://Scenes/Intro.tscn")
 	assert(scene_chagend == OK, "Scene not found at given path")
 
 

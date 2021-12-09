@@ -5,7 +5,7 @@
 [ext_resource path="res://Scripts/MainMenu.gd" type="Script" id=3]
 [ext_resource path="res://Assets/Sprites/HUD/SoundGrabber.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Fonts/8-BitMadness.ttf" type="DynamicFontData" id=5]
-[ext_resource path="res://Assets/Sprites/title screen.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Sprites/TitleScreen.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Sprites/HUD/SoundGrabbed.png" type="Texture" id=7]
 
 [sub_resource type="DynamicFont" id=1]

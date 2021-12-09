@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Assets/Fonts/Roboto-Light.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://Assets/Sprites/Items/coin.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Sprites/Items/Coin.png" type="Texture" id=2]
 
 [sub_resource type="StyleBoxFlat" id=1]
 content_margin_left = 6.0

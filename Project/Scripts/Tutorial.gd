@@ -10,4 +10,5 @@ func _ready():
 
 func _on_StartGame_body_entered(_body: ScrubPlayer):
 	GlobalVariables.player["Gun"] = false
-	assert(get_tree().change_scene("res://Scenes/intro.tscn") == OK)
+	var scene_changed: int = get_tree().change_scene("res://Scenes/Intro.tscn")
+	assert(scene_changed == OK)
