@@ -20,8 +20,8 @@ func _on_Quit_pressed():
 
 
 func _on_Menu_pressed():
-# warning-ignore:return_value_discarded
-	get_tree().change_scene("res://Scenes/MainMenu.tscn")
+	var scene_changed: int = get_tree().change_scene("res://Scenes/MainMenu.tscn")
+	assert(scene_changed == OK, "Scene not found at given path")
 
 
 func _on_HSlider_value_changed(value):

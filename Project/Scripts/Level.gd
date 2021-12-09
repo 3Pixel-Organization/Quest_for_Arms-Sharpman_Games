@@ -26,7 +26,8 @@ func _on_EndLevelPortal_body_entered(body: ScrubPlayer) -> void:
 		"Coins": scrub.coins,
 	}
 	
-	assert(get_tree().change_scene(next_scene) == OK)
+	var scene_state: int = get_tree().change_scene(next_scene)
+	assert(scene_state == OK, "Scene not found at given path")
 
 
 func _on_Fallzone_body_entered(body: ScrubPlayer) -> void:

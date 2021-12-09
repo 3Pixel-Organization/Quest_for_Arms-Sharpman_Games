@@ -9,4 +9,5 @@ func _on_VideoPlayer_finished():
 
 func _input(event):
 	if event.is_action_pressed("ui_accept"):
-		assert(get_tree().change_scene(scene_path) == OK)
+		var scene_changed: int = get_tree().change_scene(scene_path)
+		assert(scene_changed == OK, "Scene not found at given path")

@@ -21,4 +21,5 @@ func _on_Restart_pressed():
 
 
 func _on_Menu_pressed():
-	get_tree().change_scene("res://Scenes/MainMenu.tscn")
+	var scene_changed: int = get_tree().change_scene("res://Scenes/MainMenu.tscn")
+	assert(scene_changed == OK, "Scene not found at given path")

@@ -6,11 +6,13 @@ func _ready():
 
 
 func _on_Start_pressed():
-	assert(get_tree().change_scene("res://Scenes/intro.tscn") == OK)
+	var scene_chagend: int = get_tree().change_scene("res://Scenes/intro.tscn")
+	assert(scene_chagend == OK, "Scene not found at given path")
 
 
 func _on_About3Pixel_pressed():
-	assert(OS.shell_open("https://3-pixel.com/") == OK)
+	var website_opened: int = OS.shell_open("https://3-pixel.com/")
+	assert(website_opened == OK)
 
 
 func _on_Quit_pressed():
