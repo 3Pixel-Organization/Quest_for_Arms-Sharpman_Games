@@ -10,10 +10,10 @@
 [ext_resource path="res://Scenes/Coin.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/cannon.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/GunPickup.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scripts/Level.gd" type="Script" id=11]
 [ext_resource path="res://Scenes/Slasher.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Assets/Sounds/Music/cool.ogg" type="AudioStream" id=13]
 [ext_resource path="res://Assets/Sprites/Floor/Layout.png" type="Texture" id=15]
-[ext_resource path="res://Scripts/Level1.gd" type="Script" id=20]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
@@ -554,7 +554,8 @@ a = Vector2( 0, -48 )
 b = Vector2( 0, 48 )
 
 [node name="Level1" type="Node"]
-script = ExtResource( 20 )
+script = ExtResource( 11 )
+next_scene = "res://Scenes/Level1to2.tscn"
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
