@@ -1,6 +1,6 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=27 format=2]
 
-[ext_resource path="res://Assets/Animations/Player.tres" type="SpriteFrames" id=1]
+[ext_resource path="res://Assets/Sprites/Player/DeadFallingAnimation.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Scrub.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Sounds/SFX/FireballNoExplosion.ogg" type="AudioStream" id=3]
 [ext_resource path="res://Scripts/ScrubJumpBuffer.gd" type="Script" id=4]
@@ -9,11 +9,87 @@
 [ext_resource path="res://Scenes/HUD/PauseScreen.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/HUD/DeathScreen.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/HUD/GameHUD.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Assets/Sprites/Player/Scrub.png" type="Texture" id=10]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 10 )
+region = Rect2( 0, 0, 20, 28 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 10 )
+region = Rect2( 20, 0, 20, 28 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 28, 26 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 1 )
+region = Rect2( 28, 0, 28, 26 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 1 )
+region = Rect2( 56, 0, 28, 26 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 1 )
+region = Rect2( 84, 0, 28, 26 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 1 )
+region = Rect2( 112, 0, 28, 26 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 1 )
+region = Rect2( 140, 0, 28, 26 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 1 )
+region = Rect2( 168, 0, 28, 26 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 10 )
+region = Rect2( 40, 0, 20, 28 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 10 )
+region = Rect2( 0, 0, 20, 28 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 10 )
+region = Rect2( 60, 0, 20, 28 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 10 )
+region = Rect2( 80, 0, 20, 28 )
+
+[sub_resource type="SpriteFrames" id=14]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ) ],
+"loop": true,
+"name": "idle",
+"speed": 2.0
+}, {
+"frames": [ SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ) ],
+"loop": false,
+"name": "die",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 5 ) ],
+"loop": true,
+"name": "walk",
+"speed": 10.0
+}, {
+"frames": [ SubResource( 3 ) ],
+"loop": false,
+"name": "jump",
+"speed": 1.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=15]
 extents = Vector2( 8, 11 )
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=16]
 extents = Vector2( 6, 14 )
 
 [node name="Scrub" type="KinematicBody2D"]
@@ -25,7 +101,7 @@ script = ExtResource( 2 )
 position = Vector2( -1.5, -19.5 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-frames = ExtResource( 1 )
+frames = SubResource( 14 )
 animation = "idle"
 offset = Vector2( 0, -14 )
 
@@ -46,11 +122,11 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kick"]
-shape = SubResource( 1 )
+shape = SubResource( 15 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -14 )
-shape = SubResource( 2 )
+shape = SubResource( 16 )
 
 [node name="DeathTimer" type="Timer" parent="."]
 wait_time = 0.6
