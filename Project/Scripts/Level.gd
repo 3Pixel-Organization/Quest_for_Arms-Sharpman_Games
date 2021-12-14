@@ -14,7 +14,7 @@ func _ready() -> void:
 		scrub.global_position = GlobalVariables.checkpoint["Position"]
 
 
-func _on_Scrub_death() -> void:
+func _on_Scrub_death(_wait_time) -> void:
 	($"Music" as AudioStreamPlayer).stop()
 
 
@@ -33,4 +33,4 @@ func _on_EndLevelPortal_body_entered(body: ScrubPlayer) -> void:
 func _on_Fallzone_body_entered(body: ScrubPlayer) -> void:
 	if not body: return
 	
-	scrub.emit_signal("death")
+	scrub.emit_signal("death", 0)

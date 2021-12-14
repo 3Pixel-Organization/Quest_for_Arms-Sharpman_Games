@@ -2,7 +2,7 @@ class_name ScrubPlayer
 extends KinematicBody2D
 
 ## Signals
-signal death
+signal death(wait_time)
 
 ## Constants
 const MAX_SPEED = 100
@@ -38,7 +38,8 @@ onready var jump_sound := $"Jump"
 onready var fireball_sound := $"Fireball"
 
 # Others
-onready var scrub_sprites := $"AnimatedSprite"
+onready var animator := $"AnimationPlayer"
+onready var scrub_sprite := $"Sprite"
 onready var mounted_gun := $"MountedGun"
 onready var fireball_origin := $"FireballOrigin"
 onready var melee_area := $"Kick"
@@ -48,12 +49,6 @@ onready var hud_coins := $"HUD/GameHUD/PanelContainer/HSplitContainer/Coins"
 func _ready():
 	mounted_gun.visible = has_fireball
 	parse_direction(direction)
-
-
-func _process(_delta):
-	mounted_gun.frame = not gun_cooldown_timer.is_stopped() as int
-	mounted_gun.offset.y = (scrub_sprites.animation == "idle") as int * scrub_sprites.frame
-	# Deprecated
 
 
 func _physics_process(delta):
@@ -111,18 +106,18 @@ func _physics_process(delta):
 	velocity = move_and_slide(velocity, Vector2.UP)
 	
 	if velocity.y:
-		scrub_sprites.play("jump")
+		animator.play("Jump")
 	elif velocity.x:
-		scrub_sprites.play("walk")
+		animator.play("Walk")
 	else:
-		scrub_sprites.play("idle")
+		animator.play("Idle")
 
 
 func parse_direction(parsed_direction: int):
 	bool_direction = clamp(parsed_direction, 0, 1)
 	mounted_gun.flip_h = not bool_direction
 	mounted_gun.z_index = bool_direction as int - 1
-	scrub_sprites.flip_h = not bool_direction
+	scrub_sprite.flip_h = not bool_direction
 	fireball_origin.position.x = abs(fireball_origin.position.x) * - parsed_direction
 	melee_area.position.x = abs(melee_area.position.x) * parsed_direction
 
@@ -148,6 +143,7 @@ func _jump_pad():
 func die(bounce: bool = false, enemy_pos := Vector2()) -> void:
 	if not can_die:
 		return
+	
 	modulate = Color(1,0.3,0.3,0.3) # great color :+1:
 	velocity.y = JUMP_SPEED * 1
 	if bounce:
@@ -156,12 +152,11 @@ func die(bounce: bool = false, enemy_pos := Vector2()) -> void:
 	Input.action_release("right")
 	Input.action_release("jump")
 	
-	$DeathTimer.start()
+	set_physics_process(false)
+	pause_mode = PAUSE_MODE_PROCESS
+	emit_signal("death", 1)
+	animator.play("Death")
 
-
-func _on_DeathTimer_timeout(): # The DeathScreen shows itself
-	emit_signal("death")
-	get_tree().paused = true
 
 # Melee attack logic
 func _on_KickCooldown_timeout():
@@ -179,6 +174,9 @@ func _on_Kick_area_entered(area) -> void:
 		area.desintegrate()
 		return
 
+
+func _on_GunCooldown_timeout():
+	mounted_gun.frame = 1
 
 # Setters and getters
 func set_coins(value):

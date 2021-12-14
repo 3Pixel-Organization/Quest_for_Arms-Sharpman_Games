@@ -4,11 +4,21 @@ onready var restart_button = $"MarginContainer/VBoxContainer/Buttons/Restart"
 onready var quit_button = $"MarginContainer/VBoxContainer/Buttons/Quit"
 onready var menu_button = $"MarginContainer/VBoxContainer/Buttons/Menu"
 onready var death_jingle = $"DeathJingle"
+onready var timer = $"Timer"
 
 
-func _on_Scrub_death():
-	visible = true
+func _on_Scrub_death(wait_time):
+	get_tree().paused = true
+	if wait_time:
+		timer.wait_time = wait_time
+		timer.start()
+	else:
+		_on_Timer_timeout()
+
+
+func _on_Timer_timeout():
 	death_jingle.play()
+	visible = true
 
 
 func _on_Quit_pressed():

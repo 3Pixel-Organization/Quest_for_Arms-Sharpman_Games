@@ -73,11 +73,11 @@ margin_top = 17.0
 margin_right = 278.0
 margin_bottom = 59.0
 size_flags_horizontal = 4
-custom_fonts/font = SubResource( 2 )
 custom_colors/font_color_disabled = Color( 0.0705882, 0.0705882, 0.0705882, 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_hover = Color( 0.470588, 0.454902, 0.454902, 1 )
 custom_colors/font_color_pressed = Color( 0.211765, 0.211765, 0.211765, 1 )
+custom_fonts/font = SubResource( 2 )
 shortcut_in_tooltip = false
 action_mode = 0
 text = "Restart"
@@ -92,11 +92,11 @@ margin_top = 63.0
 margin_right = 303.0
 margin_bottom = 105.0
 size_flags_horizontal = 4
-custom_fonts/font = SubResource( 2 )
 custom_colors/font_color_disabled = Color( 0.0705882, 0.0705882, 0.0705882, 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_hover = Color( 0.470588, 0.454902, 0.454902, 1 )
 custom_colors/font_color_pressed = Color( 0.211765, 0.211765, 0.211765, 1 )
+custom_fonts/font = SubResource( 2 )
 shortcut_in_tooltip = false
 action_mode = 0
 text = "Main Menu"
@@ -111,11 +111,11 @@ margin_top = 109.0
 margin_right = 256.0
 margin_bottom = 151.0
 size_flags_horizontal = 4
-custom_fonts/font = SubResource( 2 )
 custom_colors/font_color_disabled = Color( 0.0705882, 0.0705882, 0.0705882, 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_hover = Color( 0.470588, 0.454902, 0.454902, 1 )
 custom_colors/font_color_pressed = Color( 0.211765, 0.211765, 0.211765, 1 )
+custom_fonts/font = SubResource( 2 )
 shortcut_in_tooltip = false
 action_mode = 0
 text = "Quit"
@@ -127,6 +127,10 @@ __meta__ = {
 [node name="DeathJingle" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
 
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Buttons/Restart" to="." method="_on_Restart_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Buttons/Menu" to="." method="_on_Menu_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Buttons/Quit" to="." method="_on_Quit_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
