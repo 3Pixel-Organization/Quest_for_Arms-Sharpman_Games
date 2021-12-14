@@ -4,7 +4,8 @@ export var scene_path : String
 
 
 func _on_VideoPlayer_finished():
-	assert(get_tree().change_scene(scene_path) == OK)
+	var scene_changed = get_tree().change_scene(scene_path)
+	assert(scene_changed == OK)
 
 
 func _input(event):
