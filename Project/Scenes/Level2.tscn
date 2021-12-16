@@ -1165,5 +1165,4 @@ shape = SubResource( 37 )
 stream = ExtResource( 5 )
 autoplay = true
 
-[connection signal="death" from="Scrub" to="." method="_on_Scrub_death"]
 [connection signal="body_entered" from="Fallzone" to="." method="_on_Fallzone_body_entered"]

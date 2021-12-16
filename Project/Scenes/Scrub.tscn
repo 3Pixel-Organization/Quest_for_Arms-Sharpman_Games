@@ -452,6 +452,8 @@ visible = false
 pause_mode = 2
 visible = false
 
+[node name="Tween" type="Tween" parent="."]
+
 [connection signal="death" from="." to="HUD/DeathScreen" method="_on_Scrub_death"]
 [connection signal="area_entered" from="Kick" to="." method="_on_Kick_area_entered"]
 [connection signal="body_entered" from="Kick" to="." method="_on_Kick_body_entered"]

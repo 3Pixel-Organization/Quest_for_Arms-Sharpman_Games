@@ -44,6 +44,8 @@ onready var mounted_gun := $"MountedGun"
 onready var fireball_origin := $"FireballOrigin"
 onready var melee_area := $"Kick"
 onready var hud_coins := $"HUD/GameHUD/PanelContainer/HSplitContainer/Coins"
+onready var camera := $"Camera2D"
+onready var tween := $"Tween"
 
 
 func _ready():
@@ -154,8 +156,16 @@ func die(bounce: bool = false, enemy_pos := Vector2()) -> void:
 	
 	set_physics_process(false)
 	pause_mode = PAUSE_MODE_PROCESS
-	emit_signal("death", 1)
+	emit_signal("death", 1.3)
 	animator.play("Death")
+	
+	if camera:
+		var tweened: bool = tween.interpolate_property(camera, "zoom", null,
+				Vector2(0.5, 0.5), 1.2, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
+		assert(tweened == true, "could not define tween lol")
+		tweened = tween.start()
+		assert(tweened == true, "could not start tween lol")
+		
 
 
 # Melee attack logic
