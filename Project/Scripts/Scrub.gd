@@ -17,7 +17,6 @@ const JUMPPAD_SPEED = -200
 var velocity := Vector2()
 var coins: int = GlobalVariables.player["Coins"] setget set_coins
 var has_fireball: bool = GlobalVariables.player["Gun"]
-var can_die := true
 
 enum DIRECTION {
 	LEFT = -1,
@@ -26,6 +25,8 @@ enum DIRECTION {
 
 export(DIRECTION) var direction := DIRECTION.RIGHT
 var bool_direction: bool
+
+export var can_die: bool = true
 
 # Node references
 # Timers
