@@ -187,7 +187,7 @@ func _on_Kick_area_entered(area) -> void:
 
 
 func _on_GunCooldown_timeout():
-	mounted_gun.frame = 1
+	mounted_gun.frame = 0
 
 # Setters and getters
 func set_coins(value):
