@@ -131,7 +131,7 @@ func bounce():
 
 func ouch(enemy_x: float):
 	print("deprecated function!")
-	die(true, Vector2(enemy_x, 0))
+	die()
 
 
 func fireball_pickup():
@@ -143,14 +143,12 @@ func _jump_pad():
 	velocity.y = JUMPPAD_SPEED
 
 
-func die(bounce: bool = false, enemy_pos := Vector2()) -> void:
+func die() -> void:
 	if not can_die:
 		return
 	
 	modulate = Color(1,0.3,0.3,0.3) # great color :+1:
 	velocity.y = JUMP_SPEED * 1
-	if bounce:
-		velocity.x = 200 - 400 * (global_position.x < enemy_pos.x) as int
 	Input.action_release("left")
 	Input.action_release("right")
 	Input.action_release("jump")
