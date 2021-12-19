@@ -3,14 +3,6 @@
 [ext_resource path="res://Scripts/Slasher.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Sprites/Slasher/Slasher.png" type="Texture" id=2]
 
-[sub_resource type="AtlasTexture" id=9]
-atlas = ExtResource( 2 )
-region = Rect2( 120, 0, 30, 22 )
-
-[sub_resource type="AtlasTexture" id=18]
-atlas = ExtResource( 2 )
-region = Rect2( 120, 22, 30, 22 )
-
 [sub_resource type="AtlasTexture" id=10]
 atlas = ExtResource( 2 )
 region = Rect2( 30, 0, 30, 22 )
@@ -43,8 +35,21 @@ region = Rect2( 60, 22, 30, 22 )
 atlas = ExtResource( 2 )
 region = Rect2( 90, 22, 30, 22 )
 
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 2 )
+region = Rect2( 120, 0, 30, 22 )
+
+[sub_resource type="AtlasTexture" id=18]
+atlas = ExtResource( 2 )
+region = Rect2( 120, 22, 30, 22 )
+
 [sub_resource type="SpriteFrames" id=4]
 animations = [ {
+"frames": [ SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ) ],
+"loop": true,
+"name": "walk",
+"speed": 5.0
+}, {
 "frames": [ SubResource( 9 ) ],
 "loop": true,
 "name": "stagger",
@@ -54,24 +59,19 @@ animations = [ {
 "loop": true,
 "name": "squashed",
 "speed": 1.0
-}, {
-"frames": [ SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ) ],
-"loop": true,
-"name": "walk",
-"speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 14.5, 0.5 )
+extents = Vector2( 15, 0.5 )
 
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 0.5, 11 )
 
 [sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 14, 0.5 )
+extents = Vector2( 15, 0.5 )
 
 [sub_resource type="RectangleShape2D" id=8]
-extents = Vector2( 14.5, 11 )
+extents = Vector2( 15, 11 )
 
 [node name="Slasher" type="KinematicBody2D"]
 collision_layer = 2
@@ -96,7 +96,7 @@ collision_layer = 0
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TopChecker"]
-position = Vector2( -0.5, -21.5 )
+position = Vector2( 0, -22.5 )
 shape = SubResource( 5 )
 one_way_collision = true
 
@@ -105,22 +105,22 @@ collision_layer = 16
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SidesChecker"]
-position = Vector2( -14.5, -11 )
+position = Vector2( -15.5, -11 )
 shape = SubResource( 6 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="SidesChecker"]
-position = Vector2( 13.5, -11 )
+position = Vector2( 15.5, -11 )
 shape = SubResource( 6 )
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="SidesChecker"]
-position = Vector2( 0, -0.5 )
+position = Vector2( 0, 0.5 )
 shape = SubResource( 7 )
 
 [node name="StaggerTimer" type="Timer" parent="."]
 wait_time = 0.3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -0.5, -11 )
+position = Vector2( 0, -11 )
 shape = SubResource( 8 )
 
 [connection signal="body_entered" from="TopChecker" to="." method="_on_TopChecker_body_entered"]
