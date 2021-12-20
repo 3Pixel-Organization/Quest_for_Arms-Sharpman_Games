@@ -5,7 +5,7 @@ extends KinematicBody2D
 signal death(wait_time)
 
 ## Constants
-const MAX_SPEED = 100
+const MAX_SPEED = 77
 const ACCELERATION = MAX_SPEED * 7
 const JUMP_SPEED = -175
 const GRAVITY = 325
