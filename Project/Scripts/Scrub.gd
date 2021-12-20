@@ -7,7 +7,7 @@ signal death(wait_time)
 ## Constants
 const MAX_SPEED = 77
 const ACCELERATION = MAX_SPEED * 7
-const JUMP_SPEED = -175
+const JUMP_SPEED = -180
 const GRAVITY = 325
 const MAX_FALL_SPEED = MAX_SPEED * 10
 const FIREBALL = preload("res://Scenes/Fireball.tscn")
