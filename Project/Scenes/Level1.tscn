@@ -758,7 +758,7 @@ position = Vector2( 2128, 9 )
 position = Vector2( 48, 192 )
 
 [node name="Camera2D" type="Camera2D" parent="Scrub"]
-offset = Vector2( 25, -15 )
+offset = Vector2( 25, -13 )
 current = true
 zoom = Vector2( 0.7, 0.7 )
 limit_left = 0
@@ -1043,6 +1043,18 @@ scale = Vector2( 1, -1 )
 
 [node name="GunPickup" parent="." instance=ExtResource( 10 )]
 position = Vector2( 2067, -256 )
+
+[node name="GunPickup2" parent="." instance=ExtResource( 10 )]
+visible = false
+position = Vector2( 2118, 20 )
+
+[node name="GunPickup3" parent="." instance=ExtResource( 10 )]
+visible = false
+position = Vector2( 2636, 48 )
+
+[node name="GunPickup4" parent="." instance=ExtResource( 10 )]
+visible = false
+position = Vector2( 2444, -201 )
 
 [node name="CheckpointArea" type="Area2D" parent="."]
 position = Vector2( 357, 142 )
