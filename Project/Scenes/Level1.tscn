@@ -755,7 +755,7 @@ position = Vector2( 2472, -135 )
 position = Vector2( 2128, 9 )
 
 [node name="Scrub" parent="." instance=ExtResource( 2 )]
-position = Vector2( 2636, 14 )
+position = Vector2( 54, 193 )
 
 [node name="Camera2D" type="Camera2D" parent="Scrub"]
 offset = Vector2( 25, -13 )
