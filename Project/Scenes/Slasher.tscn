@@ -62,16 +62,16 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 15, 0.5 )
+extents = Vector2( 10, 0.5 )
 
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 0.5, 11 )
 
 [sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 15, 0.5 )
+extents = Vector2( 10, 0.5 )
 
 [sub_resource type="RectangleShape2D" id=8]
-extents = Vector2( 15, 11 )
+extents = Vector2( 10, 11 )
 
 [node name="Slasher" type="KinematicBody2D"]
 collision_layer = 2
@@ -82,6 +82,7 @@ script = ExtResource( 1 )
 position = Vector2( 0, -11 )
 frames = SubResource( 4 )
 animation = "walk"
+frame = 6
 playing = true
 
 [node name="FloorChecker" type="RayCast2D" parent="."]
@@ -104,11 +105,11 @@ collision_layer = 16
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SidesChecker"]
-position = Vector2( -15.5, -11 )
+position = Vector2( -10.5, -11 )
 shape = SubResource( 6 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="SidesChecker"]
-position = Vector2( 15.5, -11 )
+position = Vector2( 10.5, -11 )
 shape = SubResource( 6 )
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="SidesChecker"]
