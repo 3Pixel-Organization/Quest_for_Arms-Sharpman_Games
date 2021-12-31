@@ -577,7 +577,7 @@ next_scene = "res://Scenes/Level1to2.tscn"
 
 [node name="ColorRect" type="ColorRect" parent="ParallaxBackground"]
 margin_top = -452.0
-margin_right = 4336.0
+margin_right = 3631.0
 margin_bottom = 280.0
 color = Color( 0, 0.647059, 1, 1 )
 __meta__ = {
