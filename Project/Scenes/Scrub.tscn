@@ -455,7 +455,6 @@ visible = false
 [node name="Tween" type="Tween" parent="."]
 
 [connection signal="death" from="." to="HUD/DeathScreen" method="_on_Scrub_death"]
-[connection signal="area_entered" from="Kick" to="." method="_on_Kick_area_entered"]
 [connection signal="body_entered" from="Kick" to="." method="_on_Kick_body_entered"]
 [connection signal="timeout" from="GunCooldown" to="." method="_on_GunCooldown_timeout"]
 [connection signal="timeout" from="KickCooldown" to="." method="_on_KickCooldown_timeout"]

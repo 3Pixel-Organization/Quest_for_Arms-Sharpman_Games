@@ -175,13 +175,8 @@ func _on_KickCooldown_timeout():
 func _on_Kick_body_entered(body) -> void:
 	if body.has_method("damage"):
 		body.damage()
-		return
-
-
-func _on_Kick_area_entered(area) -> void:
-	if area.has_method("desintegrate"):
-		area.desintegrate()
-		return
+	elif body.has_method("desintegrate"):
+		body.desintegrate()
 
 
 func _on_GunCooldown_timeout():
