@@ -1,8 +1,9 @@
 extends Node
 
-var checkpoint : Dictionary = {
+var checkpoint: Dictionary = {
 	"Level": "",
 	"Position": Vector2(),
+	"Highest": 0,
 }
 
 var player: Dictionary = {
