@@ -15,7 +15,7 @@ const JUMPPAD_SPEED = -200
 
 ## Variables
 var velocity := Vector2()
-var coins: int = GlobalVariables.player["Coins"] setget set_coins
+var coins: int setget set_coins
 var has_fireball: bool = GlobalVariables.player["Gun"]
 
 enum DIRECTION {
@@ -50,6 +50,7 @@ onready var tween := $"Tween"
 
 
 func _ready():
+	self.coins = GlobalVariables.player["Coins"]
 	mounted_gun.visible = has_fireball
 	parse_direction(direction)
 
