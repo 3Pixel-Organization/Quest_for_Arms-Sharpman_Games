@@ -45,7 +45,7 @@ onready var mounted_gun := $"MountedGun"
 onready var fireball_origin := $"FireballOrigin"
 onready var melee_area := $"Kick"
 onready var hud_coins := $"HUD/GameHUD/PanelContainer/HSplitContainer/Coins"
-onready var camera := $"Camera2D"
+onready var camera := get_node_or_null("Camera2D")
 onready var tween := $"Tween"
 
 
