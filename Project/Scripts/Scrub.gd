@@ -46,7 +46,7 @@ onready var fireball_origin := $"FireballOrigin"
 onready var melee_area := $"Kick"
 onready var hud_coins := $"HUD/GameHUD/PanelContainer/HSplitContainer/Coins"
 onready var camera := get_node_or_null("Camera2D")
-onready var tween := $"Tween"
+onready var tween := get_node_or_null("Tween")
 
 
 func _ready():
@@ -160,12 +160,15 @@ func die() -> void:
 	animator.play("Death")
 	
 	if camera:
-		var tweened: bool = tween.interpolate_property(camera, "zoom", null,
-				Vector2(0.5, 0.5), 1.2, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
-		assert(tweened == true, "could not define tween lol")
-		tweened = tween.start()
-		assert(tweened == true, "could not start tween lol")
-		
+		if tween:
+			var tweened: bool = tween.interpolate_property(camera, "zoom", null,
+					Vector2(0.5, 0.5), 1.2, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
+			assert(tweened == true, "could not define tween lol")
+			tweened = tween.start()
+			assert(tweened == true, "could not start tween lol")
+		else:
+			camera.zoom = Vector2(0.5,0.5)
+
 
 
 # Melee attack logic
