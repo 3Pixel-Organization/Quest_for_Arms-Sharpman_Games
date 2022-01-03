@@ -43,7 +43,6 @@ func damage(damage: int = 1):
 			die()
 		else:
 			is_staggered = true
-			modulate = Color(0.3,0.3,0.3,0.6)
 			slasher_sprites.play("stagger")
 			$StaggerTimer.start()
 

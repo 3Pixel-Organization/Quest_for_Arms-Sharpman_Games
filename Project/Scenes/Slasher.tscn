@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Scripts/Slasher.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Sprites/Slasher/Slasher.png" type="Texture" id=2]
@@ -7,13 +7,9 @@
 atlas = ExtResource( 2 )
 region = Rect2( 120, 0, 30, 22 )
 
-[sub_resource type="AtlasTexture" id=18]
-atlas = ExtResource( 2 )
-region = Rect2( 120, 22, 30, 22 )
-
 [sub_resource type="AtlasTexture" id=10]
 atlas = ExtResource( 2 )
-region = Rect2( 30, 0, 30, 22 )
+region = Rect2( 120, 22, 30, 22 )
 
 [sub_resource type="AtlasTexture" id=11]
 atlas = ExtResource( 2 )
@@ -21,44 +17,52 @@ region = Rect2( 0, 0, 30, 22 )
 
 [sub_resource type="AtlasTexture" id=12]
 atlas = ExtResource( 2 )
-region = Rect2( 60, 0, 30, 22 )
+region = Rect2( 30, 0, 30, 22 )
 
 [sub_resource type="AtlasTexture" id=13]
 atlas = ExtResource( 2 )
-region = Rect2( 90, 0, 30, 22 )
+region = Rect2( 60, 0, 30, 22 )
 
 [sub_resource type="AtlasTexture" id=14]
 atlas = ExtResource( 2 )
-region = Rect2( 0, 22, 30, 22 )
+region = Rect2( 90, 0, 30, 22 )
 
 [sub_resource type="AtlasTexture" id=15]
 atlas = ExtResource( 2 )
-region = Rect2( 30, 22, 30, 22 )
+region = Rect2( 0, 22, 30, 22 )
 
 [sub_resource type="AtlasTexture" id=16]
 atlas = ExtResource( 2 )
-region = Rect2( 60, 22, 30, 22 )
+region = Rect2( 30, 22, 30, 22 )
 
 [sub_resource type="AtlasTexture" id=17]
 atlas = ExtResource( 2 )
+region = Rect2( 60, 22, 30, 22 )
+
+[sub_resource type="AtlasTexture" id=18]
+atlas = ExtResource( 2 )
 region = Rect2( 90, 22, 30, 22 )
+
+[sub_resource type="AtlasTexture" id=19]
+atlas = ExtResource( 2 )
+region = Rect2( 150, 0, 30, 22 )
 
 [sub_resource type="SpriteFrames" id=4]
 animations = [ {
-"frames": [ SubResource( 9 ) ],
+"frames": [ SubResource( 9 ), SubResource( 10 ) ],
 "loop": true,
 "name": "stagger",
-"speed": 5.0
+"speed": 2.0
 }, {
-"frames": [ SubResource( 18 ) ],
-"loop": true,
-"name": "squashed",
-"speed": 1.0
-}, {
-"frames": [ SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ) ],
+"frames": [ SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ) ],
 "loop": true,
 "name": "walk",
 "speed": 5.0
+}, {
+"frames": [ SubResource( 19 ) ],
+"loop": false,
+"name": "squashed",
+"speed": 1.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=5]
@@ -82,7 +86,6 @@ script = ExtResource( 1 )
 position = Vector2( 0, -11 )
 frames = SubResource( 4 )
 animation = "walk"
-frame = 6
 playing = true
 
 [node name="FloorChecker" type="RayCast2D" parent="."]
