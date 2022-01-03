@@ -34,7 +34,8 @@ _global_script_class_icons={
 
 config/name="Quest for Arms"
 run/main_scene="res://Scenes/Startup.tscn"
-config/icon="res://Scenes/Arms.png"
+config/icon="res://Assets/logo2.png"
+config/windows_native_icon="res://logo.ico"
 
 [autoload]
 
