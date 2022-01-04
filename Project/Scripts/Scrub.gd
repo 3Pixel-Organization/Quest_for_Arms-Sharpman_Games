@@ -59,8 +59,8 @@ func _physics_process(delta):
 	
 	# Store Inputs
 	var jump := Input.is_action_just_pressed("jump") 			# UP, W or spacebar
-	var shoot_fireball := Input.is_action_pressed("shoot_fireball") # Q
-	var kick := Input.is_action_pressed("kick") 					# X
+	var shoot_fireball := Input.is_action_just_pressed("shoot_fireball") # Q
+	var kick := Input.is_action_just_pressed("kick") 					# X
 	direction = (Input.is_action_pressed("right") as int -			# A
 			Input.is_action_pressed("left") as int) 				# D
 	
