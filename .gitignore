@@ -1,3 +1,7 @@
+# Godot import files
 .import/
 *.import
+# File that are imported differently
+
+# Compilation remnants
 Builds/*
