@@ -1,4 +1,8 @@
 extends Area2D
 
-func _on_Jumppad_body_entered(body: ScrubPlayer):
-	body._jump_pad()
+
+export var JUMPSPEED: int = 200
+
+
+func _on_Jumppad_body_entered(body: ScrubPlayer) -> void:
+	body.set_deferred("velocity", Vector2(body.velocity.x, -JUMPSPEED))

@@ -11,7 +11,6 @@ const JUMP_SPEED = -180
 const GRAVITY = 325
 const MAX_FALL_SPEED = MAX_SPEED * 10
 const FIREBALL = preload("res://Scenes/Fireball.tscn")
-const JUMPPAD_SPEED = -200
 
 ## Variables
 var velocity := Vector2()
@@ -129,10 +128,6 @@ func parse_direction(parsed_direction: int):
 func fireball_pickup():
 	has_fireball = true
 	mounted_gun.show()
-
-
-func _jump_pad():
-	velocity.y = JUMPPAD_SPEED
 
 
 func die() -> void:
