@@ -4,7 +4,7 @@
 [ext_resource path="res://Assets/Sprites/Canon/CannonBall.png" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 3.0
+radius = 6.0
 
 [node name="CannonBall" type="KinematicBody2D"]
 collision_layer = 16
