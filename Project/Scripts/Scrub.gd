@@ -126,15 +126,6 @@ func parse_direction(parsed_direction: int):
 	melee_area.position.x = abs(melee_area.position.x) * parsed_direction
 
 
-func bounce():
-	velocity.y = JUMP_SPEED * 0.8
-
-
-func ouch(enemy_x: float):
-	print("deprecated function!")
-	die()
-
-
 func fireball_pickup():
 	has_fireball = true
 	mounted_gun.show()
@@ -149,7 +140,6 @@ func die() -> void:
 		return
 	
 	modulate = Color(1,0.3,0.3,0.3) # great color :+1:
-	velocity.y = JUMP_SPEED * 1
 	Input.action_release("left")
 	Input.action_release("right")
 	Input.action_release("jump")
