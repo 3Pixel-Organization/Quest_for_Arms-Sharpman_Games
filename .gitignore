@@ -2,6 +2,7 @@
 .import/
 *.import
 # File that are imported differently
+!/Project/Assets/Sprites/Spike.png.import
 
 # Compilation remnants
 Builds/*
