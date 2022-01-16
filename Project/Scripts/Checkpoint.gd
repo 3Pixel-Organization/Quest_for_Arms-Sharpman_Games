@@ -8,17 +8,19 @@ onready var activated: bool = (GlobalVariables.checkpoint["Level"] == get_tree()
 
 
 func _ready() -> void:
-	if not activated:
-		var checkpoint_ready: int = connect("body_entered", self,
-				"_on_Area2D_body_entered", [], CONNECT_ONESHOT)
-				# Oneshot should be removed if the checkpoint checks for 
-				# things other than the player
-
-		assert(checkpoint_ready == OK, "Checkpoint not working")
+	if activated: return
+	
+	var checkpoint_ready: int = connect("body_entered", self,
+			"_on_Area2D_body_entered", [], CONNECT_ONESHOT)
+			# Oneshot should be removed if the checkpoint checks for 
+			# things other than the player
+	
+	assert(checkpoint_ready == OK, "Checkpoint not working")
 
 
 func _on_Area2D_body_entered(body: ScrubPlayer) -> void:
 	if not body: return
+	
 	activated = true
 	#disconnect("body_entered", self, "_on_Area2D_body_entered")
 	# ^ is only needed if the checkpoint doesnt collide only with the player

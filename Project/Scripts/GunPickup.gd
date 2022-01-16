@@ -1,8 +1,10 @@
 extends Area2D
 
-func _on_gun_picked_up(body: ScrubPlayer):
+func _on_gun_picked_up(body: ScrubPlayer) -> void:
+	if not body: return
+	
 	body.fireball_pickup()
 	set_deferred("monitoring", false)
-	$Gun.queue_free()
-	$AnimationPlayer.stop()
-	$Particles2D.emitting = false
+	($"Gun" as Sprite).queue_free()
+	($"AnimationPlayer" as AnimationPlayer).stop()
+	($"Particles2D" as Particles2D).emitting = false

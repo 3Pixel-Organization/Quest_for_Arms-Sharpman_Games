@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 
-var velocity = Vector2() # Must be set by instaciator
+var velocity: Vector2 # Must be set by instaciator
 
 
 func _ready() -> void:
@@ -11,14 +11,16 @@ func _ready() -> void:
 	($"Sprite" as Sprite).flip_h = velocity.x < 0
 
 
-func _physics_process(delta) -> void:
+func _physics_process(delta: float) -> void:
 	var collision_data := move_and_collide(velocity * delta) as KinematicCollision2D
-	if collision_data:
-		var colliding_body := collision_data.collider as CollisionObject2D
-		if colliding_body and colliding_body.has_method("damage"):
-			colliding_body.damage()
-		
-		desintegrate()
+	if not collision_data: return
+	
+	var colliding_body := collision_data.collider as CollisionObject2D
+	
+	if colliding_body and colliding_body.has_method("damage"):
+		colliding_body.damage()
+	
+	desintegrate()
 
 
 func desintegrate() -> void:

@@ -3,7 +3,7 @@ extends Node
 
 
 export var next_scene: String
-onready var scrub : ScrubPlayer = $"Scrub"
+onready var scrub: ScrubPlayer = $"Scrub"
 
 
 func _ready() -> void:

@@ -1,5 +1,6 @@
 extends KinematicBody2D
 
+
 var velocity: Vector2 # Should be set by instanciator
 
 

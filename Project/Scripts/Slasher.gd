@@ -1,24 +1,25 @@
 extends KinematicBody2D
 
-var velocity = Vector2()
-var is_staggered = false
 
 enum DIRECTION {
 	LEFT = -1
 	RIGHT = 1
 }
 
-export(DIRECTION) var direction = -1
+const GRAVITY = 20
 
-export var detect_cliffs := true
-export var speed := 20
-export var health := 2
-var GRAVITY: int = 20
+export(DIRECTION) var direction: int = -1
+export var detect_cliffs: bool = true
+export var speed: int = 20
+export var health: int = 2
 
-onready var slasher_sprites := $"AnimatedSprite"
-onready var top_checker := $"TopChecker"
-onready var sides_checker := $"SidesChecker"
-onready var cliffs_checker := $"FloorChecker"
+var velocity: Vector2 = Vector2.ZERO
+var is_staggered: bool = false
+
+onready var slasher_sprites: AnimatedSprite = $"AnimatedSprite"
+onready var top_checker: Area2D = $"TopChecker"
+onready var sides_checker: Area2D = $"SidesChecker"
+onready var cliffs_checker: RayCast2D = $"FloorChecker"
 
 
 func _ready():

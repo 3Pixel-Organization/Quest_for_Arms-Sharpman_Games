@@ -1,3 +1,4 @@
 extends Timer
 
-var already_started := false
+
+var already_started: bool = false

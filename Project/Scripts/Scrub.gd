@@ -21,42 +21,43 @@ export(DIRECTION) var direction := DIRECTION.RIGHT
 export var can_die: bool = true
 
 # Member variables
-var velocity := Vector2()
+var velocity: Vector2 = Vector2.ZERO
 var coins: int setget set_coins
 var has_fireball: bool = GlobalVariables.player["Gun"]
+var bool_direction: bool
 
 # Node references
-onready var jump_buffer := $"JumpBuffer"
-onready var kick_cooldown := $"KickCooldown"
-onready var gun_cooldown_timer := $"GunCooldown"
-onready var jump_sound := $"Jump"
-onready var fireball_sound := $"Fireball"
-onready var animator := $"AnimationPlayer"
-onready var scrub_sprite := $"Sprite"
-onready var mounted_gun := $"MountedGun"
-onready var fireball_origin := $"FireballOrigin"
-onready var melee_area := $"Kick"
-onready var hud_coins := $"HUD/GameHUD/PanelContainer/HSplitContainer/Coins"
+onready var jump_buffer: Timer = $"JumpBuffer"
+onready var kick_cooldown: Timer = $"KickCooldown"
+onready var gun_cooldown_timer: Timer = $"GunCooldown"
+onready var jump_sound: AudioStreamPlayer = $"Jump"
+onready var fireball_sound: AudioStreamPlayer = $"Fireball"
+onready var animator: AnimationPlayer = $"AnimationPlayer"
+onready var scrub_sprite: Sprite = $"Sprite"
+onready var mounted_gun: Sprite = $"MountedGun"
+onready var fireball_origin: Position2D = $"FireballOrigin"
+onready var melee_area: Area2D = $"Kick"
+onready var hud_coins: Label = $"HUD/GameHUD/PanelContainer/HSplitContainer/Coins"
 
 # Camera and Tween are optional; They're only used for the death zoom
 onready var camera := get_node_or_null("Camera2D")
-onready var tween := get_node_or_null("Tween")
+onready var tween: Tween = get_node_or_null("Tween")
 
 
-func _ready():
+func _ready() -> void:
 	self.coins = GlobalVariables.player["Coins"]
 	mounted_gun.visible = has_fireball
 	parse_direction(direction)
 
 
-func _physics_process(delta):
+func _physics_process(delta: float) -> void:
 	
 	# Store Inputs
-	var jump := Input.is_action_just_pressed("jump") 			# UP, W or spacebar
-	var shoot_fireball := Input.is_action_just_pressed("shoot_fireball") # Q
-	var kick := Input.is_action_just_pressed("kick") 					# X
-	direction = (Input.is_action_pressed("right") as int -			# A
-			Input.is_action_pressed("left") as int) 				# D
+	var jump: bool = Input.is_action_just_pressed("jump") 						# UP, W or spacebar
+	var shoot_fireball: bool = Input.is_action_just_pressed("shoot_fireball")	# Q
+	var kick: bool = Input.is_action_just_pressed("kick") 						# X
+	direction = (Input.is_action_pressed("right") as int -						# A
+			Input.is_action_pressed("left") as int) 							# D
 	
 	velocity.y = min(velocity.y + GRAVITY * delta,
 			MAX_FALL_SPEED)
@@ -113,7 +114,7 @@ func _physics_process(delta):
 		animator.play("Idle")
 
 
-func parse_direction(parsed_direction: int):
+func parse_direction(parsed_direction: int) -> void:
 	bool_direction = clamp(parsed_direction, 0, 1)
 	mounted_gun.flip_h = not bool_direction
 	mounted_gun.z_index = bool_direction as int - 1
@@ -122,7 +123,7 @@ func parse_direction(parsed_direction: int):
 	melee_area.position.x = abs(melee_area.position.x) * parsed_direction
 
 
-func fireball_pickup():
+func fireball_pickup() -> void:
 	has_fireball = true
 	mounted_gun.show()
 
@@ -152,23 +153,22 @@ func die() -> void:
 			camera.zoom = Vector2(0.5,0.5)
 
 
-
 # Melee attack logic
-func _on_KickCooldown_timeout():
+func _on_KickCooldown_timeout() -> void:
 	melee_area.monitoring = false
 
 
-func _on_Kick_body_entered(body) -> void:
+func _on_Kick_body_entered(body: PhysicsBody2D) -> void:
 	if body.has_method("damage"):
 		body.damage()
 	elif body.has_method("desintegrate"):
 		body.desintegrate()
 
 
-func _on_GunCooldown_timeout():
+func _on_GunCooldown_timeout() -> void:
 	mounted_gun.frame = 0
 
 # Setters and getters
-func set_coins(value):
+func set_coins(value: int) -> void:
 	coins = value
 	hud_coins.text = (coins as String).pad_zeros(2)

@@ -1,5 +1,6 @@
 extends Node
 
+
 var checkpoint: Dictionary = {
 	"Level": "",
 	"Position": Vector2(),

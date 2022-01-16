@@ -1,6 +1,7 @@
 tool
 extends StaticBody2D
 
+
 enum DIRECTION {
 	LEFT = -1,
 	RIGHT = 1,
@@ -15,10 +16,10 @@ onready var projectile: Resource = load(projectile_scene.resource_path)
 onready var sprite: Sprite = $"Sprite"
 
 
-func _ready():
+func _ready() -> void:
 	scale.x = direction * -1
 
-func _on_Clock_timeout():
+func _on_Clock_timeout() -> void:
 	if $"VisibilityEnabler2D".is_on_screen():
 		var projectile_instance = projectile.instance()
 		projectile_instance.global_position = $"ProjectileOrigin".global_position
