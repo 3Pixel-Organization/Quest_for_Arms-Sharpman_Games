@@ -61,7 +61,9 @@ func _physics_process(delta):
 	velocity.y = min(velocity.y + GRAVITY * delta,
 			MAX_FALL_SPEED)
 	
-	if is_on_floor():
+	var is_on_floor: bool = is_on_floor()
+	
+	if is_on_floor:
 		jump_buffer.stop()
 		jump_buffer.already_started = false
 	elif not jump_buffer.already_started:
@@ -86,7 +88,7 @@ func _physics_process(delta):
 			mounted_gun.frame = 1
 			fireball_sound.play()
 		
-		if jump and (is_on_floor() or not
+		if jump and (is_on_floor or not
 				(jump_buffer.is_stopped() and jump_buffer.already_started)):
 			jump_buffer.stop()
 			jump_buffer.already_started = true
