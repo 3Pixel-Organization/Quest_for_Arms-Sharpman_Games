@@ -32,30 +32,43 @@ func _physics_process(_delta):
 			direction *= -1
 			scale.x *= -1
 		
-		velocity = Vector2(speed * direction * (not is_staggered) as int, velocity.y + GRAVITY)
-		velocity = move_and_slide(velocity,Vector2.UP)
-
-
-func damage(damage: int = 1):
-	if !is_staggered:
-		health -= damage
+		velocity.y += GRAVITY
 		
-		if health <= 0:
-			die()
+		if not is_staggered:
+			velocity.x = speed * direction
 		else:
-			is_staggered = true
-			slasher_sprites.play("stagger")
-			$StaggerTimer.start()
+			velocity.x = move_toward(velocity.x, 0, 5) # the last parameter is an arbitrary number
+		
+		velocity = move_and_slide(velocity, Vector2.UP)
 
 
-func die():
-	queue_free()
+func damage(damage: int = 1, knockback_speed: int = 0) -> void:
+	if is_staggered: return
+	
+	health -= damage
+	is_staggered = true
+	
+	if health <= 0:
+		die()
+	else:
+		set_deferred("velocity", Vector2(knockback_speed, velocity.y))
+		slasher_sprites.play("stagger")
+		($"StaggerTimer" as Timer).start()
 
 
 func _on_TopChecker_body_entered(body):
 	if body is ScrubPlayer:
 		damage()
 		body.velocity.y = -160
+
+
+func die() -> void:
+	set_physics_process(false)
+	top_checker.set_deferred("monitoring", false)
+	sides_checker.set_deferred("monitoring", false)
+	($"CollisionShape2D" as CollisionShape2D).set_deferred("disable", true)
+	slasher_sprites.play("squashed")
+	($"DeathTimer" as Timer).start()
 
 
 func _on_SidesChecker_body_entered(body: ScrubPlayer):
@@ -70,3 +83,7 @@ func _on_StaggerTimer_timeout():
 	slasher_sprites.play("walk")
 	modulate = Color.white
 	is_staggered = false
+
+
+func _on_DeathTimer_timeout() -> void:
+	queue_free()
