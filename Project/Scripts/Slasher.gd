@@ -22,12 +22,12 @@ onready var sides_checker: Area2D = $"SidesChecker"
 onready var cliffs_checker: RayCast2D = $"FloorChecker"
 
 
-func _ready():
+func _ready() -> void:
 	scale.x = direction * -1
 	cliffs_checker.enabled = detect_cliffs
 
 
-func _physics_process(_delta):
+func _physics_process(_delta: float) -> void:
 		if is_on_wall() or not cliffs_checker.is_colliding() and detect_cliffs and is_on_floor():
 			direction *= -1
 			scale.x *= -1
@@ -56,12 +56,6 @@ func damage(damage: int = 1, knockback_speed: int = 0) -> void:
 		($"StaggerTimer" as Timer).start()
 
 
-func _on_TopChecker_body_entered(body):
-	if body is ScrubPlayer:
-		damage()
-		body.velocity.y = -160
-
-
 func die() -> void:
 	set_physics_process(false)
 	top_checker.set_deferred("monitoring", false)
@@ -71,7 +65,14 @@ func die() -> void:
 	($"DeathTimer" as Timer).start()
 
 
-func _on_SidesChecker_body_entered(body: ScrubPlayer):
+func _on_TopChecker_body_entered(body: ScrubPlayer) -> void:
+	if not body: return
+	
+	damage()
+	body.velocity.y = -160
+
+
+func _on_SidesChecker_body_entered(body: ScrubPlayer) -> void:
 	if not is_staggered:
 		body.die()
 	else:
@@ -79,7 +80,7 @@ func _on_SidesChecker_body_entered(body: ScrubPlayer):
 				(body.global_position.x < global_position.x) as int)
 
 
-func _on_StaggerTimer_timeout():
+func _on_StaggerTimer_timeout() -> void:
 	slasher_sprites.play("walk")
 	modulate = Color.white
 	is_staggered = false
