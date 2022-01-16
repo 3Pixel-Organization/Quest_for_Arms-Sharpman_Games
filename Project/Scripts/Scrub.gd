@@ -1,10 +1,15 @@
 class_name ScrubPlayer
 extends KinematicBody2D
 
-## Signals
+# Signals
 signal death(wait_time)
 
-## Constants
+enum DIRECTION {
+	LEFT = -1,
+	RIGHT = 1,
+}
+
+# Constants
 const MAX_SPEED = 77
 const ACCELERATION = MAX_SPEED * 7
 const JUMP_SPEED = -180
@@ -12,38 +17,28 @@ const GRAVITY = 325
 const MAX_FALL_SPEED = MAX_SPEED * 10
 const FIREBALL = preload("res://Scenes/Fireball.tscn")
 
-## Variables
+export(DIRECTION) var direction := DIRECTION.RIGHT
+export var can_die: bool = true
+
+# Member variables
 var velocity := Vector2()
 var coins: int setget set_coins
 var has_fireball: bool = GlobalVariables.player["Gun"]
 
-enum DIRECTION {
-	LEFT = -1,
-	RIGHT = 1,
-}
-
-export(DIRECTION) var direction := DIRECTION.RIGHT
-var bool_direction: bool
-
-export var can_die: bool = true
-
 # Node references
-# Timers
 onready var jump_buffer := $"JumpBuffer"
 onready var kick_cooldown := $"KickCooldown"
 onready var gun_cooldown_timer := $"GunCooldown"
-
-# Sound Players
 onready var jump_sound := $"Jump"
 onready var fireball_sound := $"Fireball"
-
-# Others
 onready var animator := $"AnimationPlayer"
 onready var scrub_sprite := $"Sprite"
 onready var mounted_gun := $"MountedGun"
 onready var fireball_origin := $"FireballOrigin"
 onready var melee_area := $"Kick"
 onready var hud_coins := $"HUD/GameHUD/PanelContainer/HSplitContainer/Coins"
+
+# Camera and Tween are optional; They're only used for the death zoom
 onready var camera := get_node_or_null("Camera2D")
 onready var tween := get_node_or_null("Tween")
 
