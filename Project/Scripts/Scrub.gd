@@ -71,7 +71,7 @@ func _physics_process(delta):
 		jump_buffer.already_started = true
 	
 	if kick_cooldown.is_stopped():
-		if kick:
+		if kick and is_on_floor:
 			melee_area.monitoring = true
 			kick_cooldown.start()
 			direction = 0
