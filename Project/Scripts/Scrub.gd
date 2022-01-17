@@ -160,7 +160,7 @@ func _on_KickCooldown_timeout() -> void:
 
 func _on_Kick_body_entered(body: PhysicsBody2D) -> void:
 	if body.has_method("damage"):
-		body.damage(1, 76 * sign(body.global_position.x - global_position.x))
+		body.damage(1, Vector2(76 * sign(body.global_position.x - global_position.x), -152))
 	elif body.has_method("desintegrate"):
 		body.desintegrate()
 

@@ -42,7 +42,7 @@ func _physics_process(_delta: float) -> void:
 		velocity = move_and_slide(velocity, Vector2.UP)
 
 
-func damage(damage: int = 1, knockback_speed: int = 0) -> void:
+func damage(damage: int = 1, knockback_vec: Vector2 = velocity) -> void:
 	if is_staggered: return
 	
 	health -= damage
@@ -51,7 +51,7 @@ func damage(damage: int = 1, knockback_speed: int = 0) -> void:
 	if health <= 0:
 		die()
 	else:
-		set_deferred("velocity", Vector2(knockback_speed, velocity.y))
+		set_deferred("velocity", knockback_vec)
 		slasher_sprites.play("stagger")
 		($"StaggerTimer" as Timer).start()
 
