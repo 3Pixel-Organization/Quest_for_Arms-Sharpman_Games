@@ -1,7 +1,7 @@
 extends KinematicBody2D 
 
 
-export var falling_velocity: Vector2 = Vector2(0, -500)
+export var falling_velocity: Vector2 = Vector2(0, 500)
 
 onready var animation_player: AnimationPlayer = $"AnimationPlayer"
 onready var shake_timer: Timer = $"ShakeTimer"
