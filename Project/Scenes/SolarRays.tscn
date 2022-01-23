@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Assets/Sprites/Background/stex.png" type="Texture" id=1]
+
+[node name="SolarRays" type="Light2D"]
+texture = ExtResource( 1 )
