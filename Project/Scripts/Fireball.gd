@@ -18,7 +18,8 @@ func _physics_process(delta: float) -> void:
 	var colliding_body := collision_data.collider as CollisionObject2D
 	
 	if colliding_body and colliding_body.has_method("damage"):
-		colliding_body.damage()
+		colliding_body.damage(1, Vector2(76 * 
+				sign(colliding_body.global_position.x - global_position.x), -152))
 	
 	desintegrate()
 
