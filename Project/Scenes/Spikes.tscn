@@ -19,15 +19,15 @@ collision_mask = 0
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 0, -2 )
+position = Vector2( 0, -1 )
 texture = ExtResource( 3 )
 region_enabled = true
-region_rect = Rect2( 0, 0, 16, 4 )
+region_rect = Rect2( 0, 0, 16, 3 )
 
 [node name="Glow" type="Sprite" parent="."]
 modulate = Color( 0, 0.788235, 1, 1 )
 material = SubResource( 3 )
-position = Vector2( 0, -2 )
+position = Vector2( 0, -1.5 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 1 )
 
