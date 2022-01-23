@@ -60,7 +60,7 @@ func die() -> void:
 	set_physics_process(false)
 	top_checker.set_deferred("monitoring", false)
 	sides_checker.set_deferred("monitoring", false)
-	($"CollisionShape2D" as CollisionShape2D).set_deferred("disable", true)
+	($"CollisionShape2D" as CollisionShape2D).set_deferred("disabled", true)
 	slasher_sprites.play("squashed")
 	($"DeathTimer" as Timer).start()
 
