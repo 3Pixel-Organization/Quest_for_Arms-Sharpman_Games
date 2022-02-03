@@ -3,10 +3,8 @@
 [ext_resource path="res://Assets/Fonts/Roboto-Light.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Assets/Fonts/DESIGN.COLLECTION1.AOASWFTE.TTF" type="DynamicFontData" id=2]
 [ext_resource path="res://Scripts/MainMenu.gd" type="Script" id=3]
-[ext_resource path="res://Assets/Sprites/HUD/SoundGrabber.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Fonts/8-BitMadness.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://Scenes/Test.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Assets/Sprites/HUD/SoundGrabbed.png" type="Texture" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 size = 65
@@ -20,7 +18,11 @@ outline_size = 3
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 5 )
 
-[sub_resource type="StyleBoxEmpty" id=10]
+[sub_resource type="InputEventKey" id=9]
+scancode = 83
+
+[sub_resource type="ShortCut" id=10]
+shortcut = SubResource( 9 )
 
 [sub_resource type="DynamicFont" id=4]
 size = 32
@@ -28,53 +30,23 @@ outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 5 )
 
+[sub_resource type="InputEventKey" id=11]
+scancode = 65
+
+[sub_resource type="ShortCut" id=12]
+shortcut = SubResource( 11 )
+
 [sub_resource type="DynamicFont" id=5]
 size = 32
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 5 )
 
-[sub_resource type="StyleBoxFlat" id=6]
-content_margin_left = 0.0
-content_margin_right = 0.0
-content_margin_top = 0.0
-content_margin_bottom = 0.0
-bg_color = Color( 0, 0, 0, 0.501961 )
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color( 1, 1, 1, 1 )
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 1
-expand_margin_left = 4.0
-expand_margin_right = 4.0
-expand_margin_top = 5.0
-expand_margin_bottom = 5.0
-anti_aliasing = false
+[sub_resource type="InputEventKey" id=13]
+scancode = 81
 
-[sub_resource type="StyleBoxFlat" id=9]
-bg_color = Color( 1, 1, 1, 1 )
-corner_radius_top_left = 2
-corner_radius_bottom_left = 2
-corner_detail = 1
-expand_margin_left = 1.0
-expand_margin_top = 2.0
-expand_margin_bottom = 2.0
-anti_aliasing = false
-
-[sub_resource type="StyleBoxFlat" id=7]
-bg_color = Color( 0.902344, 0.902344, 0.902344, 1 )
-corner_radius_top_left = 2
-corner_radius_bottom_left = 2
-corner_detail = 1
-expand_margin_left = 1.0
-expand_margin_top = 2.0
-expand_margin_bottom = 2.0
-anti_aliasing = false
+[sub_resource type="ShortCut" id=14]
+shortcut = SubResource( 13 )
 
 [sub_resource type="DynamicFont" id=8]
 size = 8
@@ -112,10 +84,12 @@ __meta__ = {
 }
 
 [node name="Start" type="Button" parent="VBoxContainer"]
-margin_left = 164.0
-margin_top = 85.0
-margin_right = 316.0
+margin_left = 170.0
+margin_top = 91.0
+margin_right = 310.0
 margin_bottom = 135.0
+focus_neighbour_bottom = NodePath("../About3Pixel")
+focus_next = NodePath("../About3Pixel")
 size_flags_horizontal = 4
 size_flags_vertical = 6
 custom_colors/font_color_focus = Color( 1, 0.2, 0.2, 1 )
@@ -123,61 +97,63 @@ custom_colors/font_color = Color( 1, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 1, 0.2, 0.2, 1 )
 custom_colors/font_color_pressed = Color( 0.87451, 0, 0, 1 )
 custom_fonts/font = SubResource( 3 )
-custom_styles/focus = SubResource( 10 )
+shortcut_in_tooltip = false
+shortcut = SubResource( 10 )
 text = "Start"
-flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="About3Pixel" type="Button" parent="VBoxContainer"]
-margin_left = 196.0
-margin_top = 140.0
-margin_right = 284.0
+margin_left = 202.0
+margin_top = 146.0
+margin_right = 278.0
 margin_bottom = 168.0
+focus_neighbour_top = NodePath("../Start")
+focus_neighbour_bottom = NodePath("../CorrectOption")
+focus_next = NodePath("../CorrectOption")
+focus_previous = NodePath("../Start")
 size_flags_horizontal = 6
 custom_colors/font_color_focus = Color( 1, 0.2, 0.2, 1 )
 custom_colors/font_color = Color( 1, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 1, 0.2, 0.2, 1 )
 custom_colors/font_color_pressed = Color( 0.87451, 0, 0, 1 )
 custom_fonts/font = SubResource( 4 )
-custom_styles/focus = SubResource( 10 )
+shortcut_in_tooltip = false
+shortcut = SubResource( 12 )
 text = "About"
-flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="CorrectOption" type="Button" parent="VBoxContainer"]
-margin_left = 208.0
+margin_left = 214.0
 margin_top = 172.0
-margin_right = 272.0
-margin_bottom = 200.0
+margin_right = 266.0
+margin_bottom = 194.0
+focus_neighbour_top = NodePath("../About3Pixel")
+focus_neighbour_bottom = NodePath("../IntensitySlider")
+focus_next = NodePath("../IntensitySlider")
+focus_previous = NodePath("../About3Pixel")
 size_flags_horizontal = 6
-custom_colors/font_color_focus = Color( 0.470588, 0.454902, 0.454902, 1 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_colors/font_color_hover = Color( 0.470588, 0.454902, 0.454902, 1 )
 custom_fonts/font = SubResource( 5 )
-custom_styles/focus = SubResource( 10 )
+shortcut_in_tooltip = false
+shortcut = SubResource( 14 )
 text = "Quit"
-flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="IntensitySlider" type="HSlider" parent="VBoxContainer"]
 margin_left = 168.0
-margin_top = 220.0
+margin_top = 217.0
 margin_right = 312.0
-margin_bottom = 240.0
+margin_bottom = 237.0
 rect_min_size = Vector2( 144, 20 )
+focus_neighbour_top = NodePath("../CorrectOption")
+focus_previous = NodePath("../CorrectOption")
 size_flags_horizontal = 4
 size_flags_vertical = 6
-custom_icons/grabber_highlight = ExtResource( 7 )
-custom_icons/grabber = ExtResource( 4 )
-custom_styles/slider = SubResource( 6 )
-custom_styles/grabber_area_highlight = SubResource( 9 )
-custom_styles/grabber_area = SubResource( 7 )
 min_value = -80.0
 max_value = 0.0
 __meta__ = {

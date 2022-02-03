@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Assets/Fonts/8-BitMadness.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Assets/Fonts/Roboto-Light.ttf" type="DynamicFontData" id=2]
@@ -16,6 +16,24 @@ size = 30
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 2 )
+
+[sub_resource type="InputEventKey" id=3]
+scancode = 82
+
+[sub_resource type="ShortCut" id=4]
+shortcut = SubResource( 3 )
+
+[sub_resource type="InputEventKey" id=5]
+scancode = 77
+
+[sub_resource type="ShortCut" id=6]
+shortcut = SubResource( 5 )
+
+[sub_resource type="InputEventKey" id=7]
+scancode = 81
+
+[sub_resource type="ShortCut" id=8]
+shortcut = SubResource( 7 )
 
 [node name="DeathScreen" type="ColorRect"]
 anchor_right = 1.0
@@ -68,58 +86,54 @@ size_flags_vertical = 3
 alignment = 1
 
 [node name="Restart" type="Button" parent="MarginContainer/VBoxContainer/Buttons"]
-margin_left = 170.0
-margin_top = 17.0
-margin_right = 278.0
-margin_bottom = 59.0
+margin_left = 176.0
+margin_top = 26.0
+margin_right = 272.0
+margin_bottom = 62.0
+focus_neighbour_bottom = NodePath("../Menu")
+focus_next = NodePath("../Menu")
 size_flags_horizontal = 4
-custom_colors/font_color_disabled = Color( 0.0705882, 0.0705882, 0.0705882, 1 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_colors/font_color_hover = Color( 0.470588, 0.454902, 0.454902, 1 )
-custom_colors/font_color_pressed = Color( 0.211765, 0.211765, 0.211765, 1 )
 custom_fonts/font = SubResource( 2 )
 shortcut_in_tooltip = false
 action_mode = 0
+shortcut = SubResource( 4 )
 text = "Restart"
-flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Menu" type="Button" parent="MarginContainer/VBoxContainer/Buttons"]
-margin_left = 145.0
-margin_top = 63.0
-margin_right = 303.0
-margin_bottom = 105.0
+margin_left = 151.0
+margin_top = 66.0
+margin_right = 297.0
+margin_bottom = 102.0
+focus_neighbour_top = NodePath("../Restart")
+focus_neighbour_bottom = NodePath("../Quit")
+focus_next = NodePath("../Quit")
+focus_previous = NodePath("../Restart")
 size_flags_horizontal = 4
-custom_colors/font_color_disabled = Color( 0.0705882, 0.0705882, 0.0705882, 1 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_colors/font_color_hover = Color( 0.470588, 0.454902, 0.454902, 1 )
-custom_colors/font_color_pressed = Color( 0.211765, 0.211765, 0.211765, 1 )
 custom_fonts/font = SubResource( 2 )
 shortcut_in_tooltip = false
 action_mode = 0
+shortcut = SubResource( 6 )
 text = "Main Menu"
-flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Quit" type="Button" parent="MarginContainer/VBoxContainer/Buttons"]
-margin_left = 191.0
-margin_top = 109.0
-margin_right = 256.0
-margin_bottom = 151.0
+margin_left = 197.0
+margin_top = 106.0
+margin_right = 250.0
+margin_bottom = 142.0
+focus_neighbour_top = NodePath("../Menu")
+focus_previous = NodePath("../Menu")
 size_flags_horizontal = 4
-custom_colors/font_color_disabled = Color( 0.0705882, 0.0705882, 0.0705882, 1 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_colors/font_color_hover = Color( 0.470588, 0.454902, 0.454902, 1 )
-custom_colors/font_color_pressed = Color( 0.211765, 0.211765, 0.211765, 1 )
 custom_fonts/font = SubResource( 2 )
 shortcut_in_tooltip = false
 action_mode = 0
+shortcut = SubResource( 8 )
 text = "Quit"
-flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }

@@ -18,6 +18,7 @@ func _on_Scrub_death(wait_time: float) -> void:
 
 
 func _on_Timer_timeout() -> void:
+	restart_button.grab_focus()
 	death_jingle.play()
 	visible = true
 

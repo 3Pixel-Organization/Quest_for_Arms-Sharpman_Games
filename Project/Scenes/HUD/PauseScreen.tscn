@@ -2,8 +2,6 @@
 
 [ext_resource path="res://Assets/Fonts/8-BitMadness.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Scripts/PauseScreen.gd" type="Script" id=2]
-[ext_resource path="res://Assets/Sprites/HUD/SoundGrabbed.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Sprites/HUD/SoundGrabber.png" type="Texture" id=4]
 
 [sub_resource type="DynamicFont" id=2]
 size = 47
@@ -11,48 +9,23 @@ outline_size = 3
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 1 )
 
-[sub_resource type="StyleBoxEmpty" id=10]
+[sub_resource type="InputEventKey" id=3]
+scancode = 82
 
-[sub_resource type="StyleBoxFlat" id=11]
-content_margin_left = 0.0
-content_margin_right = 0.0
-content_margin_top = 0.0
-content_margin_bottom = 0.0
-bg_color = Color( 0, 0, 0, 0.501961 )
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color( 0.501961, 0.501961, 0.501961, 1 )
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 1
-expand_margin_left = 4.0
-expand_margin_right = 4.0
-expand_margin_top = 5.0
-expand_margin_bottom = 5.0
-anti_aliasing = false
+[sub_resource type="ShortCut" id=4]
+shortcut = SubResource( 3 )
 
-[sub_resource type="StyleBoxFlat" id=13]
-bg_color = Color( 0.721569, 0.721569, 0.721569, 1 )
-corner_radius_top_left = 2
-corner_radius_bottom_left = 2
-corner_detail = 1
-expand_margin_left = 1.0
-expand_margin_top = 2.0
-expand_margin_bottom = 2.0
-anti_aliasing = false
+[sub_resource type="InputEventKey" id=5]
+scancode = 81
 
-[sub_resource type="StyleBoxFlat" id=12]
-corner_radius_top_left = 2
-corner_radius_bottom_left = 2
-corner_detail = 1
-expand_margin_left = 1.0
-expand_margin_top = 2.0
-expand_margin_bottom = 2.0
-anti_aliasing = false
+[sub_resource type="ShortCut" id=6]
+shortcut = SubResource( 5 )
+
+[sub_resource type="InputEventKey" id=7]
+scancode = 77
+
+[sub_resource type="ShortCut" id=8]
+shortcut = SubResource( 7 )
 
 [node name="PauseScreen" type="ColorRect"]
 pause_mode = 1
@@ -72,10 +45,10 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
-margin_left = 105.0
-margin_top = 55.0
-margin_right = 374.0
-margin_bottom = 214.0
+margin_left = 73.0
+margin_top = 43.0
+margin_right = 406.0
+margin_bottom = 227.0
 custom_constants/separation = 20
 alignment = 1
 __meta__ = {
@@ -83,71 +56,81 @@ __meta__ = {
 }
 
 [node name="Buttons" type="VBoxContainer" parent="CenterContainer/VBoxContainer"]
-margin_right = 269.0
-margin_bottom = 82.0
+margin_right = 333.0
+margin_bottom = 107.0
 
 [node name="Resume" type="Button" parent="CenterContainer/VBoxContainer/Buttons"]
-margin_left = 55.0
-margin_right = 214.0
-margin_bottom = 39.0
+margin_left = 93.0
+margin_right = 240.0
+margin_bottom = 33.0
 size_flags_horizontal = 4
-custom_colors/font_color_focus = Color( 0.470588, 0.454902, 0.454902, 1 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_colors/font_color_hover = Color( 0.470588, 0.454902, 0.454902, 1 )
 custom_fonts/font = SubResource( 2 )
-custom_styles/focus = SubResource( 10 )
+shortcut_in_tooltip = false
+shortcut = SubResource( 4 )
 text = "Resume"
-flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Quit" type="Button" parent="CenterContainer/VBoxContainer/Buttons"]
-margin_left = 89.0
-margin_top = 43.0
-margin_right = 179.0
-margin_bottom = 82.0
+margin_left = 127.0
+margin_top = 37.0
+margin_right = 205.0
+margin_bottom = 70.0
+focus_neighbour_top = NodePath("../Resume")
+focus_neighbour_bottom = NodePath("../../SoundSlider/IntensitySlider")
+focus_next = NodePath("../../SoundSlider/IntensitySlider")
+focus_previous = NodePath("../Resume")
 size_flags_horizontal = 4
-custom_colors/font_color_focus = Color( 0.470588, 0.454902, 0.454902, 1 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_colors/font_color_hover = Color( 0.470588, 0.454902, 0.454902, 1 )
 custom_fonts/font = SubResource( 2 )
-custom_styles/focus = SubResource( 10 )
+shortcut_in_tooltip = false
+shortcut = SubResource( 6 )
 text = "Quit"
-flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="MainMenu" type="Button" parent="CenterContainer/VBoxContainer/Buttons"]
+margin_top = 74.0
+margin_right = 333.0
+margin_bottom = 107.0
+size_flags_horizontal = 4
+custom_fonts/font = SubResource( 2 )
+shortcut_in_tooltip = false
+shortcut = SubResource( 8 )
+text = "Quit to Main Menu"
+
 [node name="SoundSlider" type="VBoxContainer" parent="CenterContainer/VBoxContainer"]
-margin_top = 102.0
-margin_right = 269.0
-margin_bottom = 159.0
+margin_top = 127.0
+margin_right = 333.0
+margin_bottom = 184.0
 
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer/SoundSlider"]
-margin_right = 269.0
+margin_left = 32.0
+margin_right = 301.0
 margin_bottom = 33.0
+size_flags_horizontal = 4
 custom_fonts/font = SubResource( 2 )
 text = "Sound Volume"
 align = 1
 valign = 1
 
-[node name="HSlider" type="HSlider" parent="CenterContainer/VBoxContainer/SoundSlider"]
+[node name="IntensitySlider" type="HSlider" parent="CenterContainer/VBoxContainer/SoundSlider"]
+margin_left = 36.0
 margin_top = 37.0
-margin_right = 269.0
+margin_right = 296.0
 margin_bottom = 57.0
-custom_icons/grabber_highlight = ExtResource( 3 )
-custom_icons/grabber = ExtResource( 4 )
-custom_styles/slider = SubResource( 11 )
-custom_styles/grabber_area_highlight = SubResource( 13 )
-custom_styles/grabber_area = SubResource( 12 )
+rect_min_size = Vector2( 260, 0 )
+focus_neighbour_top = NodePath("../../Buttons/Quit")
+focus_previous = NodePath("../../Buttons/Quit")
+size_flags_horizontal = 4
 min_value = -80.0
 max_value = 0.0
-rounded = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Buttons/Resume" to="." method="_on_Resume_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Buttons/Quit" to="." method="_on_Quit_pressed"]
-[connection signal="value_changed" from="CenterContainer/VBoxContainer/SoundSlider/HSlider" to="." method="_on_HSlider_value_changed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Buttons/MainMenu" to="." method="_on_MainMenu_pressed"]
+[connection signal="value_changed" from="CenterContainer/VBoxContainer/SoundSlider/IntensitySlider" to="." method="_on_IntensitySlider_value_changed"]

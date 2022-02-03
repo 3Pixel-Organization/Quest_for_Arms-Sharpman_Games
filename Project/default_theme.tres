@@ -1,0 +1,72 @@
+[gd_resource type="Theme" load_steps=10 format=2]
+
+[ext_resource path="res://Assets/Sprites/HUD/SoundGrabbed.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Sprites/HUD/SoundGrabber.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Fonts/8-BitMadness.ttf" type="DynamicFontData" id=4]
+
+[sub_resource type="DynamicFont" id=7]
+font_data = ExtResource( 4 )
+
+[sub_resource type="StyleBoxEmpty" id=10]
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.65098, 0.65098, 0.65098, 1 )
+corner_radius_top_left = 1
+corner_radius_bottom_left = 1
+corner_detail = 1
+expand_margin_top = 2.0
+expand_margin_bottom = 2.0
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 1, 1, 1, 1 )
+corner_radius_top_left = 1
+corner_radius_bottom_left = 1
+corner_detail = 1
+expand_margin_top = 2.0
+expand_margin_bottom = 2.0
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id=4]
+content_margin_left = 0.0
+content_margin_right = 0.0
+content_margin_top = 0.0
+content_margin_bottom = 0.0
+bg_color = Color( 0, 0, 0, 0.501961 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 1, 1, 1, 1 )
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 1
+expand_margin_left = 3.0
+expand_margin_right = 3.0
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
+anti_aliasing = false
+
+[sub_resource type="DynamicFont" id=9]
+font_data = ExtResource( 4 )
+
+[resource]
+default_font = SubResource( 9 )
+Button/colors/font_color = Color( 0.827451, 0.827451, 0.827451, 1 )
+Button/colors/font_color_disabled = Color( 0.160784, 0.160784, 0.160784, 1 )
+Button/colors/font_color_focus = Color( 1, 1, 1, 1 )
+Button/colors/font_color_hover = Color( 1, 1, 1, 1 )
+Button/colors/font_color_pressed = Color( 0.376471, 0.376471, 0.376471, 1 )
+Button/fonts/font = SubResource( 7 )
+Button/styles/disabled = SubResource( 10 )
+Button/styles/focus = SubResource( 10 )
+Button/styles/hover = SubResource( 10 )
+Button/styles/normal = SubResource( 10 )
+Button/styles/pressed = SubResource( 10 )
+HSlider/icons/grabber = ExtResource( 2 )
+HSlider/icons/grabber_highlight = ExtResource( 1 )
+HSlider/styles/grabber_area = SubResource( 2 )
+HSlider/styles/grabber_area_highlight = SubResource( 3 )
+HSlider/styles/slider = SubResource( 4 )

@@ -2,6 +2,7 @@ extends TextureRect
 
 
 func _ready() -> void:
+	($"VBoxContainer/Start" as Button).grab_focus()
 	get_tree().paused = false
 
 
