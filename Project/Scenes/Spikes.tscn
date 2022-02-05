@@ -11,7 +11,7 @@ blend_mode = 2
 extents = Vector2( 8, 2 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 7, 1 )
+extents = Vector2( 5, 1 )
 
 [node name="Spikes" type="StaticBody2D"]
 collision_layer = 64
