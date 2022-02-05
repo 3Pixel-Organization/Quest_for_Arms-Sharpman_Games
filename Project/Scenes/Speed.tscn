@@ -4,6 +4,14 @@
 [ext_resource path="res://Assets/Sprites/Speed/Speed.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/Slasher.tscn" type="PackedScene" id=3]
 
+[sub_resource type="AtlasTexture" id=30]
+atlas = ExtResource( 2 )
+region = Rect2( 270, 0, 30, 44 )
+
+[sub_resource type="AtlasTexture" id=31]
+atlas = ExtResource( 2 )
+region = Rect2( 60, 0, 30, 44 )
+
 [sub_resource type="AtlasTexture" id=22]
 atlas = ExtResource( 2 )
 region = Rect2( 0, 0, 30, 44 )
@@ -36,16 +44,13 @@ region = Rect2( 180, 0, 30, 44 )
 atlas = ExtResource( 2 )
 region = Rect2( 210, 0, 30, 44 )
 
-[sub_resource type="AtlasTexture" id=30]
-atlas = ExtResource( 2 )
-region = Rect2( 270, 0, 30, 44 )
-
-[sub_resource type="AtlasTexture" id=31]
-atlas = ExtResource( 2 )
-region = Rect2( 60, 0, 30, 44 )
-
 [sub_resource type="SpriteFrames" id=32]
 animations = [ {
+"frames": [ SubResource( 30 ), SubResource( 31 ) ],
+"loop": true,
+"name": "stagger",
+"speed": 10.0
+}, {
 "frames": [ SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ) ],
 "loop": true,
 "name": "walk",
@@ -55,24 +60,19 @@ animations = [ {
 "loop": false,
 "name": "squashed",
 "speed": 1.0
-}, {
-"frames": [ SubResource( 30 ), SubResource( 31 ) ],
-"loop": true,
-"name": "stagger",
-"speed": 10.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 10, 0.5 )
+extents = Vector2( 7, 0.5 )
 
 [sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 0.5, 20.5 )
+extents = Vector2( 0.5, 19 )
 
 [sub_resource type="RectangleShape2D" id=8]
-extents = Vector2( 10, 0.5 )
+extents = Vector2( 7, 0.5 )
 
 [sub_resource type="RectangleShape2D" id=21]
-extents = Vector2( 10, 20.5 )
+extents = Vector2( 7, 19 )
 
 [node name="Slasher" instance=ExtResource( 3 )]
 speed = 100
@@ -86,21 +86,24 @@ frame = 2
 position = Vector2( -9, 0 )
 
 [node name="CollisionShape2D" parent="TopChecker" index="0"]
-position = Vector2( 1, -41.5 )
+position = Vector2( 1, -38.5 )
 shape = SubResource( 6 )
 
 [node name="CollisionShape2D" parent="SidesChecker" index="0"]
-position = Vector2( -9.5, -20.5 )
+position = Vector2( -6.5, -19 )
 shape = SubResource( 7 )
 
 [node name="CollisionShape2D2" parent="SidesChecker" index="1"]
-position = Vector2( 11.5, -20.5 )
+position = Vector2( 8.5, -19 )
 shape = SubResource( 7 )
 
 [node name="CollisionShape2D3" parent="SidesChecker" index="2"]
 position = Vector2( 1, 0.5 )
 shape = SubResource( 8 )
 
+[node name="StaggerTimer" parent="." index="4"]
+wait_time = 0.5
+
 [node name="CollisionShape2D" parent="." index="5"]
-position = Vector2( 1, -20.5 )
+position = Vector2( 1, -19 )
 shape = SubResource( 21 )
