@@ -68,12 +68,13 @@ __meta__ = {
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_right = 8.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="VBoxContainer"]
-margin_right = 480.0
+margin_right = 488.0
 margin_bottom = 81.0
 custom_fonts/font = SubResource( 1 )
 text = "Quest for Arms"
@@ -84,9 +85,9 @@ __meta__ = {
 }
 
 [node name="Start" type="Button" parent="VBoxContainer"]
-margin_left = 170.0
+margin_left = 174.0
 margin_top = 91.0
-margin_right = 310.0
+margin_right = 314.0
 margin_bottom = 135.0
 focus_neighbour_bottom = NodePath("../About3Pixel")
 focus_next = NodePath("../About3Pixel")
@@ -105,9 +106,9 @@ __meta__ = {
 }
 
 [node name="About3Pixel" type="Button" parent="VBoxContainer"]
-margin_left = 202.0
+margin_left = 206.0
 margin_top = 146.0
-margin_right = 278.0
+margin_right = 282.0
 margin_bottom = 168.0
 focus_neighbour_top = NodePath("../Start")
 focus_neighbour_bottom = NodePath("../CorrectOption")
@@ -127,9 +128,9 @@ __meta__ = {
 }
 
 [node name="CorrectOption" type="Button" parent="VBoxContainer"]
-margin_left = 214.0
+margin_left = 218.0
 margin_top = 172.0
-margin_right = 266.0
+margin_right = 270.0
 margin_bottom = 194.0
 focus_neighbour_top = NodePath("../About3Pixel")
 focus_neighbour_bottom = NodePath("../IntensitySlider")
@@ -145,9 +146,9 @@ __meta__ = {
 }
 
 [node name="IntensitySlider" type="HSlider" parent="VBoxContainer"]
-margin_left = 168.0
+margin_left = 172.0
 margin_top = 217.0
-margin_right = 312.0
+margin_right = 316.0
 margin_bottom = 237.0
 rect_min_size = Vector2( 144, 20 )
 focus_neighbour_top = NodePath("../CorrectOption")

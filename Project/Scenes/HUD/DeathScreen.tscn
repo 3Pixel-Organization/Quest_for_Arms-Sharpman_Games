@@ -1,7 +1,6 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Assets/Fonts/8-BitMadness.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://Assets/Fonts/Roboto-Light.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Scripts/GameOverScreen.gd" type="Script" id=3]
 [ext_resource path="res://Assets/Sounds/SFX/Death.ogg" type="AudioStream" id=4]
 
@@ -15,7 +14,7 @@ font_data = ExtResource( 1 )
 size = 30
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 2 )
+font_data = ExtResource( 1 )
 
 [sub_resource type="InputEventKey" id=3]
 scancode = 82
@@ -86,10 +85,10 @@ size_flags_vertical = 3
 alignment = 1
 
 [node name="Restart" type="Button" parent="MarginContainer/VBoxContainer/Buttons"]
-margin_left = 176.0
-margin_top = 26.0
+margin_left = 175.0
+margin_top = 48.0
 margin_right = 272.0
-margin_bottom = 62.0
+margin_bottom = 69.0
 focus_neighbour_bottom = NodePath("../Menu")
 focus_next = NodePath("../Menu")
 size_flags_horizontal = 4
@@ -103,10 +102,10 @@ __meta__ = {
 }
 
 [node name="Menu" type="Button" parent="MarginContainer/VBoxContainer/Buttons"]
-margin_left = 151.0
-margin_top = 66.0
-margin_right = 297.0
-margin_bottom = 102.0
+margin_left = 162.0
+margin_top = 73.0
+margin_right = 285.0
+margin_bottom = 94.0
 focus_neighbour_top = NodePath("../Restart")
 focus_neighbour_bottom = NodePath("../Quit")
 focus_next = NodePath("../Quit")
@@ -122,10 +121,10 @@ __meta__ = {
 }
 
 [node name="Quit" type="Button" parent="MarginContainer/VBoxContainer/Buttons"]
-margin_left = 197.0
-margin_top = 106.0
-margin_right = 250.0
-margin_bottom = 142.0
+margin_left = 199.0
+margin_top = 98.0
+margin_right = 249.0
+margin_bottom = 119.0
 focus_neighbour_top = NodePath("../Menu")
 focus_previous = NodePath("../Menu")
 size_flags_horizontal = 4
