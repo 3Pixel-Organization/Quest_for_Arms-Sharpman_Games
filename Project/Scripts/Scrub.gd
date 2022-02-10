@@ -81,24 +81,25 @@ func _physics_process(delta: float) -> void:
 			kick_cooldown.start()
 			direction = 0
 		
-		elif not is_zero_approx(direction):
-			parse_direction(sign(direction) as int)
-		
-		if shoot_fireball and has_fireball and gun_cooldown_timer.is_stopped():
-			var fireball = FIREBALL.instance()
-			fireball.velocity.x = 200 * prev_direction
-			fireball.global_position = fireball_origin.global_position
-			get_parent().add_child(fireball)
-			gun_cooldown_timer.start()
-			mounted_gun.frame = 1
-			fireball_sound.play()
-		
-		if jump and (is_on_floor or not
-				(jump_buffer.is_stopped() and jump_buffer.already_started)):
-			jump_buffer.stop()
-			jump_buffer.already_started = true
-			velocity.y = JUMP_SPEED
-			jump_sound.play()
+		else:
+			if not is_zero_approx(direction):
+				parse_direction(sign(direction) as int)
+			
+			if shoot_fireball and has_fireball and gun_cooldown_timer.is_stopped():
+				var fireball = FIREBALL.instance()
+				fireball.velocity.x = 200 * prev_direction
+				fireball.global_position = fireball_origin.global_position
+				get_parent().add_child(fireball)
+				gun_cooldown_timer.start()
+				mounted_gun.frame = 1
+				fireball_sound.play()
+			
+			if jump and (is_on_floor or not
+					(jump_buffer.is_stopped() and jump_buffer.already_started)):
+				jump_buffer.stop()
+				jump_buffer.already_started = true
+				velocity.y = JUMP_SPEED
+				jump_sound.play()
 	
 	else: direction = 0
 	
