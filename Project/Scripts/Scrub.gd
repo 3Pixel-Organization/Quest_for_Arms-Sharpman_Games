@@ -17,14 +17,14 @@ const GRAVITY = 325
 const MAX_FALL_SPEED = MAX_SPEED * 10
 const FIREBALL = preload("res://Scenes/Fireball.tscn")
 
-export(DIRECTION) var direction := DIRECTION.RIGHT
+export(DIRECTION) var direction: float = DIRECTION.RIGHT
 export var can_die: bool = true
 
 # Member variables
 var velocity: Vector2 = Vector2.ZERO
+var prev_direction: int = sign(direction)
 var coins: int setget set_coins
 var has_fireball: bool = GlobalVariables.player["Gun"]
-var bool_direction: bool
 
 # Node references
 onready var jump_buffer: Timer = $"JumpBuffer"
@@ -47,7 +47,7 @@ onready var tween: Tween = get_node_or_null("Tween")
 func _ready() -> void:
 	self.coins = GlobalVariables.player["Coins"]
 	mounted_gun.visible = has_fireball
-	parse_direction(direction)
+	parse_direction(sign(direction) as int)
 
 
 func _physics_process(delta: float) -> void:
@@ -56,8 +56,12 @@ func _physics_process(delta: float) -> void:
 	var jump: bool = Input.is_action_just_pressed("jump") 						# UP, W or spacebar
 	var shoot_fireball: bool = Input.is_action_just_pressed("shoot_fireball")	# Q
 	var kick: bool = Input.is_action_just_pressed("kick") 						# X
-	direction = (Input.is_action_pressed("right") as int -						# A
-			Input.is_action_pressed("left") as int) 							# D
+	var new_x_speed = Input.get_axis("left", "right")
+	
+	if sign(direction) * prev_direction < 0:
+		prev_direction = sign(direction) as int
+	
+	direction = new_x_speed
 	
 	velocity.y = min(velocity.y + GRAVITY * delta,
 			MAX_FALL_SPEED)
@@ -77,12 +81,12 @@ func _physics_process(delta: float) -> void:
 			kick_cooldown.start()
 			direction = 0
 		
-		elif direction:
-			parse_direction(direction)
+		elif not is_zero_approx(direction):
+			parse_direction(sign(direction) as int)
 		
 		if shoot_fireball and has_fireball and gun_cooldown_timer.is_stopped():
 			var fireball = FIREBALL.instance()
-			fireball.velocity.x = -200 + 400 * bool_direction as int
+			fireball.velocity.x = 200 * prev_direction
 			fireball.global_position = fireball_origin.global_position
 			get_parent().add_child(fireball)
 			gun_cooldown_timer.start()
@@ -115,9 +119,9 @@ func _physics_process(delta: float) -> void:
 
 
 func parse_direction(parsed_direction: int) -> void:
-	bool_direction = clamp(parsed_direction, 0, 1)
+	var bool_direction: bool = clamp(parsed_direction, 0, 1)
 	mounted_gun.flip_h = not bool_direction
-	mounted_gun.z_index = bool_direction as int - 1
+	mounted_gun.z_index = parsed_direction
 	scrub_sprite.flip_h = not bool_direction
 	fireball_origin.position.x = abs(fireball_origin.position.x) * - parsed_direction
 	melee_area.position.x = abs(melee_area.position.x) * parsed_direction
