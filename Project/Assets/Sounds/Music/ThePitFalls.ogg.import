@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/ThePitFalls.ogg-40db7be243e31f9a0dcd850a32b2cd84.oggstr"
+
+[deps]
+
+source_file="res://Assets/Sounds/Music/ThePitFalls.ogg"
+dest_files=[ "res://.import/ThePitFalls.ogg-40db7be243e31f9a0dcd850a32b2cd84.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

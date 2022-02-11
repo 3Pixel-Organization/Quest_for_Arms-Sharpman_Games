@@ -4,5 +4,9 @@
 # File that are imported differently
 !/Project/Assets/Sprites/Spike.png.import
 
+# Music Files; these need to loop
+!/Project/Assets/Sounds/Music/cool.ogg.import
+!/Project/Assets/Sounds/Music/ThePitFalls.ogg.import
+
 # Compilation remnants
 Builds/*
