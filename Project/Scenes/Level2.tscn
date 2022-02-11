@@ -1116,6 +1116,7 @@ shape = SubResource( 35 )
 [node name="Fallzone" type="Area2D" parent="."]
 position = Vector2( 1064, 136 )
 collision_layer = 4
+collision_mask = 3
 
 [node name="FallzoneCollision" type="CollisionShape2D" parent="Fallzone"]
 position = Vector2( 0, 88 )

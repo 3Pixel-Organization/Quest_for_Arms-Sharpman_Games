@@ -964,6 +964,7 @@ position = Vector2( 2048, -528 )
 
 [node name="Fallzone" type="Area2D" parent="."]
 collision_layer = 4
+collision_mask = 3
 __meta__ = {
 "_edit_group_": true
 }

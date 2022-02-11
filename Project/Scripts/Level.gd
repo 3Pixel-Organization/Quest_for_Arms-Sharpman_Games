@@ -26,7 +26,8 @@ func _on_EndLevelPortal_body_entered(body: ScrubPlayer) -> void:
 	assert(scene_state == OK, "Scene not found at given path")
 
 
-func _on_Fallzone_body_entered(body: ScrubPlayer) -> void:
-	if not body: return
-	
-	scrub.emit_signal("death", 0.5)
+func _on_Fallzone_body_entered(body: PhysicsBody2D) -> void:
+	if body is ScrubPlayer:
+		scrub.emit_signal("death", 0.5)
+	else:
+		body.queue_free()
