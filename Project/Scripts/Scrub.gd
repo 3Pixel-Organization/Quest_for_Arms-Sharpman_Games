@@ -17,12 +17,11 @@ const GRAVITY = 325
 const MAX_FALL_SPEED = MAX_SPEED * 10
 const FIREBALL = preload("res://Scenes/Fireball.tscn")
 
-export(DIRECTION) var direction: float = DIRECTION.RIGHT
+export(DIRECTION) var direction: int = DIRECTION.RIGHT
 export var can_die: bool = true
 
 # Member variables
 var velocity: Vector2 = Vector2.ZERO
-var prev_direction: int = sign(direction)
 var coins: int setget set_coins
 var has_fireball: bool = GlobalVariables.player["Gun"]
 
@@ -56,12 +55,7 @@ func _physics_process(delta: float) -> void:
 	var jump: bool = Input.is_action_just_pressed("jump") 						# UP, W or spacebar
 	var shoot_fireball: bool = Input.is_action_just_pressed("shoot_fireball")	# Q
 	var kick: bool = Input.is_action_just_pressed("kick") 						# X
-	var new_x_speed = Input.get_axis("left", "right")
-	
-	if sign(direction) * prev_direction < 0:
-		prev_direction = sign(direction) as int
-	
-	direction = new_x_speed
+	var new_x_speed: float = Input.get_axis("left", "right")					# A and D
 	
 	velocity.y = min(velocity.y + GRAVITY * delta,
 			MAX_FALL_SPEED)
@@ -79,15 +73,15 @@ func _physics_process(delta: float) -> void:
 		if kick and is_on_floor:
 			melee_area.monitoring = true
 			kick_cooldown.start()
-			direction = 0
+			new_x_speed = 0
 		
 		else:
-			if not is_zero_approx(direction):
-				parse_direction(sign(direction) as int)
+			if not is_zero_approx(new_x_speed):
+				parse_direction(sign(new_x_speed) as int)
 			
 			if shoot_fireball and has_fireball and gun_cooldown_timer.is_stopped():
 				var fireball = FIREBALL.instance()
-				fireball.velocity.x = 200 * prev_direction
+				fireball.velocity.x = 200 * direction
 				fireball.global_position = fireball_origin.global_position
 				get_parent().add_child(fireball)
 				gun_cooldown_timer.start()
@@ -101,10 +95,10 @@ func _physics_process(delta: float) -> void:
 				velocity.y = JUMP_SPEED
 				jump_sound.play()
 	
-	else: direction = 0
+	else: new_x_speed = 0
 	
 	velocity.x = move_toward(velocity.x,
-			MAX_SPEED * direction,
+			MAX_SPEED * new_x_speed,
 			ACCELERATION * delta * (1 + (velocity.x * direction < 0) as int))
 	# The above line duplicates the acceleration if the desired direction is
 	# oposite to the current direction
@@ -126,6 +120,8 @@ func parse_direction(parsed_direction: int) -> void:
 	scrub_sprite.flip_h = not bool_direction
 	fireball_origin.position.x = abs(fireball_origin.position.x) * - parsed_direction
 	melee_area.position.x = abs(melee_area.position.x) * parsed_direction
+	
+	direction = parsed_direction
 
 
 func fireball_pickup() -> void:
