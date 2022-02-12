@@ -134,9 +134,6 @@ func die() -> void:
 		return
 	
 	modulate = Color(1,0.3,0.3,0.3) # great color :+1:
-	Input.action_release("left")
-	Input.action_release("right")
-	Input.action_release("jump")
 	
 	set_physics_process(false)
 	pause_mode = PAUSE_MODE_PROCESS
