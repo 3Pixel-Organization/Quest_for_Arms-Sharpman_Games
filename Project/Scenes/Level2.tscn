@@ -534,9 +534,9 @@ position = Vector2( 1362, -294 )
 [node name="SolarRays" type="Node" parent="Light"]
 
 [node name="SolarRays" parent="Light/SolarRays" instance=ExtResource( 7 )]
-position = Vector2( 927.644, -63.4042 )
+position = Vector2( 938.598, -65.0916 )
 rotation = -0.575959
-scale = Vector2( 1.81317, 6.40981 )
+scale = Vector2( 1.86158, 6.40981 )
 
 [node name="SolarRays2" parent="Light/SolarRays" instance=ExtResource( 7 )]
 position = Vector2( 1582, -145 )
