@@ -4,3 +4,4 @@
 
 [node name="SolarRays" type="Light2D"]
 texture = ExtResource( 1 )
+range_layer_min = -100

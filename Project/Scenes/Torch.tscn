@@ -16,6 +16,7 @@ animations = [ {
 [node name="Torch" type="Light2D"]
 texture = ExtResource( 4 )
 color = Color( 1, 0.537255, 0.0470588, 1 )
+range_layer_min = -100
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
