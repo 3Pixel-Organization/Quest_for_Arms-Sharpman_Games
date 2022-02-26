@@ -105,10 +105,13 @@ func _physics_process(delta: float) -> void:
 	
 	velocity = move_and_slide(velocity, Vector2.UP)
 	
+	animator.playback_speed = 1
+	
 	if velocity.y:
 		animator.play("Jump")
 	elif velocity.x:
 		animator.play("Walk")
+		animator.playback_speed = new_x_speed
 	else:
 		animator.play("Idle")
 
