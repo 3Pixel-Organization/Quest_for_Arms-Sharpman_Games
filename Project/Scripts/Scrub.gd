@@ -27,7 +27,6 @@ var has_fireball: bool = GlobalVariables.player["Gun"]
 
 # Node references
 onready var jump_buffer: Timer = $"JumpBuffer"
-onready var kick_cooldown: Timer = $"KickCooldown"
 onready var gun_cooldown_timer: Timer = $"GunCooldown"
 onready var jump_sound: AudioStreamPlayer = $"Jump"
 onready var fireball_sound: AudioStreamPlayer = $"Fireball"
@@ -69,10 +68,10 @@ func _physics_process(delta: float) -> void:
 		jump_buffer.start()
 		jump_buffer.already_started = true
 	
-	if kick_cooldown.is_stopped():
+	if animator.current_animation != "Attack":
 		if kick and is_on_floor:
-			melee_area.monitoring = true
-			kick_cooldown.start()
+			animator.play("Attack")
+			animator.queue("Idle")
 			new_x_speed = 0
 		
 		else:
@@ -107,13 +106,14 @@ func _physics_process(delta: float) -> void:
 	
 	animator.playback_speed = 1
 	
-	if velocity.y:
-		animator.play("Jump")
-	elif velocity.x:
-		animator.play("Walk")
-		animator.playback_speed = new_x_speed
-	else:
-		animator.play("Idle")
+	if animator.current_animation != "Attack":
+		if velocity.y:
+			animator.play("Jump")
+		elif velocity.x:
+			animator.play("Walk")
+			animator.playback_speed = new_x_speed
+		else:
+			animator.play("Idle")
 
 
 func parse_direction(parsed_direction: int) -> void:
