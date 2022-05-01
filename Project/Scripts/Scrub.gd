@@ -24,6 +24,7 @@ export var can_die: bool = true
 var velocity: Vector2 = Vector2.ZERO
 var coins: int setget set_coins
 var has_fireball: bool = GlobalVariables.player["Gun"]
+var cutscene: bool = false
 
 # Node references
 onready var jump_buffer: Timer = $"JumpBuffer"
@@ -51,10 +52,10 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	
 	# Store Inputs
-	var jump: bool = Input.is_action_just_pressed("jump") 						# UP, W or spacebar
-	var shoot_fireball: bool = Input.is_action_just_pressed("shoot_fireball")	# Q
-	var kick: bool = Input.is_action_just_pressed("kick") 						# X
-	var new_x_speed: float = Input.get_axis("left", "right")					# A and D
+	var jump: bool = Input.is_action_just_pressed("jump") and not cutscene                         # UP, W or spacebar
+	var shoot_fireball: bool = Input.is_action_just_pressed("shoot_fireball") and not cutscene    # Q
+	var kick: bool = Input.is_action_just_pressed("kick") and not cutscene                         # X
+	var new_x_speed: float = Input.get_axis("left", "right") * ((not cutscene) as int)                    # A and D
 	
 	velocity.y = min(velocity.y + GRAVITY * delta,
 			MAX_FALL_SPEED)
