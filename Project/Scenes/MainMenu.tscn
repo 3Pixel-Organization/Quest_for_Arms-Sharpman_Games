@@ -71,10 +71,9 @@ script = ExtResource( 3 )
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = 8.0
 
 [node name="Label" type="Label" parent="VBoxContainer"]
-margin_right = 488.0
+margin_right = 480.0
 margin_bottom = 81.0
 custom_fonts/font = SubResource( 1 )
 text = "Quest for Arms"
@@ -85,9 +84,9 @@ __meta__ = {
 }
 
 [node name="Start" type="Button" parent="VBoxContainer"]
-margin_left = 174.0
+margin_left = 170.0
 margin_top = 85.0
-margin_right = 314.0
+margin_right = 310.0
 margin_bottom = 129.0
 focus_neighbour_bottom = NodePath("../TutorialButton")
 focus_next = NodePath("../TutorialButton")
@@ -124,11 +123,11 @@ shortcut = SubResource( 18 )
 text = "Tutorial"
 
 [node name="About3Pixel" type="Button" parent="VBoxContainer"]
-margin_left = 206.0
-margin_top = 167.0
-margin_right = 282.0
-margin_bottom = 189.0
-focus_neighbour_top = NodePath("../TutorialButton")
+margin_left = 202.0
+margin_top = 139.0
+margin_right = 278.0
+margin_bottom = 161.0
+focus_neighbour_top = NodePath("../HBoxContainer/TutorialButton")
 focus_neighbour_bottom = NodePath("../CorrectOption")
 focus_next = NodePath("../CorrectOption")
 focus_previous = NodePath("../TutorialButton")
@@ -147,10 +146,10 @@ __meta__ = {
 }
 
 [node name="CorrectOption" type="Button" parent="VBoxContainer"]
-margin_left = 218.0
-margin_top = 199.0
-margin_right = 270.0
-margin_bottom = 221.0
+margin_left = 214.0
+margin_top = 177.0
+margin_right = 266.0
+margin_bottom = 199.0
 focus_neighbour_top = NodePath("../About3Pixel")
 focus_neighbour_bottom = NodePath("../IntensitySlider")
 focus_next = NodePath("../IntensitySlider")
@@ -166,10 +165,10 @@ __meta__ = {
 }
 
 [node name="IntensitySlider" type="HSlider" parent="VBoxContainer"]
-margin_left = 172.0
-margin_top = 232.0
-margin_right = 316.0
-margin_bottom = 252.0
+margin_left = 168.0
+margin_top = 216.0
+margin_right = 312.0
+margin_bottom = 236.0
 rect_min_size = Vector2( 144, 20 )
 focus_neighbour_top = NodePath("../CorrectOption")
 focus_previous = NodePath("../CorrectOption")
