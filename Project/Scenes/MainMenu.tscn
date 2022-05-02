@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Assets/Fonts/Roboto-Light.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Assets/Fonts/DESIGN.COLLECTION1.AOASWFTE.TTF" type="DynamicFontData" id=2]
@@ -12,7 +12,7 @@ outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=16]
 size = 64
 outline_size = 3
 outline_color = Color( 0, 0, 0, 1 )
@@ -29,6 +29,12 @@ size = 32
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 5 )
+
+[sub_resource type="InputEventKey" id=17]
+scancode = 84
+
+[sub_resource type="ShortCut" id=18]
+shortcut = SubResource( 17 )
 
 [sub_resource type="InputEventKey" id=11]
 scancode = 65
@@ -52,12 +58,6 @@ shortcut = SubResource( 13 )
 size = 8
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 1 )
-
-[sub_resource type="DynamicFont" id=15]
-size = 36
-outline_size = 3
-outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 5 )
 
 [node name="Control" type="TextureRect"]
 anchor_right = 1.0
@@ -86,18 +86,18 @@ __meta__ = {
 
 [node name="Start" type="Button" parent="VBoxContainer"]
 margin_left = 174.0
-margin_top = 91.0
+margin_top = 85.0
 margin_right = 314.0
-margin_bottom = 135.0
-focus_neighbour_bottom = NodePath("../About3Pixel")
-focus_next = NodePath("../About3Pixel")
+margin_bottom = 129.0
+focus_neighbour_bottom = NodePath("../TutorialButton")
+focus_next = NodePath("../TutorialButton")
 size_flags_horizontal = 4
 size_flags_vertical = 6
 custom_colors/font_color_focus = Color( 1, 0.2, 0.2, 1 )
 custom_colors/font_color = Color( 1, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 1, 0.2, 0.2, 1 )
 custom_colors/font_color_pressed = Color( 0.87451, 0, 0, 1 )
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 16 )
 shortcut_in_tooltip = false
 shortcut = SubResource( 10 )
 text = "Start"
@@ -105,16 +105,35 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="TutorialButton" type="Button" parent="VBoxContainer"]
+margin_left = 189.0
+margin_top = 135.0
+margin_right = 299.0
+margin_bottom = 157.0
+focus_neighbour_top = NodePath("../Start")
+focus_neighbour_bottom = NodePath("../About3Pixel")
+focus_next = NodePath("../About3Pixel")
+focus_previous = NodePath("../Start")
+size_flags_horizontal = 4
+size_flags_vertical = 6
+custom_colors/font_color = Color( 0.737255, 0.737255, 0.737255, 1 )
+custom_colors/font_color_hover = Color( 0.898039, 0.898039, 0.898039, 1 )
+custom_colors/font_color_pressed = Color( 0.737255, 0.737255, 0.737255, 1 )
+custom_fonts/font = SubResource( 4 )
+shortcut = SubResource( 18 )
+text = "Tutorial"
+
 [node name="About3Pixel" type="Button" parent="VBoxContainer"]
 margin_left = 206.0
-margin_top = 146.0
+margin_top = 167.0
 margin_right = 282.0
-margin_bottom = 168.0
-focus_neighbour_top = NodePath("../Start")
+margin_bottom = 189.0
+focus_neighbour_top = NodePath("../TutorialButton")
 focus_neighbour_bottom = NodePath("../CorrectOption")
 focus_next = NodePath("../CorrectOption")
-focus_previous = NodePath("../Start")
-size_flags_horizontal = 6
+focus_previous = NodePath("../TutorialButton")
+size_flags_horizontal = 4
+size_flags_vertical = 6
 custom_colors/font_color_focus = Color( 1, 0.2, 0.2, 1 )
 custom_colors/font_color = Color( 1, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 1, 0.2, 0.2, 1 )
@@ -129,14 +148,15 @@ __meta__ = {
 
 [node name="CorrectOption" type="Button" parent="VBoxContainer"]
 margin_left = 218.0
-margin_top = 172.0
+margin_top = 199.0
 margin_right = 270.0
-margin_bottom = 194.0
+margin_bottom = 221.0
 focus_neighbour_top = NodePath("../About3Pixel")
 focus_neighbour_bottom = NodePath("../IntensitySlider")
 focus_next = NodePath("../IntensitySlider")
 focus_previous = NodePath("../About3Pixel")
-size_flags_horizontal = 6
+size_flags_horizontal = 4
+size_flags_vertical = 6
 custom_fonts/font = SubResource( 5 )
 shortcut_in_tooltip = false
 shortcut = SubResource( 14 )
@@ -147,9 +167,9 @@ __meta__ = {
 
 [node name="IntensitySlider" type="HSlider" parent="VBoxContainer"]
 margin_left = 172.0
-margin_top = 217.0
+margin_top = 232.0
 margin_right = 316.0
-margin_bottom = 237.0
+margin_bottom = 252.0
 rect_min_size = Vector2( 144, 20 )
 focus_neighbour_top = NodePath("../CorrectOption")
 focus_previous = NodePath("../CorrectOption")
@@ -172,19 +192,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TutorialButton" type="Button" parent="."]
-margin_left = 373.0
-margin_top = 233.0
-margin_right = 498.0
-margin_bottom = 259.0
-custom_colors/font_color = Color( 0.737255, 0.737255, 0.737255, 1 )
-custom_colors/font_color_hover = Color( 0.898039, 0.898039, 0.898039, 1 )
-custom_colors/font_color_pressed = Color( 0.737255, 0.737255, 0.737255, 1 )
-custom_fonts/font = SubResource( 15 )
-text = "Tutorial"
-
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_Start_pressed"]
+[connection signal="pressed" from="VBoxContainer/TutorialButton" to="." method="_on_Tutorial_pressed"]
 [connection signal="pressed" from="VBoxContainer/About3Pixel" to="." method="_on_About3Pixel_pressed"]
 [connection signal="pressed" from="VBoxContainer/CorrectOption" to="." method="_on_Quit_pressed"]
 [connection signal="value_changed" from="VBoxContainer/IntensitySlider" to="." method="_on_IntensitySlider_value_changed"]
-[connection signal="pressed" from="TutorialButton" to="." method="_on_TutorialButton_pressed"]

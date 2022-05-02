@@ -24,6 +24,6 @@ func _on_IntensitySlider_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), value)
 
 
-func _on_TutorialButton_pressed():
+func _on_Tutorial_pressed():
 	var scene_chagend: int = get_tree().change_scene("res://Scenes/Tutorial.tscn")
 	assert(scene_chagend == OK, "Scene not found at given path")
