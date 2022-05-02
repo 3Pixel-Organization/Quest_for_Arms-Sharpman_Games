@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Assets/Fonts/Roboto-Light.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Assets/Fonts/DESIGN.COLLECTION1.AOASWFTE.TTF" type="DynamicFontData" id=2]
@@ -53,15 +53,18 @@ size = 8
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 1 )
 
+[sub_resource type="DynamicFont" id=15]
+size = 36
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 5 )
+
 [node name="Control" type="TextureRect"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 expand = true
 stretch_mode = 4
 script = ExtResource( 3 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Node2D" parent="." instance=ExtResource( 6 )]
 
@@ -69,9 +72,6 @@ __meta__ = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = 8.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 margin_right = 488.0
@@ -172,7 +172,19 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="TutorialButton" type="Button" parent="."]
+margin_left = 373.0
+margin_top = 233.0
+margin_right = 498.0
+margin_bottom = 259.0
+custom_colors/font_color = Color( 0.737255, 0.737255, 0.737255, 1 )
+custom_colors/font_color_hover = Color( 0.898039, 0.898039, 0.898039, 1 )
+custom_colors/font_color_pressed = Color( 0.737255, 0.737255, 0.737255, 1 )
+custom_fonts/font = SubResource( 15 )
+text = "Tutorial"
+
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_Start_pressed"]
 [connection signal="pressed" from="VBoxContainer/About3Pixel" to="." method="_on_About3Pixel_pressed"]
 [connection signal="pressed" from="VBoxContainer/CorrectOption" to="." method="_on_Quit_pressed"]
 [connection signal="value_changed" from="VBoxContainer/IntensitySlider" to="." method="_on_IntensitySlider_value_changed"]
+[connection signal="pressed" from="TutorialButton" to="." method="_on_TutorialButton_pressed"]
