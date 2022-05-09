@@ -36,7 +36,7 @@ func _physics_process(delta: float) -> void:
 	if not is_staggered:
 		velocity.x = speed * direction
 	else:
-		velocity.x = move_toward(velocity.x, 0, 5 * delta) # the last parameter is an arbitrary number
+		velocity.x = move_toward(velocity.x, 0, 100 * delta) # the last parameter is an arbitrary number
 	
 	velocity = move_and_slide(velocity, Vector2.UP)
 
