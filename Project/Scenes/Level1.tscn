@@ -1166,6 +1166,12 @@ scale = Vector2( 1, -1 )
 position = Vector2( 2760, -240 )
 scale = Vector2( 1, -1 )
 
+[node name="CollisionShape2D" parent="Spikes/Spikes26" index="2"]
+position = Vector2( -2, -2 )
+
+[node name="CollisionShape2D" parent="Spikes/Spikes26/Area2D" index="0"]
+position = Vector2( -0.5, 0 )
+
 [node name="Spikes27" parent="Spikes" instance=ExtResource( 7 )]
 position = Vector2( 2792, -240 )
 scale = Vector2( 1, -1 )
@@ -1491,3 +1497,4 @@ shape = SubResource( 64 )
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 
 [editable path="Enemies/Cannon6"]
+[editable path="Spikes/Spikes26"]
