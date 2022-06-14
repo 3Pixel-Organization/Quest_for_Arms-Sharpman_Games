@@ -107,7 +107,7 @@ func _physics_process(delta: float) -> void:
 	
 	animator.playback_speed = 1
 	
-	if animator.current_animation != "Attack":
+	if animator.current_animation != "Attack" and not cutscene:
 		if velocity.y:
 			animator.play("Jump")
 		elif velocity.x:
