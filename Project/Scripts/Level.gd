@@ -22,8 +22,8 @@ func _on_EndLevelPortal_body_entered(body: ScrubPlayer) -> void:
 		"Coins": scrub.coins,
 	}
 	
-	var scene_state: int = get_tree().change_scene(next_scene)
-	assert(scene_state == OK, "Scene not found at given path")
+	scrub.cutscene = true
+	$AnimationPlayer.play("cutscene 2")
 
 
 func _on_Fallzone_body_entered(body: PhysicsBody2D) -> void:
@@ -56,3 +56,7 @@ func _on_Area2D_body_entered(body):
 
 func _on_AnimationPlayer2_animation_finished(cutscene2):
 	scrub.cutscene = false
+
+
+func _on_EndLevelPortal2_body_entered(body):
+	var scene_chagend: int = get_tree().change_scene(next_scene)

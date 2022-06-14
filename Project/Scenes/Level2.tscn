@@ -594,18 +594,6 @@ tracks/8/keys = {
 "update": 0,
 "values": [ Vector2( 9179, -757 ) ]
 }
-tracks/9/type = "value"
-tracks/9/path = NodePath("Camera2D:current")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ true ]
-}
 
 [sub_resource type="Animation" id=43]
 resource_name = "cutscene2"
@@ -717,18 +705,6 @@ tracks/8/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector2( 9179, -757 ), Vector2( 9179, -1099 ) ]
-}
-tracks/9/type = "value"
-tracks/9/path = NodePath("Camera2D:current")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/keys = {
-"times": PoolRealArray( 0, 29.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ false, true ]
 }
 
 [sub_resource type="SegmentShape2D" id=44]
@@ -1499,17 +1475,8 @@ tile_data = PoolIntArray( -6159969, 19, 131076, -6159968, 19, 131076, -6159967, 
 position = Vector2( 243, -191 )
 
 [node name="Camera2D" type="Camera2D" parent="Scrub"]
-position = Vector2( 6, -8 )
 offset = Vector2( 0, 10 )
-current = true
 zoom = Vector2( 0.7, 0.7 )
-limit_left = 208
-limit_top = -1502
-limit_right = 9520
-limit_bottom = 183
-smoothing_enabled = true
-editor_draw_limits = true
-editor_draw_drag_margin = true
 
 [node name="Light" type="Node" parent="."]
 
@@ -2487,6 +2454,7 @@ zoom = Vector2( 0.7, 0.7 )
 
 [node name="Camera2D2" type="Camera2D" parent="AnimationPlayer2"]
 position = Vector2( 1685, -230 )
+current = true
 zoom = Vector2( 0.7, 0.7 )
 
 [node name="Camera2D3" type="Camera2D" parent="AnimationPlayer2"]
@@ -2495,10 +2463,12 @@ zoom = Vector2( 0.7, 0.7 )
 
 [node name="Camera2D4" type="Camera2D" parent="AnimationPlayer2"]
 position = Vector2( 6712, -765 )
+current = true
 zoom = Vector2( 0.7, 0.7 )
 
 [node name="Camera2D5" type="Camera2D" parent="AnimationPlayer2"]
 position = Vector2( 9179, -757 )
+current = true
 zoom = Vector2( 0.7, 0.7 )
 
 [node name="Area2D" type="Area2D" parent="."]
