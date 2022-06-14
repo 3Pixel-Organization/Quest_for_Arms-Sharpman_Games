@@ -529,7 +529,7 @@ tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ true ]
+"values": [ false ]
 }
 tracks/4/type = "value"
 tracks/4/path = NodePath("AnimationPlayer/Camera2D3:current")
@@ -637,7 +637,7 @@ tracks/12/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ false ]
+"values": [ true ]
 }
 tracks/13/type = "value"
 tracks/13/path = NodePath("Scrub/Camera2D2:current")
@@ -698,6 +698,16 @@ tracks/17/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ false ]
+}
+tracks/18/type = "animation"
+tracks/18/path = NodePath("Scrub/AnimationPlayer")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = {
+"clips": PoolStringArray( "[stop]" ),
+"times": PoolRealArray( 0 )
 }
 
 [sub_resource type="Animation" id=66]
@@ -816,55 +826,55 @@ tracks/8/keys = {
 resource_name = "cutscene 2"
 length = 14.0
 tracks/0/type = "value"
-tracks/0/path = NodePath("Scrub/Camera2D:current")
+tracks/0/path = NodePath("Scrub/Camera2D2:current")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 14 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ false, true ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Scrub/Camera2D2:current")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ true ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("Scrub:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 5, 6.1, 6.2, 7.1, 7.2, 9.4, 10.5, 10.7, 10.9, 11.7, 12.5, 12.7, 13.1, 13.6, 13.7, 13.8, 14 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 3593, -304 ), Vector2( 3918, -304 ), Vector2( 3918, -304 ), Vector2( 3911, -304 ), Vector2( 3911, -304 ), Vector2( 3922, -304 ), Vector2( 3922, -304 ), Vector2( 3993, -304 ), Vector2( 3997, -355 ), Vector2( 4015, -381 ), Vector2( 4055, -208 ), Vector2( 4055, -208 ), Vector2( 4043.03, -208 ), Vector2( 4009, -96 ), Vector2( 4009, -96 ), Vector2( 4022, -96 ), Vector2( 4034, -76 ), Vector2( 4034, 14 ) ]
+}
 tracks/2/type = "value"
-tracks/2/path = NodePath("Scrub:position")
+tracks/2/path = NodePath("Scrub/Camera2D2:offset")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 5, 6.1, 6.2, 7.1, 7.2, 9.37905, 10.5, 10.7, 10.9, 11.7, 12.5, 12.7, 13.1, 13.6, 13.7, 13.8, 14 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 3593, -304 ), Vector2( 3918, -304 ), Vector2( 3918, -304 ), Vector2( 3911, -304 ), Vector2( 3911, -304 ), Vector2( 3922, -304 ), Vector2( 3922, -304 ), Vector2( 3993, -304 ), Vector2( 3997, -355 ), Vector2( 4015, -381 ), Vector2( 4055, -208 ), Vector2( 4055, -208 ), Vector2( 4043.03, -208 ), Vector2( 4009, -96 ), Vector2( 4009, -96 ), Vector2( 4022, -96 ), Vector2( 4034, -76 ), Vector2( 4034, 14 ) ]
+"values": [ Vector2( -160, 0 ), Vector2( 0, 0 ) ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Scrub/Camera2D2:offset")
+tracks/3/path = NodePath("Scrub/Sprite:flip_h")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( -0.4, 0, 1.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( -160, 0 ), Vector2( -160, 0 ), Vector2( 0, 0 ) ]
+"times": PoolRealArray( 0, 6.1, 7.1, 11.9, 13.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false, true, false ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("Scrub/Sprite:flip_h")
+tracks/4/path = NodePath("Scrub/MountedGun:flip_h")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -875,17 +885,15 @@ tracks/4/keys = {
 "update": 1,
 "values": [ false, true, false, true, false ]
 }
-tracks/5/type = "value"
-tracks/5/path = NodePath("Scrub/MountedGun:flip_h")
+tracks/5/type = "animation"
+tracks/5/path = NodePath("Scrub/AnimationPlayer")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0, 6.1, 7.1, 11.9, 13.2 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ false, true, false, true, false ]
+"clips": PoolStringArray( "Walk", "Idle", "Walk", "Idle", "Idle", "Walk", "Jump", "Idle", "Walk", "Jump", "Idle", "Walk", "Jump" ),
+"times": PoolRealArray( 0, 5, 6.1, 6.2, 7.2, 9.4, 10.5, 11.7, 12.5, 12.7, 13.1, 13.6, 13.7 )
 }
 
 [sub_resource type="RectangleShape2D" id=63]
@@ -1139,6 +1147,7 @@ position = Vector2( 3272, -327 )
 position = Vector2( 3593, -304 )
 
 [node name="Camera2D" type="Camera2D" parent="Scrub"]
+current = true
 zoom = Vector2( 0.7, 0.7 )
 limit_left = 0
 limit_top = -736
@@ -1149,7 +1158,6 @@ editor_draw_limits = true
 
 [node name="Camera2D2" type="Camera2D" parent="Scrub"]
 offset = Vector2( -160, 0 )
-current = true
 zoom = Vector2( 0.7, 0.7 )
 limit_left = 3260
 limit_top = -736
@@ -1549,7 +1557,6 @@ stream = ExtResource( 13 )
 autoplay = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-reset_on_save = false
 anims/RESET = SubResource( 65 )
 anims/cutscene = SubResource( 66 )
 "anims/cutscene 2" = SubResource( 67 )
@@ -1661,6 +1668,5 @@ shape = SubResource( 64 )
 [connection signal="body_entered" from="Checkpoints/CheckpointArea" to="." method="_on_CheckpointArea_body_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 
-[editable path="Scrub"]
 [editable path="Enemies/Cannon6"]
 [editable path="Spikes/Spikes26"]

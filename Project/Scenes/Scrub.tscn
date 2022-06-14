@@ -260,7 +260,6 @@ tracks/4/keys = {
 
 [sub_resource type="Animation" id=24]
 resource_name = "Jump"
-length = 0.001
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:texture")
 tracks/0/interp = 1
