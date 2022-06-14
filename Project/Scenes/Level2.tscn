@@ -1499,9 +1499,20 @@ tile_data = PoolIntArray( -6159969, 19, 131076, -6159968, 19, 131076, -6159967, 
 position = Vector2( 243, -191 )
 
 [node name="Camera2D" type="Camera2D" parent="Scrub"]
+position = Vector2( 6, -8 )
 offset = Vector2( 0, 10 )
 current = true
 zoom = Vector2( 0.7, 0.7 )
+limit_left = 208
+limit_top = -1502
+limit_right = 9520
+limit_bottom = 183
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = true
+smoothing_speed = 10.0
+editor_draw_limits = true
+editor_draw_drag_margin = true
 
 [node name="Light" type="Node" parent="."]
 
