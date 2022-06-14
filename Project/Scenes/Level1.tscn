@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://Assets/Sprites/Floor/Level1.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Scrub.tscn" type="PackedScene" id=2]
@@ -20,6 +20,7 @@
 [ext_resource path="res://Assets/Sprites/Background/BackgroundDirt1.png" type="Texture" id=18]
 [ext_resource path="res://Assets/Sprites/Background/BackgroundDirt3.png" type="Texture" id=19]
 [ext_resource path="res://Assets/Sprites/Floor/Level1AdditionalTile2.png" type="Texture" id=20]
+[ext_resource path="res://Assets/Sounds/SFX/Jump.ogg" type="AudioStream" id=21]
 
 [sub_resource type="ConvexPolygonShape2D" id=56]
 points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
@@ -892,8 +893,22 @@ tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"clips": PoolStringArray( "Walk", "Idle", "Walk", "Idle", "Idle", "Walk", "Jump", "Idle", "Walk", "Jump", "Idle", "Walk", "Jump" ),
-"times": PoolRealArray( 0, 5, 6.1, 6.2, 7.2, 9.4, 10.5, 11.7, 12.5, 12.7, 13.1, 13.6, 13.7 )
+"clips": PoolStringArray( "Walk", "Idle", "Walk", "Idle", "Walk", "Idle", "Walk", "Jump", "Idle", "Walk", "Jump", "Idle", "Walk", "Jump" ),
+"times": PoolRealArray( 0, 5, 6.1, 6.2, 7.1, 7.2, 9.4, 10.5, 11.7, 12.5, 12.7, 13.1, 13.6, 13.7 )
+}
+tracks/6/type = "audio"
+tracks/6/path = NodePath("Scrub/Jump")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 21 )
+} ],
+"times": PoolRealArray( 10.5 )
 }
 
 [sub_resource type="RectangleShape2D" id=63]
