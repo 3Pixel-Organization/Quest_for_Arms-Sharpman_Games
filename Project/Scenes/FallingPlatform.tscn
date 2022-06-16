@@ -1,23 +1,7 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/FallingPlat.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Sprites/Floor/FallingPlat.png" type="Texture" id=2]
-
-[sub_resource type="Animation" id=1]
-resource_name = "Fall"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 0, 1000 ) ]
-}
 
 [sub_resource type="Animation" id=2]
 resource_name = "Shake"
@@ -52,10 +36,13 @@ script = ExtResource( 1 )
 texture = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Fall = SubResource( 1 )
 anims/Shake = SubResource( 2 )
 
 [node name="ShakeTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="RespawnTimer" type="Timer" parent="."]
+wait_time = 5.0
 one_shot = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -71,9 +58,6 @@ position = Vector2( 0, -12.5 )
 shape = SubResource( 4 )
 one_way_collision = true
 
-[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
-position = Vector2( 0, -0.5 )
-rect = Rect2( -32, -11.5, 64, 23 )
-
 [connection signal="timeout" from="ShakeTimer" to="." method="_on_ShakeTimer_timeout"]
+[connection signal="timeout" from="RespawnTimer" to="." method="_on_RespawnTimer_timeout"]
 [connection signal="body_entered" from="TopChecker" to="." method="_on_TopChecker_body_entered"]
