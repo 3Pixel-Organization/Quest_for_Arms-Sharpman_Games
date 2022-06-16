@@ -60,3 +60,14 @@ func _on_AnimationPlayer2_animation_finished(cutscene2):
 
 func _on_EndLevelPortal2_body_entered(body):
 	var scene_chagend: int = get_tree().change_scene(next_scene)
+
+
+func _on_Area2D2_body_entered(body):
+	if not body: return
+	
+	GlobalVariables.player = {
+		"Gun": scrub.has_fireball,
+		"Coins": scrub.coins,
+	}
+	
+	var scene_chagend: int = get_tree().change_scene(next_scene)
