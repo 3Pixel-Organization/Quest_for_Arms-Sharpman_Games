@@ -674,6 +674,18 @@ tracks/15/keys = {
 "clips": PoolStringArray( "[stop]" ),
 "times": PoolRealArray( 0 )
 }
+tracks/16/type = "value"
+tracks/16/path = NodePath("Scrub/MountedGun:z_index")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -1 ]
+}
 
 [sub_resource type="Animation" id=66]
 resource_name = "cutscene"
@@ -873,6 +885,18 @@ tracks/6/keys = {
 "stream": ExtResource( 21 )
 } ],
 "times": PoolRealArray( 10.5 )
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Scrub/MountedGun:z_index")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 6.1, 7.1, 11.9, 13.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ -1, 0, -1, 0 ]
 }
 
 [sub_resource type="RectangleShape2D" id=63]
@@ -1123,7 +1147,7 @@ position = Vector2( 3208, -327 )
 position = Vector2( 3272, -327 )
 
 [node name="Scrub" parent="." instance=ExtResource( 2 )]
-position = Vector2( 56, -80 )
+position = Vector2( 2050, -551 )
 
 [node name="Camera2D" type="Camera2D" parent="Scrub"]
 current = true
