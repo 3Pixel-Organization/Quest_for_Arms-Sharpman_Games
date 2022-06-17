@@ -653,7 +653,7 @@ tracks/13/keys = {
 "values": [ false ]
 }
 tracks/14/type = "value"
-tracks/14/path = NodePath("Scrub:position")
+tracks/14/path = NodePath("Scrub/Camera2D2:offset")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/imported = false
@@ -664,49 +664,13 @@ tracks/14/keys = {
 "update": 0,
 "values": [ Vector2( 3593, -304 ) ]
 }
-tracks/15/type = "value"
-tracks/15/path = NodePath("Scrub/Camera2D2:offset")
+tracks/15/type = "animation"
+tracks/15/path = NodePath("Scrub/AnimationPlayer")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/imported = false
 tracks/15/enabled = true
 tracks/15/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( -160, 0 ) ]
-}
-tracks/16/type = "value"
-tracks/16/path = NodePath("Scrub/Sprite:flip_h")
-tracks/16/interp = 1
-tracks/16/loop_wrap = true
-tracks/16/imported = false
-tracks/16/enabled = true
-tracks/16/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ false ]
-}
-tracks/17/type = "value"
-tracks/17/path = NodePath("Scrub/MountedGun:flip_h")
-tracks/17/interp = 1
-tracks/17/loop_wrap = true
-tracks/17/imported = false
-tracks/17/enabled = true
-tracks/17/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ false ]
-}
-tracks/18/type = "animation"
-tracks/18/path = NodePath("Scrub/AnimationPlayer")
-tracks/18/interp = 1
-tracks/18/loop_wrap = true
-tracks/18/imported = false
-tracks/18/enabled = true
-tracks/18/keys = {
 "clips": PoolStringArray( "[stop]" ),
 "times": PoolRealArray( 0 )
 }
@@ -845,10 +809,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 5, 6.1, 6.2, 7.1, 7.2, 9.4, 10.5, 10.7, 10.9, 11.7, 12.5, 12.7, 13.1, 13.6, 13.7, 13.8, 14 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 3593, -304 ), Vector2( 3918, -304 ), Vector2( 3918, -304 ), Vector2( 3911, -304 ), Vector2( 3911, -304 ), Vector2( 3922, -304 ), Vector2( 3922, -304 ), Vector2( 3993, -304 ), Vector2( 3997, -355 ), Vector2( 4015, -381 ), Vector2( 4055, -208 ), Vector2( 4055, -208 ), Vector2( 4043.03, -208 ), Vector2( 4009, -96 ), Vector2( 4009, -96 ), Vector2( 4022, -96 ), Vector2( 4034, -76 ), Vector2( 4034, 14 ) ]
+"times": PoolRealArray( 5, 6.1, 6.2, 7.1, 7.2, 9.4, 10.5, 10.7, 10.9, 11.7, 12.5, 12.7, 13.1, 13.6, 13.7, 13.8, 14 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 3,
+"values": [ Vector2( 3918, -304 ), Vector2( 3918, -304 ), Vector2( 3911, -304 ), Vector2( 3911, -304 ), Vector2( 3922, -304 ), Vector2( 3922, -304 ), Vector2( 3993, -304 ), Vector2( 3997, -355 ), Vector2( 4015, -381 ), Vector2( 4055, -208 ), Vector2( 4055, -208 ), Vector2( 4043.03, -208 ), Vector2( 4009, -96 ), Vector2( 4009, -96 ), Vector2( 4022, -96 ), Vector2( 4034, -76 ), Vector2( 4034, 14 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Scrub/Camera2D2:offset")
@@ -1159,7 +1123,7 @@ position = Vector2( 3208, -327 )
 position = Vector2( 3272, -327 )
 
 [node name="Scrub" parent="." instance=ExtResource( 2 )]
-position = Vector2( 3593, -304 )
+position = Vector2( 56, -80 )
 
 [node name="Camera2D" type="Camera2D" parent="Scrub"]
 current = true
