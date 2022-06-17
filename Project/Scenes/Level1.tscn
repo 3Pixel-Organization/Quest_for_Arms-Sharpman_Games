@@ -1136,7 +1136,7 @@ smoothing_enabled = true
 editor_draw_limits = true
 
 [node name="Camera2D2" type="Camera2D" parent="Scrub"]
-offset = Vector2( -160, 0 )
+offset = Vector2( 3593, -304 )
 zoom = Vector2( 0.7, 0.7 )
 limit_left = 3260
 limit_top = -736
