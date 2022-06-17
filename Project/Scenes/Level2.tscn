@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=2]
+[gd_scene load_steps=58 format=2]
 
 [ext_resource path="res://Scripts/Level.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Scrub.tscn" type="PackedScene" id=2]
@@ -455,7 +455,10 @@ points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
 24/z_index = 0
 
 [sub_resource type="SegmentShape2D" id=52]
-b = Vector2( 0, -96 )
+b = Vector2( 0, -115 )
+
+[sub_resource type="RectangleShape2D" id=53]
+extents = Vector2( 96, 80 )
 
 [sub_resource type="SegmentShape2D" id=36]
 a = Vector2( -248, 0 )
@@ -2330,7 +2333,8 @@ position = Vector2( 3910, -80 )
 position = Vector2( 7967, -1344 )
 
 [node name="Cannon5" parent="Cannons" instance=ExtResource( 12 )]
-position = Vector2( 8821, -544 )
+position = Vector2( 8212, -544 )
+direction = 1
 
 [node name="Cannon4" parent="Cannons" instance=ExtResource( 12 )]
 position = Vector2( 9271, -832 )
@@ -2464,7 +2468,8 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/CheckpointArea8"]
-shape = SubResource( 52 )
+position = Vector2( 32, -80 )
+shape = SubResource( 53 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -2479,6 +2484,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/CheckpointArea9"]
+position = Vector2( -104, -32 )
 shape = SubResource( 52 )
 __meta__ = {
 "_edit_lock_": true
