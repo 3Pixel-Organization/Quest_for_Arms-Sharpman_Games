@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=2]
+[gd_scene load_steps=57 format=2]
 
 [ext_resource path="res://Scripts/Level.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Scrub.tscn" type="PackedScene" id=2]
@@ -454,29 +454,8 @@ points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
 } ]
 24/z_index = 0
 
-[sub_resource type="LineShape2D" id=35]
-normal = Vector2( -1, 0 )
-
-[sub_resource type="SegmentShape2D" id=50]
-b = Vector2( 0, -98 )
-
-[sub_resource type="LineShape2D" id=40]
-normal = Vector2( -1, 0 )
-
-[sub_resource type="SegmentShape2D" id=47]
-b = Vector2( -3, -91 )
-
-[sub_resource type="SegmentShape2D" id=46]
-b = Vector2( -3, -135 )
-
-[sub_resource type="RectangleShape2D" id=51]
-extents = Vector2( 101.5, 84.5 )
-
-[sub_resource type="SegmentShape2D" id=48]
-b = Vector2( 190, -159 )
-
-[sub_resource type="SegmentShape2D" id=39]
-b = Vector2( 1, -68 )
+[sub_resource type="SegmentShape2D" id=52]
+b = Vector2( 0, -96 )
 
 [sub_resource type="SegmentShape2D" id=36]
 a = Vector2( -248, 0 )
@@ -2380,22 +2359,13 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/CheckpointArea"]
-shape = SubResource( 35 )
-
-[node name="CheckpointArea7" type="Area2D" parent="Checkpoints"]
-position = Vector2( 7474, -1344 )
-collision_layer = 0
-monitorable = false
-script = ExtResource( 4 )
+shape = SubResource( 52 )
 __meta__ = {
-"_edit_group_": true
+"_edit_lock_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/CheckpointArea7"]
-shape = SubResource( 35 )
-
 [node name="CheckpointArea2" type="Area2D" parent="Checkpoints"]
-position = Vector2( 3552, -176 )
+position = Vector2( 1456, -272 )
 collision_layer = 0
 monitorable = false
 script = ExtResource( 4 )
@@ -2404,7 +2374,25 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/CheckpointArea2"]
-shape = SubResource( 50 )
+shape = SubResource( 52 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CheckpointArea3" type="Area2D" parent="Checkpoints"]
+position = Vector2( 3552, -176 )
+collision_layer = 0
+monitorable = false
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/CheckpointArea3"]
+shape = SubResource( 52 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="CheckpointArea4" type="Area2D" parent="Checkpoints"]
 position = Vector2( 4784, -331 )
@@ -2416,7 +2404,10 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/CheckpointArea4"]
-shape = SubResource( 40 )
+shape = SubResource( 52 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="CheckpointArea5" type="Area2D" parent="Checkpoints"]
 position = Vector2( 6464, -800 )
@@ -2428,7 +2419,10 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/CheckpointArea5"]
-shape = SubResource( 47 )
+shape = SubResource( 52 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="CheckpointArea6" type="Area2D" parent="Checkpoints"]
 position = Vector2( 7056, -784 )
@@ -2440,10 +2434,28 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/CheckpointArea6"]
-shape = SubResource( 46 )
+shape = SubResource( 52 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CheckpointArea7" type="Area2D" parent="Checkpoints"]
+position = Vector2( 7474, -1344 )
+collision_layer = 0
+monitorable = false
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/CheckpointArea7"]
+shape = SubResource( 52 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="CheckpointArea8" type="Area2D" parent="Checkpoints"]
-position = Vector2( 8210, -544 )
+position = Vector2( 8256, -544 )
 collision_layer = 0
 monitorable = false
 script = ExtResource( 4 )
@@ -2452,11 +2464,13 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/CheckpointArea8"]
-position = Vector2( 83.5, -74.5 )
-shape = SubResource( 51 )
+shape = SubResource( 52 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="CheckpointArea9" type="Area2D" parent="Checkpoints"]
-position = Vector2( 9151, -832 )
+position = Vector2( 9128, -832 )
 collision_layer = 0
 monitorable = false
 script = ExtResource( 4 )
@@ -2465,20 +2479,10 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/CheckpointArea9"]
-position = Vector2( -125.416, -31 )
-shape = SubResource( 48 )
-
-[node name="CheckpointArea3" type="Area2D" parent="Checkpoints"]
-position = Vector2( 1456, -272 )
-collision_layer = 0
-monitorable = false
-script = ExtResource( 4 )
+shape = SubResource( 52 )
 __meta__ = {
-"_edit_group_": true
+"_edit_lock_": true
 }
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/CheckpointArea3"]
-shape = SubResource( 39 )
 
 [node name="Fallzone" type="Area2D" parent="."]
 position = Vector2( 1064, 136 )
