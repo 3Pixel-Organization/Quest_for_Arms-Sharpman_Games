@@ -2063,21 +2063,19 @@ position = Vector2( 4265, -252 )
 position = Vector2( 5567, -628 )
 
 [node name="Enemy20" parent="Enemies/Slasher" instance=ExtResource( 18 )]
-position = Vector2( 6416, -818 )
-script = null
+position = Vector2( 6424, -800 )
 
 [node name="Enemy29" parent="Enemies/Slasher" instance=ExtResource( 18 )]
-position = Vector2( 7016, -785 )
-script = null
+position = Vector2( 7016, -784 )
 
 [node name="Enemy25" parent="Enemies/Slasher" instance=ExtResource( 18 )]
-position = Vector2( 6551, -809 )
+position = Vector2( 6552, -768 )
 
 [node name="Enemy27" parent="Enemies/Slasher" instance=ExtResource( 18 )]
-position = Vector2( 6898, -817 )
+position = Vector2( 6904, -768 )
 
 [node name="Enemy28" parent="Enemies/Slasher" instance=ExtResource( 18 )]
-position = Vector2( 6723, -834 )
+position = Vector2( 6720, -768 )
 
 [node name="Enemy21" parent="Enemies/Slasher" instance=ExtResource( 18 )]
 position = Vector2( 7220, -1052 )
