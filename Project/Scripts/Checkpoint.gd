@@ -4,7 +4,7 @@ class_name CheckpointArea
 
 onready var level: Node = get_tree().current_scene
 onready var activated: bool = (GlobalVariables.checkpoint["Level"] == get_tree().current_scene.name
-		and get_index() <= GlobalVariables.checkpoint["Highest"])
+		and get_index() <= GlobalVariables.checkpoint["Index"])
 
 
 func _ready() -> void:
@@ -24,11 +24,10 @@ func _on_Area2D_body_entered(body: ScrubPlayer) -> void:
 	activated = true
 	#disconnect("body_entered", self, "_on_Area2D_body_entered")
 	# ^ is only needed if the checkpoint doesnt collide only with the player
-
 	GlobalVariables.checkpoint = {
 		"Level": level.name,
 		"Position": global_position,
-		"Highest": max(get_index(), GlobalVariables.checkpoint["Highest"]),
+		"Index": max(get_index(), GlobalVariables.checkpoint["Index"]),
 	}
 	
 	GlobalVariables.player = {
