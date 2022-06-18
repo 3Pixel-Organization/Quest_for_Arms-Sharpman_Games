@@ -1,9 +1,10 @@
 class_name Level
 extends Node
 
-var AnimationPlayed = false
 export var next_scene: String
+
 onready var scrub: ScrubPlayer = $"Scrub"
+onready var cutscene_player: AnimationPlayer = get_node_or_null("CutscenePlayer")
 
 
 func _ready() -> void:
@@ -14,16 +15,35 @@ func _ready() -> void:
 		scrub.global_position = GlobalVariables.checkpoint["Position"]
 
 
-func _on_EndLevelPortal_body_entered(body: ScrubPlayer) -> void:
-	if not body: return
-	
+func fake_input(action: String, press: bool = true) -> void:
+	if press:
+		Input.action_press(action)
+	else:
+		Input.action_release(action)
+
+
+func next_level() -> void:
+	var scene_changed := get_tree().change_scene(next_scene) as int
+	assert(scene_changed == OK, "Couldn't change level")
+
+
+func save_player_data() -> void:
 	GlobalVariables.player = {
 		"Gun": scrub.has_fireball,
 		"Coins": scrub.coins,
 	}
+
+
+func _on_EndLevelPortal_body_entered(body: ScrubPlayer, cutscene: bool = false) -> void:
+	if not body:
+		return
 	
-	scrub.cutscene = true
-	$AnimationPlayer.play("cutscene 2")
+	save_player_data()
+	
+	if cutscene:
+		cutscene_player.play("EndLevel")
+	else:
+		next_level()
 
 
 func _on_Fallzone_body_entered(body: PhysicsBody2D) -> void:
@@ -33,41 +53,7 @@ func _on_Fallzone_body_entered(body: PhysicsBody2D) -> void:
 		body.queue_free()
 
 
-func _on_CheckpointArea_body_entered(body):
-	if AnimationPlayed == false:
-		if body.name == "Scrub":
-			$AnimationPlayer.play("cutscene")
-			scrub.cutscene = true
-			AnimationPlayed = true
-			
-
-
-func _on_AnimationPlayer_animation_finished(cutscene):
-	scrub.cutscene = false
-
-
-func _on_Area2D_body_entered(body):
-	if AnimationPlayed == false:
-		if body.name == "Scrub":
-			$AnimationPlayer2.play("cutscene2")
-			scrub.cutscene = true
-			AnimationPlayed = true
-
-
-func _on_AnimationPlayer2_animation_finished(cutscene2):
-	scrub.cutscene = false
-
-
-func _on_EndLevelPortal2_body_entered(body):
-	var scene_chagend: int = get_tree().change_scene(next_scene)
-
-
-func _on_Area2D2_body_entered(body):
+func _on_LevelOverviewCheckpoint_body_entered(body: ScrubPlayer) -> void:
 	if not body: return
 	
-	GlobalVariables.player = {
-		"Gun": scrub.has_fireball,
-		"Coins": scrub.coins,
-	}
-	
-	var scene_chagend: int = get_tree().change_scene(next_scene)
+	cutscene_player.play("LevelOverview")

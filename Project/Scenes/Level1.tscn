@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Assets/Sprites/Floor/Level1.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Scrub.tscn" type="PackedScene" id=2]
@@ -20,7 +20,6 @@
 [ext_resource path="res://Assets/Sprites/Background/BackgroundDirt1.png" type="Texture" id=18]
 [ext_resource path="res://Assets/Sprites/Background/BackgroundDirt3.png" type="Texture" id=19]
 [ext_resource path="res://Assets/Sprites/Floor/Level1AdditionalTile2.png" type="Texture" id=20]
-[ext_resource path="res://Assets/Sounds/SFX/Jump.ogg" type="AudioStream" id=21]
 
 [sub_resource type="ConvexPolygonShape2D" id=56]
 points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
@@ -463,29 +462,183 @@ points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
 30/shapes = [  ]
 30/z_index = 0
 
-[sub_resource type="LineShape2D" id=48]
+[sub_resource type="SegmentShape2D" id=68]
+a = Vector2( 272, 0 )
+b = Vector2( 2608, 0 )
 
 [sub_resource type="LineShape2D" id=54]
 normal = Vector2( -1, 0 )
 
-[sub_resource type="SegmentShape2D" id=68]
-b = Vector2( -2.86102e-06, -68 )
-
 [sub_resource type="SegmentShape2D" id=55]
 b = Vector2( 0, -80 )
 
-[sub_resource type="SegmentShape2D" id=52]
-a = Vector2( 0, -48 )
-b = Vector2( 0, 0 )
+[sub_resource type="SegmentShape2D" id=69]
+b = Vector2( 0, -112 )
 
-[sub_resource type="SegmentShape2D" id=53]
-a = Vector2( 0, -96 )
-b = Vector2( 0, 0 )
+[sub_resource type="Animation" id=67]
+resource_name = "EndLevel"
+length = 15.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Scrub/Camera2D:limit_right")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 4 ),
+"transitions": PoolRealArray( 1 ),
+"update": 3,
+"values": [ 4142 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 4.1, 5.2, 5.3, 6.2, 6.3, 8.3, 9.2, 9.3, 10.1, 11.5, 12.1, 13, 13.4, 15 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [ "right", true ],
+"method": "fake_input"
+}, {
+"args": [ "right", false ],
+"method": "fake_input"
+}, {
+"args": [ "left", true ],
+"method": "fake_input"
+}, {
+"args": [ "left", false ],
+"method": "fake_input"
+}, {
+"args": [ "right", true ],
+"method": "fake_input"
+}, {
+"args": [ "right", false ],
+"method": "fake_input"
+}, {
+"args": [ "right", true ],
+"method": "fake_input"
+}, {
+"args": [ "jump", true ],
+"method": "fake_input"
+}, {
+"args": [ "jump", false ],
+"method": "fake_input"
+}, {
+"args": [ "right", false ],
+"method": "fake_input"
+}, {
+"args": [ "left", true ],
+"method": "fake_input"
+}, {
+"args": [ "left", false ],
+"method": "fake_input"
+}, {
+"args": [ "right", true ],
+"method": "fake_input"
+}, {
+"args": [ "right", false ],
+"method": "fake_input"
+}, {
+"args": [  ],
+"method": "next_level"
+} ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("Scrub")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 15 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "clear_default_input_events"
+}, {
+"args": [  ],
+"method": "readd_events_to_actions"
+} ]
+}
+
+[sub_resource type="Animation" id=66]
+resource_name = "LevelOverview"
+length = 18.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("CutscenePlayer/CutsceneCamera:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 4, 4.5, 7, 8.5, 9, 12, 12.5, 16.5 ),
+"transitions": PoolRealArray( 1, 1e+06, 1, 1, 1e+06, 1, 1e+06, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 528, -119 ), Vector2( 906, -179 ), Vector2( 1347, -275 ), Vector2( 1347, -469 ), Vector2( 1621, -469 ), Vector2( 2008, -584 ), Vector2( 2096, -204 ), Vector2( 2611, -204 ), Vector2( 3209, -294 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CutscenePlayer/CutsceneCamera:current")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Scrub/Camera2D:current")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 18 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("Scrub")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 18 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "clear_default_input_events"
+}, {
+"args": [  ],
+"method": "readd_events_to_actions"
+} ]
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath("Scrub")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "release_all_actions"
+} ]
+}
 
 [sub_resource type="Animation" id=65]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("AnimationPlayer/Camera2D:position")
+tracks/0/path = NodePath("CutscenePlayer/CutsceneCamera:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -497,7 +650,7 @@ tracks/0/keys = {
 "values": [ Vector2( 542, -74 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("AnimationPlayer/Camera2D2:position")
+tracks/1/path = NodePath("CutscenePlayer/CutsceneCamera:current")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -506,10 +659,10 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 1347, -275 ) ]
+"values": [ false ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("AnimationPlayer/Camera2D2:current")
+tracks/2/path = NodePath("Scrub/Camera2D:current")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -518,385 +671,29 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ false ]
+"values": [ true ]
 }
-tracks/3/type = "value"
-tracks/3/path = NodePath("AnimationPlayer/Camera2D:current")
+tracks/3/type = "animation"
+tracks/3/path = NodePath("Scrub/AnimationPlayer")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ false ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("AnimationPlayer/Camera2D3:current")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ false ]
-}
-tracks/5/type = "value"
-tracks/5/path = NodePath("AnimationPlayer/Camera2D3:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 2008, -584 ) ]
-}
-tracks/6/type = "value"
-tracks/6/path = NodePath("AnimationPlayer/Camera2D:smoothing_enabled")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ false ]
-}
-tracks/7/type = "value"
-tracks/7/path = NodePath("AnimationPlayer/Camera2D2:smoothing_enabled")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ false ]
-}
-tracks/8/type = "value"
-tracks/8/path = NodePath("AnimationPlayer/Camera2D3:smoothing_enabled")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ false ]
-}
-tracks/9/type = "value"
-tracks/9/path = NodePath("AnimationPlayer/Camera2D4:current")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ false ]
-}
-tracks/10/type = "value"
-tracks/10/path = NodePath("AnimationPlayer/Camera2D4:position")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 2611, -204 ) ]
-}
-tracks/11/type = "value"
-tracks/11/path = NodePath("AnimationPlayer/Camera2D4:smoothing_enabled")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ true ]
-}
-tracks/12/type = "value"
-tracks/12/path = NodePath("Scrub/Camera2D:current")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ true ]
-}
-tracks/13/type = "value"
-tracks/13/path = NodePath("Scrub/Camera2D2:current")
-tracks/13/interp = 1
-tracks/13/loop_wrap = true
-tracks/13/imported = false
-tracks/13/enabled = true
-tracks/13/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ false ]
-}
-tracks/14/type = "value"
-tracks/14/path = NodePath("Scrub/Camera2D2:offset")
-tracks/14/interp = 1
-tracks/14/loop_wrap = true
-tracks/14/imported = false
-tracks/14/enabled = true
-tracks/14/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 3593, -304 ) ]
-}
-tracks/15/type = "animation"
-tracks/15/path = NodePath("Scrub/AnimationPlayer")
-tracks/15/interp = 1
-tracks/15/loop_wrap = true
-tracks/15/imported = false
-tracks/15/enabled = true
-tracks/15/keys = {
 "clips": PoolStringArray( "[stop]" ),
 "times": PoolRealArray( 0 )
 }
-tracks/16/type = "value"
-tracks/16/path = NodePath("Scrub/MountedGun:z_index")
-tracks/16/interp = 1
-tracks/16/loop_wrap = true
-tracks/16/imported = false
-tracks/16/enabled = true
-tracks/16/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ -1 ]
-}
-
-[sub_resource type="Animation" id=66]
-resource_name = "cutscene"
-length = 18.0
-tracks/0/type = "value"
-tracks/0/path = NodePath("AnimationPlayer/Camera2D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 4 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 528, -119 ), Vector2( 906, -179 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("AnimationPlayer/Camera2D2:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 4.5, 7, 8.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 1347, -275 ), Vector2( 1347, -469 ), Vector2( 1621, -469 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("AnimationPlayer/Camera2D2:current")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 4.5, 9 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 1,
-"values": [ false, true, false ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("AnimationPlayer/Camera2D:current")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0, 4.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, false ]
-}
 tracks/4/type = "value"
-tracks/4/path = NodePath("AnimationPlayer/Camera2D3:current")
+tracks/4/path = NodePath("Scrub/Camera2D:limit_right")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0, 9, 12.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 1,
-"values": [ false, true, false ]
-}
-tracks/5/type = "value"
-tracks/5/path = NodePath("AnimationPlayer/Camera2D3:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
-"times": PoolRealArray( 9, 12 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 2008, -584 ), Vector2( 2096, -204 ) ]
-}
-tracks/6/type = "value"
-tracks/6/path = NodePath("AnimationPlayer/Camera2D4:current")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/keys = {
-"times": PoolRealArray( 12.5, 16.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, false ]
-}
-tracks/7/type = "value"
-tracks/7/path = NodePath("AnimationPlayer/Camera2D4:position")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/keys = {
-"times": PoolRealArray( 12.5, 16.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 2611, -204 ), Vector2( 3209, -294 ) ]
-}
-tracks/8/type = "value"
-tracks/8/path = NodePath("Scrub/Camera2D:current")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/keys = {
-"times": PoolRealArray( 0, 18 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ false, true ]
-}
-
-[sub_resource type="Animation" id=67]
-resource_name = "cutscene 2"
-length = 14.0
-tracks/0/type = "value"
-tracks/0/path = NodePath("Scrub/Camera2D2:current")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Scrub:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 5, 6.1, 6.2, 7.1, 7.2, 9.4, 10.5, 10.7, 10.9, 11.7, 12.5, 12.7, 13.1, 13.6, 13.7, 13.8, 14 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
-"update": 3,
-"values": [ Vector2( 3918, -304 ), Vector2( 3918, -304 ), Vector2( 3911, -304 ), Vector2( 3911, -304 ), Vector2( 3922, -304 ), Vector2( 3922, -304 ), Vector2( 3993, -304 ), Vector2( 3997, -355 ), Vector2( 4015, -381 ), Vector2( 4055, -208 ), Vector2( 4055, -208 ), Vector2( 4043.03, -208 ), Vector2( 4009, -96 ), Vector2( 4009, -96 ), Vector2( 4022, -96 ), Vector2( 4034, -76 ), Vector2( 4034, 14 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("Scrub/Camera2D2:offset")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 1.5 ),
-"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( -160, 0 ), Vector2( 0, 0 ) ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("Scrub/Sprite:flip_h")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0, 6.1, 7.1, 11.9, 13.2 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ false, true, false, true, false ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("Scrub/MountedGun:flip_h")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0, 6.1, 7.1, 11.9, 13.2 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ false, true, false, true, false ]
-}
-tracks/5/type = "animation"
-tracks/5/path = NodePath("Scrub/AnimationPlayer")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
-"clips": PoolStringArray( "Walk", "Idle", "Walk", "Idle", "Walk", "Idle", "Walk", "Jump", "Idle", "Walk", "Jump", "Idle", "Walk", "Jump" ),
-"times": PoolRealArray( 0, 5, 6.1, 6.2, 7.1, 7.2, 9.4, 10.5, 11.7, 12.5, 12.7, 13.1, 13.6, 13.7 )
-}
-tracks/6/type = "audio"
-tracks/6/path = NodePath("Scrub/Jump")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/keys = {
-"clips": [ {
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource( 21 )
-} ],
-"times": PoolRealArray( 10.5 )
-}
-tracks/7/type = "value"
-tracks/7/path = NodePath("Scrub/MountedGun:z_index")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/keys = {
-"times": PoolRealArray( 6.1, 7.1, 11.9, 13.2 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 1,
-"values": [ -1, 0, -1, 0 ]
+"values": [ 3600 ]
 }
 
 [sub_resource type="RectangleShape2D" id=63]
@@ -1147,7 +944,7 @@ position = Vector2( 3208, -327 )
 position = Vector2( 3272, -327 )
 
 [node name="Scrub" parent="." instance=ExtResource( 2 )]
-position = Vector2( 2050, -551 )
+position = Vector2( 56, -80 )
 
 [node name="Camera2D" type="Camera2D" parent="Scrub"]
 current = true
@@ -1159,20 +956,10 @@ limit_bottom = 0
 smoothing_enabled = true
 editor_draw_limits = true
 
-[node name="Camera2D2" type="Camera2D" parent="Scrub"]
-offset = Vector2( 3593, -304 )
-zoom = Vector2( 0.7, 0.7 )
-limit_left = 3260
-limit_top = -736
-limit_right = 4142
-limit_bottom = 0
-smoothing_enabled = true
-editor_draw_limits = true
-
 [node name="Enemies" type="Node" parent="."]
 
 [node name="Enemy" parent="Enemies" instance=ExtResource( 12 )]
-position = Vector2( 232, -90 )
+position = Vector2( 232, -80 )
 
 [node name="Enemy2" parent="Enemies" instance=ExtResource( 12 )]
 position = Vector2( 463, -80 )
@@ -1400,7 +1187,6 @@ scale = Vector2( 1, -1 )
 position = Vector2( 2048, -528 )
 
 [node name="Fallzone" type="Area2D" parent="."]
-position = Vector2( 0, 24 )
 collision_layer = 4
 collision_mask = 3
 __meta__ = {
@@ -1408,7 +1194,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Fallzone"]
-shape = SubResource( 48 )
+shape = SubResource( 68 )
 
 [node name="EndLevelPortal" type="Area2D" parent="."]
 position = Vector2( 3600, -304 )
@@ -1420,18 +1206,6 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EndLevelPortal"]
 shape = SubResource( 54 )
-
-[node name="EndLevelPortal2" type="Area2D" parent="."]
-position = Vector2( 4000, 15.5 )
-rotation = 1.5708
-collision_layer = 0
-monitorable = false
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EndLevelPortal2"]
-shape = SubResource( 68 )
 
 [node name="Checkpoints" type="Node" parent="."]
 
@@ -1505,7 +1279,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/CheckpointArea6"]
-shape = SubResource( 55 )
+shape = SubResource( 69 )
 
 [node name="CheckpointArea7" type="Area2D" parent="Checkpoints"]
 position = Vector2( 2416, -384 )
@@ -1517,7 +1291,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/CheckpointArea7"]
-shape = SubResource( 52 )
+shape = SubResource( 55 )
 
 [node name="CheckpointArea8" type="Area2D" parent="Checkpoints"]
 position = Vector2( 2112, -240 )
@@ -1529,7 +1303,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/CheckpointArea8"]
-shape = SubResource( 53 )
+shape = SubResource( 55 )
 
 [node name="CheckpointArea9" type="Area2D" parent="Checkpoints"]
 position = Vector2( 2640, -208 )
@@ -1559,27 +1333,14 @@ shape = SubResource( 55 )
 stream = ExtResource( 13 )
 autoplay = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="CutscenePlayer" type="AnimationPlayer" parent="."]
+anims/EndLevel = SubResource( 67 )
+anims/LevelOverview = SubResource( 66 )
 anims/RESET = SubResource( 65 )
-anims/cutscene = SubResource( 66 )
-"anims/cutscene 2" = SubResource( 67 )
 
-[node name="Camera2D" type="Camera2D" parent="AnimationPlayer"]
+[node name="CutsceneCamera" type="Camera2D" parent="CutscenePlayer"]
 position = Vector2( 542, -74 )
 zoom = Vector2( 0.7, 0.7 )
-
-[node name="Camera2D2" type="Camera2D" parent="AnimationPlayer"]
-position = Vector2( 1347, -275 )
-zoom = Vector2( 0.7, 0.7 )
-
-[node name="Camera2D3" type="Camera2D" parent="AnimationPlayer"]
-position = Vector2( 2008, -584 )
-zoom = Vector2( 0.7, 0.7 )
-
-[node name="Camera2D4" type="Camera2D" parent="AnimationPlayer"]
-position = Vector2( 2611, -204 )
-zoom = Vector2( 0.7, 0.7 )
-smoothing_enabled = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -1666,10 +1427,8 @@ position = Vector2( 3256, -304.5 )
 shape = SubResource( 64 )
 
 [connection signal="body_entered" from="Fallzone" to="." method="_on_Fallzone_body_entered"]
-[connection signal="body_entered" from="EndLevelPortal" to="." method="_on_EndLevelPortal_body_entered"]
-[connection signal="body_entered" from="EndLevelPortal2" to="." method="_on_EndLevelPortal2_body_entered"]
-[connection signal="body_entered" from="Checkpoints/CheckpointArea" to="." method="_on_CheckpointArea_body_entered"]
-[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="body_entered" from="EndLevelPortal" to="." method="_on_EndLevelPortal_body_entered" flags=6 binds= [ true ]]
+[connection signal="body_entered" from="Checkpoints/CheckpointArea" to="." method="_on_LevelOverviewCheckpoint_body_entered" flags=6]
 
 [editable path="Enemies/Cannon6"]
 [editable path="Spikes/Spikes26"]
