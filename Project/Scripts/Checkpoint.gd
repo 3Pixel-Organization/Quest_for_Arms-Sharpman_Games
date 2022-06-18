@@ -1,33 +1,30 @@
 extends Area2D
-class_name CheckpointArea
 
 
 onready var level: Node = get_tree().current_scene
-onready var activated: bool = (GlobalVariables.checkpoint["Level"] == get_tree().current_scene.name
-		and get_index() <= GlobalVariables.checkpoint["Index"])
 
 
 func _ready() -> void:
-	if activated: return
+	if (GlobalVariables.checkpoint["Level"] == get_tree().current_scene.name and
+			get_index() <= GlobalVariables.checkpoint["Index"]):
+		return
 	
 	var checkpoint_ready: int = connect("body_entered", self,
 			"_on_Area2D_body_entered", [], CONNECT_ONESHOT)
-			# Oneshot should be removed if the checkpoint checks for 
-			# things other than the player
+			# The signal in oneshot because the checkpoint
+			# shouldn't trigger more than once
 	
-	assert(checkpoint_ready == OK, "Checkpoint not working")
+	assert(checkpoint_ready == OK, "Checkpoint collision signal not connected")
 
 
 func _on_Area2D_body_entered(body: ScrubPlayer) -> void:
-	if not body: return
+	if not body:
+		return
 	
-	activated = true
-	#disconnect("body_entered", self, "_on_Area2D_body_entered")
-	# ^ is only needed if the checkpoint doesnt collide only with the player
 	GlobalVariables.checkpoint = {
 		"Level": level.name,
 		"Position": global_position,
-		"Index": max(get_index(), GlobalVariables.checkpoint["Index"]),
+		"Index": get_index(),
 	}
 	
 	GlobalVariables.player = {

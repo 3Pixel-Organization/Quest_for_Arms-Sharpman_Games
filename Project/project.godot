@@ -9,11 +9,6 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Area2D",
-"class": "CheckpointArea",
-"language": "GDScript",
-"path": "res://Scripts/Checkpoint.gd"
-}, {
 "base": "Node",
 "class": "Level",
 "language": "GDScript",
@@ -25,7 +20,6 @@ _global_script_classes=[ {
 "path": "res://Scripts/Scrub.gd"
 } ]
 _global_script_class_icons={
-"CheckpointArea": "",
 "Level": "",
 "ScrubPlayer": ""
 }
