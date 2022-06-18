@@ -1430,5 +1430,4 @@ shape = SubResource( 64 )
 [connection signal="body_entered" from="EndLevelPortal" to="." method="_on_EndLevelPortal_body_entered" flags=6 binds= [ true ]]
 [connection signal="body_entered" from="Checkpoints/CheckpointArea" to="." method="_on_LevelOverviewCheckpoint_body_entered" flags=6]
 
-[editable path="Enemies/Cannon6"]
 [editable path="Spikes/Spikes26"]
