@@ -173,22 +173,12 @@ tracks/3/keys = {
 "values": [ Vector2( 9, -13 ) ]
 }
 tracks/4/type = "bezier"
-tracks/4/path = NodePath("MountedGun:position:x")
+tracks/4/path = NodePath("MountedGun:position:y")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"points": PoolRealArray( -4, -0.25, 0, 0.25, 0, -4, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 0.555556 )
-}
-tracks/5/type = "bezier"
-tracks/5/path = NodePath("MountedGun:position:y")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
 "points": PoolRealArray( -18, -0.25, 0, 0.25, 0, -2, 0, -1.02765, 0, 0 ),
 "times": PoolRealArray( 0, 0.555556 )
 }
@@ -396,22 +386,12 @@ tracks/5/keys = {
 "values": [ Vector2( -4, -19 ) ]
 }
 tracks/6/type = "bezier"
-tracks/6/path = NodePath("MountedGun:position:x")
+tracks/6/path = NodePath("MountedGun:position:y")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
-"points": PoolRealArray( -4, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0 )
-}
-tracks/7/type = "bezier"
-tracks/7/path = NodePath("MountedGun:position:y")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/keys = {
 "points": PoolRealArray( -18, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0 )
 }
