@@ -25,6 +25,13 @@ var velocity: Vector2 = Vector2.ZERO
 var coins: int setget set_coins
 var has_fireball: bool = GlobalVariables.player["Gun"]
 var cutscene: bool = false
+var events: Dictionary = {
+	"right": [],
+	"left": [],
+	"jump": [],
+	"shoot_fireball": [],
+	"kick": [],
+}
 
 # Node references
 onready var jump_buffer: Timer = $"JumpBuffer"
@@ -44,6 +51,9 @@ onready var tween: Tween = get_node_or_null("Tween")
 
 
 func _ready() -> void:
+	for action in events.keys():
+		store_default_input_events()
+	
 	self.coins = GlobalVariables.player["Coins"]
 	mounted_gun.visible = has_fireball
 	parse_direction(sign(direction) as int)
@@ -153,6 +163,27 @@ func die() -> void:
 			assert(tweened == true, "could not start tween lol")
 		else:
 			camera.zoom = Vector2(0.5,0.5)
+
+
+func store_default_input_events() -> void:
+	for action in events.keys():
+		events[action] = InputMap.get_action_list(action)
+
+
+func clear_default_input_events() -> void:
+	for action in events.keys():
+		InputMap.action_erase_events(action)
+
+
+func readd_events_to_actions(_wait_time: float = 0) -> void:	# wait_time is needed because the
+	for action in events.keys():							# death signal calls methods with it
+		for event in events[action]:
+			InputMap.action_add_event(action, event)
+			# Should clear events var??
+
+func release_all_actions() -> void:
+	for action in events.keys():
+		Input.action_release(action)
 
 
 # Melee attack logic
