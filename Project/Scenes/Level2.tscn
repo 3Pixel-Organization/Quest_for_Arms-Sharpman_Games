@@ -2380,11 +2380,14 @@ position = Vector2( 4783, -304 )
 
 [node name="Checkpoints" type="Node" parent="."]
 
-[node name="CutsceneCheckpoints" type="Area2D" parent="Checkpoints"]
+[node name="CutsceneCheckpoint" type="Area2D" parent="Checkpoints"]
 position = Vector2( 544, 64 )
 monitorable = false
+__meta__ = {
+"_edit_group_": true
+}
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/CutsceneCheckpoints"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/CutsceneCheckpoint"]
 shape = SubResource( 52 )
 __meta__ = {
 "_edit_lock_": true
@@ -2579,6 +2582,6 @@ zoom = Vector2( 0.7, 0.7 )
 position = Vector2( 9179, -757 )
 zoom = Vector2( 0.7, 0.7 )
 
-[connection signal="body_entered" from="Checkpoints/CutsceneCheckpoints" to="." method="_on_LevelOverviewCheckpoint_body_entered"]
+[connection signal="body_entered" from="Checkpoints/CutsceneCheckpoint" to="." method="_on_LevelOverviewCheckpoint_body_entered"]
 [connection signal="body_entered" from="Fallzone" to="." method="_on_Fallzone_body_entered"]
 [connection signal="body_entered" from="EndLevelPortal" to="." method="_on_EndLevelPortal_body_entered"]
