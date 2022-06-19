@@ -1,26 +1,29 @@
 extends ColorRect
 
 
+onready var scrub: ScrubPlayer = get_node_or_null("../..")
 onready var restart_button: Button = $"MarginContainer/VBoxContainer/Buttons/Restart"
 onready var quit_button: Button = $"MarginContainer/VBoxContainer/Buttons/Quit"
 onready var menu_button: Button = $"MarginContainer/VBoxContainer/Buttons/Menu"
 onready var death_jingle: AudioStreamPlayer = $"DeathJingle"
 onready var timer: Timer = $"Timer"
+onready var pause_screen: Control = get_node_or_null("../PauseScreen")
 
 
 func _on_Scrub_death(wait_time: float) -> void:
+	pause_screen.pause_mode = PAUSE_MODE_STOP
 	get_tree().paused = true
 	if wait_time:
-		timer.wait_time = wait_time
-		timer.start()
+		timer.start(wait_time)
 	else:
 		_on_Timer_timeout()
 
 
 func _on_Timer_timeout() -> void:
+	scrub.pause_mode = PAUSE_MODE_INHERIT # So scrub doesn't process indefinetly
 	restart_button.grab_focus()
 	death_jingle.play()
-	visible = true
+	show()
 
 
 func _on_Quit_pressed() -> void:
@@ -28,8 +31,8 @@ func _on_Quit_pressed() -> void:
 
 
 func _on_Restart_pressed() -> void:
-# warning-ignore:return_value_discarded
-	get_tree().reload_current_scene()
+	var scene_reloaded := get_tree().reload_current_scene() as int
+	assert(scene_reloaded == OK, "Level could not be reloaded")
 
 
 func _on_Menu_pressed() -> void:

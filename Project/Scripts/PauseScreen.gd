@@ -1,26 +1,31 @@
 extends Control
 
 
+onready var resume_button: Button = $"CenterContainer/VBoxContainer/Buttons/Resume"
 onready var tree: SceneTree = get_tree()
+onready var scrub: ScrubPlayer = get_node_or_null("../..")
 
 
 func _input(event: InputEvent) -> void:
-	if not event.is_action_pressed("Pause"): return
+	if not event.is_action_pressed("Pause"):
+		return
+	tree.set_input_as_handled()
 	
 	if not tree.paused:
-		($"CenterContainer/VBoxContainer/Buttons/Resume" as Button).grab_focus()
+		resume_button.grab_focus()
 	
-	visible = true
-	pause_mode = PAUSE_MODE_PROCESS
+	# Switch Scrub's pause mode to follow the SceneTree
+	if scrub:
+		scrub.pause_mode = PAUSE_MODE_STOP
 	tree.paused = true
-	tree.set_input_as_handled()
+	show()
 
 
 func _on_Resume_pressed() -> void:
-	visible = false
-	pause_mode = PAUSE_MODE_STOP
+	if scrub:
+		scrub.pause_mode = PAUSE_MODE_PROCESS
 	tree.paused = false
-
+	hide()
 
 func _on_Quit_pressed() -> void:
 	tree.quit()
@@ -28,7 +33,7 @@ func _on_Quit_pressed() -> void:
 
 func _on_MainMenu_pressed() -> void:
 	var scene_changed: int = tree.change_scene("res://Scenes/MainMenu.tscn")
-	assert(scene_changed == OK, "Scene not found at given path")
+	assert(scene_changed == OK, "Main Menu scene not found at given path")
 
 
 func _on_IntensitySlider_value_changed(value: float) -> void:

@@ -149,7 +149,6 @@ func die() -> void:
 	modulate = Color(1,0.3,0.3,0.3) # great color :+1:
 	
 	set_physics_process(false)
-	pause_mode = PAUSE_MODE_PROCESS
 	emit_signal("death", 1.3)
 	animator.play("Death")
 	

@@ -464,12 +464,10 @@ extents = Vector2( 96, 80 )
 b = Vector2( 160, 0 )
 
 [sub_resource type="SegmentShape2D" id=36]
-a = Vector2( -248, 0 )
-b = Vector2( 248, 0 )
+b = Vector2( 496, 0 )
 
 [sub_resource type="SegmentShape2D" id=37]
-a = Vector2( 3696, 0 )
-b = Vector2( -4320, 0 )
+b = Vector2( 7824, 0 )
 
 [sub_resource type="RectangleShape2D" id=49]
 extents = Vector2( 8, 64 )
@@ -1517,6 +1515,7 @@ position = Vector2( 241, -194 )
 
 [node name="Camera2D" type="Camera2D" parent="Scrub"]
 position = Vector2( 6, -8 )
+pause_mode = 1
 offset = Vector2( 0, 10 )
 current = true
 zoom = Vector2( 0.7, 0.7 )
@@ -2531,16 +2530,15 @@ __meta__ = {
 }
 
 [node name="Fallzone" type="Area2D" parent="."]
-position = Vector2( 1064, 136 )
+position = Vector2( 816, 192 )
 collision_layer = 4
 collision_mask = 3
 
-[node name="FallzoneCollision" type="CollisionShape2D" parent="Fallzone"]
-position = Vector2( 0, 88 )
+[node name="Fallzoneollision" type="CollisionShape2D" parent="Fallzone"]
 shape = SubResource( 36 )
 
 [node name="FallzoneCollision2" type="CollisionShape2D" parent="Fallzone"]
-position = Vector2( 4744, -160 )
+position = Vector2( 672, -128 )
 shape = SubResource( 37 )
 
 [node name="EndLevelPortal" type="Area2D" parent="."]
