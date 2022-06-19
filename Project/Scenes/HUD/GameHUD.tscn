@@ -30,9 +30,6 @@ custom_constants/margin_right = 8
 custom_constants/margin_top = 8
 custom_constants/margin_left = 8
 custom_constants/margin_bottom = 8
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 margin_left = 8.0
