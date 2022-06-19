@@ -469,8 +469,8 @@ b = Vector2( 496, 0 )
 [sub_resource type="SegmentShape2D" id=37]
 b = Vector2( 7824, 0 )
 
-[sub_resource type="RectangleShape2D" id=49]
-extents = Vector2( 8, 64 )
+[sub_resource type="SegmentShape2D" id=55]
+b = Vector2( 0, -128 )
 
 [sub_resource type="Animation" id=43]
 resource_name = "LevelOverview"
@@ -2372,12 +2372,11 @@ position = Vector2( 672, -128 )
 shape = SubResource( 37 )
 
 [node name="EndLevelPortal" type="Area2D" parent="."]
-position = Vector2( 9248, -1512 )
+position = Vector2( 9184, -1504 )
 rotation = 1.5708
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EndLevelPortal"]
-position = Vector2( 0.00012207, 0 )
-shape = SubResource( 49 )
+shape = SubResource( 55 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color( 0.666667, 0.666667, 0.666667, 1 )
