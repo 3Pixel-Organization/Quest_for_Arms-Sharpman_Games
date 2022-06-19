@@ -454,7 +454,6 @@ position = Vector2( 240, 208 )
 can_die = false
 
 [node name="Camera2D" type="Camera2D" parent="Scrub"]
-offset = Vector2( 0, -10 )
 pause_mode = 1
 current = true
 zoom = Vector2( 0.7, 0.7 )
@@ -465,7 +464,9 @@ limit_bottom = 272
 limit_smoothed = true
 smoothing_enabled = true
 editor_draw_limits = true
-editor_draw_drag_margin = true
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( 4 )
