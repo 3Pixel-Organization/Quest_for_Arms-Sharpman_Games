@@ -57,3 +57,11 @@ func _on_LevelOverviewCheckpoint_body_entered(body: ScrubPlayer) -> void:
 	if not body: return
 	
 	cutscene_player.play("LevelOverview")
+
+
+func _on_CutsceneTrigger_body_entered(body):
+	if not body:
+		return
+	
+	
+	$AnimationPlayer.play("StartLevel")
