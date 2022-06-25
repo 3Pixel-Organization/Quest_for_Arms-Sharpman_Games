@@ -50,8 +50,7 @@ onready var tween: Tween = get_node_or_null("Tween")
 
 
 func _ready() -> void:
-	for action in events.keys():
-		store_default_input_events()
+	store_default_input_events()
 	
 	self.coins = GlobalVariables.player["Coins"]
 	mounted_gun.visible = has_fireball
