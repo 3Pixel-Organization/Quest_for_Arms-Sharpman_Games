@@ -7,7 +7,7 @@
 extents = Vector2( 8, 24 )
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 72, 24 )
+extents = Vector2( 56, 24 )
 
 [node name="Door" type="Area2D"]
 collision_layer = 0
