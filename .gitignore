@@ -7,6 +7,7 @@
 # Music Files; these need to loop
 !/Project/Assets/Sounds/Music/cool.ogg.import
 !/Project/Assets/Sounds/Music/ThePitFalls.ogg.import
+!/Project/Assets/Sounds/Music/3. Laboratory.ogg.import
 
 # Compilation remnants
 Project/Builds/*
