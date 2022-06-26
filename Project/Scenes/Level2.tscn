@@ -584,7 +584,7 @@ tracks/2/keys = {
 
 [node name="Level 2" type="Node"]
 script = ExtResource( 1 )
-next_scene = "res://Scenes/ThanksforPlaying.tscn"
+next_scene = "res://Scenes/Level3.tscn"
 
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -100
