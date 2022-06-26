@@ -15,11 +15,8 @@ func _ready() -> void:
 		scrub.global_position = GlobalVariables.checkpoint["Position"]
 
 
-func fake_input(action: String, press: bool = true) -> void:
-	if press:
-		Input.action_press(action)
-	else:
-		Input.action_release(action)
+func fake_input(action: String, strength: float = 1) -> void:
+	Input.action_press(action, strength)
 
 
 func next_level() -> void:

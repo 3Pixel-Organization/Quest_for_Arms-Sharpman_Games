@@ -500,34 +500,34 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 4.1, 5.2, 5.3, 6.2, 6.3, 8.3, 9.2, 9.3, 10.1, 11.5, 12.1, 13, 13.4, 15 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "values": [ {
-"args": [ "right", true ],
+"args": [ "right", 1.0 ],
 "method": "fake_input"
 }, {
-"args": [ "right", false ],
+"args": [ "right", 0.0 ],
 "method": "fake_input"
 }, {
-"args": [ "left", true ],
+"args": [ "left", 1.0 ],
 "method": "fake_input"
 }, {
-"args": [ "left", false ],
+"args": [ "left", 0.0 ],
 "method": "fake_input"
 }, {
-"args": [ "right", true ],
+"args": [ "right", 1.0 ],
 "method": "fake_input"
 }, {
-"args": [ "right", false ],
+"args": [ "right", 0.0 ],
 "method": "fake_input"
 }, {
-"args": [ "right", true ],
+"args": [ "right", 1.0 ],
 "method": "fake_input"
 }, {
-"args": [ "jump", true ],
+"args": [ "jump", 1.0 ],
 "method": "fake_input"
 }, {
-"args": [ "jump", false ],
+"args": [ "jump", 0.0 ],
 "method": "fake_input"
 }, {
-"args": [ "right", false ],
+"args": [ "right", 0.0 ],
 "method": "fake_input"
 }, {
 "args": [ "left", true ],
