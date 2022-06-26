@@ -172,7 +172,7 @@ func clear_default_input_events() -> void:
 
 
 func readd_events_to_actions(_wait_time: float = 0) -> void:	# wait_time is needed because the
-	for action in events.keys():							# death signal calls methods with it
+	for action in events.keys():								# death signal calls methods with it
 		for event in events[action]:
 			InputMap.action_add_event(action, event)
 			# Should clear events var??
