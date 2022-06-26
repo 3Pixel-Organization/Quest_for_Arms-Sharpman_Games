@@ -80,7 +80,6 @@ func _physics_process(delta: float) -> void:
 	if animator.current_animation != "Attack":
 		if kick and is_on_floor:
 			animator.play("Attack")
-			animator.queue("Idle")
 			new_x_speed = 0
 		
 		else:
