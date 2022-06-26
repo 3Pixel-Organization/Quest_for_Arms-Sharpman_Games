@@ -594,9 +594,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0.14902, 0.176471, 0.207843, 1 )
 
-[node name="Background" type="CanvasLayer" parent="."]
-layer = -100
-
 [node name="Spikes" type="Node" parent="."]
 
 [node name="Spikes" parent="Spikes" instance=ExtResource( 16 )]
