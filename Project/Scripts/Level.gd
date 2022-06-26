@@ -13,6 +13,8 @@ func _ready() -> void:
 	
 	if (GlobalVariables.checkpoint["Level"] == name):
 		scrub.global_position = GlobalVariables.checkpoint["Position"]
+	elif cutscene_player and cutscene_player.has_animation("StartLevel"):
+		cutscene_player.play("StartLevel")
 
 
 func fake_input(action: String, strength: float = 1) -> void:
@@ -54,11 +56,3 @@ func _on_LevelOverviewCheckpoint_body_entered(body: ScrubPlayer) -> void:
 	if not body: return
 	
 	cutscene_player.play("LevelOverview")
-
-
-func _on_CutsceneTrigger_body_entered(body):
-	if not body:
-		return
-	
-	
-	$AnimationPlayer.play("StartLevel")
