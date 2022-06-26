@@ -527,6 +527,7 @@ tracks/2/keys = {
 extents = Vector2( 22.5, 16.5 )
 
 [node name="Level3" type="Node2D"]
+[node name="Level3" type="Node"]
 script = ExtResource( 4 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
