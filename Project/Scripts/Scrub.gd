@@ -19,9 +19,9 @@ const FIREBALL = preload("res://Scenes/Fireball.tscn")
 
 export(DIRECTION) var direction: int = DIRECTION.RIGHT
 export var can_die: bool = true
+export var velocity: Vector2 = Vector2.ZERO
 
 # Member variables
-var velocity: Vector2 = Vector2.ZERO
 var coins: int setget set_coins
 var has_fireball: bool = GlobalVariables.player["Gun"]
 var events: Dictionary = {
