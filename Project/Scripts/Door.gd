@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 
 onready var activation_area: Area2D = $".."
-onready var animated_sprite: AnimatedSprite = $"../AnimatedSprite"
+onready var animated_sprite: AnimatedSprite = $"AnimatedSprite"
 
 var speed: Vector2 = Vector2.DOWN * 100
 var closed_height: float
