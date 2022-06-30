@@ -503,19 +503,22 @@ tracks/2/keys = {
 "method": "fake_input"
 } ]
 }
-tracks/3/type = "audio"
+tracks/3/type = "method"
 tracks/3/path = NodePath("Music")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"clips": [ {
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource( 7 )
-} ],
-"times": PoolRealArray( 6.5 )
+"times": PoolRealArray( 0, 6.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "stop"
+}, {
+"args": [ 0.0 ],
+"method": "play"
+} ]
 }
 
 [node name="Level3" type="Node"]
@@ -578,3 +581,5 @@ position = Vector2( 600, 0 )
 position = Vector2( 925, 0 )
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+autoplay = true
