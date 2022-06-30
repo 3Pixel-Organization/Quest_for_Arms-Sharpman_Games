@@ -12,6 +12,7 @@ func _ready() -> void:
 	get_tree().paused = false
 	
 	if (GlobalVariables.checkpoint["Level"] == name):
+		scrub.velocity = Vector2.ZERO
 		scrub.global_position = GlobalVariables.checkpoint["Position"]
 	elif cutscene_player and cutscene_player.has_animation("StartLevel"):
 		cutscene_player.play("StartLevel")
