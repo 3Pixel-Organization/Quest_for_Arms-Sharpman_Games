@@ -39,4 +39,9 @@ playing = true
 position = Vector2( 0, -3 )
 shape = SubResource( 5 )
 
+[node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
+rect = Rect2( -15, -30, 30, 30 )
+process_parent = true
+physics_process_parent = true
+
 [connection signal="body_entered" from="." to="." method="_on_Jumppad_body_entered"]

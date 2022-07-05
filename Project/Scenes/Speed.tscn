@@ -85,3 +85,6 @@ wait_time = 0.5
 [node name="CollisionShape2D" parent="." index="4"]
 position = Vector2( 1, -19 )
 shape = SubResource( 21 )
+
+[node name="VisibilityEnabler2D" parent="." index="6"]
+rect = Rect2( -12, -43, 27, 43 )
