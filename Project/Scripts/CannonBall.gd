@@ -3,10 +3,14 @@ extends KinematicBody2D
 
 var velocity: Vector2 # Should be set by instanciator
 
+onready var sprite: Sprite = $"Sprite"
+
 
 func _ready() -> void:
 	if not velocity:
 		queue_free()
+	else:
+		sprite.flip_h = clamp(sign(velocity.x), 0, 1) as bool
 
 
 func _physics_process(delta) -> void:
