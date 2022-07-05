@@ -7,7 +7,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 26.5, 16 )
 
-[node name="Cannon" instance=ExtResource( 2 )]
+[node name="Railgun" instance=ExtResource( 2 )]
 projectile_scene = ExtResource( 3 )
 projectile_speed = 600.0
 

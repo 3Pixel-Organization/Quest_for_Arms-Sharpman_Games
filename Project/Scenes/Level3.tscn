@@ -593,36 +593,36 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Cannon" parent="." instance=ExtResource( 6 )]
+[node name="Railgun1" parent="." instance=ExtResource( 6 )]
 position = Vector2( 925, 0 )
 collision_layer = 2
 
-[node name="Cannon2" parent="." instance=ExtResource( 6 )]
+[node name="Railgun2" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1143, 0 )
 collision_layer = 2
 direction = 1
 
-[node name="Cannon4" parent="." instance=ExtResource( 6 )]
+[node name="Railgun3" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1611, 0 )
+collision_layer = 2
+
+[node name="Railgun4" parent="." instance=ExtResource( 6 )]
 position = Vector2( 2000, -16 )
 collision_layer = 2
 direction = 1
 
-[node name="Cannon7" parent="." instance=ExtResource( 6 )]
-position = Vector2( 2000, -144 )
-collision_layer = 2
-direction = 1
-
-[node name="Cannon5" parent="." instance=ExtResource( 6 )]
-position = Vector2( 2272, -144 )
-collision_layer = 2
-
-[node name="Cannon6" parent="." instance=ExtResource( 6 )]
+[node name="Railgun5" parent="." instance=ExtResource( 6 )]
 position = Vector2( 2272, -16 )
 collision_layer = 2
 
-[node name="Cannon3" parent="." instance=ExtResource( 6 )]
-position = Vector2( 1611, 0 )
+[node name="Railgun6" parent="." instance=ExtResource( 6 )]
+position = Vector2( 2272, -144 )
 collision_layer = 2
+
+[node name="Railgun7" parent="." instance=ExtResource( 6 )]
+position = Vector2( 2000, -144 )
+collision_layer = 2
+direction = 1
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
