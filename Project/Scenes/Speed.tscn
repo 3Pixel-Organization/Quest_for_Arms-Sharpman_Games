@@ -46,6 +46,11 @@ region = Rect2( 210, 0, 30, 44 )
 
 [sub_resource type="SpriteFrames" id=32]
 animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": false,
+"name": "squashed",
+"speed": 1.0
+}, {
 "frames": [ SubResource( 30 ), SubResource( 31 ) ],
 "loop": true,
 "name": "stagger",
@@ -55,17 +60,12 @@ animations = [ {
 "loop": true,
 "name": "walk",
 "speed": 5.0
-}, {
-"frames": [ ExtResource( 1 ) ],
-"loop": false,
-"name": "squashed",
-"speed": 1.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=21]
 extents = Vector2( 7, 19 )
 
-[node name="Slasher" instance=ExtResource( 3 )]
+[node name="SpeedSlasher" instance=ExtResource( 3 )]
 speed = 100
 
 [node name="AnimatedSprite" parent="." index="0"]

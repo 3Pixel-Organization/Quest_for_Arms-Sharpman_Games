@@ -1917,22 +1917,22 @@ position = Vector2( 8327, -773 )
 
 [node name="Speed" type="Node" parent="Enemies"]
 
-[node name="Speed1" parent="Enemies/Speed" instance=ExtResource( 8 )]
+[node name="SpeedSlasher1" parent="Enemies/Speed" instance=ExtResource( 8 )]
 position = Vector2( 2831, -183 )
 
-[node name="Speed3" parent="Enemies/Speed" instance=ExtResource( 8 )]
+[node name="SpeedSlasher2" parent="Enemies/Speed" instance=ExtResource( 8 )]
 position = Vector2( 4134, -96 )
 
-[node name="Speed4" parent="Enemies/Speed" instance=ExtResource( 8 )]
+[node name="SpeedSlasher3" parent="Enemies/Speed" instance=ExtResource( 8 )]
 position = Vector2( 8177, -770 )
 
-[node name="Speed5" parent="Enemies/Speed" instance=ExtResource( 8 )]
+[node name="SpeedSlasher4" parent="Enemies/Speed" instance=ExtResource( 8 )]
 position = Vector2( 7844, -1355 )
 
-[node name="Speed6" parent="Enemies/Speed" instance=ExtResource( 8 )]
+[node name="SpeedSlasher5" parent="Enemies/Speed" instance=ExtResource( 8 )]
 position = Vector2( 8601, -561 )
 
-[node name="Speed7" parent="Enemies/Speed" instance=ExtResource( 8 )]
+[node name="SpeedSlasher6" parent="Enemies/Speed" instance=ExtResource( 8 )]
 position = Vector2( 1171, -277 )
 
 [node name="FallingPlatforms" type="Node" parent="."]
