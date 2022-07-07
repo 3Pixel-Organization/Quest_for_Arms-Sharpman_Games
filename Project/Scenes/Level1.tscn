@@ -647,7 +647,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 542, -74 ) ]
+"values": [ Vector2( 528, -119 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("CutscenePlayer/CutsceneCamera:current")
@@ -1343,7 +1343,7 @@ anims/LevelOverview = SubResource( 66 )
 anims/RESET = SubResource( 65 )
 
 [node name="CutsceneCamera" type="Camera2D" parent="CutscenePlayer"]
-position = Vector2( 542, -74 )
+position = Vector2( 528, -119 )
 zoom = Vector2( 0.7, 0.7 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
