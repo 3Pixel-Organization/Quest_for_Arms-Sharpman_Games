@@ -525,17 +525,16 @@ points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
 24/z_index = 0
 
 [sub_resource type="SegmentShape2D" id=41]
-b = Vector2( 138, -1.99965 )
+b = Vector2( 144, 0 )
 
 [sub_resource type="SegmentShape2D" id=40]
-b = Vector2( 48, 0.00012207 )
+b = Vector2( 528, 0 )
 
 [sub_resource type="SegmentShape2D" id=39]
-b = Vector2( 1200, -0.497 )
+b = Vector2( -1200, 0 )
 
 [sub_resource type="SegmentShape2D" id=43]
-a = Vector2( -1312, 1.49664 )
-b = Vector2( 656, 1.50165 )
+b = Vector2( 1968, 0 )
 
 [sub_resource type="SegmentShape2D" id=37]
 b = Vector2( 0, -80 )
@@ -624,31 +623,27 @@ collision_mask = 3
 monitorable = false
 
 [node name="FallzoneCollision" type="CollisionShape2D" parent="Fallzone"]
-position = Vector2( 0, 150 )
-rotation = 3.14159
+position = Vector2( -128, 136 )
 shape = SubResource( 41 )
 
 [node name="FallzoneCollision2" type="CollisionShape2D" parent="Fallzone"]
-position = Vector2( 1952, 94 )
-rotation = 3.14159
+position = Vector2( 1904, 96 )
 shape = SubResource( 40 )
 
 [node name="FallzoneCollision3" type="CollisionShape2D" parent="Fallzone"]
-position = Vector2( 1504, -222.596 )
-rotation = 3.14159
+position = Vector2( 1504, -224 )
 shape = SubResource( 39 )
 
 [node name="FallzoneCollision4" type="CollisionShape2D" parent="Fallzone"]
-position = Vector2( 1712, -654.5 )
-rotation = 3.14159
+position = Vector2( 1056, -656 )
 shape = SubResource( 43 )
 
 [node name="Lava" type="Node" parent="Fallzone"]
 
 [node name="ColorRect" type="ColorRect" parent="Fallzone/Lava"]
 margin_left = 304.0
-margin_top = -227.0
-margin_right = 1504.0
+margin_top = -83.09
+margin_right = 199.84
 margin_bottom = -192.0
 color = Color( 1, 0.537255, 0, 1 )
 
