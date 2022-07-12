@@ -22,7 +22,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 32, 11.5 )
+extents = Vector2( 32, 5.5 )
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 32, 0.5 )
@@ -46,7 +46,7 @@ wait_time = 5.0
 one_shot = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, -0.5 )
+position = Vector2( 0, -3.5 )
 shape = SubResource( 3 )
 
 [node name="TopChecker" type="Area2D" parent="."]
@@ -54,7 +54,7 @@ collision_layer = 0
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TopChecker"]
-position = Vector2( 0, -12.5 )
+position = Vector2( 0, -9.5 )
 shape = SubResource( 4 )
 one_way_collision = true
 
