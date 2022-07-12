@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=2]
+[gd_scene load_steps=55 format=2]
 
 [ext_resource path="res://Scenes/Scrub.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Sprites/Floor/Layout.png" type="Texture" id=2]
@@ -538,13 +538,7 @@ a = Vector2( -1312, 1.49664 )
 b = Vector2( 656, 1.50165 )
 
 [sub_resource type="SegmentShape2D" id=37]
-b = Vector2( 0, -112 )
-
-[sub_resource type="RectangleShape2D" id=38]
-extents = Vector2( 200, 40 )
-
-[sub_resource type="RectangleShape2D" id=42]
-extents = Vector2( 287.5, 44 )
+b = Vector2( 0, -80 )
 
 [sub_resource type="RectangleShape2D" id=44]
 extents = Vector2( 208, 88 )
@@ -668,7 +662,7 @@ color = Color( 1, 0.537255, 0, 1 )
 [node name="Checkpoints" type="Node" parent="."]
 
 [node name="CheckpointArea" type="Area2D" parent="Checkpoints"]
-position = Vector2( 389, 0 )
+position = Vector2( 400, 0 )
 collision_layer = 0
 monitorable = false
 script = ExtResource( 11 )
@@ -707,8 +701,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/CheckpointArea3"]
-position = Vector2( 137, -72 )
-shape = SubResource( 38 )
+shape = SubResource( 37 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -723,8 +716,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/CheckpointArea4"]
-position = Vector2( -191.5, -68 )
-shape = SubResource( 42 )
+shape = SubResource( 37 )
 __meta__ = {
 "_edit_lock_": true
 }
