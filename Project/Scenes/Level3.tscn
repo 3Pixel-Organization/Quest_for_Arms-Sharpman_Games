@@ -743,7 +743,6 @@ position = Vector2( 2816, -1056.5 )
 
 [node name="Railgun" parent="Enemies/Railguns" instance=ExtResource( 6 )]
 position = Vector2( 925, 0 )
-collision_layer = 2
 
 [node name="DetectionArea" type="Area2D" parent="Enemies/Railguns/Railgun"]
 collision_layer = 0
@@ -755,47 +754,37 @@ shape = SubResource( 44 )
 
 [node name="Railgun2" parent="Enemies/Railguns" instance=ExtResource( 6 )]
 position = Vector2( 1143, 0 )
-collision_layer = 2
 direction = 1
 
 [node name="Railgun3" parent="Enemies/Railguns" instance=ExtResource( 6 )]
 position = Vector2( 1611, 0 )
-collision_layer = 2
 
 [node name="Railgun4" parent="Enemies/Railguns" instance=ExtResource( 6 )]
 position = Vector2( 2000, -16 )
-collision_layer = 2
 direction = 1
 
 [node name="Railgun5" parent="Enemies/Railguns" instance=ExtResource( 6 )]
 position = Vector2( 2272, -144 )
-collision_layer = 2
 
 [node name="Railgun6" parent="Enemies/Railguns" instance=ExtResource( 6 )]
 position = Vector2( 2272, -16 )
-collision_layer = 2
 
 [node name="Railgun7" parent="Enemies/Railguns" instance=ExtResource( 6 )]
 position = Vector2( 2000, -144 )
-collision_layer = 2
 direction = 1
 
 [node name="Railgun8" parent="Enemies/Railguns" instance=ExtResource( 6 )]
 position = Vector2( 1064, -479 )
-collision_layer = 2
 
 [node name="Railgun9" parent="Enemies/Railguns" instance=ExtResource( 6 )]
 position = Vector2( 1512, -384 )
-collision_layer = 2
 
 [node name="Railgun10" parent="Enemies/Railguns" instance=ExtResource( 6 )]
 position = Vector2( 1400, -992 )
-collision_layer = 2
 direction = 1
 
 [node name="Railgun11" parent="Enemies/Railguns" instance=ExtResource( 6 )]
 position = Vector2( 2312, -1056 )
-collision_layer = 2
 direction = 1
 
 [node name="Slashers" type="Node" parent="Enemies"]
