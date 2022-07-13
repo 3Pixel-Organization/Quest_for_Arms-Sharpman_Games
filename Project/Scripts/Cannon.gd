@@ -41,7 +41,7 @@ func _clock_stop(_body: ScrubPlayer) -> void:
 
 
 func _on_Clock_timeout() -> void:
-	if $"VisibilityEnabler2D".is_on_screen():
+	if $"VisibilityEnabler2D".is_on_screen() or detection_area:
 		var projectile_instance = projectile.instance()
 		projectile_instance.global_position = $"ProjectileOrigin".global_position
 		projectile_instance.velocity.x = projectile_speed * direction
