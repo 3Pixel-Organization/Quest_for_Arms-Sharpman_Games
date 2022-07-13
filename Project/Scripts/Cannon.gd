@@ -45,4 +45,5 @@ func _on_Clock_timeout() -> void:
 		var projectile_instance = projectile.instance()
 		projectile_instance.global_position = $"ProjectileOrigin".global_position
 		projectile_instance.velocity.x = projectile_speed * direction
+		projectile_instance.spawner = self
 		get_tree().current_scene.add_child(projectile_instance)
