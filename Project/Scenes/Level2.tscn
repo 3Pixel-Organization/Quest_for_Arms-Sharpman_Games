@@ -474,7 +474,7 @@ b = Vector2( 0, -128 )
 
 [sub_resource type="Animation" id=43]
 resource_name = "LevelOverview"
-length = 32.5
+length = 27.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("../CutscenePlayer/CutsceneCamera:position")
 tracks/0/interp = 1
@@ -482,7 +482,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 2, 6, 12, 13, 19, 20.5, 26.5, 30.5 ),
+"times": PoolRealArray( 2, 4, 10, 11, 17, 18.5, 22.5, 26.5 ),
 "transitions": PoolRealArray( 1e+06, 1, 1e+06, 1, 1e+06, 1e+06, 1, 1 ),
 "update": 0,
 "values": [ Vector2( 1322, -293 ), Vector2( 1685, -230 ), Vector2( 2460, -230 ), Vector2( 4195, -102 ), Vector2( 5135, -432 ), Vector2( 6712, -765 ), Vector2( 9179, -757 ), Vector2( 9179, -1099 ) ]
@@ -506,7 +506,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 31.5 ),
+"times": PoolRealArray( 26.5 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ true ]
@@ -518,7 +518,7 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 32.5 ),
+"times": PoolRealArray( 0, 27.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "values": [ {
 "args": [  ],
@@ -549,7 +549,7 @@ tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0, 1, 2, 30.5, 31.5, 32.5 ),
+"times": PoolRealArray( 0, 1, 2, 25.5, 26.5, 27.5 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
