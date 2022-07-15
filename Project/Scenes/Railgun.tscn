@@ -17,7 +17,6 @@ rect = Rect2( -31, -38, 63, 38 )
 [node name="Sprite" parent="." index="1"]
 position = Vector2( 1, -19 )
 texture = ExtResource( 1 )
-flip_h = false
 
 [node name="CollisionShape2D" parent="." index="2"]
 position = Vector2( 3.5, -16 )
