@@ -474,7 +474,7 @@ b = Vector2( 0, -128 )
 
 [sub_resource type="Animation" id=43]
 resource_name = "LevelOverview"
-length = 28.5
+length = 32.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("../CutscenePlayer/CutsceneCamera:position")
 tracks/0/interp = 1
@@ -482,7 +482,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 4, 10, 11, 17, 18.5, 24.5, 28.5 ),
+"times": PoolRealArray( 2, 6, 12, 13, 19, 20.5, 26.5, 30.5 ),
 "transitions": PoolRealArray( 1e+06, 1, 1e+06, 1, 1e+06, 1e+06, 1, 1 ),
 "update": 0,
 "values": [ Vector2( 1322, -293 ), Vector2( 1685, -230 ), Vector2( 2460, -230 ), Vector2( 4195, -102 ), Vector2( 5135, -432 ), Vector2( 6712, -765 ), Vector2( 9179, -757 ), Vector2( 9179, -1099 ) ]
@@ -494,7 +494,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
+"times": PoolRealArray( 1 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ true ]
@@ -506,7 +506,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 28.5 ),
+"times": PoolRealArray( 31.5 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ true ]
@@ -518,7 +518,7 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 28.5 ),
+"times": PoolRealArray( 0, 32.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "values": [ {
 "args": [  ],
@@ -541,6 +541,18 @@ tracks/4/keys = {
 "args": [  ],
 "method": "release_all_actions"
 } ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("../CutscenePlayer/FadeLayer/FadeColorRect:color")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 1, 2, 30.5, 31.5, 32.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
 }
 
 [sub_resource type="Animation" id=42]
@@ -580,6 +592,18 @@ tracks/2/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../CutscenePlayer/FadeLayer/FadeColorRect:color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ) ]
 }
 
 [node name="Level 2" type="Node"]
@@ -2389,6 +2413,14 @@ anims/RESET = SubResource( 42 )
 [node name="CutsceneCamera" type="Camera2D" parent="CutscenePlayer"]
 position = Vector2( 1322, -293 )
 zoom = Vector2( 0.7, 0.7 )
+
+[node name="FadeLayer" type="CanvasLayer" parent="CutscenePlayer"]
+
+[node name="FadeColorRect" type="ColorRect" parent="CutscenePlayer/FadeLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 0 )
 
 [connection signal="body_entered" from="Checkpoints/CutsceneCheckpoint" to="." method="_on_LevelOverviewCheckpoint_body_entered"]
 [connection signal="body_entered" from="Fallzone" to="." method="_on_Fallzone_body_entered"]
