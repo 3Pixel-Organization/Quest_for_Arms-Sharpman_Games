@@ -28,7 +28,8 @@ func _ready() -> void:
 		
 		clock.stop()
 	
-	scale.x = direction * -1
+	sprite.flip_h = direction > 0
+	$"ProjectileOrigin".position.x *= -direction
 
 
 func _clock_start(_body: ScrubPlayer) -> void:
