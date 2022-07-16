@@ -1245,6 +1245,7 @@ script = ExtResource( 14 )
 __meta__ = {
 "_edit_group_": true
 }
+play_cutscene = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/CheckpointArea"]
 shape = SubResource( 55 )
@@ -1464,6 +1465,5 @@ shape = SubResource( 64 )
 
 [connection signal="body_entered" from="Fallzone" to="." method="_on_Fallzone_body_entered"]
 [connection signal="body_entered" from="EndLevelPortal" to="." method="_on_EndLevelPortal_body_entered" flags=6 binds= [ true ]]
-[connection signal="body_entered" from="Checkpoints/CheckpointArea" to="." method="_on_CutsceneCheckpoint_body_entered" flags=6]
 
 [editable path="Spikes/Spikes26"]

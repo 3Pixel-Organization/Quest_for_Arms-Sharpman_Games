@@ -2232,9 +2232,11 @@ position = Vector2( 4783, -304 )
 [node name="CutsceneCheckpoint" type="Area2D" parent="Checkpoints"]
 position = Vector2( 544, 64 )
 monitorable = false
+script = ExtResource( 4 )
 __meta__ = {
 "_edit_group_": true
 }
+play_cutscene = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/CutsceneCheckpoint"]
 shape = SubResource( 52 )
@@ -2422,6 +2424,5 @@ anchor_bottom = 1.0
 mouse_filter = 2
 color = Color( 0, 0, 0, 0 )
 
-[connection signal="body_entered" from="Checkpoints/CutsceneCheckpoint" to="." method="_on_CutsceneCheckpoint_body_entered"]
 [connection signal="body_entered" from="Fallzone" to="." method="_on_Fallzone_body_entered"]
 [connection signal="body_entered" from="EndLevelPortal" to="." method="_on_EndLevelPortal_body_entered"]
