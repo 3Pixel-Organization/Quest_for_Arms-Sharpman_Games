@@ -1,6 +1,0 @@
-[gd_resource type="Environment" format=2]
-
-[resource]
-ambient_light_energy = 0.0
-glow_intensity = 8.0
-glow_bloom = 1.0

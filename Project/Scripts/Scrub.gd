@@ -1,10 +1,11 @@
 class_name ScrubPlayer
 extends KinematicBody2D
 
+
 # Signals
 signal death(wait_time)
 
-enum DIRECTION {
+enum Direction {
 	LEFT = -1,
 	RIGHT = 1,
 }
@@ -17,12 +18,12 @@ const GRAVITY = 325
 const MAX_FALL_SPEED = MAX_SPEED * 10
 const FIREBALL = preload("res://Scenes/Fireball.tscn")
 
-export(DIRECTION) var direction: int = DIRECTION.RIGHT
+export(Direction) var direction: int = Direction.RIGHT
 export var can_die: bool = true
 export var velocity: Vector2 = Vector2.ZERO
 
 # Member variables
-var coins: int setget set_coins
+var coins: int setget _set_coins
 var has_fireball: bool = GlobalVariables.player["Gun"]
 var events: Dictionary = {
 	"right": [],
@@ -45,7 +46,7 @@ onready var melee_area: Area2D = $"Kick"
 onready var hud_coins: Label = $"HUD/GameHUD/PanelContainer/HSplitContainer/Coins"
 
 # Camera and Tween are optional; They're only used for the death zoom
-onready var camera := get_node_or_null("Camera2D")
+onready var camera: Camera2D = get_node_or_null("Camera2D")
 onready var tween: Tween = get_node_or_null("Tween")
 
 
@@ -58,15 +59,17 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	#print(jump_buffer.wait_time, " ", jump_buffer.time_left)
 	# Store Inputs
-	var jump: bool = Input.is_action_just_pressed("jump")                     # UP, W or spacebar
-	var shoot_fireball: bool = Input.is_action_just_pressed("shoot_fireball") # Q
-	var kick: bool = Input.is_action_just_pressed("kick")                     # X
-	var new_x_speed: float = Input.get_axis("left", "right")                  # A and D
+	# Jump - Up arrow key, W or Spacebar
+	# Shoot fireball - Q
+	# Kick - X
+	# Horizontal movement - Left and Right arrow keys, or A and D
+	var jump: bool = Input.is_action_just_pressed("jump")
+	var shoot_fireball: bool = Input.is_action_just_pressed("shoot_fireball")
+	var kick: bool = Input.is_action_just_pressed("kick")
+	var new_x_speed: float = Input.get_axis("left", "right")
 	
-	velocity.y = min(velocity.y + GRAVITY * delta,
-			MAX_FALL_SPEED)
+	velocity.y = min(velocity.y + GRAVITY * delta, MAX_FALL_SPEED)
 	
 	var is_on_floor: bool = is_on_floor()
 	
@@ -111,8 +114,6 @@ func _physics_process(delta: float) -> void:
 	# oposite to the current direction
 	
 	velocity = move_and_slide(velocity, Vector2.UP)
-	
-	animator.playback_speed = 1
 	
 	if animator.current_animation != "Attack":
 		if velocity.y:
@@ -171,11 +172,14 @@ func clear_default_input_events() -> void:
 		InputMap.action_erase_events(action)
 
 
-func readd_events_to_actions(_wait_time: float = 0) -> void:	# wait_time is needed because the
-	for action in events.keys():								# death signal calls methods with it
+func readd_events_to_actions(_wait_time: float = 0) -> void:
+	# wait_time is needed because the
+	# death signal calls methods with it
+	for action in events.keys():
 		for event in events[action]:
 			InputMap.action_add_event(action, event)
 			# Should clear events var??
+
 
 func release_all_actions() -> void:
 	for action in events.keys():
@@ -197,7 +201,7 @@ func _on_Kick_body_entered(body: PhysicsBody2D) -> void:
 func _on_GunCooldown_timeout() -> void:
 	mounted_gun.frame = 0
 
-# Setters and getters
-func set_coins(value: int) -> void:
+
+func _set_coins(value: int) -> void:
 	coins = value
 	hud_coins.text = (coins as String).pad_zeros(2)

@@ -52,7 +52,7 @@ animations = [ {
 extents = Vector2( 56, 24 )
 
 [node name="Door" type="Area2D"]
-collision_layer = 0
+collision_layer = 4
 monitorable = false
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="."]

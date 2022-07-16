@@ -12,15 +12,15 @@ func _ready() -> void:
 	if not velocity:
 		queue_free()
 	else:
-		sprite.flip_h = clamp(sign(velocity.x), 0, 1) as bool
+		sprite.flip_h = velocity.x > 0
 
 
 func _physics_process(delta) -> void:
-	var collisionData: KinematicCollision2D = move_and_collide(velocity * delta)
+	var collisionData := move_and_collide(velocity * delta) as KinematicCollision2D
 	if collisionData:
 		if collisionData.collider is ScrubPlayer:
 			collisionData.collider.die()
-		if not collisionData.collider == spawner:
+		if collisionData.collider != spawner:
 			desintegrate()
 
 

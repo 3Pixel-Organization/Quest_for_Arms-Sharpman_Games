@@ -1,14 +1,18 @@
 extends TextureRect
 
 
+var tree: SceneTree = get_tree()
+
+onready var start_button: Button = $"VBoxContainer/Start"
+
 func _ready() -> void:
-	($"VBoxContainer/Start" as Button).grab_focus()
-	get_tree().paused = false
+	start_button.grab_focus()
+	tree.paused = false
 
 
 func _on_Start_pressed() -> void:
-	var scene_chagend: int = get_tree().change_scene("res://Scenes/Intro.tscn")
-	assert(scene_chagend == OK, "Scene not found at given path")
+	var scene_chagend: int = tree.change_scene("res://Scenes/Intro.tscn")
+	assert(scene_chagend == OK, "Scene could not be loaded")
 
 
 func _on_About3Pixel_pressed() -> void:
@@ -17,7 +21,7 @@ func _on_About3Pixel_pressed() -> void:
 
 
 func _on_Quit_pressed() -> void:
-	get_tree().quit()
+	tree.quit()
 
 
 func _on_IntensitySlider_value_changed(value: float) -> void:
@@ -25,5 +29,5 @@ func _on_IntensitySlider_value_changed(value: float) -> void:
 
 
 func _on_Tutorial_pressed():
-	var scene_chagend: int = get_tree().change_scene("res://Scenes/Tutorial.tscn")
-	assert(scene_chagend == OK, "Scene not found at given path")
+	var scene_chagend: int = tree.change_scene("res://Scenes/Tutorial.tscn")
+	assert(scene_chagend == OK, "Scene could not be loaded")

@@ -1,6 +1,7 @@
 class_name Level
 extends Node
 
+
 export var next_scene: String
 
 onready var scrub: ScrubPlayer = $"Scrub"
@@ -34,7 +35,8 @@ func save_player_data() -> void:
 	}
 
 
-func _on_EndLevelPortal_body_entered(body: ScrubPlayer, cutscene: bool = false) -> void:
+func _on_EndLevelPortal_body_entered(body: ScrubPlayer,
+		cutscene: bool = false) -> void:
 	if not body:
 		return
 	
@@ -53,7 +55,9 @@ func _on_Fallzone_body_entered(body: PhysicsBody2D) -> void:
 		body.queue_free()
 
 
-func _on_CutsceneCheckpoint_body_entered(body: ScrubPlayer, cutscene: String = "LevelOverview") -> void:
-	if not body: return
+func _on_CutsceneCheckpoint_body_entered(body: ScrubPlayer,
+		cutscene: String = "LevelOverview") -> void:
+	if not body:
+		return
 	
 	cutscene_player.play(cutscene)

@@ -40,6 +40,7 @@ hue_variation_random = 1.0
 
 [node name="GunPickup" type="Area2D"]
 collision_layer = 32
+collision_mask = 0
 monitorable = false
 script = ExtResource( 2 )
 
@@ -72,4 +73,4 @@ anims/Bob = ExtResource( 4 )
 
 [node name="Timer" type="Timer" parent="."]
 
-[connection signal="body_entered" from="." to="." method="_on_gun_picked_up"]
+[connection signal="body_entered" from="." to="." method="_on_Gun_picked_up" flags=6]

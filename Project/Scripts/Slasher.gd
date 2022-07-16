@@ -1,14 +1,14 @@
 extends KinematicBody2D
 
 
-enum DIRECTION {
+enum Direction {
 	LEFT = -1,
 	RIGHT = 1,
 }
 
 const GRAVITY = 20
 
-export(DIRECTION) var direction: int = -1
+export(Direction) var direction: int = -1
 export var detect_cliffs: bool = true
 export var speed: int = 20
 export var health: int = 2
@@ -19,7 +19,8 @@ var is_staggered: bool = false
 onready var slasher_sprites: AnimatedSprite = $"AnimatedSprite"
 onready var hitbox: Area2D = $"Hitbox"
 onready var cliffs_checker: RayCast2D = $"FloorChecker"
-
+onready var stagger_timer: Timer = $"StaggerTimer"
+onready var death_timer: Timer = $"DeathTimer"
 
 func _ready() -> void:
 	scale.x = direction * -1
@@ -27,10 +28,11 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	if is_on_wall() or not cliffs_checker.is_colliding() and detect_cliffs and is_on_floor():
+	if (is_on_wall() or
+			not cliffs_checker.is_colliding() and detect_cliffs and is_on_floor()):
 		direction *= -1
 		scale.x *= -1
-		
+	
 	velocity.y += GRAVITY
 	
 	if not is_staggered:
@@ -52,7 +54,7 @@ func damage(damage: int = 1, knockback_vec: Vector2 = velocity) -> void:
 	else:
 		set_deferred("velocity", knockback_vec)
 		slasher_sprites.play("stagger")
-		($"StaggerTimer" as Timer).start()
+		stagger_timer.start()
 
 
 func die() -> void:
@@ -60,7 +62,7 @@ func die() -> void:
 #	top_checker.set_deferred("monitoring", false)
 #	sides_checker.set_deferred("monitoring", false)
 	hitbox.set_deferred("monitoring", false)
-	($"CollisionShape2D" as CollisionShape2D).set_deferred("disabled", true)
+	set_deferred("collision_layer", 0)
 	slasher_sprites.play("squashed")
 	($"DeathTimer" as Timer).start()
 
@@ -93,15 +95,7 @@ func _on_DeathTimer_timeout() -> void:
 func _on_Hitbox_body_entered(body: ScrubPlayer) -> void:
 	if not body: return
 	
-	# I have to review this part later; there must be a way to get the shape
-	# in a safe way, and get it's highest point
-	# (actually the lowest point, as y increases from the top to the bottom),
-	# and then use that point to see if Scrub did not hit the enemy from the side
-	#var shape: Shape2D = shape_owner_get_shape(get_shape_owners().front(), 0)
-	#assert(shape and shape is RectangleShape2D)
-	
-	#print(body.global_position.y, " ", global_position.y - 2 * shape.extents.y)
-	if body.velocity.y > 0: #body.global_position.y < global_position.y - 2 * shape.extents.y:
+	if body.velocity.y > 0:
 		damage()
 		body.velocity.y = -160
 	elif is_staggered:

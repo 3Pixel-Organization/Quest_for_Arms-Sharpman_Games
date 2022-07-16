@@ -1,6 +1,8 @@
 extends KinematicBody2D 
 
+
 var original_pos: Vector2 = Vector2.ZERO
+var original_collision_layer: int = collision_layer
 
 export var falling_velocity: Vector2 = Vector2(0, 500)
 
@@ -16,12 +18,15 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-# warning-ignore:return_value_discarded
-	move_and_collide(falling_velocity * delta)
+	var collision_data := move_and_collide(
+			falling_velocity * delta) as KinematicCollision2D
+	
+	assert(not collision_data, "???? should not collide with anything")
 
 
 func _on_TopChecker_body_entered(body: ScrubPlayer ) -> void:
-	if not body: return
+	if not body:
+		return
 	
 	top_checker.set_deferred("monitoring", false)
 	animation_player.play("Shake")
@@ -31,12 +36,12 @@ func _on_TopChecker_body_entered(body: ScrubPlayer ) -> void:
 
 func _on_ShakeTimer_timeout() -> void:
 	animation_player.stop()
-	($"CollisionShape2D" as CollisionShape2D).set_deferred("disabled", true)
+	set_deferred("collision_layer", 0)
 	set_physics_process(true)
 
 
 func _on_RespawnTimer_timeout() -> void:
 	set_physics_process(false)
 	top_checker.set_deferred("monitoring", true)
-	($"CollisionShape2D" as CollisionShape2D).set_deferred("disabled", false)
+	set_deferred("collision_layer", original_collision_layer)
 	global_position = original_pos

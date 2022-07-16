@@ -5,7 +5,7 @@ onready var level: Node = get_tree().current_scene
 
 
 func _ready() -> void:
-	if (GlobalVariables.checkpoint["Level"] == get_tree().current_scene.name and
+	if (GlobalVariables.checkpoint["Level"] == level.name and
 			get_index() <= GlobalVariables.checkpoint["Index"]):
 		return
 	
@@ -14,7 +14,7 @@ func _ready() -> void:
 			# The signal in oneshot because the checkpoint
 			# shouldn't trigger more than once
 	
-	assert(checkpoint_ready == OK, "Checkpoint collision signal not connected")
+	assert(checkpoint_ready == OK, "Checkpoint collision signal couldn't connect")
 
 
 func _on_Area2D_body_entered(body: ScrubPlayer) -> void:

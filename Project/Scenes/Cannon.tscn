@@ -9,12 +9,15 @@ extents = Vector2( 12, 12.5 )
 
 [node name="Cannon" type="StaticBody2D"]
 collision_layer = 6
+collision_mask = 0
 script = ExtResource( 2 )
 projectile_scene = ExtResource( 3 )
 projectile_speed = 300.0
 
 [node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
 rect = Rect2( -17, -27, 34, 27 )
+process_parent = true
+physics_process_parent = true
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -13 )

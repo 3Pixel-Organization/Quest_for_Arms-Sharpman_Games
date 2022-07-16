@@ -1,7 +1,9 @@
 extends Area2D
 
-func _on_gun_picked_up(body: ScrubPlayer) -> void:
-	if not body: return
+
+func _on_Gun_picked_up(body: ScrubPlayer) -> void:
+	if not body:
+		return
 	
 	body.fireball_pickup()
 	set_deferred("monitoring", false)

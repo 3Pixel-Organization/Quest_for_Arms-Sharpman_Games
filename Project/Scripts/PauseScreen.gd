@@ -3,7 +3,7 @@ extends Control
 
 onready var resume_button: Button = $"CenterContainer/VBoxContainer/Buttons/Resume"
 onready var tree: SceneTree = get_tree()
-onready var scrub: ScrubPlayer = get_node_or_null("../..")
+onready var scrub: ScrubPlayer = tree.current_scene.get_node("Scrub")
 
 
 func _input(event: InputEvent) -> void:
@@ -14,9 +14,10 @@ func _input(event: InputEvent) -> void:
 	if not tree.paused:
 		resume_button.grab_focus()
 	
-	# Switch Scrub's pause mode to follow the SceneTree
+	# Scrub never pauses, except here, so change the pause mode
 	if scrub:
 		scrub.pause_mode = PAUSE_MODE_STOP
+	
 	tree.paused = true
 	show()
 
@@ -26,6 +27,7 @@ func _on_Resume_pressed() -> void:
 		scrub.pause_mode = PAUSE_MODE_PROCESS
 	tree.paused = false
 	hide()
+
 
 func _on_Quit_pressed() -> void:
 	tree.quit()
