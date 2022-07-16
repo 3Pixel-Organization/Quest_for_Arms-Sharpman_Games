@@ -1490,7 +1490,7 @@ position = Vector2( 5086, -766 )
 position = Vector2( 5150, -766 )
 
 [node name="Scrub" parent="." instance=ExtResource( 1 )]
-position = Vector2( 5466, -661 )
+position = Vector2( -64, 153 )
 velocity = Vector2( 20, -350 )
 
 [node name="Camera2D" type="Camera2D" parent="Scrub"]
