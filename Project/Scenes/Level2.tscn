@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=2]
+[gd_scene load_steps=60 format=2]
 
 [ext_resource path="res://Scripts/Level.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Scrub.tscn" type="PackedScene" id=2]
@@ -646,7 +646,22 @@ tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Color( 0, 0, 0, 0 ) ]
+"values": [ Color( 0, 0, 0, 1 ) ]
+}
+
+[sub_resource type="Animation" id=57]
+resource_name = "StartLevel"
+tracks/0/type = "value"
+tracks/0/path = NodePath("../CutscenePlayer/FadeLayer/FadeColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
 }
 
 [node name="Level 2" type="Node"]
@@ -2457,6 +2472,7 @@ root_node = NodePath("../Scrub")
 anims/EndLevel = SubResource( 56 )
 anims/LevelOverview = SubResource( 43 )
 anims/RESET = SubResource( 42 )
+anims/StartLevel = SubResource( 57 )
 
 [node name="CutsceneCamera" type="Camera2D" parent="CutscenePlayer"]
 position = Vector2( 1322, -293 )
@@ -2468,7 +2484,7 @@ zoom = Vector2( 0.7, 0.7 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-color = Color( 0, 0, 0, 0 )
+color = Color( 0, 0, 0, 1 )
 
 [connection signal="body_entered" from="Fallzone" to="." method="_on_Fallzone_body_entered"]
 [connection signal="body_entered" from="EndLevelPortal" to="." method="_on_EndLevelPortal_body_entered" flags=6]
