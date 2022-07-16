@@ -2422,6 +2422,6 @@ anchor_bottom = 1.0
 mouse_filter = 2
 color = Color( 0, 0, 0, 0 )
 
-[connection signal="body_entered" from="Checkpoints/CutsceneCheckpoint" to="." method="_on_LevelOverviewCheckpoint_body_entered"]
+[connection signal="body_entered" from="Checkpoints/CutsceneCheckpoint" to="." method="_on_CutsceneCheckpoint_body_entered"]
 [connection signal="body_entered" from="Fallzone" to="." method="_on_Fallzone_body_entered"]
 [connection signal="body_entered" from="EndLevelPortal" to="." method="_on_EndLevelPortal_body_entered"]

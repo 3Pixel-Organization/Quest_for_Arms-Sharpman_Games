@@ -53,7 +53,7 @@ func _on_Fallzone_body_entered(body: PhysicsBody2D) -> void:
 		body.queue_free()
 
 
-func _on_LevelOverviewCheckpoint_body_entered(body: ScrubPlayer) -> void:
+func _on_CutsceneCheckpoint_body_entered(body: ScrubPlayer, cutscene: String = "LevelOverview") -> void:
 	if not body: return
 	
-	cutscene_player.play("LevelOverview")
+	cutscene_player.play(cutscene)
