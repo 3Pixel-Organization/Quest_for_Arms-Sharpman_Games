@@ -1,8 +1,7 @@
 extends TextureRect
 
 
-var tree: SceneTree = get_tree()
-
+onready var tree: SceneTree = get_tree()
 onready var start_button: Button = $"VBoxContainer/Start"
 
 func _ready() -> void:

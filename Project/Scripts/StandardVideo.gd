@@ -3,7 +3,7 @@ extends VideoPlayer
 
 export var scene_path: String
 
-var tree: SceneTree = get_tree()
+onready var tree: SceneTree = get_tree()
 
 
 func _on_VideoPlayer_finished() -> void:
