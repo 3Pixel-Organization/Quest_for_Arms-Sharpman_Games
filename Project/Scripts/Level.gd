@@ -35,14 +35,13 @@ func save_player_data() -> void:
 	}
 
 
-func _on_EndLevelPortal_body_entered(body: ScrubPlayer,
-		cutscene: bool = false) -> void:
+func _on_EndLevelPortal_body_entered(body: ScrubPlayer) -> void:
 	if not body:
 		return
 	
 	save_player_data()
 	
-	if cutscene:
+	if cutscene_player.has_animation("EndLevel"):
 		cutscene_player.play("EndLevel")
 	else:
 		next_level()
