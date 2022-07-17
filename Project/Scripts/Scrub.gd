@@ -118,9 +118,9 @@ func _physics_process(delta: float) -> void:
 	if animator.current_animation != "Attack":
 		if velocity.y:
 			animator.play("Jump")
-		elif velocity.x:
+		elif new_x_speed:
 			animator.play("Walk")
-			animator.playback_speed = new_x_speed
+			animator.playback_speed = abs(new_x_speed)
 		else:
 			animator.play("Idle")
 
