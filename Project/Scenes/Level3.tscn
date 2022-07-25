@@ -26,7 +26,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Color( 0, 0, 0, 1 ) ]
+"values": [ Color( 0, 0, 0, 0 ) ]
 }
 
 [sub_resource type="Animation" id=36]
@@ -615,7 +615,7 @@ anims/StartLevel = SubResource( 36 )
 [node name="ColorRect" type="ColorRect" parent="CutscenePlayer/CanvasLayer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0, 0, 0, 1 )
+color = Color( 0, 0, 0, 0 )
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
